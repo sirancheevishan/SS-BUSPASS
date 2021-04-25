@@ -1,0 +1,317 @@
+﻿.to-buy-my-tickets .clsdescriptioninfo {
+    font-style: normal !important;
+}
+#modal-SendWhatsapp {
+    margin-top:10px;
+}
+#modal-SendWhatsapp .modal-dialog {
+    width:60%;
+}
+    #modal-SendWhatsapp h4 {
+        font-size: 20px;
+    }
+#modal-SendWhatsapp .modal-body {
+    padding:15px;
+}
+.to-buy-my-tickets .my-acc h2{
+    font-size: 18px;
+    color: #47608a;
+    padding: 10px 12px;
+    margin-bottom:6px;
+    font-family: 'Comfortaa', cursive;
+    text-transform: capitalize;
+}
+.to-buy-my-tickets .tabh5font {
+        font-size: 14px;
+    text-transform: capitalize;
+    line-height: 33px;
+    color: #666;
+}
+.to-buy-my-tickets .sky-tabs {
+        margin-top: 30px;
+}
+.to-buy-my-tickets .sticky{
+    padding-bottom:0;
+}
+.clsModifysearch1 {
+    display:none;
+}
+@media (max-width: 766px) {
+   
+    .to-buy-my-tickets .tg-logo.clsdesklogo a img {
+        width: 115px !important;
+        top: 2px !important;
+    }
+    .tg-logo.clsdesklogo {
+        text-align:center;
+        width:100%;
+    }
+    .to-buy-my-tickets .tg-header {
+        background-color: #ffffff !important;
+    }
+    .to-buy-my-tickets .navbar-toggle .icon-bar {
+        background: #2b74f0 !important;
+    }
+    .to-buy-my-tickets .udk-buy-my-ticket-header {
+        margin-bottom:0px !important;
+    }
+    .to-buy-my-tickets .sliderBottm {
+        left:22px !important;
+        bottom: 0;
+        height: 3px;
+    }
+    .to-buy-my-tickets .rowSea {
+         margin: 0 -5px !important;
+        background: #fafafa;
+    }
+    #vzKZrHs-1537514928561 .round #tawkchat-status-text-container {
+            height: 40px !important;
+             width: 40px !important;
+    }
+    #vzKZrHs-1537514928561 .round #tawkchat-status-icon.offline:before {
+        font-size: 20px !important;
+        line-height: 36px !important;
+    }
+    .to-buy-my-tickets .clsstickmodifysearch .clsmodifydetails {
+            margin: 0px !important;
+            padding: 15px 0 10px 1px;
+    }
+    .to-buy-my-tickets #main .clspositiontop {
+        background-color: #ffffff !important;
+    }
+    .to-buy-my-tickets .newheader {
+        color: #2b74f0;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    .to-buy-my-tickets span.headspn {
+        font-size: 13.5px;
+    }
+    .to-buy-my-tickets .tg-header {
+            border-bottom: 1px solid #ebebeb !important;
+    }
+    .to-buy-my-tickets .modspan, .to-buy-my-tickets .modspone {
+        color: #64696f !important;
+        top: 4px !important;
+        font-family: 'Comfortaa', cursive;
+    }
+    .to-buy-my-tickets #flight .searhsection {
+        background:#fff !important;
+        border-bottom: 1px solid #f5f5f5;
+    }
+    .to-buy-my-tickets #prefCarrier_chosen input.default {
+            color: #174faf !important;
+            font-weight: bold;
+    }
+    .to-buy-my-tickets #flight .clscityexchange {
+            border: 2px solid #fbe211 !important;
+                background: #ffffff !important;
+    }
+    .to-buy-my-tickets #flight .clscityexchange i {
+        color: #2b74f0 !important;
+        text-decoration: none;
+    }
+    .to-buy-my-tickets #flight input[type="text"] {
+            font-weight: 500 !important;
+            font-family: 'Comfortaa', cursive;
+            font-size: 12px !important;
+    }
+    .to-buy-my-tickets #flight #cmbFOrigin, .to-buy-my-tickets #flight #cmbFDesti, .to-buy-my-tickets #flight #txtpaxclass {
+        color: #5d5d5d !important;
+    }
+    .to-buy-my-tickets .ticketing_partner {
+            max-width: 36px;
+    }
+    .to-buy-my-tickets .resfare .c-button.b-30 {
+
+    }
+    .to-buy-my-tickets .groupAvailroot .containerpop {
+        margin-bottom: 10px;
+        box-shadow: 4px 3px 5px 0px rgba(8, 18, 33, 0.22);
+    }
+    .to-buy-my-tickets #flight button#btnSubmitFlight {
+        padding: 10px 0px !important;
+        text-transform: capitalize;
+        letter-spacing: 0;
+        font-family: 'Comfortaa', cursive;
+    }
+    .to-buy-my-tickets #flight .spncall1 {
+        top: 5px !important;
+        font-size: 20px;
+    }
+     .to-buy-my-tickets #flight .spncall2 {
+        top: 6px !important;
+        color: #777;
+    }
+      .to-buy-my-tickets #flight .spncall3 {
+         top: 22px !important;
+         left: 75px;
+         color: #777;
+    }
+
+    .to-buy-my-tickets .clsdescriptioninfo {
+        font-style: normal !important;
+    }
+    .to-buy-my-tickets .clsloginusername {
+        color: #f68831;
+        text-transform: capitalize;
+    }
+    .to-buy-my-tickets .footer-top, .ui-datepicker.ui-datepicker-multi::after {
+        display:none !important;
+    }
+    .to-buy-my-tickets .modal.in .modal-dialog {
+        width:100% !important;
+    }
+    .modal-body {
+        padding:0 !important;
+    }
+    .to-buy-my-tickets .blockUI {
+        border-radius:0 !important;
+    }
+    .to-buy-my-tickets #wrapper {
+            /*margin-top: 45px;*/
+    }
+    .to-buy-my-tickets .clsavailbackcolor {
+        background-color: white;
+    }
+    .to-buy-my-tickets #bindSelectedflights .tabheaderflg {
+        border: 1px solid #ddd;
+        padding:5px !important;
+    }
+    .to-buy-my-tickets .changCrncyCode {
+        background-color: #fbdc31;
+        padding: 2px 6px;
+    }
+    .to-buy-my-tickets .hTitle .allFares {
+            color: #fff !important;
+    }
+    .to-buy-my-tickets .bookval {
+            margin-left: -40px;
+    }
+    .to-buy-my-tickets .intersecondflightimg label.clsAvailFareRule {
+        position: absolute;
+        top: 255%;
+        left: 0px;
+        text-transform: capitalize;
+        font-size: 11px !important;
+    }
+    .to-buy-my-tickets .mob10margintop label {
+        text-transform: capitalize;
+        font-size: 11px !important;
+        margin-left: -60px;
+    }
+    .to-buy-my-tickets .M_MangeBook {
+        padding:0;
+    }
+    .to-buy-my-tickets .M_MangeBook .my-acc h2{
+        font-size: 18px;
+        color: #133979;
+        padding: 10px 12px;
+        margin-bottom:6px;
+        font-family: 'Comfortaa', cursive;
+    }
+    .to-buy-my-tickets i.fa.fa-file-text-o, .to-buy-my-tickets i.fa.fa-eye, i.fa.fa-times, .to-buy-my-tickets i.fa.fa-remove.myicon {
+        font-size:15px;
+    }
+    .to-buy-my-tickets .btn-views {
+            width: 50% !important;
+    }
+    .M_MangeBook .sticky{
+        padding-bottom:0;
+    }
+    .to-buy-my-tickets .chkFTriptypeRD, .to-buy-my-tickets #chkFroundtrp {
+        margin:8px 0 0 !important;
+    }
+    /*._Mmodifi {
+        display:none;
+    }*/
+    .farecurn {
+        padding: 5px 0px;
+    }
+    .clsmodifydetails {       
+        color: #fff;
+    }
+    #Avail_Response {
+        margin-top: 0 !important;
+        background-color: #eeeeee;
+    }
+    .clsmodifydetails p {
+        float: left;
+        font-size: 12px;
+    }
+    .span.sort, span.filter{
+        color:#fff !important;
+    }
+    ._Mtoppos{
+            margin-top: -28px;
+    }
+    #dvmodifydetails .clsModifysearch {
+        border: none !important;
+        color: #ffffff;
+        position: absolute;
+        background: none !important;
+    }
+    ._Mtoppos ._ABModify, ._Mtoppos .filter,  ._Mtoppos .sort{
+        display: inline-block;
+        background: url(../../Images/tbmtSprit.png) no-repeat;
+        overflow: hidden;
+        text-indent: -9999px;
+        text-align: left;
+    }        
+    ._Mtoppos ._ABModify {
+        background-position: -91px -421px;
+        width: 11px;
+	    height: 16px;
+        margin-top: 3px;
+    }
+    ._Mtoppos .filter {
+        background-position: -92px -453px;
+        width: 16px;
+	    height: 16px;
+    }
+    ._Mtoppos .sort {
+        background-position: -90px -390px;
+        width: 13px;
+	    height: 16px;
+    }
+    #dvmodifyouter .tg-category-content.clsModififields {
+        height: 102vh !important;
+        overflow-y: scroll;
+        z-index:12;
+    }
+    #modal-fri .modal-header{
+             padding: 0;
+        border-bottom: 1px solid #e5e5e5;
+        background-color: #2874f0;
+    }
+    #modal-fri h4{
+        font-size: 14px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #fff;
+        padding: 10px;
+        padding-bottom: 0;
+    }
+    #modal-fri .modal-header .close {
+        margin-top: 9px;
+        margin-right: 11px;
+        opacity: 1;
+        color: #fff;
+        border-radius: 50%;
+        border: 1px solid #fff;
+        width: 20px;
+        height: 20px;
+        line-height: 0;
+        font-size: 18px;
+    }
+    .intertravltime {
+        top: -25px !important;
+    }
+    .spngrpavilindcat {
+        z-index: 3 !important;
+        top: -29px !important;
+        border-radius: 20px 20px 0px 0px !important;
+        padding: 0px 20px !important;
+    }
+    
+}

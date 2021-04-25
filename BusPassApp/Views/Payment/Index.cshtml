@@ -1,0 +1,64 @@
+﻿@*Create this model*@
+@using Newtonsoft.Json;
+@{ 
+    BusPassApp.Models.PaymentInitiateModel orderrmodel = JsonConvert.DeserializeObject<BusPassApp.Models.PaymentInitiateModel>(Convert.ToString(Session["PaymentString"]));
+
+
+}
+@model BusPassApp.Controllers.PaymentController.OrderModel 
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment Initiate</title>
+
+    @*Link this css*@
+    <link href="~/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container login-container">
+        <div class="login-card">
+            <div class="login-card-body">
+                @using (Html.BeginForm("CreateOrder", "Payment", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row">
+                        <label for="name">Name</label>
+                        @Html.TextBoxFor(x => x.name, new { @class = "form-control", @value = orderrmodel.name }  )
+                    </div>
+                    <div class="row">
+                        <label for="email">Email</label>
+                        @Html.TextBoxFor(x => x.email, new { @class = "form-control", @value = orderrmodel.email })
+                    </div>
+                    <div class="row">
+                        <label for="contactNumber">Contact Number</label>
+                        @Html.TextBoxFor(x => x.contactNumber, new { @class = "form-control", @value = orderrmodel.contactNumber})
+                    </div>
+                    <div class="row">
+                        <label for="address">Address</label>
+                        @Html.TextBoxFor(x => x.address, new { @class = "form-control", @value = orderrmodel.address })
+                    </div>
+                    <div class="row">
+                        <label for="amount">Amount</label>
+                        @Html.TextBoxFor(x => x.amount, new { @class = "form-control", @value = orderrmodel.amount })
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btn-submit">Submit</button>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function(){
+        $("#btn-submit").click();
+    })
+</script>

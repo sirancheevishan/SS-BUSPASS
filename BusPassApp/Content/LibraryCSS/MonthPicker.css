@@ -1,0 +1,230 @@
+/*
+The jQuery UI Month Picker Version 3.0.4
+https://github.com/KidSysco/jquery-ui-month-picker/
+
+Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see
+<http://www.gnu.org/licenses/gpl-3.0.txt>.
+*/
+
+.month-picker {
+    display: inline-block;
+    position: absolute;
+    z-index: 9999;
+    width: 250px;
+    padding: 0 10px;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+    margin-top:20px;
+}
+
+.month-picker table {
+  border-collapse: separate;
+  border-spacing: 2px 2px;
+}
+
+.month-picker td {
+    padding: 0px;
+}
+
+/*
+Prevents the button labels from maving sligtly to the left
+when applying the width CSS property to the buttons.
+See: .month-picker-month-table button { width: 4.3em; }
+*/
+
+.month-picker-month-table .ui-button-text {
+    float: left;
+    text-align: center;
+    width: 100%;
+    line-height: 15px;
+    padding: 10px;
+}
+
+.month-picker-month-table .ui-button-text:hover {
+    background:#2e84f1;
+    color: #fff;
+    border-radius:3px;
+}
+
+.month-picker-header {
+    margin: 3px 3px 0px 3px;
+}
+
+.month-picker-year-table {
+    width: 100%;
+    /*
+    Makes sure the next/previous/jump years buttons are not unnecessarily
+    selected if the user clicks them a couple of times fast.
+    */
+    -ms-user-select: none; /* IE 10+ */
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/*
+The plugin uses buttons with a transparent background in the year-table
+(aka header) in order to look consistent with jQuery UI datepicker and to
+make the year title a button that blends into the heading in the default state.
+
+The plugin does this by removing the .ui-state-default class from (in MonthPicker.js)
+the a tags (buttons) which also ends up removing the 1px border that it applies.
+
+To prevent the button from resizing and moving everything around when you hover
+in and out, we use a carefully constructed selector, which gets overroden by the
+more specific .ui-state-hover/actove class selectors in the jquery-ui.css
+that apply the visible borders that we want.
+
+This selector applies a 1px transparent border that keeps the button
+in the same size, but it doesen't hide the borders that .ui-state-hover/actove give us.
+*/
+
+/*
+Sets the size of the next/previous buttons,
+and makes the buttons in the heading (year-table) sligtly bigger,
+and removes the pointer cursor from the buttons in the heading (year-table).
+*/
+.month-picker-year-table .ui-button {
+    font-size: 1.1em;
+    cursor: default;
+    margin: 0;
+}
+
+.month-picker-year-table .month-picker-title {
+    text-align: center;
+}
+
+.month-picker-year-table .month-picker-title .ui-button {
+    font-size: 1em;
+    padding: 0px;
+    width: 100%;
+    font-weight: bold;
+}
+
+/*
+The buttons in the heading (year-table) are slightly shrinked, but because jQuery ui and
+the .month-picker .ui-button-text rule at the top of this CSS file apply some
+padding which results in the button text being moved to the bottom of
+the button.
+
+This rule removes the unnecessary padding so the text in
+the jump years button will be vericaly centred.
+*/
+.month-picker-title .ui-button .ui-button-text {
+    padding: 6px 5px;
+    background: #e3e3e8;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.month-picker-title .ui-button.ui-state-hover .ui-button-text:hover {
+    background:#e3e3e8;
+    color: #000;
+}
+
+.month-picker-title .ui-button.ui-state-hover, .month-picker-previous .ui-state-hover, .month-picker-next .ui-state-hover {
+    line-height:0px;
+    background: transparent !important;
+    padding:0px !important;
+}
+
+.month-picker-month-table td {
+    height: 35px;
+    text-align: center;
+}
+
+/*
+Makes sure the buttons stay in the same size when swithching
+to the Jump years menu.
+this also ensures that the entire menu dosen't resize itself
+in response to the slightly bigger buttons in the Jump years menu.
+ */
+.month-picker-month-table .ui-button {
+    width: 4.2em;
+    margin: .2em;
+    padding: 0px;
+    border-radius: 2px;
+}
+
+.month-picker-open-button {
+    height: 20px;
+    width: 20px;
+    vertical-align: bottom;
+}
+
+.month-picker-invalid-message {
+    display: none;
+    background-color: Yellow;
+}
+
+.month-picker-disabled {
+    background-color: #e1e1e1;
+}
+
+.month-picker-month-table .ui-state-hover .ui-button-icon-primary {
+    background:#2e84f1;
+    color: #fff;
+}
+
+.month-picker-previous .ui-button, .month-picker-next .ui-button {
+    width: 100%;
+    text-align: center;
+    border-radius: 2px;
+    height: 0px;
+    margin-top: 10px;
+    line-height: 0px;
+    padding: 0px;
+    cursor:pointer;
+}
+
+.month-picker-previous .ui-button-icon-primary, .month-picker-next .ui-button-icon-primary {
+    float: left;
+    width: 100%;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.month-picker:after, .month-picker:before {
+    border: 10px solid;
+    border-color: transparent transparent #fff transparent;
+    content: '';
+    top: -20px;
+    left: 14%;
+    position: absolute;
+}
+
+.month-picker:before {
+    border-bottom: 10px solid #111;
+    border-bottom: 10px solid rgba(0,0,0,0.42);
+    margin-bottom: 1px;
+}
+
+.month-picker-previous .ui-button-icon-only .ui-icon, .month-picker-next .ui-button-icon-only .ui-icon {
+    left: inherit;
+    margin-left: inherit;
+    position: inherit;
+    padding: 0px;
+    text-indent: inherit;
+    line-height: 30px;
+    height: 30px;
+}
+
+.month-picker-previous .ui-state-hover .ui-button-icon-primary, .month-picker-next .ui-state-hover .ui-button-icon-primary {
+    background: #2e84f1;
+    color: #fff;
+}

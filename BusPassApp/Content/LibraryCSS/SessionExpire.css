@@ -1,0 +1,99 @@
+﻿.clsBoxShdow {
+    font-family: 'Nunito', sans-serif !important;
+    margin-top: 2%;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.clsBoxShdow h3 {
+    color: #c72e39;
+    font-size: 30px;
+    margin: 0px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.clsMySubLabel {
+    color: #636262;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+ul.clsUlContent li {
+    font-size: 17px;
+    color: #333;
+    font-weight: 500;
+    line-height: 35px;
+}
+
+.clsButton {
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+#okLoginPage {
+    border-radius: 20px;
+    height: 40px;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 15px;
+    background: #f4b350;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 25px;
+    margin: 15px auto;
+    display: block;
+    float: none;
+    width: 140px;
+}
+
+#okLoginPage:hover {
+    background: #00458e;
+}
+
+.clsBody {
+    margin-left: 32%;
+    margin-top: 3%;
+}
+
+.bg-session-img {
+    text-align: center;
+    width: 55%;
+    float: none;
+    margin: 0 auto;
+    display: block;
+}
+
+.bg-session-img img {
+    width: 100%;
+}
+
+@media (max-width :500px) {
+    .clsBody {
+        margin-left: 3%;
+    }
+
+    .clsUlContent {
+        padding-left:15px;
+    }
+
+    ul.clsUlContent li {
+        font-size: 13px;
+        padding-bottom: 10px;
+        line-height: 20px;
+    }
+
+    .clsMySubLabel {
+        font-size: 14px;
+    }
+
+    .clsBoxShdow h3 {
+        font-size: 20px;
+    }
+
+    .bg-session-img {
+        display:none;
+    }
+}

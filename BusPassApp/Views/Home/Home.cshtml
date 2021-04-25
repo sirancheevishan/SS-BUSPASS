@@ -1,0 +1,371 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+<script src="~/Apps_JS/LogIn.js"></script>
+
+<link href="~/Content/CSS/bootstrap3.4.1.min.css" rel="stylesheet" />
+<script src="~/Content/JS/jquery3.5.1.min.js"></script>
+<script src="~/Content/JS/bootstrap3.4.1.min.js"></script>
+
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+    }
+
+        .myDiv:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: url("/Images/buses/PicsArt_08-28-08.37.46.jpg") center center;
+            opacity: .4;
+        }
+
+    .clsul {
+        list-style: none;
+        margin-left: 11%;
+        margin-top: 5%;
+    }
+
+    .fs-17 {
+        font-size: 17px;
+    }
+
+    #pasTypUL i {
+        color: #f1f1f1;
+        font-size: 20px;
+        width: 8%;
+    }
+
+    #pasTypUL a {
+        color: white;
+        cursor: pointer;
+    }
+
+    .mt-1 {
+        margin-top: 2%;
+    }
+
+    .box {
+        border: 2px solid #990000;
+        background: rgba(121, 18, 20, .7);
+        border-radius: 9px;
+        margin-top: 2%;
+        color: white;
+    }
+
+    .p-2 {
+        padding: 2%;
+    }
+
+    .p-t-0 {
+        padding-top: 0;
+    }
+
+    .h-347 {
+        height: 374px;
+    }
+
+    .fnt-16 {
+        font-size: 16px;
+    }
+
+    .fnt-bold {
+        font-weight: bold;
+    }
+</style>
+
+<div class="myDiv container">
+    <div class="row container" style="padding-top: 3%;">
+        <div class="col-md-6 box h-347">
+            <h2 style="font-size: 20px;font-weight: bold;">
+                <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                News &amp; Events
+            </h2>
+            <span class="section-separator"></span>
+            <div class="news-main">
+                <marquee behavior="scroll" scrolldelay="100" direction="up" onmouseover="this.stop();" onmouseout="this.start();" style="height: 286px; font-family: serif;">
+                    <h4><a href="https://static.abhibus.com/ks/pdf/STY-VIG.pdf" target="_blank">Beware of fake appointment order for jobs at KSRTC</a></h4>
+                    <hr>
+                    <h4>
+                        KSRTC is going to stop temporarily issuing of Blanket and
+                        Bedspread in Premium buses w.e.f. 18.03.2020 (in view of COVID-19).
+                        Passengers are requested to bring their own Blankets and Bedspread.
+                    </h4>
+                    <hr>
+                    <h4>
+                        KSRTC wins global recognition again by entering 2 million
+                        club in Inter -State and Intra- State Volvo Bus Operation.
+                    </h4>
+                    <div class="knowmore pt-2">
+                        <span><a href="https://static.abhibus.com/ks/ksrtc/web/_assets/images/home/KSRTC_GLOBAL_REC.jpg" target="_blank">Know more..</a></span>
+                    </div>
+                    <hr>
+
+                    <h4>
+                        For Passengers convenience and comfortable journey,
+                        Karnataka State Road Transport Corporation has decided to change
+                        the present Call Centre Number (080-49596666) to New Contact Number
+                        9449596666 w.e.f. 01.11.2019.
+                    </h4>
+                    <div class="knowmore pt-2">
+                        <span><a href="https://static.abhibus.com/ks/pdf/PR_Customer_Care.pdf" target="_blank">Know more..</a></span>
+                    </div>
+                    <hr>
+                    <h4>
+                        Guest User Booking.
+                    </h4>
+                    <p>
+                        The KSRTC has introduced online booking by guest users (unregistered users) to increase the reach of advance...
+                    </p>
+                    <div class="knowmore pt-2">
+                        <p>
+                            <a href="https://static.abhibus.com/ks/pdf/GuestUser_PressNote_Eng.pdf" target="_blank">Know more..</a>
+                        </p>
+                    </div>
+                    <hr>
+
+                    <h4>
+                        Ticket Printout Not Mandatory
+                    </h4>
+                    <p>
+                        Karnataka State Road Transport Corporation (KSRTC) has set an example for other transport entities in the coun ...
+                    </p>
+                    <div class="knowmore pt-2"></div>
+                    <hr>
+
+                </marquee>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5" style="background: rgba(121, 18, 20, .7);height: 374px;border: 2px solid #990000;border-radius: 9px;margin-top:2%;">
+            <h2 style="font-size: 20px;font-weight: bold;color:white;">
+                <i class="fa fa-ticket" aria-hidden="true"></i>
+                Type of Passes
+            </h2>
+
+            <div class="news-main">
+                <ul class="clsul" id="pasTypUL">
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('SP')">Student Pass (School)</a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('CP')">Student Pass (College)</a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('MP')">Monthly Pass </a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('SCP')">Senior Citizens pass</a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('HBP')">Handicapped and Blind pass</a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('JPP')">Journalists / Press Reporter pass</a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('FFP')">Freedom fighters pass</a>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+                        <a href="#" onclick="ShowPasspop('TP')">Travel as you Please Tickets</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row container" style="margin-top: 2%;">
+        <div class="col-md-6 box p-2 p-t-0">
+            <h2 class="fnt-bold fnt-16"><i class="fa fa-picture-o" aria-hidden="true"></i>    Event Gallery</h2>
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+
+                        <img src="~/Images/buses/Bus1.jpg" alt="Los Angeles" style="width:100%;">
+                    </div>
+
+                    <div class="item">
+
+                        <img src="~/Images/buses/Bus2.jpg" alt="Chicago" style="width:100%;">
+                    </div>
+
+                    <div class="item">
+
+
+                        <img src="~/Images/buses/Bus3.jpg" alt="New york" style="width:100%;">
+                    </div>
+                    <div class="item">
+
+
+                        <img src="~/Images/buses/Bus4.jpg" alt="New york" style="width:100%;">
+                    </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                    <span class="fa fa-caret-right"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5" style="border: 2px solid #990000;background: rgba(121, 18, 20, .7);border-radius: 9px;margin-top: 2%;color: white;">
+            <h2 class="fnt-bold fnt-16">
+                <i class="fa fa-cubes header-icon" aria-hidden="true"></i>  Benifits of Registration
+            </h2>
+
+            <div class="news-main">
+                <ul class="clsul" id="pasTypUL">
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-caret-right icon-brown" aria-hidden="true"></i>
+                        <span>No need physical ID and Pass.</span>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-caret-right icon-brown" aria-hidden="true"></i>
+                        <span>Dont worry about your pass which is in home while travel.</span>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-caret-right icon-brown" aria-hidden="true"></i>
+                        <span>Get/show Pass through your mobile</span>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-caret-right icon-brown" aria-hidden="true"></i>
+                        <span>24/7 Apply/Renewal of bus Pass.</span>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-caret-right icon-brown" aria-hidden="true"></i>
+                        <span>No need to stand in log que</span>
+                    </li>
+                    <li class="fs-17 mt-1">
+                        <i class="fa fa-caret-right icon-brown" aria-hidden="true"></i>
+                        <span>Instant update through mobile or Mail.</span>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal in" id="PasPopUp" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title" id="pasPopUpHed">Guide Lines</h4>
+            </div>
+            <div class="modal-body">
+                <div class="fnt-16" style="border: 1px solid red; background: #f7d9dd; padding: 2%;">
+                    <h4 class="fnt-bold">Guide Lines</h4>
+                    <ul class="clsEligibleCriteria SP">
+                        <li>Students studying from 1st Std to 12 th Std. in the Schools recognized by Government and students studying in the Government Colleges and Government Polytechnics are eligible to avail this free bus pass facility.</li>
+                        <li>Passes issued to travel from residence to school and back.</li>
+                        <li>Allowed to travel on all days in the month.</li>
+                        <li>Permitted to travel in all Ordinary,Express and Deluxe services</li>
+                        <li>Passes are issued from 15th of June to 30th of November every year. The validity period is from 15th June to 30th April.</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria CP">
+                        <li>Students studying above 12th standard in Govt. recognized institutions excluding students studying in Government colleges and Government polytechnics are eligible to avail the concession and permitted to travel from their residence to college/library back on all days in a month.</li>
+                        <li>Concession tickets are valued on Ordinary Fares Only.</li>
+                        <li>Permitted to travel in all Ordinary,Express and deluxe services only.</li>
+                        <li>60 Exchange Tokens per month at Rs.3.50/- per token, to travel to library and back to the residence.</li>
+                        <li>Issue of 50% Student Concession application forms, Registration and Issue of Point to Point card with tokens for the first month of every academic year is being done through the concerned educational institutions. For the subsequent months, Point to Point cards and Tokens will be issued directly to the student at the M.T.C.’s Sales Counters.</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria CP">
+                        <li>Students studying above 12th standard in Govt. recognized institutions excluding students studying in Government colleges and Government polytechnics are eligible to avail the concession and permitted to travel from their residence to college/library back on all days in a month.</li>
+                        <li>Concession tickets are valued on Ordinary Fares Only.</li>
+                        <li>Permitted to travel in all Ordinary,Express and deluxe services only.</li>
+                        <li>60 Exchange Tokens per month at Rs.3.50/- per token, to travel to library and back to the residence.</li>
+                        <li>Issue of 50% Student Concession application forms, Registration and Issue of Point to Point card with tokens for the first month of every academic year is being done through the concerned educational institutions. For the subsequent months, Point to Point cards and Tokens will be issued directly to the student at the M.T.C.’s Sales Counters.</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria MP">
+                        <li>Allowed to travel in Ordinary/EXP/Deluxe/Night services except Volvo/Lift services and Chartered trips.</li>
+                        <li>Valid for the period mentioned in the card.</li>
+                        <li>Valid only if signed by the purchaser.</li>
+                        <li>No duplicate card is issued.</li>
+                        <li>To travel with the identity card issued by the MTC.</li>
+                    </ul>
+
+                    <ul class="clsEligibleCriteria HBP">
+                        <span style="font-size: 17px;font-weight: bold;">For Handicapped people</span>
+                        <li>To be recommended by the District Rehabilitation Officer.</li>
+                        <li>Disability should be more than 40%.</li>
+                        <li>Annual income should be less than Rs.12000/-.</li>
+                        <li>Passes issued by MTC.</li>
+                        <li>Allowed to travel Point-to-Point [i.e.] from residence to hospital / Educational Institutions / . Workplace within a max. distance of 30 Km.</li>
+                        <li>One attendant is allowed to travel with mentally retarded person.</li>
+                        <li>To travel with the identity card issued by Rehabilitation department</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria HBP">
+                        <span style="font-size: 17px;font-weight: bold;">For Blind people</span>
+                        <li>To be recommended by District rehabilitation Officer.</li>
+                        <li>No restriction on income, travel distance and number of trips per month.</li>
+                        <li>Passes issued by MTC.</li>
+                        <li>To travel with the identity card issued by Rehabilitation department</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria JPP">
+                        <li>All route passes with ID are issued.</li>
+                        <li>Passes are issued to accredited Journalists/Reporters up to a maximum of 300 passes per year.</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria FFP">
+                        <li>Passes issued on production of freedom fighter pension certificate/financial assistance certificate ISSUED BY State/Central Grovernment.</li>
+                        <li>Allowed to travel in all routes.</li>
+                        <li>Allowed to travel in all STU buses.</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria SCP">
+                        <li>Passenger's age should be greater than 50.</li>
+                        <li>Allowed to travel in all routes.</li>
+                        <li>Allowed to travel in all STU buses.</li>
+                    </ul>
+                    <ul class="clsEligibleCriteria TP">
+                        <li>Allowed to travel in Ordinary/EXP/Deluxe/Night services except Volvo/Lift services and Chartered trips.</li>
+                        <li>Valid for the period mentioned in the card.</li>
+                        <li>No duplicate card is issued.</li>
+                        <li>To travel with the identity card issued by the MTC.</li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+

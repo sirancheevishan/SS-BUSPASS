@@ -1,0 +1,773 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+<style>
+    html {
+        background:white;
+    }
+</style>
+
+
+<div class="dvreg">
+
+    @*Personal Details*@
+    <div>
+        <span class="redclr">*</span><span style="margin-left: 1%;font-size: 11px;font-weight: bold;">Please Enter correct details as per documents.</span>
+        <br><span class="redclr" style="">*</span><span style="margin-left: 1%;font-size: 11px;font-weight: bold;">This will be reflect under your pass details.</span>
+        <div class="register-heading" style="margin-top:1%">
+            <h3 class="panel-title">Personal Details</h3>
+        </div>
+        <div class="row container margin-top3">
+            <div class="col-md-4">
+                <label>Name <span style="font-size: 10px;">(As per the document)</span><span class="redclr">*</span> </label>
+                <div>
+                    <input type="text" onkeypress="return ValidateAlpha(event)" id="txtname" class="regtxt clsPersonalDetails" data-name="Name" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Father's Name <span class="redclr">*</span></label>
+                <div>
+                    <input type="text" onkeypress="return ValidateAlpha(event)" id="txtfname" class="regtxt clsPersonalDetails" data-name="Father's Name" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>DOB <span class="redclr">*</span> </label>
+                <div>
+                    <input type="text" placeholder="DD/MM/YYYY" class="regtxt clsPersonalDetails" id="txtdob" data-name="DOB" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row container margin-top3">
+            <div class="col-md-4">
+                <label>Gender <span class="redclr">*</span> </label>
+                <div>
+                    <div style="position: absolute">
+                        <input type="radio" class="cursor" id="rdnmale" name="gender" checked /><label class="cursor" style="margin-left: 8px;" for="rdnmale">Male</label>
+                    </div>
+                    <div style="margin-left: 24%;">
+                        <input type="radio" class="cursor" id="rdnfemale" name="gender" /><label class="cursor" style="margin-left: 8px;" for="rdnfemale">FeMale</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Adhaar No. <span class="redclr">*</span></label>
+                <div>
+                    <input type="text" onkeypress="return isNumericVal(event)" maxlength="12" class="regtxt clsPersonalDetails" id="txtadhaar" data-name="Adhaar No" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Mobile No. <span class="redclr">*</span></label>
+                <div>
+                    <input type="text" onkeypress="return isNumericVal(event)" maxlength="10" class="regtxt clsPersonalDetails" id="txtNo" data-name="Mobile No" />
+                </div>
+            </div>
+        </div>
+        <div class="row container margin-top3">
+            <div class="col-md-4">
+                <label>Door/Flat/Block No.</label>
+                <div>
+                    <input type="text" onkeypress="return validateAlphandNumeric(event)" maxlength="12" class="regtxt clsPersonalDetails" id="txtdNo" data-name="Door/Flat/Block No" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Street Name <span class="redclr">*</span></label>
+                <div>
+                    <input type="text" onkeypress="return validateAlphabets(event)" maxlength="50" class="regtxt clsPersonalDetails" id="txtdstreetname" data-name="Street Name" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Village/City <span class="redclr">*</span></label>
+                <div>
+                    <input type="text" onkeypress="return validateAlphabets(event)" id="txtdvillagename" class="regtxt clsPersonalDetails" data-name="Village/City" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row container margin-top3">
+            <div class="col-md-4">
+                <label>District <span class="redclr">*</span> </label>
+                <div>
+                    <input type="text" class="regtxt clsPersonalDetails" id="txtddisname" data-name="District" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>State<span class="redclr">*</span></label>
+                <div>
+                    <input type="text" class="regtxt clsPersonalDetails" id="txtdstatename" value="TamilNadu" disabled data-name="State" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label>Pincode<span class="redclr">*</span></label>
+                <div>
+                    <input type="text" onkeypress="return isNumericVal(event)" maxlength="6" class="regtxt clsPersonalDetails" id="txtpin" data-name="Pincode" />
+                </div>
+            </div>
+        </div>
+
+        <div class="dverr" id="dvErrPersonalDetails" style="display:none;">
+            <div class="alert alert-danger clsdvErrorMsg" role="alert" id="dvErrMSGPersonalDetails">
+                Airline Name is required
+            </div>
+        </div>
+
+
+    </div>
+
+    @*LoginDetails*@
+
+    <div>
+        <div class="register-heading" style="margin-top: 3%;">
+            <h3 class="panel-title">Login Details</h3>
+        </div>
+        <div class="row container margin-top3">
+            <div class="col-md-6">
+                <label>Mail ID<span class="redclr">*</span> </label>
+                <div class="form-group">
+                    <input type="text" name="email" class="regtxt clsLoginDetails" id="txtmail" data-name="Mail ID" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Confirm Mail ID<span class="redclr">*</span> </label>
+                <div>
+                    <input type="text" class="regtxt clsLoginDetails" id="txtcnfrmmail" data-name="Confirm Mail ID" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row container margin-top3">
+            <div class="col-md-6">
+                <label>Password<span class="redclr">*</span> </label>
+                <div>
+                    <input type="password" class="regtxt clsLoginDetails" id="txtpass" data-name="Password" />
+                    <span id="spn_paswrd_vw" onclick="textToPass('txtpass', this);" class="fa fa-fw fa-eye" style="position: absolute;top: 71%;right: 120px;transform: translateY(-50%);"></span>
+                    <i class="fa fa-info-circle" title="(i) Password length Should be 8-15. (ii) One character must be uppercase. (iii) one character should be in special character"></i>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Confirm Password<span class="redclr">*</span> </label>
+                <div>
+                    <input type="password" class="regtxt clsLoginDetails" id="txtcnfrmpass" data-name="Confirm Password" />
+                    <span id="spn_paswrd_vw" onclick="textToPass('txtcnfrmpass', this);" class="fa fa-fw fa-eye" style="position: absolute;top: 71%;right: 120px;transform: translateY(-50%);"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="dverr" id="dvErrLoginDetails" style="display:none;">
+            <div class="alert alert-danger clsdvErrorMsg" role="alert" id="dvErrMSGLoginDetails">
+                Airline Name is required
+            </div>
+        </div>
+
+    </div>
+
+    @*Upload Documents*@
+
+    <div>
+        <div class="register-heading" style="margin-top: 3%;">
+            <h3 class="panel-title">Upload Document</h3>
+        </div>
+        <div class="row container margin-top3">
+            <div class="col-md-6">
+                <label>Photo<span class="redclr">*</span> </label>
+                <div class="dvupload">
+
+                    <input type="file" id="Profilepic" onchange="savefile('Profilepic')" style="color: #990000;" size="50">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Adhaar Copy<span class="redclr">*</span> </label>
+                <div class="dvupload">
+
+                    <input type="file" id="Adhaarimg" onchange="savefile('Adhaarimg')" style="color: #990000;" size="50">
+                </div>
+            </div>
+        </div>
+        <div class="dverr" id="dvErrUploadDetails" style="display:none;">
+            <div class="alert alert-danger clsdvErrorMsg" role="alert" id="dvErrMSGUploadDetails">Please Enter Name</div>
+        </div>
+
+    </div>
+    <div>
+        <div class="row container margin-top5" style="text-align: center; margin-top: 3% !important;">
+            <div class="col-md-6">
+                <input type="button" class="btnreg" style="float: right;margin-right: 70px;" value="Submit" onclick="submit()" />
+
+            </div>
+
+            <div class="col-md-6">
+                <input type="button" style="float: inherit;" class="btnreg" value="Back" />
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<input type="hidden" id="hdnProfilePath"/>
+<input type="hidden" id="hdnAdhaarPath" />
+
+@*<div class="modal in" id="OTPVerficationPopup" role="dialog">
+    <div class="modal-dialog" style="width: 33%;margin-left: 35%;">
+        <div class="modal-content">
+            <div class="modal-header" style="background: #990000;">
+                <button type="button" class="close" data-dismiss="modal" style="color: white;">×</button>
+                <h4 class="modal-title" style="text-align: center;color: white;font-weight: bold;">Account Verfication</h4>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; margin-bottom: 2%; display: none;" id="dvOTPErr" >
+                    <span style="text-align: center;align-items: center;">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i><span style="color: red; margin-left: 2%;">
+                            <span id="spnErrMSG">Please Enter Valid OTP</span>
+                        </span>
+                    </span>
+                </div>
+                <div class="dvOTPPopupBox">
+                    <div style="text-align:center">
+                        <label>Enter your mobile OTP <span id="spnMblNo">(9600591085)</span></label>
+                        <section>
+                            <form>
+                                <input id="SMScodeBox1" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(1, event, 'S')" onfocus="onFocusEvent(1, 'S')">
+                                <input id="SMScodeBox2" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(2, event, 'S')" onfocus="onFocusEvent(2, 'S')">
+                                <input id="SMScodeBox3" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(3, event, 'S')" onfocus="onFocusEvent(3, 'S')">
+                                <input id="SMScodeBox4" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(4, event, 'S')" onfocus="onFocusEvent(4, 'S')">
+                                <input id="SMScodeBox5" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(5, event, 'S')" onfocus="onFocusEvent(5, 'S')">
+                            </form>
+                        </section>
+                        <div style="margin-top: 2%;">
+                            <span style="padding-top: 2%;font-size: 12px;">
+                                Didn't get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div style="text-align:center;margin-top:3%">
+                        <label>Enter your mobile OTP <span id="spnEmailNo">(sirancheevishan@gmail.com)</span></label>
+                        <section>
+                            <form>
+                                <input id="MailcodeBox1" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(1, event,'M')" onfocus="onFocusEvent(1,'M')">
+                                <input id="MailcodeBox2" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(2, event,'M')" onfocus="onFocusEvent(2,'M')">
+                                <input id="MailcodeBox3" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(3, event,'M')" onfocus="onFocusEvent(3,'M')">
+                                <input id="MailcodeBox4" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(4, event,'M')" onfocus="onFocusEvent(4,'M')">
+                                <input id="MailcodeBox5" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(5, event,'M')" onfocus="onFocusEvent(5,'M')">
+                            </form>
+                        </section>
+                        <div style="margin-top: 2%;">
+                            <span style="padding-top: 2%;font-size: 12px;">
+                                Didn't get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row margin-top5" style="text-align: center;">
+                        <input type="button" class="btnreg" style="" value="Verify" onclick="VerifyOTP()">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>*@
+
+
+
+
+<script>
+    var loaderimgurl = "@Url.Content("~/Images/Gif/Loading.gif")";
+    $(document).ready(function () {
+        $(".bgclr").removeClass("bgclr");
+        loadCity();
+        $("#txtdob").datepicker({
+            dateFormat: "dd/mm/yy",
+            minDate: '-90y',
+            maxDate: '-10y',
+            changeMonth: true,
+            changeYear: true,
+            onSelect:displayresult,
+
+        });
+        function displayresult() { }
+    });
+
+
+    function getCodeBoxElement(index, key) {
+        if (key == "S")
+            return document.getElementById('SMScodeBox' + index);
+        else if (key == 'M')
+            return document.getElementById('MailcodeBox' + index);
+
+    }
+    function onKeyUpEvent(index, event, key) {
+        const eventCode = event.which || event.keyCode;
+        if (getCodeBoxElement(index, key).value.length === 1) {
+            if (index !== 5) {
+                getCodeBoxElement((index + 1), key).focus();
+            } else {
+                getCodeBoxElement(index, key).blur();
+                // Submit code
+                console.log('submit code ');
+            }
+        }
+        if (eventCode === 8 && index !== 1) {
+            getCodeBoxElement((index - 1), key).focus();
+        }
+    }
+    function onFocusEvent(index, key) {
+        for (item = 1; item < index; item++) {
+            const currentElement = getCodeBoxElement(item, key);
+            if (!currentElement.value) {
+                currentElement.focus();
+                break;
+            }
+        }
+    }
+
+
+    function clearerror(param) {
+        $(param).removeClass("errclr");
+        $(param).next().remove();
+
+    }
+
+    function submit() {
+        
+        //To remove error div
+        $("#dvErrPersonalDetails").hide();
+        $("#dvErrMSGPersonalDetails").html("");
+        $("#dvErrLoginDetails").hide();
+        $("#dvErrMSGLoginDetails").html("");
+
+        //Start Region Validation
+        var pusherrid = [];
+        $(".clsPersonalDetails").each(function () {
+            if ($(this).val() == "") {
+                pusherrid.push(this.id);
+            }
+        });
+
+        if (pusherrid.length > 0) {
+            $(".clsRmvPersoanlErrMsg").removeClass("clsRmvPersoanlErrMsg");
+            $("#" + pusherrid[0]).addClass("clsRmvPersoanlErrMsg");
+            $(".clsRmvPersoanlErrMsg").change(function () {
+                $("#dvErrPersonalDetails").hide();
+                $("#dvErrMSGPersonalDetails").html("");
+            })
+
+            var type = $("#" + pusherrid[0]).attr("type") != "text" ? "Select" : "Enter";
+            $("#dvErrPersonalDetails").show();
+            $("#dvErrMSGPersonalDetails").html("Please " + type + " " + $("#" + pusherrid[0]).data("name"));
+            $("#" + pusherrid[0]).focus();
+            //$("#dvErrPersonalDetails").focus();
+            return false;
+        }
+        pusherrid = [];
+        $(".clsLoginDetails").each(function () {
+            if ($(this).val() == "") {
+                pusherrid.push(this.id);
+            }
+        });
+
+        if (pusherrid.length > 0) {
+            $(".clsRmvPersoanlErrMsg").removeClass("clsRmvLoginErrMsg");
+            $("#" + pusherrid[0]).addClass("clsRmvLoginErrMsg");
+            $(".clsRmvLoginErrMsg").change(function () {
+                $("#dvErrLoginDetails").hide();
+                $("#dvErrMSGLoginDetails").html("")
+            });
+
+            $("#dvErrLoginDetails").show();
+            var type = $("#" + pusherrid[0]).attr("type") != "text" ? "Select" : "Enter";
+            $("#dvErrMSGLoginDetails").html("Please " + type + " " + $("#" + pusherrid[0]).data("name"));
+            $("#" + pusherrid[0]).focus();
+            // $("#dvErrLoginDetails").focus();
+            return false;
+        }
+
+        if ($("#txtmail").val() != $("#txtcnfrmmail").val()) {
+            $(".clsRmvPersoanlErrMsg").removeClass("clsRmvLoginErrMsg");
+            $("#txtmail").addClass("clsRmvLoginErrMsg");
+            $(".clsRmvLoginErrMsg").change(function () {
+                $("#dvErrLoginDetails").hide();
+                $("#dvErrMSGLoginDetails").html("")
+            });
+
+            $("#dvErrLoginDetails").show();
+            $("#dvErrMSGLoginDetails").html("Mail ID does not match");
+            $("#txtcnfrmmail").val();
+            return false;
+        }
+        else if ($("#txtpass").val() != $("#txtcnfrmpass").val()) {
+            $(".clsRmvPersoanlErrMsg").removeClass("clsRmvLoginErrMsg");
+            $("#txtpass").addClass("clsRmvLoginErrMsg");
+            $(".clsRmvLoginErrMsg").change(function () {
+                $("#dvErrLoginDetails").hide();
+                $("#dvErrMSGLoginDetails").html("")
+            });
+
+            $("#dvErrLoginDetails").show();
+            $("#dvErrMSGLoginDetails").html("Password does not match");
+            $("#txtcnfrmmail").val();
+            return false;
+        }
+
+        var reg = /^(([^<>()\[\]\\.,;:\s@@"]+(\.[^<>()\[\]\\.,;:\s@@"]+)*)|(".+"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
+        if ($("#txtNo").val().length != 10) {
+            $(".clsRmvPersoanlErrMsg").removeClass("clsRmvPersoanlErrMsg");
+            $("#txtmail").addClass("clsRmvPersoanlErrMsg");
+            $(".clsRmvPersoanlErrMsg").change(function () {
+                $("#dvErrPersonalDetails").hide();
+                $("#dvErrMSGPersonalDetails").html("")
+            });
+            $("#dvErrPersonalDetails").show();
+            $("#dvErrMSGPersonalDetails").html("please enter valid Mobile No");
+            $("#txtNo").focus();
+            return false;
+        }
+        if (reg.test($("#txtmail").val()) == false) {
+            $(".clsRmvLoginErrMsg").removeClass("clsRmvLoginErrMsg");
+            $("#txtmail").addClass("clsRmvLoginErrMsg");
+            $(".clsRmvLoginErrMsg").change(function () {
+                $("#dvErrLoginDetails").hide();
+                $("#dvErrMSGLoginDetails").html("")
+            });
+            $("#dvErrLoginDetails").show();
+            $("#dvErrMSGLoginDetails").html("please enter valid Mail ID");
+            $("#txtmail").focus();
+            return false;
+        }
+        if ($("#hdnProfilePath").val() == "")
+        {
+            $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+            $("#Profilepic").addClass("clsRmvUploadErrMsg");
+            $(".clsRmvPersoanlErrMsg").change(function () {
+                $("#dvErrUploadDetails").hide();
+                $("#dvErrMSGUploadDetails").html();
+            });
+            $("#dvErrUploadDetails").show();
+            $("#dvErrMSGUploadDetails").html("Please upload profile picture");
+            return false;
+
+        }
+        if ($("#hdnAdhaarPath").val() == "")
+        {
+            $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+            $("#Adhaarimg").addClass("clsRmvUploadErrMsg");
+            $(".clsRmvPersoanlErrMsg").change(function () {
+                $("#dvErrUploadDetails").hide();
+                $("#dvErrMSGUploadDetails").html();
+            });
+            $("#dvErrUploadDetails").show();
+            $("#dvErrMSGUploadDetails").html("Please upload Adhaar picture");
+            return false;
+
+        }
+
+
+        //End Region Validation
+        var strGender = $("#rdnmale").prop("checked") ? "M" : "F";
+        var param = {
+            strName: $("#txtname").val(),
+            strFName: $("#txtfname").val(),
+            strGender: strGender,
+            strDob: $("#txtdob").val(),
+            strAdhaar: $("#txtadhaar").val(),
+            strMbl: $("#txtNo").val(),
+            strDoorno: $("#txtdNo").val(),
+            strStreet: $("#txtdstreetname").val(),
+            strVillage: $("#txtdvillagename").val(),
+            strDistrict: $("#txtddisname").val(),
+            strState: $("#txtdstatename").val(),
+            strPin: $("#txtpin").val(),
+            strMail: $("#txtmail").val(),
+            strPass: $("#txtpass").val(),
+            strImage: $("#hdnProfilePath").val(),
+            strpdf: $("#hdnAdhaarPath").val()
+        }
+
+        $.blockUI({
+            message: '<img alt="Please Wait..." src="' + loaderimgurl + '" style="background-color:#fff;width: 4%;border-radius:8px; margin-top:12%;" id="FareRuleLodingImage" />',
+            css: { padding: '5px' }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "@Url.Action("Inser_Registration_Details", "Home")",
+            data: JSON.stringify(param),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+                $.unblockUI();
+                if (data.status == "00") {
+                    $("#spnMblNo").html(data.mobileNo);
+                    $("#spnEmail").html(data.MailID);
+                   $("#OTPVerficationPopup").modal('show');
+                }
+                else {
+                    $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+                    $("#dvErrUploadDetails").show();
+                    $("#dvErrMSGUploadDetails").html(data.Message);
+                    //showerralert(data.Message, "", '');
+                }
+
+            },
+            error: function (ex) {
+                $.unblockUI();
+                showerralert("Unable to connect remote server", "", '');
+            }
+        });
+    }
+    function Fnsaveimg(fileData, id) {
+
+        var dataResult = "";
+        var URL = "";
+        if (id == "Profilepic")
+            URL = "@Url.Action("Profilepicture","Home")";
+        else
+            URL = "@Url.Action("UploadDocument", "Home")";
+
+        $.ajax({
+            type: "Post",
+            url: URL,
+            processData: false,
+            data: fileData,
+            contentType: false,
+            success: function (data) {
+                ;
+                if (data.d[0] !== "") {
+                    $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+                    $("#" + id).addClass("clsRmvUploadErrMsg");
+                    $(".clsRmvPersoanlErrMsg").change(function () {
+                        $("#dvErrUploadDetails").hide();
+                        $("#dvErrMSGUploadDetails").html("");
+                    });
+                    $("#dvErrUploadDetails").show();
+                    $("#dvErrMSGUploadDetails").html(data.d[0]);
+                    return false;
+
+                }
+                else if (data.d[1] !== "") {
+                    dataResult = data.d[1];
+                    if (id == "Profilepic")
+                        $("#hdnProfilePath").val(dataResult);
+                    else
+                        $("#hdnAdhaarPath").val(dataResult);
+
+                    return dataResult;
+                }
+                
+            },
+            error: function (e) {
+                $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+                $("#" + id).addClass("clsRmvUploadErrMsg");
+                $(".clsRmvPersoanlErrMsg").change(function () {
+                    $("#dvErrPersonalDetails").hide();
+                    $("#dvErrMSGPersonalDetails").html("");
+                });
+                $("#dvErrUploadDetails").show();
+                $("#dvErrMSGUploadDetails").html("Unable to Upload");
+                return false;
+            }
+
+        });
+
+    }
+
+    function savefile(id) {
+        $("#dvErrUploadDetails").hide();
+        $("#dvErrMSGUploadDetails").html("");
+        var Strgetimg = $("#" + id).get(0);
+        var imgfile = Strgetimg.files;
+        var ImgSize=$('#' + id)[0].files[0].size;
+        var allowedExtensions =
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+
+        if (!allowedExtensions.exec(Strgetimg.value)) {
+            $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+            $("#" + id).addClass("clsRmvUploadErrMsg");
+            $(".clsRmvPersoanlErrMsg").change(function () {
+                $("#dvErrUploadDetails").hide();
+                $("#dvErrMSGUploadDetails").html("");
+            });
+
+            $("#dvErrUploadDetails").show();
+            $("#dvErrMSGUploadDetails").html("Invalid file type");
+            //alert('Invalid file type');
+            Strgetimg.value = '';
+            return false;
+        }
+        if (!(ImgSize > 100000 && ImgSize < 500000)) {
+            $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
+            $("#" + id).addClass("clsRmvUploadErrMsg");
+            $(".clsRmvPersoanlErrMsg").change(function () {
+                $("#dvErrUploadDetails").hide();
+                $("#dvErrMSGUploadDetails").html("");
+            })
+            $("#dvErrUploadDetails").show();
+            $("#dvErrMSGUploadDetails").html("Image size should be greater than 100KB and less than equal to 500 KB");
+            //alert('Image size should be greater than 100KB and less than equal to 500 KB');
+            Strgetimg.value = '';
+            return false;
+        }
+        if (imgfile.length > 0) {
+            var fileData = new FormData();
+            fileData.append(imgfile[0].name, imgfile[0]);
+            fileData.append("ProfilepicName", $("#txtNo").val());
+            var path = Fnsaveimg(fileData,id);
+
+            return false;
+
+        }
+
+
+        var path = "";
+        if (window.FormData !== undefined) {
+
+            var fileUpload = $("#" + id).get(0);
+            var files = fileUpload.files;
+
+            // Create FormData object
+            var fileData = new FormData();
+
+            // Looping over all files and add it to FormData object
+            for (var i = 0; i < files.length; i++) {
+                fileData.append(files[i].name, files[i]);
+            }
+
+            // Adding one more key to FormData object
+            fileData.append('username', 'Manas');
+
+            $.ajax({
+                url: '/Home/UploadFiles',
+                type: "POST",
+                contentType: false, // Not to set any content header
+                processData: false, // Not to process data
+              data: fileData,
+                success: function (data) {
+
+                    if (data.status = "00") {
+                        path = data.strPath;
+                        $("#" + id).attr("data-path", path);
+                    }
+                    else {
+                        path = "Not Mapped";
+                    }
+                },
+                error: function (err) {
+                    showerralert(err.statusText, "", '');
+
+                }
+            });
+            return path;
+        } else {
+            showerralert("FormData is not supported.", "", '');
+            return path;
+        }
+
+
+    }
+
+    function VerifyOTP() {
+        $("#dvOTPErr").hide();
+        $("#spnErrMSG").html("");
+
+        var SMSOTP = "";
+        var MailOTP = "";
+        var OTPCheck = false;
+        $(".clssmsotp").each(function () {
+            if ($(this).val() != "")
+                SMSOTP += $(this).val();
+            else
+                OTPCheck = true;
+        });
+        if (OTPCheck == true) {
+            $("#dvOTPErr").show();
+            $("#spnErrMSG").html("Please enter OTP");
+            return false;
+        }
+        $(".clsMailotp").each(function () {
+            if ($(this).val() != "")
+                MailOTP += $(this).val();
+            else
+                OTPCheck = true;
+        });
+        if (OTPCheck == true) {
+            $("#dvOTPErr").show();
+            $("#spnErrMSG").html("Please enter OTP");
+            return false;
+        }
+
+        var OTPParam = {
+            strSMSOTP: SMSOTP,
+            strMailOTP: MailOTP,
+            strMobileNo: "",
+            strMailID: "",
+        };
+        $.ajax({
+            url: "@Url.Action("Verify_Registration", "Home")",
+            type: "POST",
+            data: JSON.stringify(OTPParam),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (data) {
+
+                if (data.status == "00") {
+
+                    var RedirectURL = '@Url.Action("PassInfo", "HomePage")';
+                    location.replace(RedirectURL);
+                }
+                else {
+                    $("#dvOTPErr").show();
+                    $("#spnErrMSG").html(data.Message);
+
+                }
+            },
+            error: function (err) {
+                $("#dvOTPErr").show();
+                $("#spnErrMSG").html("Unable to connect remote server");
+            }
+        });
+    }
+
+    function loadCity() {
+        debugger
+        $.ajax({
+            type: "GET",
+            url: '@Url.Content("~/XML/TamilNaduDistrict.xml")',
+            dataType: "xml",
+            async: true,
+            success: function (response) {
+                var districtArray = $.xml2json(response);
+                districtArray = districtArray.DISTRICT;
+                $("#txtddisname").typeahead('destroy');
+                $('#txtddisname').typeahead({
+                    source: districtArray,
+                    items: 5,
+                    minLength: 0,
+                    displayField: "DISTRICT_NAME",
+                    valueField: "DISTRICT_NAME",
+                    scrollBar: true,
+                    onSelect: displayBranchResults,
+                });
+                function displayBranchResults() {
+
+                };
+            }, error: function (ex) {
+
+            }
+        });
+    }
+
+
+</script>
+
+
+
+
+

@@ -1,0 +1,4359 @@
+/*No More Tables*/
+@media only screen and (max-width: 767px) {
+    .oneright {
+        right: 4px !important;
+    }
+
+    .detailinfo {
+        font-size: 1.3rem !important;
+    }
+
+    .csls {
+        left: 7px;
+    }
+
+    #dvinnerAvail_RightResponse .detailmar {
+        float: right;
+        left: 22px;
+        margin-top: -3px;
+    }
+
+    #dvinnerAvail_LeftResponse .detailmar {
+        float: right;
+        left: 22px;
+        margin-top: -3px;
+    }
+
+    .availselbtn {
+        top: -43px;
+    }
+
+    .radio-label:before {
+        height: 15px !important;
+        width: 15px !important;
+    }
+
+    .margin_left {
+        margin-top: -13px !important;
+    }
+
+    .tophead {
+        font-size: 12px !important;
+    }
+
+    .imgtop {
+        top: 10px !important;
+    }
+
+    .tg-add-nav ul li a, .tg-nav ul li a {
+        color: #fff !important;
+        font-weight: 600;
+        font-size: 13px;
+        text-transform: capitalize;
+    }
+
+    .resfare {
+        margin-top: 15px;
+    }
+
+    .leftcls {
+        left: 5px !important;
+    }
+
+    .filterIcon {
+        float: right;
+        margin-top: 3px;
+        text-align: center;
+    }
+
+    #dvmodifyouter .clsmodifydetails .clsModifysearch {
+        color: #fff !important;
+    }
+
+    .spanTime {
+        font-size: 15px !important;
+    }
+
+    .marginTIME {
+        margin-top: -9px !important;
+    }
+
+    .clsAvailDruation {
+        font-size: 11px !important;
+        color: #9a9898;
+    }
+
+    .margin_top {
+        margin-top: -10px !important;
+    }
+
+    .clsAvailDruation color-blue {
+        white-space: nowrap;
+    }
+
+    .marginavail {
+        margin-top: -15px !important;
+    }
+    /* Force table to not be like tables anymore */
+    .no-more-tables table,
+    .no-more-tables thead,
+    .no-more-tables tbody,
+    .no-more-tables th,
+    .no-more-tables td,
+    .no-more-tables tr {
+        display: block !important;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    .no-more-tables thead tr {
+        position: absolute !important;
+        top: -9999px !important;
+        left: -9999px !important;
+    }
+
+    .no-more-tables tr {
+        border: 1px solid #ccc !important;
+    }
+
+    .no-more-tables td {
+        /* Behave  like a "row" */
+        border: none !important;
+        border-bottom: 1px solid #eee !important;
+        position: relative !important;
+        padding-left: 50% !important;
+        white-space: normal !important;
+        text-align: left !important;
+    }
+
+    .no-more-tables td:before {
+        position: absolute !important;
+        left: 6px !important;
+        width: 45% !important;
+        padding-right: 10px !important;
+        white-space: nowrap !important;
+        text-align: left !important;
+        font-weight: bold !important;
+    }
+
+    .td-stop {
+        padding: 25px !important;
+    }
+
+    .td-flightno {
+        padding: 15px !important;
+    }
+
+    .no-more-tables td:before {
+        content: attr(data-title) !important;
+    }
+}
+/*No More Tables End*/
+
+.clsPadd2Table {
+    padding: 2px !important;
+}
+
+.clsPadd2Table thead tr th {
+    text-align: center;
+    color: #222;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.clsPadd2Table tbody tr td {
+    padding: 5px 2px;
+    white-space: nowrap;
+}
+
+.clsPadd2Table tbody td select, .clsPadd2Table tbody td input[type="text"] {
+    padding: 6px !important;
+    height: 32px !important;
+}
+
+.clsRoundTripsegAndDate {
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 8px;
+    color: #000;
+}
+
+#dvRoundtripStickbottom, #dvMulStickbottom {
+       width: 100%;
+    margin-left: 0%;
+    z-index: 3;
+    left: 0;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    padding-bottom: 0px;
+}
+
+#dvRoundtripStickbottom1, #dvMulStickbottom {
+    position: fixed;
+    width: 100%;
+    margin-left: 0%;
+    min-height: 85px;
+    z-index: 11;
+    background: rgba(0,0,0,0.9);
+    left: 0;
+    bottom: 0px;
+}
+
+.selectedfltOuter {
+    background-color: #e7e7e7;
+    -moz-border-radius: 5px;
+    -webket-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.b-tabs {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.b-content {
+    min-height: 230px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-top: 1px solid #fff;
+}
+
+.spanTime {
+    font-size: 1.5rem;
+    vertical-align: top;
+    font-weight: 600;
+}
+
+.TakeOffPlane {
+    float: right !important;
+    padding-bottom: 10px !important;
+    margin-top: 20px !important;
+    margin-left: 15px !important;
+}
+
+.ArrivalPlane {
+    margin-top: 20px !important;
+    margin-right: 15px !important;
+    padding-bottom: 10px !important;
+    float: left;
+}
+
+
+.ArrPlane {
+    float: left !important;
+    margin-right: -20px;
+}
+
+.TakeOffRPlane {
+    float: right !important;
+    padding-bottom: 10px !important;
+    margin-left: 20px !important;
+}
+
+.TakeleftRPlane {
+    float: left !important;
+    margin-right: -20px;
+}
+
+.spnDetails {
+    color: #0093FF;
+    line-height: 20px;
+    position: relative;
+    top: -6px;
+    font-size: 9px !important;
+    font-weight: 600;
+}
+
+.dvDetails {
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.ArrivalRPlane {
+    margin-right: 15px !important;
+    padding-bottom: 10px !important;
+    float: left;
+}
+
+.offborderdesign {
+    height: 85px;
+    width: 1px;
+    border-right: 1px dashed #ccc;
+    background: transparent;
+    float: left;
+    margin: 5px 0;
+    left:50%;
+}
+
+
+#dvRoundtripStickbottom .offborderdesign:before, #dvRoundtripStickbottom .offborderdesign:after {
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 12px;
+    background: #3b2663;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    right: -7px;
+}
+
+#dvRoundtripStickbottom .offborderdesign:before {
+    top: 0px;
+}
+
+#dvRoundtripStickbottom .offborderdesign:after {
+    bottom: 0px;
+}
+
+.avalCityCode {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: -3px;
+}
+
+.avalCityCode label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 3px !important;
+}
+
+.availStops {
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 0px;
+}
+
+.clsVia {   
+    font-size: 11px;
+    color: #ccc;
+    font-style: italic;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+
+.clsVia span {
+    font-style: normal;
+    color: #aaa;
+    font-size: 10px;
+}
+
+.clsMVia {
+    position: absolute;
+    top: 42px;
+    background-color: #fff;
+    font-size: 13px;
+    color: #ccc;
+    font-style: italic;
+    text-align: center;
+}
+
+.clsMVia span {
+    font-style: normal;
+    color: #aaa;
+    font-size: 10px;
+}
+
+.clsAvailDruation {
+    font-size: 14px;
+    margin-top: 10px !important;
+}
+
+.clsBacktoAvail {
+    background-color: rgba(0,0,0,0.7);
+    border: 2px solid rgba(0,0,0,0.7);
+    color: #fff;
+    height: initial !important;
+}
+
+.clsBacktoAvail:hover, .clsBacktoAvail:active {
+    border: 2px solid rgba(0,0,0,0.7);
+    background-color: transparent;
+    color: #000;
+}
+
+.clsPosition {
+    position: relative;
+    width: 100%;
+}
+
+.clsCmbClass {
+    width: 100% !important;
+    height: 20px !important;
+    margin-top: 20px;
+    font-size: 12px;
+    padding: 2px 5px;
+    border: 1px solid #ccc !important;
+}
+
+.clsCmbMClass {
+    width: 50% !important;
+    height: 20px !important;
+    font-size: 12px;
+    padding: 2px 0px;
+    min-width: 85px;
+    border: 1px solid #ccc !important;
+}
+
+
+@media screen and (min-width: 769px) {
+    .clsCmbMClass {
+        margin-left: 25%;
+    }
+
+    .modifyavailpage {
+        margin-left: 73px;
+    }
+}
+
+.clsCmbClass form-control {
+    margin-top: 0px !important;
+}
+
+.clsFilterHeader {
+    cursor: pointer;
+}
+
+.clsFilterContent {
+    padding: 10px;
+}
+
+.clsFilterContent h5 {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.chkfilter {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.myicon {
+    margin-right: 15px;
+    float: right;
+    margin-top: 13px;
+}
+
+.clsOnwardConnouter {
+    background-color: #e9eaeb;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 8px 11px 3px 11px;
+    width: 100%;
+    position: relative;
+    border-color: #e9eaeb;
+    box-shadow: 0px 0px 2px 1px #ccc;
+}
+
+.clsOnwardConnouter2 {
+    background-color: #e9eaeb;
+    margin-top: 10px;
+    font-size: 11px !important;
+    padding: 5px 3px 3px 3px;
+    width: 100%;
+    position: relative;
+    border-color: #e9eaeb;
+    box-shadow: 0px 0px 2px 1px #ccc;
+}
+
+.clsOnwareConninner {
+    background-color: #fff;
+    background-color: #fff;
+    border-bottom: solid 1px #2b303d;
+    border: solid 1px #fff;
+}
+
+.clsconndate {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.clsconndate2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.clsconncitytime2 {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.clsconncitytime2 span {
+    font-size: 12px;
+}
+
+.clsconncitytime {
+    font-weight: 600;
+    line-height: 15px;
+}
+
+.clsconncitytime span {
+    color: #666;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.clsconnrightangle {
+    position: absolute;
+    top: 4px;
+    right: 0px;
+    font-size: 32px;
+    color: #888;
+}
+
+.clsconnleftangle {
+    position: absolute;
+    top: 4px;
+    left: 0px;
+    font-size: 32px;
+    color: #888;
+}
+
+.clsFlyover {
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 10px;
+    white-space: nowrap;
+}
+
+.clsconnstop {
+    line-height: 53px;
+}
+
+.clsbor {
+    border-left: 1px solid #ddd;
+}
+
+.clsconnarrowdown {
+    cursor: pointer;
+    color: #0093FF;
+    line-height: 16px;
+    margin-left: 5px;
+}
+
+.clsconnarrowdown:before {
+    line-height: 20px !important;
+    font-size: 18px !important;
+}
+
+.clsFareRulelnk {
+    cursor: pointer;
+    font-size: 12px;
+    color: #4D92EA;
+    text-decoration: underline;
+}
+
+.availfare { /*kalai - 27-9-17*/
+    left: 0px !important;
+}
+
+.clsAvailFareRule { /*kalai - 27-9-17*/
+    font-size: 10px;
+    font-weight: 500;
+    position: relative;
+    white-space: nowrap;
+    top: 0px;
+    text-decoration: none !important;
+    width: 100%;
+}
+
+.clsFlightNum label {
+    font-size: 10px;
+    padding-bottom: 10px;
+}
+
+.clsFareRuleRound {
+    top: 20px !important;
+}
+
+#Avail_Norecord {
+    color: #000;
+    background: rgba(255,255,255,0.7);
+    padding: 5px;
+    box-shadow: 0 0 0 6px rgba(181, 66, 64, 0.3), 0 0 35px rgba(0, 0, 0, 0.2);
+    margin-left: 1%;
+    width: 98%;
+}
+
+.clsAvailLeft {
+    width: 50%;
+    float: left;
+}
+
+.cslAvailRight {
+    width: 50%;
+    float: right;
+}
+
+.clsAvailSingle {
+    width: 100%;
+}
+
+.cls2AvailContainer {
+    padding: 0% 2%;
+}
+
+.list-item-entry-hidden {
+    display: none;
+}
+
+.clsAvailLayover {
+    position: absolute;
+    padding: 3px;
+    background-color: #fff;
+    border: 1px solid #ff6600;
+    color: #000;
+    top: -14px;
+    left: 40%;
+    font-size: 11px;
+}
+
+.clsConnfltLogo {
+    margin: 5px;
+    padding: 5px 10px 5px 10px;
+}
+
+.clsConnfltLogo2 {
+    margin-top: 2px !important;
+}
+
+.clsAvailLayover2 {
+    position: absolute;
+    padding: 3px;
+    background-color: #fff;
+    border: 1px solid #ff6600;
+    color: #000;
+    top: -11px;
+    left: 30%;
+    font-size: 11px;
+}
+
+.clsTimeFilterli {
+    width: 25%;
+    float: left;
+    border-left: none;
+    text-align: center;
+    border-radius: 46px;
+}
+
+
+.clsTimeFilterli i:hover {
+    background-color: #5014b6;
+    color: #FFFFFF;
+}
+
+.clsTimeFilterli label {
+    position: relative;
+    padding: 47px 2px 2px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 13px;
+}
+
+.clsTimeFilterli label span {
+    padding: 2px 0 0;
+    color: #333;
+    text-transform: uppercase;
+    line-height: 18px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.yrselectedFlights {
+    color: #fff;
+    display: none;
+    position: absolute;
+    background: #333;
+    top: -24px;
+    padding: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.clsshowhidbtn {
+    position: absolute;
+    top: -30px;
+    right: 15px;
+}
+
+.yrselectedFlights:after, .clsshowhidbtn:after {
+    content: '';
+    border-top: #969696;
+    border-left: transparent;
+    border-right: transparent;
+    border-bottom: transparent;
+    top: 24px;
+    right: 12px;
+    bottom: auto;
+    border-width: 8px 8px;
+    position: absolute;
+    border-style: solid;
+}
+
+.mltbtn .mygraybtn {
+    border: none;
+    color: #fff;
+    background-color: #ff9012;
+    margin-top: 18px;
+    border-radius: 30px;
+}
+
+.mygraybtn:hover {
+    background-color: #ff9012;
+    color: #fff;
+}
+
+.filtericon {
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    margin: 0px 0 0px -18px;
+    float: left;
+    font-size: 20px;
+    color: #00458e;
+    padding: 8px 8px 8px 8px;
+    border: 1px solid #e0dfe1;
+    border-radius: 23px;
+}
+
+.clsStopFilterli {
+    width: 60px;
+    margin-left: 15px;
+    float: left;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom:0px;
+}
+
+li.clsheadersub {
+    width: 45px;
+    margin-left: 5%;
+    float: left;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    border-radius: 4px;
+}
+
+li.clsheadersub label {
+    float: left;
+    text-align: center;
+    width: 100%;
+    height: 25px;
+    cursor:pointer;
+}
+
+li.clsheadersub span {
+    line-height: 24px;
+    color: #333;
+    text-transform: none;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.clsRefundFilterli {
+    width: 48%;
+    margin-left: 2%;
+    float: left;
+    border: 1px solid #e2e2e2;
+    text-align: center;
+    padding: 3px 0px;
+}
+
+.clsFlightNum {
+    text-align: left;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+.clsStopFilterli label, .clsRefundFilterli label {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+    padding:4px;
+}
+
+.clsStopFilterli label span, .clsRefundFilterli label span {
+    padding: 2px 0 0;
+    color: #333;
+    text-transform: none;
+    line-height: 18px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.clsRefundable {
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    background-color: #999;
+    width: 20px;
+}
+
+@media screen and (max-width: 500px) {
+    .clsAvailLeft {
+        border-right: 2px solid #ccc;
+    }
+
+    .clsxsbortopbot {
+        padding: 5px 0px;
+    }
+
+    .clsMVia {
+        top: 60px !important;
+    }
+
+    .clsAvailLeft .availStops .availfare, .cslAvailRight .availStops .availfare {
+        margin-top: 20px !important;
+        margin-bottom: 5px;
+    }
+}
+
+
+@media screen and (min-width: 350px) {
+    .clsAvailLeft {
+        padding-right: 2px;
+    }
+
+    .cslAvailRight {
+        padding-left: 2px;
+    }
+}
+
+
+/*--------------- Radio style ---------------*/
+@-moz-keyframes ripple {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes ripple {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+}
+
+@keyframes ripple {
+    0%, 100% {
+        opacity: 0;
+    }
+
+    1% {
+        opacity: 1;
+    }
+}
+
+.radio-input {
+    display: none;
+}
+
+.radio-label {
+    position: relative;
+    cursor: pointer;
+}
+
+.radio-label:before, .radio-label:after {
+    position: absolute;
+    content: "";
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.radio-label:before {
+    top: 25px;
+    left: 25px;
+    width: 18px;
+    height: 18px;
+    background-color: #1565C0;
+    -moz-box-shadow: inset 0 0 0 13px #E0E0E0;
+    -webkit-box-shadow: inset 0 0 0 13px #E0E0E0;
+    box-shadow: inset 0 0 0 13px #E0E0E0;
+}
+
+.clsFareRulelnk:before {
+    top: 0px !important;
+    left: 40px !important;
+    width: 18px;
+    height: 18px;
+    background-color: #1565C0;
+    -moz-box-shadow: inset 0 0 0 13px #E0E0E0;
+    -webkit-box-shadow: inset 0 0 0 13px #E0E0E0;
+    box-shadow: inset 0 0 0 13px #E0E0E0;
+}
+
+@media screen and (max-width: 767px) {
+    .radio-label:before {
+        top: 25px;
+        left: 20%;
+    }
+
+    .mrgnbtm30:before {
+        top: 30px !important;
+    }
+}
+
+.radio-label:after {
+    top: 38px;
+    left: 25px;
+    width: 54px;
+    height: 54px;
+    background-color: rgba(21, 101, 192, 0.3);
+    -moz-transform: translate(-50%, -50%) scale(0);
+    -ms-transform: translate(-50%, -50%) scale(0);
+    -webkit-transform: translate(-50%, -50%) scale(0);
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.clsFareRulelnk:after {
+    top: 6px !important;
+    left: 50px !important;
+}
+
+.radio-input:checked + .radio-label:before {
+    -moz-box-shadow: inset 0 0 0 4px #E0E0E0;
+    -webkit-box-shadow: inset 0 0 0 4px #E0E0E0;
+    box-shadow: inset 0 0 0 4px #E0E0E0;
+}
+
+.radio-input:checked + .radio-label:after {
+    -moz-transform: translate(-50%, -50%) scale(1);
+    -ms-transform: translate(-50%, -50%) scale(1);
+    -webkit-transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(1);
+    -moz-animation: ripple 1s forwards;
+    -webkit-animation: ripple 1s forwards;
+    animation: ripple 1s forwards;
+}
+/*--------------- Radio style End ---------------*/
+
+
+
+/*Multicity Search*/
+.visuallyhidden {
+    visibility: hidden;
+}
+
+.clsMultiCityRoutes {
+    list-style-type: none;
+}
+
+.clsMultiCityRoutes li div div {
+    margin-top: 2px;
+}
+
+.clslefttorightarrow {
+    text-align: center;
+}
+
+.clsCloseMRow {
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 30px;
+    height: 29px;
+}
+
+button[disabled] {
+    cursor: not-allowed;
+}
+
+.clsAddNewforMCity {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 8px;
+    width: 80%;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: #27a5f5;
+    margin-top: 15px;
+    transition: 0.4s;
+}
+
+.clsAddNewforMCity:hover {
+    border: 2px solid #27a5f5;
+    border-radius: 5px;
+    background-color: #27a5f5;
+    color: #fff;
+}
+
+#ul-multi-city-routes li:nth-child(1) .clsCloseMRow, #ul-multi-city-routes li:nth-child(2) .clsCloseMRow {
+    background-color: #ddd;
+    color: #aaa;
+}
+/*Multicity Search End*/
+
+/*Multicity Availability Start*/
+.clsMultisegAndDate {
+    background: #eee;
+    margin-bottom: 5px;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px;
+    color: #000;
+}
+
+.clsmb0 {
+    margin-bottom: 0px !important;
+}
+
+.clsmb1 {
+    margin-bottom: 1px !important;
+}
+
+.clsmt0 {
+    margin-top: 0px !important;
+}
+
+.clsMAvailFareRule {
+    color: #0093FF;
+    font-size: 12px;
+    position: relative;
+    white-space: nowrap;
+    top: 15px;
+    text-decoration: underline;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.clsMavailPCLogo {
+    padding: 5px 0px 5px 0px;
+    background-color: #eee;
+    margin-top: 0px;
+}
+
+.clsMFlightNum {
+    text-align: center;
+    font-size: 12px;
+}
+
+.TakeOffMPlane {
+    margin-left: 15px !important;
+}
+
+.ArrivalMPlane {
+    margin-right: 5px !important;
+    padding-bottom: 10px !important;
+}
+
+.clsMAvailDruation {
+    font-size: 10px;
+}
+
+.clsMRefundable {
+    padding: 1px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 11px;
+    background-color: #999;
+    width: 16px;
+    margin-left: 2px;
+}
+
+.spnMDetails {
+    color: #0093FF;
+    position: relative;
+    font-size: 8px;
+    top: 2px;
+}
+
+.clsMconnarrowdown {
+    cursor: pointer;
+    color: #0093FF;
+}
+
+.clsMconnarrowdown:before {
+    line-height: 12px !important;
+    font-size: 14px !important;
+}
+
+.clsMOnwardConnouter2 {
+    background-color: #e9eaeb;
+    margin-top: 5px;
+    padding: 5px 3px 3px 3px;
+    width: 100%;
+    position: relative;
+    border-color: #e9eaeb;
+    box-shadow: 0px 0px 2px 1px #ccc;
+}
+
+.clsMconndate2 {
+    font-size: 10px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+.clsMconncitytime2 {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.clsconncitytime2 span {
+    font-size: 10px;
+}
+
+.clsMFlyover {
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.clsconnlayover {
+    border-bottom: 1px dotted #999;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .clsMconnstop {
+        border-top: 1px dashed #ddd;
+        line-height: 28px;
+        text-align: center;
+    }
+
+    .spnDetails {
+        top: 6px;
+        font-size: 10px;
+        line-height: 20px;
+    }
+
+    span#refundVal {
+        margin-top: 17px;
+    }
+
+    .clsconnarrowdown {
+        margin-top: 3px;
+    }
+
+    .refunddesign {
+        top: 6px !important;
+    }
+
+    .font_size {
+        font-size: 8px !important;
+        left: 3px !important;
+        margin-bottom: 5px !important;
+        margin-top: -15px !important;
+        margin-left: -4px !important;
+    }
+
+    .clsconnarrowdown:before {
+        font-size: 18px !important;
+    }
+
+    /*Added by saranraj*/
+    #dvFiltertabBody {
+        margin: 0px !important;
+    }
+
+    #dvFilterSortingouter {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        z-index: 5;
+        top: 0px;
+        left: 0;
+        background-color: #fff;
+        overflow-x: hidden;
+        padding-top: 0px;
+        transition: 0.5s;
+        box-shadow: none;
+        display:none;
+        overflow-y:scroll;
+    }
+
+    #dvMainFilteration {z-index:5 !important;}
+
+    .simple-tab .nav-tab, .simple-tab.type-2 .tab-nav-wrapper {
+        margin-bottom: 0px;
+    }
+
+    .clsFaretypeouter {
+        margin-top: 4% !important;
+        font-size: 13px;
+    }
+
+    /* Position and style the close button (top right corner) */
+    #dvFilterSortingouter .closebtn {
+        position: absolute;
+        top: 0px;
+        right: 15px;
+        font-size: 30px;
+        color: #222 !important;
+        z-index: 3;
+    }
+
+    .phoneicon {
+        border: 1px solid #aaa;
+        border-radius: 50%;
+        padding: 5px 11px;
+        color: #000;
+        font-size: 22px;
+        line-height: 40px;
+        cursor: pointer;
+    }
+
+    /*.clsFilterouter {
+        margin-top: 30px !important;
+    }*/
+
+    .acc-body.mySortingcls {
+        margin-top: 30px;
+    }
+
+    .list-header .drop-wrap {
+        margin-top: 0px !important;
+        font-size: 14px;
+    }
+
+    .clsFareRuleRound {
+        top: 0px !important;
+    }
+
+    .clsFareRuleRound {
+        top: 0px !important;
+        right: -5px !important;
+    }
+
+    .marginbotm4mob20 {
+        margin-bottom: 20px;
+    }
+
+
+
+    /*End*/
+
+    .clsCmbClass {
+        height: 26px !important;
+        padding: 0px !important;
+    }
+
+    .clsAvailFareRule {
+        width: auto;
+        position: absolute;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .BaindAvailSingle .clsavailPCLogo {
+        padding: 5px 10px 5px 10px;
+    }
+
+    .BaindAvailSingle .clsavailPCLogo .checkbox-group {
+        top: -11px;
+        left: 3px;
+    }
+
+    .BaindAvailSingle .clsavailPCLogo .radius-top {
+        left: 10px;
+    }
+
+    .BaindAvailSingle .clsavailPCLogo .radius-top img {
+        width: 25px;
+    }
+
+    .BaindAvailSingle .clsFlightNum label {
+        white-space: nowrap;
+        font-size: 11px;
+    }
+
+    .BaindAvailSingle .flight-icon .TakeOffPlane, .mix .flight-icon .ArrivalPlane {
+        display: none;
+    }
+
+    .BaindAvailSingle .fi_content .avalCityCode {
+        font-size: 10px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    .BaindAvailSingle .fi_content .fi_text label {
+        font-size: 10px;
+    }
+
+    .BaindAvailSingle .fi_content .spndepttime {
+        margin-right: 30px;
+    }
+
+    .BaindAvailSingle .fi_content .spnarrivtime {
+        margin-left: 30px;
+    }
+
+    .BaindAvailSingle .availStops {
+        margin-bottom: 5px;
+        margin-top: 10px;
+        left: 0px !important;
+        top: -13px !important;
+    }
+
+    .BaindAvailSingle .availStops .clsmobleft {
+        margin-left: -8px;
+    }
+
+    .BaindAvailSingle .availStops .clsmobleft select {
+        font-size: 11px;
+    }
+
+    .BaindAvailSingle .availStops .clsAvailDruation {
+        position: absolute;
+        top: -25px;
+        white-space: nowrap;
+        left: 55%;
+        font-size: 10px;
+        font-style: italic;
+        font-weight: 600;
+        background-color: #fff;
+    }
+
+    .BaindAvailSingle .clsBorderBottom {
+        border: none;
+        border-bottom: none !important;
+    }
+
+    .BaindAvailSingle .clsmobavailbtns {
+        background-color: #fdfdfd;
+        box-shadow: 1px 0px 30px 2px #fbfbfb;
+    }
+
+    .BaindAvailSingle .clsmobavailbtns .show-MulpopFaredesc {
+        font-size: 1.2em !important;
+        color: #000;
+        position: absolute;
+        top: -33px;
+        margin-left: -25px;
+        font-size: 20px;
+    }
+
+    .BaindAvailSingle .clsmobavailbtns .clsAvailFareRule {
+        position: absolute;
+        right: 7%;
+        margin-top: -34px;
+        font-size: 11px;
+    }
+
+    .BaindAvailSingle .clsmobavailbtns .showaddtocart {
+        width: 40% !important;
+        left: 20%;
+    }
+
+    .BaindAvailSingle .clsmobavailbtns .showselectaddtocart {
+        width: 38% !important;
+    }
+
+    .BaindAvailSingle .clsmorgtopmob {
+        margin-top: 4px;
+    }
+
+    .BaindAvailSingle .clsmorgtopmob .fr {
+        float: right;
+    }
+
+    .BaindAvailSingle .clsmorgtopmob .fl {
+        float: left;
+    }
+
+    /*#region Connecting flight for oneway */
+    .BaindAvailSingle .clsOnwardConnouter {
+        margin-bottom: 0;
+        background-color: #eff7ff;
+        padding: 4px 2px 0px 2px;
+        box-shadow: 0px 0px 2px 1px #a2a2a2;
+        margin-top: 15px;
+    }
+
+    .BaindAvailSingle .clsConnfltLogo .clsFlightNum {
+        text-align: center;
+    }
+
+    .BaindAvailSingle .clsOnwardConnouter .clsmobmargtopconnectflt {
+        margin-top: 32px !important;
+        border-top: 1px dashed #ccc;
+    }
+
+    .BaindAvailSingle .clsconndate {
+        font-size: 11px;
+    }
+
+    .BaindAvailSingle .clsconncitytime span {
+        font-size: 11px !important;
+        font-weight: 600;
+    }
+
+    .BaindAvailSingle .clsOnwareConninner .clsFlyover {
+        font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .BaindAvailSingle .clsOnwardConnouter .clsconnstop {
+        position: absolute;
+        margin-top: 3px;
+        padding-top: 0 !important;
+    }
+
+    .BaindAvailSingle .clsOnwardConnouter .clsconnlayover {
+        margin-top: 0;
+        margin-bottom: 5px;
+        z-index: 2;
+    }
+
+    .BaindAvailSingle .clsConnfltLogo {
+        margin: 0;
+    }
+
+    .BaindAvailSingle .clsConnfltLogo .radius-top.cell-view {
+        left: 0;
+    }
+
+    strong {
+        color: #000;
+    }
+
+    .BaindAvailSingle .colmobcondetails {
+        position: absolute;
+        bottom: -27px;
+        z-index: 2;
+    }
+
+    #Avail_Response {
+        margin-top: -10px;
+    }
+    /*#endregion */
+
+    /*#region Roundtrip avail for mobile view */
+
+    .clsRoundTripsegAndDate {
+        padding: 2px;
+        font-size: 11px;
+    }
+
+    .BaindAvailAvailLeft .hotel-item, .BaindAvailAvailRight .hotel-item {
+        padding: 5px 5px 2px 3px;
+        margin-bottom: 3px;
+    }
+
+    .BaindAvailAvailLeft .radius-top .imglogo, .BaindAvailAvailRight .radius-top .imglogo {
+        min-width: 22px !important;
+        margin-top: 0px;
+    }
+
+    .BaindAvailAvailLeft .clsFlightNum, .BaindAvailAvailRight .clsFlightNum {
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .BaindAvailAvailLeft .clsCmbClass, .BaindAvailAvailRight .clsCmbClass {
+        padding: 0;
+        margin-left: -7px;
+    }
+
+    .BaindAvailAvailLeft .clsAvailDruation, .BaindAvailAvailRight .clsAvailDruation {
+        font-size: 10px;
+        font-weight: 600;
+        position: absolute;
+        bottom: 64px;
+        width: 100%;
+        left: 20px;
+        background: #fff;
+        display: none;
+    }
+
+    .BaindAvailAvailLeft .clsmobavailbtns, .BaindAvailAvailRight .clsmobavailbtns {
+        margin-bottom: 0px;
+        border-top: 1px dashed #ccc;
+        padding-top: 2px;
+    }
+
+    .BaindAvailAvailLeft .Radiosmall, .BaindAvailAvailRight .Radiosmall {
+        font-size: 1.1em;
+        margin-left: 15px;
+    }
+
+    .BaindAvailAvailLeft .Radiosmall:before, .BaindAvailAvailRight .Radiosmall:before {
+        top: 3px;
+        left: -20px;
+    }
+
+    .BaindAvailAvailLeft .Radiosmall:after, .BaindAvailAvailRight .Radiosmall:after {
+        top: 11px;
+        left: -11px;
+    }
+
+    .BaindAvailAvailLeft .clsFareRuleRound, .BaindAvailAvailRight .clsFareRuleRound {
+        padding: 3px;
+        font-size: 11px;
+        text-decoration: none;
+    }
+
+    .BaindAvailAvailLeft .spnDetails, .BaindAvailAvailRight .spnDetails {
+        font-size: 9px;
+    }
+
+    .BaindAvailAvailLeft .clsconnarrowdown, .BaindAvailAvailRight .clsconnarrowdown {
+        margin-left: -3px;
+        padding-top: 0px;
+        margin-top: 0px;
+    }
+
+    .BaindAvailAvailLeft .clsConnfltLogo2, .BaindAvailAvailRight .clsConnfltLogo2 {
+        padding: 3px;
+    }
+
+    .BaindAvailAvailLeft .clsConnfltLogo2 .clsFlightNum, .BaindAvailAvailRight .clsConnfltLogo2 .clsFlightNum {
+        white-space: nowrap;
+        position: static;
+    }
+
+    .BaindAvailAvailLeft .radius-top img, .BaindAvailAvailRight .radius-top img {
+        min-width: 22px;
+    }
+
+    .BaindAvailAvailLeft .clsmobmargtopconnectflt, .BaindAvailAvailRight .clsmobmargtopconnectflt {
+        margin-top: 40px !important;
+    }
+
+    .BaindAvailAvailLeft .clsroundconnectduratin, .BaindAvailAvailRight .clsroundconnectduratin {
+        border-top: 1px dashed #eee;
+        border-bottom: 1px dashed #eee;
+    }
+
+    .BaindAvailAvailLeft .clsroundconnectarriv, .BaindAvailAvailRight .clsroundconnectarriv {
+        text-align: left !important;
+    }
+
+    .BaindAvailAvailLeft .clsroundconnectarriv h4, .BaindAvailAvailRight .clsroundconnectarriv h4 {
+        text-align: left !important;
+        font-size: 12px;
+    }
+
+    .BaindAvailAvailLeft .clsconnlayover, .BaindAvailAvailRight .clsconnlayover {
+        margin-bottom: 5px;
+        margin-top: 0px;
+    }
+
+    .BaindAvailAvailLeft .clsconnstop, .BaindAvailAvailRight .clsconnstop {
+        top: 6px;
+        position: absolute;
+        left: 12px;
+        padding-top: 0px !important;
+    }
+
+    .BaindAvailAvailLeft .clsAvailLayover2, .BaindAvailAvailRight .clsAvailLayover2 {
+        display: none;
+    }
+
+    .BaindAvailAvailLeft .fi_block, .BaindAvailAvailRight .fi_block {
+        min-height: 42px;
+    }
+
+    .BaindAvailAvailLeft .clsVia, .BaindAvailAvailRight .clsVia {
+        right: 39% !important;
+        top: -23px !important;
+    }
+
+    .clsBoldlft {
+        font-size: 10px !important;
+    }
+
+    .clsconndate2 {
+        white-space: nowrap;
+    }
+    /*#endregion */
+}
+
+@media screen and (min-width: 768px) {
+
+    .clsrow {
+        margin-right: -5px;
+        margin-left: -5px;
+    }
+
+    .BaindAvailAvailLeft .radio-label:after, .BaindAvailAvailRight .radio-label:after {
+        top: 34px;
+        left: 34px;
+    }
+
+    #dvinnerAvail_SingleResponse .clsarrivdet {
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 481px) {
+    .clsMconnstop {
+        border-left: 1px solid #ddd;
+        line-height: 28px;
+    }
+}
+/*Multicity Availability End*/
+
+/*FareRule Start*/
+pre {
+    white-space: pre-wrap;
+    font-size: 14px;
+}
+/*FareRule End*/
+
+/*#region SIMS changes */
+.color-red-3 {
+    border: 2px solid;
+}
+
+.color-red-3.showselectaddtocart {
+    width: 100%;
+    float: right;
+    font-size: 13px !important;
+    border-radius: 30px;
+    max-width: 150px;
+}
+
+.c-button-book {
+    border-color: #164798 #164798 #164798;
+    background: #27a5f5;
+    background: linear-gradient(to top,#27a5f5 0,#2874f0 100%);
+    color: #FFF;
+    font-size: 1em;
+    line-height: 1.45;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-width: 1px 1px 2px;
+    border-radius: .23529412em;
+    padding: 10px 40px;
+}
+
+.c-button.b-30 {
+    height: 35px;
+    font-size: 12px;
+    line-height: 34px;
+    font-weight: 400;
+    padding: 0 0px;
+    float: initial;
+}
+
+.c-button {
+    width: 99%;
+    position: relative;
+    display: inline-block;
+    -moz-border-radius: 8px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    text-transform: uppercase;
+    line-height: 14px;
+    font-weight: 500;
+}
+
+.clsBorderBottom {
+    border-bottom: 1px solid #ccc;
+}
+
+.hotel-item {
+    position: relative;
+    width: 100%;
+    float: left;
+    display: inline-block;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.bg-white {
+    background: #fff;
+}
+
+.color-grey {
+    color: #b9b9b9;
+}
+
+.color-grey label {
+    color: #b9b9b9;
+}
+
+.flight-icon .fi_title, .flight-icon .fi_text {
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 400;
+}
+
+.clsavailheader {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #eee;
+    color: #fff;
+}
+
+.clsavailheader label {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+.list-header {
+    margin-bottom: 10px;
+    background: #fff;
+    min-height: 47px !important;
+    border: 1px solid #eee;
+}
+
+/*#endregion */
+
+
+
+.drop-wrap.lblcurrency {
+    line-height: 46px;
+}
+
+.simple-tab .nav-tab {
+    text-align: center;
+    font-size: 0;
+    position: relative;
+    top: -1px;
+    z-index: 2;
+}
+
+.simple-tab.type-2 .nav-tab-item {
+    position: relative;
+    font-size: 10px;
+    line-height: 39px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    height: 39px;
+    background: #f5f5f5;
+    padding: 0 10px;
+    text-transform: uppercase;
+    border: none;
+    margin: 0px 5px;
+    cursor: pointer;
+    border-radius: 0 0 4px 4px;
+    top: 1px;
+}
+
+.simple-tab.type-2 .nav-tab-item:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 9px 10px 0 10px;
+    border-color: transparent transparent transparent transparent;
+}
+
+.simple-tab.type-2 .nav-tab-item.active {
+    background: #022c54;
+    color: #fff;
+}
+
+.tabs-wrap-style {
+    margin-bottom: 0px;
+    padding: 0px;
+}
+
+.simple-tab.type-2 .tab-info {
+    border: none;
+    padding: 0px;
+}
+
+.detail-content {
+    padding: 10px;
+}
+
+.detail-content h6, .acc-body h6 {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.sidebar-block:last-child {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+.sidebar-block ul li {
+    line-height: 18px;
+}
+
+.sidebar-block ul li label {
+    line-height: 0;
+}
+
+.input-entry .checkbox-form {
+    display: none;
+}
+
+.input-entry .checkbox-form + label {
+    display: block;
+    font-size: 11px;
+    margin-bottom: 10px;
+    line-height: 18px;
+}
+
+.airfilterlist {height:116px;overflow-x: hidden !important;font-size:13px;width: 100%;padding-top:0px;}
+.airfilterlist::-webkit-scrollbar-track {background-color: #e9edf0;border-left: 1px solid #ededed;}
+.airfilterlist::-webkit-scrollbar {width: 6px;height: 10px;}
+.airfilterlist::-webkit-scrollbar-thumb {background: #ff8f11 !important;border-radius: 10px;}
+
+.passdetsscroll {height:74vh;overflow-x: hidden !important;font-size:13px;width: 100%;padding-top:0px;}
+.passdetsscroll::-webkit-scrollbar-track {background-color: #e9edf0;border-left: 1px solid #ededed;}
+.passdetsscroll::-webkit-scrollbar {width: 6px;height: 10px;}
+.passdetsscroll::-webkit-scrollbar-thumb {background: #ff8f11 !important;border-radius: 10px;}
+
+.input-entry.color-7 .checkbox-form + label span.sp-check {
+    background: #fff;
+    border: 1px solid #ebebeb;
+}
+
+.input-entry .checkbox-form + label span.sp-check {
+    position: relative;
+    display: inline-block;
+    float: right;
+    width: 19px;
+    height: 19px;
+    top: 0px;
+    margin: 0px 8px 0 0;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.input-entry .checkbox-form:checked + label span.sp-check {
+    background: #5014b6;
+}
+
+.input-entry.color-7 .checkbox-text {
+    color: #333;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.input-entry .checkbox-text {
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 0px;
+    float:left;
+}
+
+.input-entry .checkbox-form + label span.sp-check i {
+    display: none;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.input-entry .checkbox-form:checked + label span.sp-check i {
+    display: block;
+}
+
+.up {
+    transition: 0.8s;
+    -moz-transition: 0.4s;
+    -webkit-transition: 0.4s;
+}
+
+@media only screen and (min-width: 767px) and (max-width: 986px) {
+    .availbutton {
+        width: 100% !important;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 600px) {
+    .availbutton {
+        margin-left: 50px !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .mob10margintop label {
+        top: 0px;
+    }
+
+    .BaindAvailSingle .clsOnwardConnouter {
+        margin-bottom: -25px !important;
+    }
+}
+
+
+@media only screen and (min-width: 350px) and (max-width: 450px) {
+
+    .BaindAvailSingle .clsConnfltLogo .clsFlightNum {
+        left: 10px !important;
+    }
+
+    .farenew {
+        display: block !important;
+    }
+}
+
+@media only screen and (min-width: 760px) and (max-width: 986px) {
+    .clsTakeleftBorder {
+        height: auto;
+    }
+
+    .clsTakeOffBorder {
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 770px) and (max-width: 980px) {
+    .availbutton {
+        margin-left: 7% !important;
+    }
+}
+
+@media only screen and (min-width: 770px) {
+    .radius-top cell-view {
+        margin-left: 20px !important;
+    }
+}
+
+.refundable { /*kalai - 27-9-17*/
+    color: #11afe4;
+    font-size: 8px !important;
+    text-align: center;
+    font-weight: 300;
+}
+
+.refundable:hover {
+    color: #2874f0;
+}
+
+.Timetop {
+    margin-top: 14px !important;
+}
+
+.show-MulpopFaredesc {
+    margin-top: 0px;
+    font-size: 16px !important;
+    white-space: nowrap !important;
+}
+
+.marginTIME {
+    margin-top: 14px !important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0px !important;
+}
+
+.radius-top cell-view {
+    margin-top: -42px !important;
+}
+
+.refunddesign {
+    margin-top: 6px !important;
+    font-size: 10px !important;
+}
+
+
+.SelecCheckbox {
+    width: 18px;
+    height: 18px;
+}
+
+.clsBoldlft {
+    text-align: left;
+    font-weight: 300;
+    white-space: nowrap;
+}
+
+.colclass {
+    text-align: center;
+}
+
+.ClsRight {
+    text-align: right;
+}
+
+#btnRefund_AIAIN209yE {
+    margin-left: 74px;
+}
+/*checkbox*/
+
+.list-item-entry:first-child > .containerpop .farenew {
+    visibility: visible;
+}
+
+.list-item-entry:first-child > .containerpop .hotel-item {
+    visibility: visible;
+    margin-bottom: 2px !important;
+}
+
+.containerpop:hover {
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.24);
+    transition: box-shadow .3s ease-in-out;
+    z-index: 1;
+    visibility: visible !important;
+}
+
+.containerpop:hover .farenew {
+    visibility: visible !important;
+}
+
+.farenew {
+    z-index: 2 !important;
+}
+
+.fa-suitcase {
+    font-size: 14px !important;
+    color: #B5B2BE;
+    cursor: pointer;
+}
+
+#scroll {
+    height: 128px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.progress {
+    height: 6px;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 35px;
+    background: #d6d6d6;
+}
+
+.progressbar-title {
+    color: #333;
+    font-size: 15px;
+    margin: 5px 0 5px;
+}
+
+.progressbar-value {
+    float: right;
+    display: block;
+}
+
+.progress .progress-bar {
+    animation: progress 6s;
+}
+
+@-webkit-keyframes progress {
+    0% {
+        width: 0%;
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+}
+
+#fareid_0 {
+    display: block !important;
+}
+
+#dvinnerAvail_LeftResponse .clsAvailDruation {
+    font-size: 12px !important;
+    white-space: nowrap;
+}
+
+#dvinnerAvail_RightResponse .clsAvailDruation {
+    font-size: 12px !important;
+    white-space: nowrap;
+}
+
+#dvinnerAvail_RightResponse .TakeOffRPlane {
+    display: none;
+}
+
+#dvinnerAvail_RightResponse .ArrivalRPlane {
+    display: none;
+}
+
+#dvinnerAvail_LeftResponse .TakeOffRPlane {
+    display: none;
+}
+
+#dvinnerAvail_LeftResponse .ArrivalRPlane {
+    display: none;
+}
+
+#dvinnerAvail_LeftResponse .stoppos {
+    margin-top: 6px;
+}
+
+#dvinnerAvail_RightResponse .stoppos {
+    margin-top: 6px;
+}
+
+#dvinnerAvail_LeftResponse .flght {
+    top: -6px !important;
+}
+
+#dvinnerAvail_RightResponse .flght {
+    top: -6px !important;
+}
+
+#dvinnerAvail_LeftResponse .rtb {
+    top: -2px !important;
+}
+
+#dvinnerAvail_RightResponse .rtb {
+    top: -2px !important;
+}
+
+#dvinnerAvail_RightResponse .faretop {
+    margin-top: -4px;
+}
+
+#dvinnerAvail_LeftResponse .faretop {
+    margin-top: -4px;
+}
+
+.topselect {
+    margin-left: -15px;
+}
+
+#divselectedFlightsRST_1 {
+    background-color: transparent;
+}
+
+#divselectedFlightsRST_2 {
+    background-color: transparent;
+}
+
+.bookflt {
+    background-color: #3c2663;
+    z-index: 2;
+    border: none;
+    box-shadow: 0 1px 4px 1px #ddd;
+    padding-bottom: 5px;
+}
+
+#dvRoundtripStickbottom{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+}
+
+#dvRoundtripStickbottomh6, #dvRoundtripStickbottom.Roundcurrencychange {
+    color: #fff !important;
+}
+
+.scrollcls {
+    z-index: 4;
+    transform: translateZ(0px);
+}
+
+#amount1 {
+    text-align: center;
+}
+
+.progress {
+    height: 6px;
+    border-radius: 0;
+    box-shadow: none;
+    line-height: 35px;
+    background: #d6d6d6;
+}
+
+.progressbar-title {
+    color: #333;
+    font-size: 15px;
+    margin: 5px 0 5px;
+}
+
+.progressbar-value {
+    float: right;
+    display: block;
+}
+
+.progress .progress-bar {
+    animation: progress 6s;
+}
+
+@-webkit-keyframes progress {
+    0% {
+        width: 0%;
+    }
+}
+
+@keyframes progress {
+    0% {
+        width: 0%;
+    }
+}
+
+.detailmar {
+    float: right;
+    left: -2px;
+    top: -6px;
+}
+
+.nofight {
+    text-align: center;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 0px;
+}
+
+#supportteam {
+    text-align: center;
+    font-size: 13px;
+}
+
+.nomsg {
+    text-align: center;
+    font-size: 1.6em;
+    margin-top: 12px;
+}
+
+.serchpgm {
+    text-align: center;
+    font-size: 20px;
+    margin-top: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #aaa;
+}
+
+#nofltmsg {
+    min-height: 315px;
+    background-color: #fff;
+}
+
+.colr {
+    color: #aaa;
+}
+
+.modclrbtn {
+    background: rgb(254, 123, 34);
+    border: rgb(254, 123, 34);    
+    left: 50%;
+    margin-left:-75px;
+    top: 18px;
+    color: #fff !important;
+}
+
+#orgdest {
+    font-weight: 600;
+}
+
+.nofltimg {
+    margin-left: 111px;
+}
+
+.clsnofltfilterouter {
+    text-align: center;
+    min-height: 250px;
+    background: #fff;
+    padding-top: 50px;
+    float:left;
+    width:100%;
+    padding-bottom:30px;
+    margin-top:10px;
+}
+
+#AvailColumn {
+    min-height: 350px;
+    left: 1%;
+    padding: 0px;
+}
+
+.farecurn {
+    float: right;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.clstop {
+    margin-top: 0px;
+}
+
+.modifyavailpage .mobcls {
+    left: 10px;
+}
+
+#scrollpage:hover {
+    z-index: 2;
+}
+
+.avail {
+    text-decoration: none;
+    color: rgba(0,0,0,.4);
+    z-index: 1;
+}
+
+.avail :before {
+    content: "";
+    position: absolute;
+    width: 45%;
+    height: 2px;
+    bottom: 2px;
+    left: 38px;
+    background: #9CF5A6;
+    visibility: hidden;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: .25s linear;
+}
+
+.avail :hover:before,
+.avail :focus:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.fightmsg {
+    left: 40px;
+    margin-bottom: 10px;
+}
+
+.sizecls {
+    font-size: 12px;
+}
+
+.bordercls {
+    font-size: 12px;
+    border-left: 1px solid #ccc;
+}
+
+.detailinfo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    background: #ffffff;
+    margin-top: 1px;
+    white-space: nowrap;
+}
+
+.samplcls {
+    display: block;
+}
+
+.oneright {
+    font-size: 10px;
+    right: 3px;
+    position: absolute;
+    top: -7px;
+}
+
+.detailinf {
+    font-size: 1.6rem;
+    font-weight: 600;
+    background: #ffffff;
+    margin-top: 16px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.txtdesign {
+    background: #fff;
+    padding: 35px 5px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+    width: 2.5em;
+    height: 2.5em;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation: load7 1.8s infinite ease-in-out;
+    animation: load7 1.8s infinite ease-in-out;
+}
+
+.loader {
+    color: #2874f0 !important; /*#243982*/
+    font-size: 4px;
+    margin: 5px auto 20px auto;
+    position: relative;
+    text-indent: -9999em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+.loader:before,
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 0;
+}
+
+.loader:before {
+    left: -3.5em;
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.loader:after {
+    left: 3.5em;
+}
+
+@-webkit-keyframes load7 {
+    0%, 80%, 100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+@keyframes load7 {
+    0%, 80%, 100% {
+        box-shadow: 0 2.5em 0 -1.3em;
+    }
+
+    40% {
+        box-shadow: 0 2.5em 0 0;
+    }
+}
+
+hr {
+    border-top: none;
+}
+
+.conn_flight {
+    font-weight: 600;
+    cursor: default;
+    background: #FFF7de;
+    top: 0px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 1px solid #EEE;
+    color: #999;
+    display: inline-block;
+    z-index: 1;
+    font-size: 12px;
+}
+
+.conn_flight > :last-child {
+    display: none !important;
+}
+
+.next_day {
+    font-size: 10px;
+    border-radius: 4px;
+    background: #2874f0;
+    color: #fff;
+    padding: 1px 4px;
+    margin-left: 4px;
+    position: absolute;
+    top: 3px;
+}
+
+.sizecls { /*kalai - 21-9-17*/
+    background: #ffffff;
+    padding: 10px 0;
+    border-bottom: 1px dotted #243982;
+    font-size: 13px;
+}
+
+.borderbottom {
+    border-bottom: 5px solid #f5f5f5;
+}
+
+.filterlayover {
+    -webkit-appearance: none;
+}
+
+.airavailcnt {
+    color: #aaa;
+}
+
+/*#region Responsive by kalai - 14-10-17 */
+
+.clsMarginTop10.resfare .c-button.b-30 {
+    margin-left: 0% !important;
+    margin: 0 auto !important;
+    display: block;
+}
+
+@media only screen and (min-width:992px) and (max-width:1200px) {
+    .flight-icon img.fi_icon {
+        left: 20px !important;
+    }
+
+    img.hidden-sm.fi_iconTakeOffPlane.hidden-xs {
+        left: 20px !important;
+    }
+
+    .deptangle {
+        right: -10px !important;
+    }
+
+    .durangle {
+        right: 10px !important;
+    }
+
+    .arriangle {
+        right: 8px !important;
+    }
+
+    .fareangle {
+        right: 22px !important;
+    }
+
+    .runddept {
+        right: -20px !important;
+    }
+
+    .rundarriv {
+        margin-left: 10px !important;
+    }
+
+    .rundfare {
+        margin-top: 0px !important;
+        margin-left: 0px !important;
+    }
+
+    .clsAvailLeft .clsconnleftangle, .clsAvailLeft .clsconnrightangle, .cslAvailRight .clsconnleftangle, .cslAvailRight .clsconnrightangle {
+        font-size: 25px !important;
+    }
+
+    .clsAvailLeft .spritico.layover, .cslAvailRight .spritico.layover {
+        right: 6px !important;
+    }
+
+    .spritico.layover {
+        right: 42px !important;
+    }
+}
+
+@media (min-width:1200px) {
+
+    .clsAvailLeft .spritico.layover, .cslAvailRight .spritico.layover {
+        right: 15px !important;
+    }
+}
+
+@media (max-width:991px) {
+
+    .clsAvailLeft .spritico.layover, .cslAvailRight .spritico.layover {
+        display: none;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+
+    .clsmodifydetails .clsModifysearch {
+        font-size: 13px;
+    }
+
+    .show-MulpopFaredesc {
+        font-size: 17px !important;
+    }
+
+    #dvinnerAvail_RightResponse .clsAvailDruation, #dvinnerAvail_LeftResponse .clsAvailDruation {
+        display: none;
+    }
+
+    .clsAvailLeft .mob10margintop label, .cslAvailRight .mob10margintop label {
+        margin-left: -44px;
+    }
+
+    .clsAvailLeft .dvDetails, .cslAvailRight .dvDetails {
+        margin-left: 55px !important;
+    }
+
+    .clsAvailLeft .availStops, .cslAvailRight .availStops {
+        margin-top: 20px;
+    }
+
+    .simple-tab.type-2 .nav-tab-item {
+        padding: 0 4px;
+        margin: 0px 4px;
+    }
+
+    .deptangle {
+        right: -33px !important;
+    }
+
+    .durangle {
+        right: -10px !important;
+    }
+
+    .arriangle {
+        right: -20px !important;
+    }
+
+    .fareangle {
+        right: -3px !important;
+    }
+
+    .deparlft {
+        left: 0 !important;
+    }
+
+    .txtarriv, .txtfare {
+        margin-left: 5px !important;
+    }
+
+    .clsconncitytime span {
+        font-size: 12px;
+    }
+
+    .econamy {
+        font-size: 12px;
+    }
+
+    .desnamsrch, .orgnamsrch {
+        font-size: 15px !important;
+    }
+
+    .spritico.layover {
+        right: 12px !important;
+    }
+}
+
+@media only screen and (min-width:501px) and (max-width:767px) {
+
+    .availbutton {
+        width: 100% !important;
+    }
+
+    .containerpop {
+        padding-bottom: 10px !important;
+    }
+
+    .availStops .availfare {
+        left: 0px !important;
+        margin-bottom: 5px;
+    }
+
+    .Third_span {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .clsAvailLeft .mob10margintop label, .cslAvailRight .mob10margintop label {
+        margin-left: -33px !important;
+        margin-top: -5px;
+    }
+
+    .clsAvailLeft .dvDetails, .cslAvailRight .dvDetails {
+        margin-left: 55px !important;
+    }
+
+    .clsAvailLeft .mob10margintop span, .cslAvailRight .mob10margintop span {
+        margin-left: 0px;
+    }
+
+    .select-btn {
+        margin: 0 auto 8px;
+    }
+
+    .clsAvailLeft .col-xs-7, .cslAvailRight .col-xs-7 {
+        width: 50% !important;
+        margin-left: 15px;
+    }
+
+    .clsAvailLeft .flight-icon, .cslAvailRight .flight-icon {
+        margin-left: -3px !important;
+    }
+
+    .clsAvailLeft .mob10margintop.availfare.refundable span, .cslAvailRight .mob10margintop.availfare.refundable span {
+        margin-left: -15px !important;
+        margin-top: -10px;
+    }
+
+    .clsAvailLeft .dvDetails span.clsAvailFareRule.spnDetails.farehover.farenew, .cslAvailRight .dvDetails span.clsAvailFareRule.spnDetails.farehover.farenew {
+        margin-left: 0px !important;
+    }
+
+    .dvDetails span {
+        right: 0px;
+        top: 11px;
+    }
+
+    span#refundVal {
+        left: 95px;
+        top: -10px;
+    }
+
+    .clsAvailLeft .subimgcls small, .cslAvailRight .subimgcls small, .clsAvailLeft em, .cslAvailRight em {
+        display: none;
+    }
+
+    .clsAvailLeft .availStops, .cslAvailRight .availStops {
+        margin-top: -7px;
+    }
+
+    .clsAvailLeft .clsconnrightangle, .clsAvailLeft .clsconnleftangle, .cslAvailRight .clsconnrightangle, .cslAvailRight .clsconnleftangle {
+        display: none;
+    }
+
+    .clsAvailLeft .clsMarginTop10.resfare, .cslAvailRight .clsMarginTop10.resfare {
+        width: 33%;
+    }
+
+    .clsbor {
+        border-left: none !important;
+    }
+
+    .clsAvailLeft .clsFlyover, .cslAvailRight .clsFlyover {
+        line-height: 25px !important;
+    }
+
+    .clsAvailLeft .next_day, .cslAvailRight .next_day {
+        display: none;
+    }
+
+    .refunview, .nonrefunview {
+        display: none;
+    }
+
+    .hiderefun, .hidenonrefun {
+        display: none !important;
+    }
+
+    .mob-siz-space h6 {
+        font-size: 13px !important;
+        text-align: center;
+    }
+
+    .clsxs h4 {
+        font-size: 16px !important;
+    }
+
+    #dvRoundtripStickbottom {
+        padding-bottom: 0px !important;
+    }
+
+    .mtbch h6, .selectedfltOuter h6 {
+        font-size: 12px !important;
+    }
+
+    .mltbtn .c-button {
+        padding: 12px 13px !important;
+    }
+
+    #roundfltscroll {
+        margin-top: 3% !important;
+    }
+
+    .desnamsrch, .orgnamsrch {
+        font-size: 13px !important;
+    }
+
+    .clsconnleftangle, .clsconnrightangle {
+        font-size: 25px !important;
+    }
+
+    .spritico.layover {
+        right: 5px !important;
+    }
+
+    .clsAvailLeft .seat-lft, .cslAvailRight .seat-lft {
+        display: none;
+    }
+}
+
+@media (max-width:500px) {
+
+    .dvDetails span {
+        margin-left: 17px !important;
+        margin-top: 5px;
+    }
+
+    .segtypeIO span#refundVal {
+        left: 30px;
+        top: 15px;
+    }
+
+    .segtypeIR span#refundVal {
+        top: -2px;
+    }
+
+    .clsAvailLeft .dvDetails span, .cslAvailRight .dvDetails span {
+        margin-top: 5px !important;
+    }
+
+    span#refundVal {
+        left: 0px;
+        top: -1px;
+    }
+
+    .dvwholeparentavailcls .searchviewsec {line-height:30px !important;}
+
+    .multicitys .searchviewsec {
+        line-height: 30px !important;
+        right: -30px;
+        top: -65px !important;
+        left:inherit;
+    }
+
+    .mob10margintop label {
+        margin-left: -55px;
+        top: 10px;
+    }
+
+    .clsAvailLeft .mob10margintop label, .cslAvailRight .mob10margintop label {
+    }
+
+    .mob10margintop.availfare.refundable span {
+        margin-left: 0px;
+        margin-top: 4px;
+    }
+
+    .tg-category-content.clsModififields {
+        padding: 10px 0 !important;
+    }
+
+    .clsModifydv {
+        padding: 0px !important;
+    }
+
+    .fontsizeclr {
+        font-size: 14px !important;
+        font-weight: 600;
+    }
+
+    .Third_span {
+        text-align: center;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .mltbtn .c-button {
+        padding: 10px 13px !important;
+        float: none;
+        margin: 5px auto;
+        display: block;
+    }
+
+    .spnclsmlpegridtotamunt {
+        text-align:center;
+        margin-top:5px;
+    }
+
+    .mtbch h6, .selectedfltOuter h6 {
+        font-size: 12px;
+    }
+
+    .mob-siz-space h6 {
+        font-size: 13px !important;
+    }
+
+    .clsTakeOffBorder h6 {
+        font-size: 12px !important;
+    }
+
+    #dvinnerAvail_LeftResponse .resfare, #dvinnerAvail_RightResponse .resfare {
+        right: -15px;
+        top: 5px;
+        position: absolute;
+    }
+
+    .clsAvailLeft .next_day, .cslAvailRight .next_day {
+        display: none;
+    }
+
+    .mobrund, .mobrundbtn {
+        width: 100%;
+    }
+
+    .ticketcard {
+        border-left:none;
+        border-top:1px dashed #726d7c;
+        height:60px;
+    }
+
+    .bgoverlay {position:fixed;}
+
+    #slectedflight span {
+        top: -22px;
+        position: absolute;
+        background: #ff8f11;
+        border-radius: 0px 4px 0px 0px;
+        padding: 2px 8px;
+        cursor:pointer;
+    }
+
+    .scrollcls {
+        margin-top: 35px !important;
+    }
+
+    .BaindAvailAvailLeft .hotel-item, .BaindAvailAvailRight .hotel-item {
+        padding: 5px 5px 40px 0px !important;
+    }
+
+    .clsAvailLeft .spngrpavilindcat, .cslAvailRight .spngrpavilindcat {
+        top: -26px !important;
+    }
+
+    .BaindAvailAvailLeft .Radiosmall, .BaindAvailAvailRight .Radiosmall {
+        margin-left: 36px !important;
+        font-size: 16px !important;
+    }
+
+    .serchpgm {
+        font-size: 15px;
+    }
+
+    .desnamsrch, .orgnamsrch {
+        font-size: 13px !important;
+    }
+
+    .orgdes {
+        display: none;
+    }
+
+    .clsTakeOffBorder {
+        height: auto;
+    }
+
+    small.seat-lft {
+        display: none;
+    }
+}
+
+.tabheaderflg.heading.verticalline {
+    padding: 0px !important;
+}
+
+.clsAvailLeft .fi_iconTakeOffRPlane, .cslAvailRight .fi_iconTakeOffRPlane {
+    display: none !important;
+}
+
+.clsAvailLeft .clsMarginTop10.resfare, .cslAvailRight .clsMarginTop10.resfare {
+    margin-top: 15px;
+}
+
+.btn-danger:hover {
+    background-color: #e12026 !important;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #f7483c;
+    width: 30%;
+    border: none;
+    border-radius: 2px;
+    padding: 4px 0;
+}
+
+
+@media (max-width:500px) {
+
+    .clsxs h4 {
+        font-size: 17px !important;
+        margin-top: 15px;
+    }
+
+    span#ro1refun, span#round2refun {
+        display: none;
+    }
+
+    span.filter {
+        color: #000000;
+        font-size: 20px;
+        line-height: 0;
+        cursor: pointer;
+    }
+
+    span.sort {
+        color: #000000;
+        font-size: 20px;
+        line-height: 0;
+        cursor: pointer;
+    }
+
+    .hotel-right-text.color-dark-2.clsFlightNum.subimgcls small {
+        white-space:normal;
+        font-size:10px;
+    }
+
+    .BaindAvailSingle .fi_content .avalCityCode {
+        display: none;
+    }
+
+    .BaindAvailSingle .availStops {
+        border-top: none;
+    }
+
+    .resfare .c-button.b-30 {
+        height: 0 !important;
+        line-height: 0 !important;
+        padding: 14px 0px !important;
+    }
+
+    .BaindAvailSingle . clsavailPCLogo {
+        padding: 5px 0px 5px 0px !important;
+    }
+
+    .next_day {
+        margin-left: 5px !important;
+    }
+}
+
+/*#endregion */
+
+
+a.drop-list {
+    color: #333;
+}
+
+a.sort {
+    color: #333;
+    width: 100%;
+    float: left;
+    padding: 6px 0;
+    background: #f1f1f1;
+    border-bottom: 1px solid #fff;
+    text-indent: 8px;
+}
+
+a.sort:hover {
+    background: #fe7b22;
+    color: #fff;
+}
+
+.sidebar-rating {
+    font-size: 12px;
+}
+
+.nonstop {
+    cursor: auto;
+    color: #b1b393 !important;
+}
+
+.spngrpavilindcat {
+    position: relative;
+    top: -26px;
+    background: #f8f8f8;
+    border-radius: 0px 0px 8px 8px;
+    padding: 0px 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 3px 5px -3px #aaa;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 0;
+    display: none;
+}
+
+.spngrpavilindcat:hover {
+    color: #2375f6;
+}
+
+.groupAvailroot .containerpop {
+    margin-bottom: 2px;
+}
+
+.dvgroupavailroot .dvgrpavilindcat {
+    width: 100%;
+    position: absolute;
+}
+
+.col0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.plusminus {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+}
+
+.plusminus.invers {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+}
+
+.groupAvailroot .dvgroupavail .bg-white {
+    border-left: 3px solid #2375f6;
+    margin-bottom: 5px !important;
+}
+
+.dvgroupavailroot em {
+    font-style: normal;
+}
+
+@media only screen and (min-width:768px) and (max-width:991px) {
+
+    .conn_flight {
+        font-size: 11px !important;
+    }
+
+    .clsAvailLeft .subimgcls small, .cslAvailRight .subimgcls small, .clsAvailLeft em, .cslAvailRight em {
+        display: none;
+    }
+
+    .clsAvailLeft .clsFlightNum, .cslAvailRight .clsFlightNum {
+        font-size: 12px !important;
+    }
+
+    .clsAvailLeft .clsconnrightangle, .clsAvailLeft .clsconnleftangle, .cslAvailRight .clsconnrightangle, .cslAvailRight .clsconnleftangle {
+        display: none;
+    }
+
+    .clsAvailLeft .next_day, .cslAvailRight .next_day {
+        top: 23px;
+        left: -42px;
+    }
+
+    .clsAvailLeft .clsbor, .cslAvailRight .clsbor {
+        border-left: none !important;
+    }
+
+    .clsAvailLeft span.clsAvailFareRule.spnDetails.farehover.farenew, .cslAvailRight span.clsAvailFareRule.spnDetails.farehover.farenew {
+        left: -20px;
+    }
+}
+
+@media (max-width:500px) {
+
+    .conn_flight {
+        top: 5px !important;
+        left: 6px !important;
+        font-size: 10px !important;
+    }
+
+    .clsbor {
+        border-left: none !important;
+    }
+
+    .clsAvailLeft .clsconnrightangle, .clsAvailLeft .clsconnleftangle, .cslAvailRight .clsconnrightangle, .cslAvailRight .clsconnleftangle {
+        display: none;
+    }
+
+    .clsAvailLeft .subimgcls small, .cslAvailRight .subimgcls small, .clsAvailLeft em, .cslAvailRight em {
+        display: none;
+    }
+
+    .clsAvailLeft .clsMarginTop10.mobavail, .cslAvailRight .clsMarginTop10.mobavail {
+        width: 60% !important;
+    }
+
+    .clsMarginTop10 .fa-suitcase {
+        display: none;
+    }
+
+    .col-xs-4.col10.timedur {
+        display: none;
+    }
+
+    .col-xs-4.col10.depttmt {
+        width: 46%;
+        margin-left: 10px;
+    }
+
+    #dvmodifydetails .clsModifysearch {
+        padding: 3px !important;
+        margin-top: 0px !important;
+    }
+
+    .clsconnrightangle, .clsconnleftangle {
+        display: none;
+    }
+
+    .hiderefun, .hidenonrefun {
+        display: none !important;
+    }
+
+    .groupAvailroot .dvgroupavail .bg-white {
+        border-left: 2px solid #2375f6 !important;
+    }
+
+    .medex .arsze {
+        transform: rotate(90deg);
+    }
+}
+
+.refunview span {
+    border: 1px solid #2CC185;
+    background: #2CC185;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 5px;
+}
+
+.refunview, .nonrefunview {
+    font-size: 12px;
+}
+
+.nonrefunview span {
+    border: 1px solid #fe7b22;
+    background: #fe7b22;
+    color: #fff;
+    border-radius: 50%;
+    padding: 0 1px;
+}
+
+.refungr {
+    border: 1px solid #2CC185;
+    background: #2CC185;
+    color: #fff !important;
+    border-radius: 50%;
+    padding: 0 5px;
+    line-height: 15px;
+    top: 5px;
+}
+
+.nonrefunor {
+    border: 1px solid #fe7b22;
+    background: #fe7b22;
+    color: #fff !important;
+    border-radius: 50%;
+    padding: 0 1px;
+    line-height: 15px;
+    top: 5px;
+}
+
+@media only screen and (min-width:768px) and (max-width:841px) {
+
+    p#pmodifydetilsegment {
+        font-size: 12px !important;
+    }
+}
+
+@media (min-width:1201px) {
+
+    .runddept {
+        right: 0px !important;
+    }
+}
+
+.dvgroupavail {
+    background: #fef1e9;
+    padding: 10px 10px;
+    margin-bottom: 6px;
+}
+
+.dvgroupavail .hotel-item {
+    margin-bottom: 0px !important;
+}
+
+span.sort, span.filter {
+    font-size: 20px;
+}
+
+.returnfli img {
+    transform: rotate(180deg);
+}
+
+@media only screen and (min-width:768px) and (max-width:1200px) {
+
+    .clsAvailLeft .seat-lft, .cslAvailRight .seat-lft {
+        top: 0px !important;
+        left: -50px !important;
+    }
+}
+
+/*international avail 24/02/17*/
+.des-dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    right: 0px;
+    border: 2px solid #23c10b;
+    background: #fff;
+}
+
+.org-dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: -8px;
+    border: 2px solid #23c10b;
+    background: #fff;
+}
+
+.org-time {
+    font-size: 14px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #000;
+}
+
+.dest-time {
+    font-size: 14px;
+    font-weight: 900;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #000;
+}
+
+.travltime {
+    position: relative;
+    top: 3px;
+    text-align: center;
+    font-size: 11px;
+}
+
+.lineavail {
+    border-top: 2px dashed #ddd;
+    float: left;
+    position: relative;
+}
+
+.layoverclass {
+    border-top: 2px dashed #f46464 !important;
+}
+
+.org-name {
+    color: rgba(0, 0, 0, 0.86);
+    text-transform: uppercase;
+    padding-top: 3px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.dest-name {
+    color: rgba(0, 0, 0, 0.86);
+    text-transform: uppercase;
+    padding-top: 3px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.smallorg-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    background: #f46464;
+}
+
+.smalldes-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -6px;
+    right: 0px;
+    background: #f46464;
+}
+
+.smalltime {
+    font-size: 10px !important;
+    color: #aaa;
+    top: -20px;
+}
+
+.marpad10top { /*kalai - 22-12-17*/
+    padding: 0px 0 0 0;
+}
+
+.detdsnclass { /*kalai - 22-12-17*/
+    position: relative;
+    top: 0px;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.marbtm12 {
+    margin-bottom: 12px;
+}
+
+.smallgrayorg-dot {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: -7px;
+    background: #ddd;
+}
+
+.intertravltime {
+    position: relative;
+    top: -24px;
+    text-align: center;
+    font-size: 11px;
+    left: 5px;
+    color: #777;
+}
+
+.intercls {
+    position: relative;
+    top: 17px;
+}
+
+/*** Responsive International - 3-5-18 ***/
+@media only screen and (min-width:769px) {
+    .pad-l-r-0-w {
+        padding: 0px !important;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .show-MulpopFaredesc {
+        margin-top: 0px;
+        font-size: 1.3em !important;
+    }
+
+    .segtypeIO .clsMarginTop10.resfare .c-button.b-30 {
+        float: right !important;
+    }
+
+    .segtypeIO .show-MulpopFaredesc {
+        float: left;
+        padding: 0px !important;
+        text-align: center;
+        width: 100%;
+    }
+
+    .segtypeIO .res-inter {
+        top: 48px;
+    }
+
+    .clsAvailSingle .availfare {
+        top: 3px !important;
+    }
+
+    .mg-btm-50 {
+        margin-bottom: 50px;
+    }
+
+    .lft-clk {
+        left: 10px;
+    }
+
+    .rgt-clk {
+        right: 10px;
+    }
+}
+
+@media (min-width:501px) and (max-width:767px) {
+    .clsAvailSingle .show-MulpopFaredesc {
+        margin-top: 5px !important;
+    }
+
+    .BaindAvailAvailLeft .show-MulpopFaredesc, .BaindAvailAvailRight .show-MulpopFaredesc {
+        margin-top: 16px !important;
+    }
+
+    .BaindAvailAvailLeft .availStops .availfare, .BaindAvailAvailRight .availStops .availfare {
+        left: 30px !important;
+    }
+
+    .BaindAvailAvailLeft .clsavailPCLogo, .BaindAvailAvailRight .clsavailPCLogo {
+        padding: 0px;
+        top: -5px;
+        z-index: 2;
+    }
+
+    .res-mob {
+        position: relative;
+        margin-top: 18px !important;
+        margin-bottom: 15px;
+    }
+
+    .segtypeIO .clsAvailSingle .show-MulpopFaredesc {
+        margin-top: 5px !important;
+    }
+
+    .segtypeIO .res-inter {
+        top: 40px;
+    }
+
+    .segtypeIO .res-slect {
+        top: 10px;
+    }
+
+    .segtypeIO .clsMarginTop10.resfare .c-button.b-30 {
+        float: right !important;
+    }
+
+    .segtypeIO .show-MulpopFaredesc {
+        float: left;
+        padding: 0px !important;
+        margin-top: 0px !important;
+    }
+
+    .segtypeIO small.seat-lft {
+        display: none;
+    }
+
+    .intersecondflightimg label.clsAvailFareRule {
+        position: absolute;
+        top: 95%;
+        left: 10px;
+    }
+
+    .clsAvailLeft .spritico.layover, .cslAvailRight .spritico.layover {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .BaindAvailAvailLeft .clsxsbortopbot, .BaindAvailAvailRight .clsxsbortopbot {
+        display: none;
+    }
+
+    .BaindAvailAvailLeft .flight-icon, .BaindAvailAvailRight .flight-icon {
+        margin-left: 15px;
+    }
+
+    .BaindAvailAvailLeft .availfare, .BaindAvailAvailRight .availfare {
+        left: 20px !important;
+    }
+
+    .travltime {
+        display: none;
+    }
+
+    .res-mob {
+        position: relative;
+        margin-top: 0px !important;
+        margin-bottom: 15px;
+    }
+
+    .intersecondflightimg {
+        height: 40px;
+        position: relative;
+        left: -15px;
+    }
+
+    .rundres {
+        width: 75%;
+        float: left;
+        margin-bottom: 15px;
+        margin-left: 8px;
+    }
+
+    .intersecondflightimg label.clsAvailFareRule {
+        position: absolute;
+        top: 280%;
+        left: 10px;
+    }
+
+    .segtypeIR .res-slect {
+        position: absolute;
+        top: 25px !important;
+        right: 0px;
+        width: 90px;
+    }
+
+    .segtypeIO .mob10margintop.availfare.refundable span {
+        margin-top: 0px;
+    }
+
+    .segtypeIR .mob10margintop.availfare.refundable span {
+        margin-top: -17px;
+    }
+
+    .spritico.layover {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+
+    .blockUI.blockMsg.searchavail.blockPage {
+        width: 90% !important;
+        top: 8% !important;
+        background-color: #fff !important;
+        left: 50% !important;
+        margin-left: -45% !important;
+    }
+
+    .farenew {
+        visibility: visible;
+    }
+
+    .segtypeIR .res-slect {
+        width: 75px;
+    }
+
+    .dvgroupavail {
+        padding: 10px 0px;
+    }
+
+    .sidebar-block:last-child {
+        margin-bottom: 20%;
+    }
+
+    .groupAvailroot .containerpop {
+        padding: 2px 0px 25px 0px;
+    }
+
+    .clsAvailLeft, .cslAvailRight {
+        width: 100% !important;
+    }
+}
+
+.marglftoffset1 {
+    width: 100%;
+    margin: 0 auto;
+    float: none;
+}
+
+.res-inter {
+    font-size: 12px;
+    top: -8px;
+}
+
+@media (min-width:768px) and (max-width:991px) {
+    .intertravltime {
+        left: 0px;
+    }
+
+    .segtypeIO span#refundVal {
+        left: 10px;
+    }
+}
+
+.firstscroll {
+    max-height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+    border: 1px solid #ddd;
+}
+
+.secondscroll {
+    max-height: 600px;
+    overflow: auto;
+    overflow-x: hidden;
+    position: relative;
+    left: 6px;
+    border: 1px solid #ddd;
+}
+
+.selectbtncls {
+    width: 30% !important;
+    left: 72% !important;
+}
+
+.serchpgmselect {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #222;
+}
+
+@media screen and (max-width: 320px) {
+    .BaindAvailSingle .clsOnwardConnouter {
+        margin-bottom: -25px !important;
+    }
+
+    .BaindAvailAvailLeft .clsVia, .BaindAvailAvailRight .clsVia {
+        top: -23px !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .clsAvailLeft .availStops .availfare, .cslAvailRight .availStops .refundable {
+        margin-top: 0px !important;
+        margin-bottom: 5px;
+    }
+
+    .BaindAvailAvailLeft .Radiosmall, .BaindAvailAvailRight .Radiosmall {
+        margin-top: 17px;
+    }
+
+    .BaindAvailSingle .clsOnwardConnouter {
+        margin-top: 27px;
+    }
+
+    .mobavail > .row {
+        margin-right: -15px;
+    }
+
+    .intertravltime {
+        top: -15px;
+    }
+
+    .org-name {
+        top: 14px;
+    }
+
+    .dest-name {
+        top: 14px;
+    }
+
+    .clsOnwardConnouter2 {
+        margin-bottom: -34px !important;
+        margin-top: 32px;
+    }
+}
+
+@media only screen and (max-width: 767px) and (min-width: 501px) {
+    .dvDetails span {
+        left: 68px;
+        margin-left: 18px;
+    }
+
+    .clsMarginTop10 .fa-suitcase {
+        margin-top: 13px;
+        margin-left: 20px;
+    }
+
+    .clsMarginTop10 .fa-suitcase {
+        font-size: 15px !important;
+        margin-top: 7px !important;
+    }
+
+    .clsAvailFareRule {
+        padding: 0px !important;
+    }
+
+    .dvDetails span {
+        top: 9px !important;
+    }
+
+    .clsAvailLeft .mob10margintop.availfare.refundable span {
+        margin-top: -2px;
+    }
+
+    .clsAvailLeft .mob10margintop label {
+        margin-top: 2px;
+    }
+
+    .BaindAvailAvailLeft .Radiosmall {
+        margin-left: 100px;
+    }
+
+    .groupAvailroot .containerpop {
+        padding-left: 0px !important;
+    }
+
+    .BaindAvailSingle .clsOnwardConnouter {
+        margin-bottom: -6px !important;
+        margin-left: -6px;
+    }
+
+    .clsxs h4 {
+        padding: 2px 10px;
+    }
+
+    .mobavail > .row {
+        margin-left: -14px;
+        margin-right: -100px;
+    }
+
+    .intertravltime {
+        top: -15px;
+    }
+
+    .org-name {
+        top: 16px;
+    }
+
+    .dest-name {
+        top: 12px;
+    }
+
+    .BaindAvailAvailLeft .clsVia, .BaindAvailAvailRight .clsVia {
+        top: -23px !important;
+    }
+}
+
+.refungr {
+    border-radius: 50%;
+    padding: 0 5px !important;
+}
+
+/*Check-select-esign----12/11/2018*/
+
+.tg-list {
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.tg-list-item {
+    margin: 0 20px;
+}
+
+.tgl {
+    display: none;
+}
+
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+    box-sizing: border-box;
+}
+
+.tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+    background: none;
+}
+
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+    background: none;
+}
+
+.tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+}
+
+.tgl + .tgl-btn:after {
+    left: 0;
+}
+
+.tgl + .tgl-btn:before {
+    display: none;
+}
+
+.tgl:checked + .tgl-btn:after {
+    left: 50%;
+}
+
+.tgl-flip + .tgl-btn {
+    padding: 2px;
+    transition: all .2s ease;
+    font-family: sans-serif;
+    -webkit-perspective: 100px;
+    perspective: 100px;
+}
+
+.tgl-flip + .tgl-btn:after, .tgl-flip + .tgl-btn:before {
+    display: inline-block;
+    transition: all .4s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 4px;
+}
+
+.tgl-flip + .tgl-btn:after {
+    content: attr(data-tg-on);
+    background: #02C66F;
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.tgl-flip + .tgl-btn:before {
+    background: #FF3A19;
+    content: attr(data-tg-off);
+}
+
+.tgl-flip + .tgl-btn:active:before {
+    -webkit-transform: rotateY(-20deg);
+    transform: rotateY(-20deg);
+}
+
+.tgl-flip:checked + .tgl-btn:before {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.tgl-flip:checked + .tgl-btn:after {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    left: 0;
+    background: #7FC6A6;
+}
+
+.tgl-flip:checked + .tgl-btn:active:after {
+    -webkit-transform: rotateY(20deg);
+    transform: rotateY(20deg);
+}
+/*Check-select-esign----12/11/2018*/
+
+
+/*#region thkye*/
+.sidebar-title {
+    font-size: 14px !important;
+    line-height: 20px;
+    font-weight: 500;
+    text-transform: none !important;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: left;
+    width: 100%;
+}
+
+.clsfixedmodifymob {
+    width: 100%;
+}
+
+/*endregion*/
+
+.orgdestp {
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
+}
+
+.arrowsec {
+    padding-top: 5px;
+}
+
+.segtypeIR {
+    padding-bottom: 15px;
+}
+
+/*region Avail loading*/
+.fli-list, .fli-list-flight_details, .flight_info_outer {
+    position: relative;
+}
+.fli-list {
+    background: #fff;
+    border-radius: 2px;
+    border: 1px solid #e9e9e9;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.fli-list:first-child {
+    margin-top:40px;
+}
+
+.fli-list-heading-section.one_way_loading {
+        padding: 10px 10px 39px 10px;
+}
+.fli-list-heading-section {
+    padding: 20px 20px 5px 18px;
+}
+.loading_img_box {
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    background: radial-gradient(50px 50px, circle closest-side, black, white);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ECEFF3', endColorstr='#F9FAFB', GradientType=1 );
+    float: left;
+}
+.loading_img_box, .loading_line_l {
+    position: relative;
+    overflow: hidden;
+}
+
+.one_way_loading .loading_head_line {
+    width: 350px;
+}
+.loading_head_line {
+    float: left;
+    margin: 5px 0 0 15px;
+    width: 600px;
+}
+
+.loading_line_m {
+    width: 100%;
+    height: 15px;
+    background: #f6f7f9;
+    overflow: hidden;
+    position: relative;
+}
+
+.append_bottom15 {
+    margin-bottom: 15px;
+}
+
+.loading_line_m .inner_loader {
+    animation: loadingMover1 .8s infinite linear;
+    background: linear-gradient(to right,#f3f4f7 10%,#e4e4e4 52%,#f3f4f7 100%) rgba(0,0,0,0);
+    position: absolute;
+    width: 50%;
+}
+
+.loading_line_l .inner_loader, .loading_line_m .inner_loader, .loading_line_s .inner_loader {
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f4f7', endColorstr='#e4e4e4', GradientType=0 );
+    height: 15px;
+}
+.loading_line_l .inner_loader, .loading_line_m .inner_loader {
+    -webkit-animation: loadingMover1 .8s infinite linear;
+    -moz-animation: loadingMover1 .8s infinite linear;
+    -o-animation: loadingMover1 .8s infinite linear;
+}
+
+.one_way_loading .right {
+    float: right;
+}
+
+.loading_line_s {
+    width: 109px;
+    height: 15px;
+    background: #f6f7f9;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading_line_s .inner_loader {
+    -webkit-animation: loadingMover1 .8s infinite linear;
+    -moz-animation: loadingMover1 .8s infinite linear;
+    -o-animation: loadingMover1 .8s infinite linear;
+    animation: loadingMover1 .8s infinite linear;
+    background: linear-gradient(to right,#f3f4f7 10%,#e4e4e4 52%,#f3f4f7 100%) rgba(0,0,0,0);
+    position: absolute;
+    width: 100%;
+}
+
+.fli-list-body-section {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 5px 10px 10px;
+}
+
+.dept-options {
+    margin-right: auto;
+}
+
+.dept-options, .return-options {
+    padding: 15px 0 15px 8px;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    width: 100%;
+}
+
+.pull-left {
+    float: left!important;
+}
+
+
+.loading_line_l {
+    width: 398px;
+    height: 15px;
+    background: #f6f7f9;
+}
+
+.append_bottom20 {
+    margin-bottom: 20px;
+}
+
+@-webkit-keyframes loadingMover1 {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@-moz-keyframes loadingMover1 {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes loadingMover1 {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes page_loader__mover {
+  0% {
+    width: 100px;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@-moz-keyframes page_loader__mover {
+  0% {
+    width: 100px;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes page_loader__mover {
+  0% {
+    width: 100px;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+/*endregion*/
+
+.loading_line_l .inner_loader {
+    animation: loadingMover1 .8s infinite linear;
+    background: linear-gradient(to right,#f3f4f7 10%,#e4e4e4 52%,#f3f4f7 100%) rgba(0,0,0,0);
+    position: absolute;
+    width: 50%;
+}
+
+@media only screen and (max-width:767px){
+    .loading_img_box {
+        display:none;
+    }
+
+    .one_way_loading .loading_head_line {
+        width:100%;
+    }
+
+    .loading_head_line {
+        margin:5px 0 0 0;
+    }
+
+    .fli-list-heading-section.one_way_loading {
+        padding: 4px 10px 39px 10px;
+    }
+
+    .append_bottom15 {
+        margin-bottom:10px;
+    }
+
+    #slctdflightlist .cmnclsstkbtm {
+        width:100% !important;
+        padding:0px !important;
+    }
+
+    #slctdflightlist .orgtodes {
+        float: left;
+        width: 100%;
+        font-size: 15px;
+        margin-bottom: 5px;
+        border: none;
+    }
+
+    #dvRoundtripStickbottom .cmnclssegsparedsn {
+        display:none;
+    }
+
+    #dvRoundtripStickbottom .ticketcard:after, .ticketcard:before {
+        display:none;
+    }
+
+    .airlogo {
+        border-right: 1px dashed #ddd;
+        padding: 75px 0;
+    }
+
+    #dvidparentAvail .dvclsavailscroll {height:auto;}
+
+    .mltbtn.float-left {
+        padding:7px 0px 0px 0px !important;
+        width:100%;
+    }
+
+    .lblcslgrosamount {
+        font-size:16px !important;
+    }
+}
+
+#dvFilterSortingouter .sidebar-block {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #efefef;
+}
+
+.cmnminmaxspnvalue{
+    position:absolute;top:17px;font-size:11px;white-space:nowrap;
+}
+
+#avail_loading{
+    text-align: center;
+    background: #fff;
+    min-height: 300px;
+    color: black;
+}
+
+.fareflagecss{
+    visibility:hidden;
+}
+
+.dvclsinnsersorthder h6{
+    font-size: 12px;
+    padding: 8px 0px !important;
+    color: rgba(0, 0, 0, 0.86);
+    cursor:pointer;
+}
+
+.dvclsavailscroll .fli-list:first-child {
+    margin-top: 0;
+}
+
+.dvclsavailscroll {height:770px;overflow-x: hidden !important;font-size:13px;width: 100%;padding-top:0px;margin-top:40px;}
+.dvclsavailscroll::-webkit-scrollbar-track {background-color: #e9edf0;border-left: 1px solid #ededed;}
+.dvclsavailscroll::-webkit-scrollbar {width: 6px;height: 10px;}
+.dvclsavailscroll::-webkit-scrollbar-thumb {background: #ff8f11 !important;border-radius: 10px;}
+
+#dvidparentAvail .searchviewsec [type="radio"]:checked,
+#dvidparentAvail .searchviewsec [type="radio"]:not(:checked) {position: absolute;left: -9999px;}
+#dvidparentAvail .searchviewsec [type="radio"]:checked + label,
+#dvidparentAvail .searchviewsec [type="radio"]:not(:checked) + label {position: relative;padding-left: 0px;cursor: pointer;line-height: 20px;display: inline-block;color: #666;width:100%;text-align:left;}
+#dvidparentAvail .searchviewsec [type="radio"]:checked + label:before,
+#dvidparentAvail .searchviewsec [type="radio"]:not(:checked) + label:before {content: '';position: absolute;right: 0;top: 0;width: 20px;height: 20px;border: 2px solid rgba(0, 0, 0, 0.28);border-radius: 100%;background: #fff;}
+#dvidparentAvail .searchviewsec label:after {content: '';width: 8px;height: 8px;background: #e6e6e6;position: absolute;top: 6px;right: 6px;border-radius: 100%;-webkit-transition: all 0.2s ease;transition: all 0.2s ease;}
+#dvidparentAvail .searchviewsec [type="radio"] label:after {opacity: 0;-webkit-transform: scale(1);transform: scale(1);}
+#dvidparentAvail .searchviewsec [type="radio"]:not(:checked) + label:after {opacity: 1;-webkit-transform: scale(1);transform: scale(1);}
+#dvidparentAvail .searchviewsec [type="radio"]:checked + label:after {opacity: 1;-webkit-transform: scale(1);transform: scale(1);background: #ff9012;}
+
+.multicitys .searchviewsec {left: 35px;top: 0;z-index:1;}
+
+.multislctfltactive{
+    background:rgba(233, 228, 243, 0.5)
+}
+
+.dvclssortingclick.active h6 {
+    color: #541ab8;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nxtdaysec {
+    top: -5px;
+    left: 40px;
+}
+
+.bgoverlay {
+    top: 50%;
+    background: rgba(0, 0, 0, 0.81);
+    color: #fff;
+    z-index:1;
+    padding:8px;
+}
+
+.brdr-rad-rgt {
+    border-radius: 4px 0px 0px 4px;
+}
+
+.brdr-rad-lft {
+    border-radius: 0px 4px 4px 0px;
+}
+
+.lft-clk {left:0px;}
+.rgt-clk {right:15px;}
+
+.lft-clk-btm {left:5px;}
+.rgt-clk-btm {right:0px;}
+
+.selecttripslider {
+    background: #fff;
+    color: #ff9012;
+    z-index: 1;
+    padding: 4px 2px;
+    top:40%;
+}
+
+.filterrouter {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.rectangleavailpage {
+  width: 455px;
+  height: 169px;
+  border-radius: 4px;
+  background-color: #bebebe;
+}
+ #dv_norec {
+    border-radius: 5px;
+    border: 2px solid #bebebe;
+    background: #bebebe;
+    padding: 20px;
+    height: 169px;
+    margin: 5% 15%;
+}
+
+.modifybtn {
+    border: 1px solid #ffffff;
+    border-radius: 12px;
+    color: #fafafa;
+    padding: 10px;
+    background: #ff8f0e;
+    margin-top: 5px;
+    width: 130%;
+}
+
+.flticon .fa.fa-plane {
+    font-size:13px;
+}
+
+/*Multicity International*/
+.line-multicity { 
+    height: 1px;
+    background: rgba(0, 0, 0, 0.12);
+}
+
+.moptions {
+    left: 50%;
+    margin-left: -38px;
+    top: -8px;
+}
+
+.moptions span {
+    padding: 5px 10px;
+    font-size: 8px;
+    font-weight: 600;
+    cursor:pointer;
+}
+/*End*/
+
+ .nameover_flow {
+    overflow: hidden; text-overflow: ellipsis;  white-space: nowrap;
+}
+ .qcont{
+  text-transform: capitalize; 
+}

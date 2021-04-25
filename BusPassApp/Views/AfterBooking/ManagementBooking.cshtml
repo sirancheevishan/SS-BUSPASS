@@ -1,0 +1,411 @@
+﻿@{
+    ViewBag.Title = "ManagementBooking";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+    String strProfilepath = Session["USER_PROFILE_PATH"] != null ? Session["USER_PROFILE_PATH"].ToString() : "";
+    String strUserName = Session["USER_NAME"] != null ? Session["USER_NAME"].ToString() : "";
+}
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+        padding-top: 10px;
+    }
+
+    .design-process-section .text-align-center {
+        line-height: 25px;
+        margin-bottom: 12px;
+    }
+
+    .design-process-content {
+        border: 1px solid #e9e9e9;
+        position: relative;
+        padding: 16px 34% 30px 30px;
+    }
+
+        .design-process-content img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            max-height: 100%;
+        }
+
+        .design-process-content h3 {
+            margin-bottom: 16px;
+        }
+
+        .design-process-content p {
+            line-height: 26px;
+            margin-bottom: 12px;
+        }
+
+    .process-model {
+        list-style: none;
+        padding: 0;
+        position: relative;
+        max-width: 600px;
+        margin: 20px auto 26px;
+        border: none;
+        z-index: 0;
+        margin-left: -15%;
+    }
+
+        .process-model li::after {
+            background: #e5e5e5 none repeat scroll 0 0;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 4px;
+            margin: 0 auto;
+            position: absolute;
+            right: -30px;
+            top: 33px;
+            width: 85%;
+            z-index: -1;
+        }
+
+        .process-model li.visited::after {
+            background: #990000;
+        }
+
+        .process-model li:last-child::after {
+            width: 0;
+        }
+
+        .process-model li {
+            display: inline-block;
+            width: 18%;
+            text-align: center;
+            float: none;
+        }
+
+            .nav-tabs.process-model > li.active > a, .nav-tabs.process-model > li.active > a:hover, .nav-tabs.process-model > li.active > a:focus, .process-model li a:hover, .process-model li a:focus {
+                border: none;
+                background: transparent;
+            }
+
+            .process-model li a {
+                padding: 0;
+                border: none;
+                color: #606060;
+            }
+
+            .process-model li.active,
+            .process-model li.visited {
+                color: #990000;
+            }
+
+                .process-model li.active a,
+                .process-model li.active a:hover,
+                .process-model li.active a:focus,
+                .process-model li.visited a,
+                .process-model li.visited a:hover,
+                .process-model li.visited a:focus {
+                    color: #990000;
+                }
+
+                .process-model li.active p,
+                .process-model li.visited p {
+                    font-weight: 600;
+                }
+
+            .process-model li i {
+                display: block;
+                height: 63px;
+                width: 65px;
+                text-align: center;
+                margin: 0 auto;
+                background: #f5f6f7;
+                border: 2px solid #e5e5e5;
+                line-height: 65px;
+                font-size: 22px;
+                border-radius: 50%;
+            }
+
+            .process-model li.active i, .process-model li.visited i {
+                background: #fff;
+                border-color: #990000;
+            }
+
+            .process-model li p {
+                font-size: 14px;
+                margin-top: 11px;
+            }
+
+    .containerinner {
+        box-shadow: 0 5px 5px 5px #a944425c;
+    }
+
+    .btn {
+        height: 38px;
+        width: 45%;
+        cursor: pointer !important;
+        border-radius: 3px;
+        background: #990000ad;
+        color: white;
+        border-color: #990000;
+    }
+
+    .pad {
+        padding: 1% 1%;
+        JUSTIFY-CONTENT: center;
+        DISPLAY: flex;
+    }
+
+    .panelcolor {
+        border: 1px solid #990000;
+        background-color: #9900002e;
+    }
+
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Management Booking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+</head>
+<body>
+
+
+
+    <div class="myDiv container">
+        <div class="containerinner">
+            <section class="design-process-section" id="process-tab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <!-- design process steps-->
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs justify-content-center process-model more-icon-preocess" role="tablist">
+                                <li role="presentation" class="active">
+                                    <a href="#manage" aria-controls="discover" role="tab" data-toggle="tab">
+                                        <i class="fa fa-clipboard" aria-hidden="true"></i>
+                                        <p>Manage</p>
+                                    </a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="#cancellation" aria-controls="strategy" role="tab" data-toggle="tab">
+                                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                                        <p>Cancellation</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                            <!-- end design process steps-->
+                            <!-- Tab panes -->
+
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="manage">
+
+
+
+                                    <div class="row pad">
+                                        <div class="col-sm-3">
+                                            <label>From Date</label><br>
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="formdate">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>To Date</label><br>
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="todate">
+
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Booking Date</label><br>
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="bookdate">
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row pad">
+                                        <div class="col-sm-3">
+                                            <label>Pass Type</label><br>
+
+                                            <select class="text-bx form-control" id="passtype">
+                                                <option>-Select-</option>
+                                                <option>Student Pass (School)</option>
+                                                <option>Student Pass (College)</option>
+                                                <option>Senior Citizens pass</option>
+                                                <option>Handicapped and Blind pas</option>
+                                                <option>Journalists / Press Reporter pass</option>
+                                                <option>Travel as you Please Tickets</option>
+                                                <option>Monthly Pass</option>
+                                                <option>Freedom fighters pass</option>
+                                            </select>
+
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Status</label><br>
+                                            <input type="text" class="text-bx form-control" id="status" />
+                                        </div>
+                                    </div>
+
+                                    <div class="row pad pl">
+                                        <div class="col-sm-3">
+                                            <input type="button" class="btn" value="Get History" id="gethistory" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="button" class="btn" value="Clear" id="ClearEntry" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div role="tabpanel" class="tab-pane" id="cancellation">
+
+
+                                    <img src="~/Images/buses/ComingSoon2.gif" alt="Cs Img" style="width: 40%;" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+    <br />
+    <br />
+
+    <div id="ResultTable" style="display:none;">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panelcolor">
+                    <div class="panel-heading">
+                        Bus Pass User's Details
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Mobile No</th>
+                                        <th>Email Id</th>
+                                        <th>Address</th>
+                                        <th>Password</th>
+                                        <th>Edit</th>
+                                        <th>Active</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 4.0</td>
+                                        <td>Win 95+</td>
+                                        <td class="center">4</td>
+                                        <td class="center">X</td>
+                                        <td>pass</td>
+                                        <td>Edit</td>
+                                        <td>Active</td>
+                                    </tr>
+                                    <tr class="even gradeC">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 5.0</td>
+                                        <td>Win 95+</td>
+                                        <td class="center">5</td>
+                                        <td class="center">C</td>
+                                        <td>pass</td>
+                                        <td>Edit</td>
+                                        <td>Active</td>
+                                    </tr>
+                                    <tr class="odd gradeA">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 5.5</td>
+                                        <td>Win 95+</td>
+                                        <td class="center">5.5</td>
+                                        <td class="center">A</td>
+                                        <td>pass</td>
+                                        <td>Edit</td>
+                                        <td>Active</td>
+                                    </tr>
+                                    <tr class="even gradeA">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 6</td>
+                                        <td>Win 98+</td>
+                                        <td class="center">6</td>
+                                        <td class="center">A</td>
+                                        <td>pass</td>
+                                        <td>Edit</td>
+                                        <td>Active</td>
+                                    </tr>
+                                    <tr class="odd gradeA">
+                                        <td>Trident</td>
+                                        <td>Internet Explorer 7</td>
+                                        <td>Win XP SP2+</td>
+                                        <td class="center">7</td>
+                                        <td class="center">A</td>
+                                        <td>pass</td>
+                                        <td>Edit</td>
+                                        <td>Active</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        // script for tab steps
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+
+            var href = $(e.target).attr('href');
+            var $curr = $(".process-model  a[href='" + href + "']").parent();
+
+            $('.process-model li').removeClass();
+
+            $curr.addClass("active");
+            $curr.prevAll().addClass("visited");
+        });
+        // end  script for tab steps
+        $(document).ready(function () {
+            $(".clsdatepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                minDate: '-90y',
+                maxDate: '-10y',
+                changeMonth: true,
+                changeYear: true,
+
+            });
+        });
+        $(document).ready(function () {
+            $("#gethistory").click(function () {
+                $("#ResultTable").show();
+            });
+        });
+        // Clear Entry Form
+        $(document).ready(function () {
+            $("#ClearEntry").click(function () {
+
+                $("#ResultTable").hide();
+                $("#fromdate").val("");
+                $("#todate").val("");
+                $("#bookdate").val("");
+                $("#passtype").val("");
+                $("#status").val("");
+            });
+        });
+         $(document).ready(function () {
+        $("#spnUserName").html('@strUserName');
+    });
+    </script>
+</body>
+</html>

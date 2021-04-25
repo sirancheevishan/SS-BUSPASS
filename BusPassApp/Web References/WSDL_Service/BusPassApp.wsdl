@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="InsertRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strRequest" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertRegistrationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fetch_User_Details">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strRegisteredNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMailID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Fetch_User_DetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Fetch_User_DetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SMSContent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendOTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendOTPResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Fetch_OTP">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strRegisteredNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobileNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMailID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMobileOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strMailOTP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Fetch_OTPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Insert_Fetch_OTPResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strToMaiID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strSubject" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strContent" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendMailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InertFetchBookingDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strobj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InertFetchBookingDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InertFetchBookingDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagePGTrack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strobj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ManagePGTrackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ManagePGTrackResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="InsertRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRegistration" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="Fetch_User_DetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:Fetch_User_Details" />
+  </wsdl:message>
+  <wsdl:message name="Fetch_User_DetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:Fetch_User_DetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPSoapIn">
+    <wsdl:part name="parameters" element="tns:SendOTP" />
+  </wsdl:message>
+  <wsdl:message name="SendOTPSoapOut">
+    <wsdl:part name="parameters" element="tns:SendOTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Fetch_OTPSoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Fetch_OTP" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Fetch_OTPSoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_Fetch_OTPResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMail" />
+  </wsdl:message>
+  <wsdl:message name="SendMailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="InertFetchBookingDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:InertFetchBookingDetails" />
+  </wsdl:message>
+  <wsdl:message name="InertFetchBookingDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:InertFetchBookingDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ManagePGTrackSoapIn">
+    <wsdl:part name="parameters" element="tns:ManagePGTrack" />
+  </wsdl:message>
+  <wsdl:message name="ManagePGTrackSoapOut">
+    <wsdl:part name="parameters" element="tns:ManagePGTrackResponse" />
+  </wsdl:message>
+  <wsdl:portType name="BusPassAppSoap">
+    <wsdl:operation name="InsertRegistration">
+      <wsdl:input message="tns:InsertRegistrationSoapIn" />
+      <wsdl:output message="tns:InsertRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Fetch_User_Details">
+      <wsdl:input message="tns:Fetch_User_DetailsSoapIn" />
+      <wsdl:output message="tns:Fetch_User_DetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <wsdl:input message="tns:SendOTPSoapIn" />
+      <wsdl:output message="tns:SendOTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Fetch_OTP">
+      <wsdl:input message="tns:Insert_Fetch_OTPSoapIn" />
+      <wsdl:output message="tns:Insert_Fetch_OTPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <wsdl:input message="tns:SendMailSoapIn" />
+      <wsdl:output message="tns:SendMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InertFetchBookingDetails">
+      <wsdl:input message="tns:InertFetchBookingDetailsSoapIn" />
+      <wsdl:output message="tns:InertFetchBookingDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ManagePGTrack">
+      <wsdl:input message="tns:ManagePGTrackSoapIn" />
+      <wsdl:output message="tns:ManagePGTrackSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BusPassAppSoap" type="tns:BusPassAppSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRegistration">
+      <soap:operation soapAction="http://tempuri.org/InsertRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fetch_User_Details">
+      <soap:operation soapAction="http://tempuri.org/Fetch_User_Details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <soap:operation soapAction="http://tempuri.org/SendOTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Fetch_OTP">
+      <soap:operation soapAction="http://tempuri.org/Insert_Fetch_OTP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap:operation soapAction="http://tempuri.org/SendMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InertFetchBookingDetails">
+      <soap:operation soapAction="http://tempuri.org/InertFetchBookingDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagePGTrack">
+      <soap:operation soapAction="http://tempuri.org/ManagePGTrack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BusPassAppSoap12" type="tns:BusPassAppSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertRegistration">
+      <soap12:operation soapAction="http://tempuri.org/InsertRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Fetch_User_Details">
+      <soap12:operation soapAction="http://tempuri.org/Fetch_User_Details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOTP">
+      <soap12:operation soapAction="http://tempuri.org/SendOTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Fetch_OTP">
+      <soap12:operation soapAction="http://tempuri.org/Insert_Fetch_OTP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMail">
+      <soap12:operation soapAction="http://tempuri.org/SendMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InertFetchBookingDetails">
+      <soap12:operation soapAction="http://tempuri.org/InertFetchBookingDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ManagePGTrack">
+      <soap12:operation soapAction="http://tempuri.org/ManagePGTrack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BusPassApp">
+    <wsdl:port name="BusPassAppSoap" binding="tns:BusPassAppSoap">
+      <soap:address location="http://localhost:65290/BusPassApp.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BusPassAppSoap12" binding="tns:BusPassAppSoap12">
+      <soap12:address location="http://localhost:65290/BusPassApp.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

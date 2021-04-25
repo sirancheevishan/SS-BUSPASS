@@ -1,0 +1,158 @@
+/* =============================================
+			Theme Color
+============================================= */
+a,
+p a,
+p a:hover,
+/*a:hover,*/
+a:focus,
+a:active,
+.tg-stars i,
+p a,
+.tg-lightbox-content .formgroup span.note a,
+.tg-category-content .tg-refresh:hover,
+.tg-section-heading h2:after,
+.tg-whychoseus h2,
+.tg-testimonials-box h2,
+.tg-postmata li a:hover,
+.tg-testimonials-sliderbox:before,
+.tg-testimonials-sliderbox:after,
+.tg-hover-pattran,
+.tg-column ul.tg-pkgs h4 a,
+.tg-column ul.tg-links li:after,
+.tg-column ul.tg-links li a:hover,
+.tg-breadcrumb li a:hover,
+.tg-breadcrumb li.active,
+.tg-page-head h1,
+.tg-result-content ul li a:hover,
+.tg-result-price,
+.tg-result-content ul li:after,
+.tg-currencywidget ul li:hover label em,
+.tg-pagination ul li.active a,
+.tg-pagination ul li a:hover,
+.tg-pagination ul li a:hover i,
+.tg-counter i,
+.tg-counter span,
+.tg-team-member .tg-socialicon li a:hover i,
+.tg-contact-form h2,
+.tg-commenthead-right a:hover,
+.tg-commenthead-right a:hover i,
+.tg-single-post h2,
+.tg-author-infobox h3 a,
+.tg-widgetcategory ul li:hover a,
+.tg-widgetcategory ul li:hover:after,
+.tg-blogwidget ul .tg-post:hover .tg-post-content h3 a,
+.tg-gallary-img .tg-socialicon li a:hover i,
+.tg-filter-nav ul li a:hover,
+.tg-filter-nav ul li a.active,
+.tg-commingsoon-content h2,
+.text .val,
+.tg-ask-queation h2,
+.tg-panel-body ul li:hover .tg-heading-border h3 a,
+.tg-panel-body ul li:hover .tg-heading-border h3:after,
+.tg-category-slider .item i,
+.tg-home-slider .swiper-slide .tg-btnarea a.tg-btn:hover, .color-red-3,
+.input-entry.color-7 .checkbox-form:checked + label span.sp-check i,
+.clscityexchange
+
+{color: #ffffff;}
+/* =============================================
+			Theme Background Color
+============================================= */
+.tg-btn:hover,
+.tg-nav ul li ul li a:after,
+.tg-category-icon,
+.tg-destination figure .tg-heading-border:after,
+.tg-packages figure:hover .tg-heading-border:after,
+.tg-post:hover .tg-heading-border:after,
+.tg-testimonials-message .item .tg-heading-border:after,
+.tg-column .tg-heading-border:after,
+.tg-socialicon li a:hover,
+.tg-column .tg-btn-more,
+.tg-title:after,
+.tg-team-member:hover figcaption .tg-heading-border:after,
+.tg-tagsbox .tg-tag:hover,
+.tg-gallary-img:hover .tg-heading-border:after,
+.tg-panel-body ul li:hover .tg-heading-border:after,
+.tg-panel-title span .collapse.in,
+.tg-home-slider .swiper-slide .tg-btnarea a.tg-btn,
+.scroll-down,
+/*.ui-state-hover,*/
+.clslogininer,
+.divider
+
+{background:#00458e !important;}
+
+.tg-getaquickestimate{background-color:#2874f0;}
+/* =============================================
+			Theme Border Color
+============================================= */
+.swiper-container .swiper-slide .tg-btnarea a.tg-btn:before,
+.tg-category-icon:after,
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls .owl-page span:hover,
+.tg-socialicon li a:hover,
+.tg-home-slider .swiper-slide .tg-btnarea a.tg-btn:hover:before, .color-red-3,
+.clsToggleprofil img.usrimg,
+.clsloginusername
+{border-color: #243982!important;}
+
+.clsborderbtm{border-bottom-color:#243982 !important;}
+
+.tabs-wrap-style
+{border-top: 3px solid #2874f0 !important;}
+#modal-content{border-bottom:4px solid #2874f0 !important;}
+
+.loading .object {
+    border-top: 5px solid #2874f0;
+    border-left: 5px solid #2874f0;
+}
+
+/* =============================================
+			Box-shadow color
+============================================= */
+/*.clscityexchange {
+    box-shadow: 0px 0px 5px 0px #fff;
+}*/
+
+.dropdown-menu > .active > a, .dropdown-menu > .active > a:focus,
+.dropdown-menu > .active > a:hover, 
+.clsavailheader,
+input[type=checkbox]:checked ~ label .box
+
+{
+   background-color: #fafafa !important;
+   color: #433f33 !important;
+}
+/************************************************ SECOND COLOR ********************************************/
+.clsloginbody{
+    /*background: #151530;*/
+    background: #0e3d8b;
+}
+/************************************************ SECOND COLOR END ********************************************/
+
+/************************************************ BLUE THEEM ********************************************/
+.color-blue{
+    color: #151530; /*27a5f5;*/
+}
+.clspacktheem::after,
+#scrolltop:hover,
+#scrolltop 
+ {
+ background-color:#2874f0 ; /*rgba(35, 176, 232, 0.67) !important;*/
+}
+.clscityexchange{
+    /*background:#2874f0;*/ /* Ram Hide*/
+}
+
+
+/************************************************ SECOND COLOR ********************************************/
+/*.ui-slider .ui-slider-handle,
+.next_day
+{background:#fce000 !important;}*/
+
+/*.ui-slider .ui-slider-handle {
+    border-color:#e0ca1c !important;
+}*/
+
+/************************************************ SECOND COLOR END ********************************************/

@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "PassInfo";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+    String strProfilepath = Session["USER_PROFILE_PATH"] !=null ? Session["USER_PROFILE_PATH"].ToString() : "";
+    String strUserName = Session["USER_NAME"] != null ? Session["USER_NAME"].ToString() : "";
+}
+<link href="~/Content/CSS/Main.css" rel="stylesheet" />
+
+<div class="container margin-top7" id="dvpasinfo" style="background: #f7fdfd;">
+    <div class="row">
+        <div class="col-sm-3 clspassnav" style="padding:0 !important;">
+            <ul class="nav nav-tabs tabs-left" role="tablist">
+                <li role="presentation" class="active clsNavTabactive"><a href="#SPS" aria-controls="SPS" role="tab" data-toggle="tab"><i class="fa fa-child m-r-2"></i>Student Pass (School)</a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#SPC" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-graduation-cap m-r-2"></i>Student Pass (College)</a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#SCP" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-male m-r-2"></i>Senior Citizens pass</a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#HDP" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-wheelchair-alt m-r-2"></i>Handicapped and Blind pass</a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#JPP" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-newspaper-o m-r-2"></i>Journalists / Press Reporter pass</a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#TAP" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-suitcase m-r-2"></i>Travel as you Please Tickets</a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#MYP" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-calendar m-r-2"></i>Monthly Pass </a></li>
+                <li role="presentation" class="clsNavTabactive"><a href="#FFP" aria-controls="settings" role="tab" data-toggle="tab"><i class="fa fa-flag m-r-2"></i>Freedom fighters pass</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9">
+            
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="SPS">
+                    <div class="clsPasTitle">
+                        Student Pass - School
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li>
+                            <i class="fa fa-hand-o-right" aria-hidden="true"></i> <span>
+                                studying from 1st Std to 12 th Std. in the Schools recognized by Government and students studying in the Government Colleges and Government Polytechnics are
+                                eligible to avail this free bus pass facility.
+                            </span>
+                        </li>
+                        <li><i class="fa fa-hand-o-right"></i><span>Passes issued to travel from residence to school and back.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Permitted to travel in all Ordinary,Express and Deluxe services</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Passes are issued from 15th of June to 30th of November every year. The validity period is from 15th June to 30th April.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Allowed to travel on all days in the month.</span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="SPS" value="Proceed"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="SPC">
+                    <div class="clsPasTitle">
+                        Student Pass - College
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Students studying above 12th standard in Govt. recognized institutions excluding students studying in Government colleges and Government polytechnics are eligible to avail the concession and permitted to travel from their residence to college/library back on all days in a month.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Concession tickets are valued on Ordinary Fares Only.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Permitted to travel in all Ordinary,Express and deluxe services only.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>60 Exchange Tokens per month at Rs.3.50/- per token, to travel to library and back to the residence.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Issue of 50% Student Concession application forms, Registration and Issue of Point to Point card with tokens for the first month of every academic year is being done through the concerned educational institutions. For the subsequent months, Point to Point cards and Tokens will be issued directly to the student at the M.T.C.’s Sales Counters.</span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="SPC" value="Proceed"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="SCP">
+                    <div class="clsPasTitle">
+                        Senior Citizens pass
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Students studying above 12th standard in Govt. recognized institutions excluding students studying in Government colleges and Government polytechnics are eligible to avail the concession and permitted to travel from their residence to college/library back on all days in a month.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Concession tickets are valued on Ordinary Fares Only.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Permitted to travel in all Ordinary,Express and deluxe services only.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>60 Exchange Tokens per month at Rs.3.50/- per token, to travel to library and back to the residence.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Issue of 50% Student Concession application forms, Registration and Issue of Point to Point card with tokens for the first month of every academic year is being done through the concerned educational institutions. For the subsequent months, Point to Point cards and Tokens will be issued directly to the student at the M.T.C.’s Sales Counters. </span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="SCP" value="Proceed"></div>
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="TAP">
+                    <div class="clsPasTitle">
+                        Travel as you Please Tickets
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Allowed to travel in Ordinary/EXP/Deluxe/Night services except Volvo/Lift services and Chartered trips.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Valid for the period mentioned in the card.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Valid only if signed by the purchaser.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>No duplicate card is issued.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>To travel with the identity card issued by the MTC.</span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="TAP" value="Proceed"></div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="HDP">
+                    <div class="clsPasTitle">
+                        Handicapped and Blind pass
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>To be recommended by the District Rehabilitation Officer.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Disability should be more than 40%.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Annual income should be less than Rs.12000/-.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Passes issued by MTC.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Allowed to travel Point-to-Point [i.e.] from residence to hospital / Educational Institutions / . Workplace within a max. distance of 30 Km.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>One attendant is allowed to travel with mentally retarded person.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>To travel with the identity card issued by Rehabilitation department</span></li>                    
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="HDP" value="Proceed"></div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="JPP">
+                    <div class="clsPasTitle">
+                        Journalists / Press Reporter pass
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>All route passes with ID are issued.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Passes are issued to accredited Journalists/Reporters up to a maximum of 300 passes per year.</span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="JPP" value="Proceed"></div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="FFP">
+                    <div class="clsPasTitle">
+                        Freedom fighters pass
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Passes issued on production of freedom fighter pension certificate/financial assistance certificate ISSUED BY State/Central Grovernment.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Allowed to travel in all routes.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Allowed to travel in all STU buses.</span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="FFP" value="Proceed"></div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="MYP">
+                    <div class="clsPasTitle">
+                        Monthly Pass 
+                    </div>
+                    <ul class="clsEligibleCriteria clsPasguidelist">
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Allowed to travel in Ordinary/EXP/Deluxe/Night services except Volvo/Lift services and Chartered trips.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>Valid for the period mentioned in the card.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>No duplicate card is issued.</span></li>
+                        <li><i class="fa fa-hand-o-right" aria-hidden="true"></i><span>To travel with the identity card issued by the MTC.</span></li>
+                    </ul>
+                    <div class="text-center margin-top3"><input type="button" class="btnreg clsproceed" data-id="MYP" value="Proceed"></div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#spnUserName").html('@strUserName');
+      //  $("#spnUserName").html('@strUserName');
+    });
+
+    $(".clsNavTabactive").click(function () {
+
+        $(".clsNavTabactive").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    $(".clsproceed").click(function () {
+        window.location.href = '@Url.Action("IssueNewPass", "HomePage")?type='+$(this).data("id");
+    });
+</script>

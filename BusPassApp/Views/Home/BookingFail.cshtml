@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "BookingFail";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+        padding-top: 60px
+    }
+        
+    .failcard {
+        box-shadow: 0 5px 5px 5px #a944425c;
+        max-width: 405px;
+        border-radius: 5px;
+        margin: auto;
+        text-align: center;
+    }
+
+
+    .btnfail {
+        height: 35px;
+        width: 23%;
+        cursor: pointer !important;
+        border-radius: 4px;
+        background: #990000ad;
+        color: white;
+        border-color: #990000ad;
+    }
+
+    
+</style>
+<div class="myDiv container">
+    <div class="failcard" style="display:none;">
+
+        <img src="~/Images/buses/Fail.PNG" alt="Booking Failure" style="width:100%;"/>
+        
+    <div style=" padding: 5%;">
+        <h2>Uh Oh...Error !</h2>
+        <br />
+        <h4>Booking Failure</h4>
+        <h5>Something wired happened.</h5>
+        <h5>Keep calm and try again.</h5>
+        <br />
+     
+        <button class="btnfail" type="button" onclick="window.location = 'Home';"> Home  </button>
+    </div>
+
+
+    </div>
+   
+</div>
+

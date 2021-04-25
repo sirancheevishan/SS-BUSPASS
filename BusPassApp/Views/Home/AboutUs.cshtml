@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "AboutUs";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+        padding-top: 43px;
+    }
+
+    .fnt-35 {
+        font-size: 35px;
+        color: darkred;
+    }
+
+    .fnt-st {
+        text-align: center;
+        font-size: 37px;
+        font-weight: bolder;
+        color: firebrick;
+    }
+
+    .h3-st {
+        color: firebrick;
+    }
+    .btnlearn {
+        height: 29px;
+        width: 17%;
+        cursor: pointer !important;
+        border-radius: 4px;
+        background: #990000;
+        color: white;
+      /*  font-weight: bold;*/
+        border-color: #990000;
+    }
+</style>
+
+@*<div class="row container" style="padding-top: 7%;">
+    <h2 class="fnt-st ">About Us</h2>
+</div>*@
+<div class="myDiv container">
+
+    <div class="row" style=" padding-top: 2%;">
+        <div class="col-lg-6 box h-347">
+
+            <img src="~/Images/buses/AboutUs2.png" style="width: 100%;padding-top: 20%;" />
+
+        </div>
+
+        <div class="col-lg-6 box h-347">
+
+            <div>
+                <p style="text-align: justify;line-height: 2.3;font-size: 17px;">
+                    Our website is useful for passengers who are facing problems with the current manual work of bus pass registration and renewal. This website keeps all information of all Bus pass. Using this website we can check all details related Bus pass and instruction like how to apply new pass, how to renew pass and how to update it. Our website reduces the paper work, time consumption and makes the process of getting bus pass in simple and faster way. . Our website is created to provide “safe, reliable, saving, efficient and affordable” services for user.
+                </p>
+            </div>
+
+            <div style="display:none;" id="Aboutdiv">
+                <p style="text-align: justify;line-height: 2.3;font-size: 17px;">
+                    This website manages and provides various bus pas functionality like accessing the basic information for authentication and provide bus pass to a particular person. It allows users to register on the bus pass website and interact online to manage their account and bus pass related transactions. The bus pass will be differing for different types of users. The different kind of information is provided about the buses, eligibility criteria, fare and timings etcThe User can give their valuable feedback for further enhancement of this website.
+                </p>
+            </div>
+            <div id="Aboutbtnmore">
+                <input type="button" class="btnlearn" value="Learn More" id="learnmorebtn" />
+            </div>
+            <div id="Aboutbtnless" style="display:none;">
+                <input type="button" class="btnlearn" value="Learn Less" id="learnlessbtn" />
+            </div>
+        </div>
+     </div>
+        
+
+    
+    
+    <div class="row"style="padding-top: 10%;">
+        <div class="col-md-3">
+            <i class="fa fa-address-card-o fnt-35" aria-hidden="true"></i>
+            <h3 class="h3-st">New Pass</h3>
+            <p style="text-align: justify;line-height: 2.0;">The user has to give complete details about him\her to apply a new pass. Along with the user have to upload the soft copy of Photo and Aadhar card. Based on that type of pass amount will be deducted.Once the process is completed the user bus pass will be generated and send to the user's mail id through this application.</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fa fa-address-book-o fnt-35" aria-hidden="true"></i>
+            <h3 class="h3-st">Renewal Pass</h3>
+            <p style="text-align: justify;line-height: 2.0;">The user enters into the renewal form for renewal bus pass. The user has to give the month of renewal, user id and the necessary details.The renewal process can be done either monthly or yearly as per user wish. Based on that renewal period amount will be deducted. Once the process is completed the user bus pass will be renewed through this application. </p>
+        </div>
+        <div class="col-md-3">
+            <i class="fa fa-credit-card fnt-35" aria-hidden="true"></i>
+            <h3 class="h3-st">Payment</h3>
+            <p style="text-align: justify;line-height: 2.0;">The users have to make the payment at the time of booking bus pass and renewing the existing user’s bus pass. The Payment functions designed to support common types of payment services. User can pay the amount for the bus pass through credit card, debit card, Google pay, net banking.The amount paid through online must be secure and it should reach the authenticated user.</p>
+        </div>
+        <div class="col-md-3">
+            <i class="fa fa-clock-o fnt-35" aria-hidden="true"></i>
+            <h3 class="h3-st">Bus Timing</h3>
+            <p style="text-align: justify;line-height: 2.0;">Presently bus passengers frequently need to know about their  status on particular bus for particular destination,bus arrival and departure timing, halts and route of bus etc. Customer information centres at the bus stations are unable to serve such quires at peak periods. Also as for now there are no customer call centres facilities are available.
+            </p>
+        </div>
+    </div>
+    </div>
+
+<script>
+    $(document).ready(function () {
+        $('#learnmorebtn').click(function () {
+            $('#Aboutdiv').show();
+            $('#Aboutbtnmore').hide();
+            $('#Aboutbtnless').show();
+        });
+        $('#learnlessbtn').click(function () {
+            $('#Aboutdiv').hide();
+            $('#Aboutbtnmore').show();
+            $('#Aboutbtnless').hide();
+        });
+
+    });
+</script>

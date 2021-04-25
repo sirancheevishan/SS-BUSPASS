@@ -1,0 +1,270 @@
+﻿@{
+    ViewBag.Title = "ExistingUser";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+}
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+        padding-top: 43px;
+    }
+
+    .fnt-35 {
+        font-size: 35px;
+        color: darkred;
+    }
+
+    .fnt-st {
+        text-align: center;
+        font-size: 37px;
+        font-weight: bolder;
+        color: firebrick;
+    }
+
+    .h3-st {
+        color: firebrick;
+    }
+
+    .btnlearn {
+        height: 29px;
+        width: 17%;
+        cursor: pointer !important;
+        border-radius: 4px;
+        background: #990000;
+        color: white;
+        /*  font-weight: bold;*/
+        border-color: #990000;
+    }
+    .passcard {
+        box-shadow: 0 5px 5px 5px #a94442;
+        max-width: 389px;
+        padding: 18px;
+        border-radius: 5px;
+        margin: auto;
+        text-align: center;
+    }
+
+        .passcard img {
+            width: 42%;
+            border: 5px solid #e1e1e1;
+            border-radius: 50%;
+        }
+
+    .social {
+        margin: 15px 0;
+    }
+
+        .social a {
+            font-size: 26px;
+            padding: 7px 12px;
+            text-decoration: none;
+            color: #585858;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+        }
+
+            .social a:hover {
+                background-color: #585858;
+                color: #ffffff;
+            }
+    .idtable, .idtable tr td {
+        width: 290px;
+        margin: 0 auto;
+        border: 1px solid #e1e1e1;
+        text-align: left;
+        padding: 5px;
+    }
+
+    .card {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 6px 10px #a94442, 0 0 6px #a94442;
+        transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+        padding: 14px 80px 18px 36px;
+        cursor: pointer;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px #a94442, 0 4px 8px #a94442;
+        }
+
+.card h3{
+  font-weight: 600;
+}
+  
+
+.card img{
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  max-height: 120px;
+}
+
+    .card-1 {
+        /*background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);*/
+        background-repeat: no-repeat;
+        background-image: url('../../Images/buses/Icon 4.gif');
+        background-position: right;
+        background-size: 80px;
+    }
+
+    .card-2 {
+        /* background-image: url(https://ionicframework.com/img/getting-started/components-card.png);*/
+        background-repeat: no-repeat;
+       
+        background-image: url('../../Images/buses/Icon 5.png');
+        background-position: right;
+        background-size: 80px;
+    }
+
+.card-3{
+   background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
+      background-repeat: no-repeat;
+    background-position: right;
+    background-size: 80px;
+}
+
+
+
+
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/lib/moment.min.js"></script>
+            <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js"></script>
+
+            <link href="~/Content/CSS/Calender.css" rel="stylesheet" />
+            <script>
+        $(document).ready(function() {
+
+                $('#calendar').fullCalendar({
+                    header: {
+                        left: 'prev,next today',
+                        center: 'title',
+                        right: 'month,agendaWeek,agendaDay'
+                    },
+                    defaultDate: '2014-06-12',
+                    defaultView: 'month',
+                    editable: true,
+                    events: [
+                        {
+                            title: 'All Day Event',
+                            start: '2014-06-01'
+                        }
+
+                    ]
+                });
+
+            });
+
+
+    </script>
+</head>
+<body>
+
+    <div class="myDiv container">
+
+        <div class="row">
+            <div class="col-lg-8 box h-347">
+                <div class="row" >
+                    <div class="col-lg-6 ">
+                        <div class="container" style=" padding-bottom: 7%;">
+                            <div class="card card-1">
+                                <h3>Pass Type</h3>
+                                <p>Passenger Pass</p>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 " >
+                        <div class="container" style=" padding-bottom: 7%;">
+                            <div class="card card-1">
+
+                                <h3>Valid</h3>
+                                <p>15.03.2022 - 15.05.2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style=" JUSTIFY-CONTENT: center; DISPLAY: flex; padding-top: 1%;">
+                    <div class="col-lg-7 box h-347" style="box-shadow: 0 6px 10px #a94442, 0 0 6px #a94442; padding: 1%;">
+
+                        <div id='calendar'></div>
+
+                    </div>
+                </div>
+            </div>
+
+            
+        <div class="col-lg-4 box h-347"  style="padding-top: 6%;">
+
+
+            
+                <div class="passcard">
+
+                    <h4>Tamil Nadu State Transport Corporation Ltd.</h4>
+                    <h5>(A Government of Tamilnadu Undertaking)</h5>
+                    <img src="~/Images/ProfilePicture/9745681236.jpg" alt="image" />
+                    <br />
+                    <h4>BusPass ID Card</h4>
+                    <br />
+                    <table class="idtable">
+                        <tr>
+                            <td><strong>Pass No</strong></td>
+                            <td>BPS000001</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Name</strong></td>
+                            <td>Sirancheevi</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Age</strong></td>
+                            <td>24</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Gender</strong></td>
+                            <td>Male</td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Address</strong></td>
+                            <td>3/11 A, South Street, Viragalur, Trichy.</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+           
+
+                       
+
+                    
+
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </div>
+          
+</body>
+</html>
+

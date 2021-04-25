@@ -1,0 +1,152 @@
+﻿@{
+    ViewBag.Title = "ManageBooking";
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+    String strProfilepath = Session["USER_PROFILE_PATH"] != null ? Session["USER_PROFILE_PATH"].ToString() : "";
+    String strUserName = Session["USER_NAME"] != null ? Session["USER_NAME"].ToString() : "";
+}
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        margin-top: 20px;
+        padding-top: 10px;
+    }
+    .container1 {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 3%;
+    }
+    .containerinner {
+        box-shadow: 0 5px 5px 5px #a944425c;
+    }
+    .btn {
+        height: 38px;
+        width: 45%;
+        cursor: pointer !important;
+        border-radius: 3px;
+        background: #990000ad;
+        color: white;
+        border-color: #990000;
+    }
+    .panelcolor {
+        border: 1px solid #990000;
+        background-color: #9900002e;
+    }
+    .pad {
+        padding-top: 4%;
+        padding-bottom: 4%;
+        JUSTIFY-CONTENT: center;
+        DISPLAY: flex;
+    }
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Management Booking</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+
+
+    <div class="myDiv container1">
+        <div class="containerinner">
+            <div class="row pad" style=" padding-right: 12%; padding-top: 7%">
+                @*<div class="col-xs-5">*@
+                <div class="col-sm-3">
+                    <label>Pass Type</label><br>
+
+                    <select class="text-bx form-control" id="passtype">
+                        <option>-Select-</option>
+                        <option>Student Pass (School)</option>
+                    </select>
+                </div>
+
+                @*</div>*@
+            </div>
+            <div class="row pad">
+                <div class="col-sm-3">
+                    <input type="button" class="btn" value="Get History" id="gethistory" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" class="btn" value="Clear" id="ClearEntry" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ResultTable" class="container1" style="display:none;">
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="panelcolor">
+                    <div class="panel-heading">
+                        Bus Pass Details
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Pass Type</th>
+                                        <th>Pass Code</th>
+                                        <th>Booking Track</th>
+                                        <th>Valid From</th>
+                                        <th>Valid To</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="odd gradeX">
+                                        <td>BPS0000001</td>
+                                        <td>Mr Sirancheevi Palraj</td>
+                                        <td>Student Pass (School)</td>
+                                        <td class="center">BP-001</td>
+                                        <td class="center">BPSBKTDD04YYYY09SS6273145</td>
+                                        <td>01/04/2021</td>
+                                        <td>02/05/2021</td>
+                                        <td>1000</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $("#gethistory").click(function () {
+                $("#ResultTable").show();
+            });
+        });
+        // Clear Entry Form
+        $(document).ready(function () {
+            $("#ClearEntry").click(function () {
+
+                $("#ResultTable").hide();
+                //$("#passtype").val("-Select-");
+
+            });
+        });
+        $(document).ready(function () {
+        $("#spnUserName").html('@strUserName');
+    });
+    </script>
+</body>
+</html>
+

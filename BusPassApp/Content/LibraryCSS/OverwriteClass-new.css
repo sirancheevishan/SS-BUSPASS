@@ -1,0 +1,284 @@
+﻿/*
+  GALADARI THEME COLOR  -- FONT-COLOR  #243982 ,BACKGROUND-COLOR #FFF
+
+  TO BUY MY TICKET THEME COLOR --BACKGROUND-COLOR  #2874f0 TOBM , FONT-COLOR #FFF
+
+  TO BUY MY TICKET BUTTON COLOR--#fe7b22 HOVER COLOR--#2874f0
+
+  GALADARI BUTTON COLOR --#db2d36 HOVER COLRO --#d6a362
+
+    */
+:root
+{
+    --main-bg-color: #243982;
+}
+
+
+.showselectaddtocart:hover
+{
+    background-color: #d6a362;
+}
+
+.tg-header
+{
+    border-bottom: 2px solid #fff;
+}
+
+.tabs-wrap-style, .clsModifydv
+{
+    border-top: 3px solid var(--main-bg-color) !important;
+}
+
+.sliderBottm
+{
+    background: #fff !important;
+}
+
+.stickyminheader .classsubstickyminheader
+{
+    background-color: #fff !important;
+}
+
+    .stickyminheader .classsubstickyminheader.udk-buy-my-tickets
+    {
+        background-color: var(--main-bg-color) !important;
+    }
+
+.ui.button.leftcurv a:hover, .ui.primary.button.rightcurv a:hover, a.eticket:hover, a.recent_sear:hover, li.support a:hover
+{
+    /*color: #fff !important;*/
+    text-decoration: underline;
+}
+
+.fa.fa-angle-double-down.fa-5x
+{
+    color: #db2d36 !important;
+}
+
+tab-nav-wrapper .nav-tab .nav-tab-item, .simple-tab.type-2 .nav-tab-item.active
+{
+    background: var(--main-bg-color) !important;
+}
+
+.ui-slider .ui-slider-handle,
+.next_day
+{
+    background: var(--main-bg-color) !important;
+}
+
+.showselectaddtocart.availbutton.resbtn
+{
+    background: #db2d36;
+    border: #db2d36;
+}
+
+.spnText.hTitle
+{
+    background: #ddd !important;
+    color: #3e2714 !important;
+}
+
+
+.tg-btn
+{
+    background: #db2d36 !important;
+    border: #db2d36 !important;
+}
+
+.udk-font-12
+{
+    margin-bottom: 0px;
+    line-height: 0px;
+    font-size: 13px;
+    padding-top: 10px;
+    color: var(--main-bg-color);
+}
+
+.eticket, click-arrow, .goog-te-gadget-simple .goog-te-menu-value span, .ui.button.leftcurv a, a.eticket:hover, a.recent_sear:hover, .ui.primary.button.rightcurv a,
+.ui.primary.button.rightcurv a:hover, .ui.button.leftcurv a:hover,.click-arrow span
+{
+    color: var(--main-bg-color);
+}
+
+.goog-te-gadget-simple, a.recent_sear:hover
+{
+    border: 2px solid var(--main-bg-color);
+}
+
+.ui.button.leftcurv
+{
+    border-right: 2px solid var(--main-bg-color);
+}
+
+.udk-sorting-header, .progress-bar-success, .clsModifysearch:hover, .clspacktheem::after, #scrolltop:hover, #scrolltop
+{
+    background: var(--main-bg-color);
+}
+
+.sizecls
+{
+    border-bottom: 2px solid var(--main-bg-color) !important;
+}
+
+.tg-logo.clsdesklogo, .udk-language-show
+{
+    display: block;
+}
+
+.udk-buy-my-ticket-header, .udk-currency-show, .udk-language-show-left,.tg-main-section.tg-haslayout.udk-buy-my-add, .row.slider-offer, .tg-home-slider
+{
+    display: none !important;
+}
+
+.clsModifysearch:hover
+{
+    color: #fff;
+}
+
+#div_availviews .row.row10.udk-change-top
+{
+    margin-top: 3%;
+}
+
+/*#region To Buy My Tickets Font-color */
+
+.to-buy-my-tickets .udk-font-12, .to-buy-my-tickets .eticket,
+ .to-buy-my-tickets .ui.button.leftcurv a, .to-buy-my-tickets .ui.primary.button.rightcurv a,
+.to-buy-my-tickets .goog-te-gadget-simple .goog-te-menu-value span, 
+.to-buy-my-tickets .ui.primary.button.rightcurv a:hover, .to-buy-my-tickets .ui.button.leftcurv a:hover,.to-buy-my-tickets .click-arrow span
+{
+    color: #fff !important;
+}
+
+.to-buy-my-tickets .goog-te-gadget-simple
+{
+    border: 2px solid #fff !important;
+}
+
+.to-buy-my-tickets .ui.button.leftcurv
+{
+    border-right: 2px solid #fff;
+}
+
+.to-buy-my-tickets .showselectaddtocart.availbutton.resbtn, .to-buy-my-tickets button#btnSubmitFlight, .to-buy-my-tickets .contbtn:hover
+{
+    background: #fe7b22;
+    border: #fe7b22;
+}
+
+    .to-buy-my-tickets .showselectaddtocart.availbutton.resbtn:hover, .to-buy-my-tickets .clsModifysearch:hover, .to-buy-my-tickets button#btnSubmitFlight:hover, .to-buy-my-tickets .contbtn
+    {
+        background: var(--main-bg-color);
+        border: var(--main-bg-color);
+    }
+
+.to-buy-my-tickets .tg-logo.clsdesklogo, .to-buy-my-tickets .udk-language-show
+{
+    display: none;
+}
+
+.to-buy-my-tickets .udk-buy-my-ticket-header, .to-buy-my-tickets .udk-buy-my-ticket-header .tg-logo.clsdesklogo,
+.to-buy-my-tickets .udk-currency-show, .to-buy-my-tickets .udk-language-show-left, .to-buy-my-tickets .tg-main-section.tg-haslayout, .to-buy-my-tickets .row.slider-offer, .to-buy-my-tickets .tg-home-slider
+{
+    display: block !important;
+}
+
+.to-buy-my-tickets .tg-header
+{
+    border-bottom: 2px solid var(--main-bg-color);
+}
+
+.to-buy-my-tickets #google_translate_element_buy
+{
+    position: absolute;
+}
+
+.to-buy-my-tickets .udk-buy-my-ticket-header .tg-logo a img
+{
+    display: block;
+    position: absolute;
+    top: -17px !important;
+}
+
+
+.to-buy-my-tickets .tg-add-nav ul li a:after, .to-buy-my-tickets .tg-nav > .collapse > ul > li > a:after, .to-buy-my-tickets #scrolltop:hover, .to-buy-my-tickets #scrolltop
+{
+    background: var(--main-bg-color) !important;
+}
+
+.to-buy-my-tickets .progress-bar-success
+{
+    background-color: #5cb85c;
+}
+
+.to-buy-my-tickets .tg-add-nav ul li a:after, .to-buy-my-tickets .tg-nav > .collapse > ul > li > a:after, .to-buy-my-tickets .clspacktheem::after
+{
+    background: #fce211 !important;
+}
+
+.to-buy-my-tickets .parallax-bg.changebackground
+{
+    background-image: url(/Images/Bg/INR/bg-img.jpg) !important;
+    background-size: auto !important;
+    transform: translate3d(0px, 0%, 0px) !important;
+}
+
+.to-buy-my-tickets .tg-main-section.tg-haslayout.udk-buy-my-add
+{
+    padding: 16% 0px 0px !important;
+}
+
+.to-buy-my-tickets .tg-footerarea
+{
+    width: 100%;
+    float: left;
+    /* padding: 60px 0; */
+    background: url(../../images/theem/bg-footer.jpg) no-repeat;
+    background-size: cover;
+}
+
+.to-buy-my-tickets .searhsection
+{
+    background: rgba(255,255,255,0.4) !important;
+}
+
+.to-buy-my-tickets .segmentrowchckbox
+{
+    padding: 10px !important;
+    padding-left: 45px !important;
+}
+.to-buy-my-tickets .modcsscls
+{
+    padding:0 !important; 
+    background:none !important;
+    border: none !important;
+}
+
+.to-buy-my-tickets button#btnSubmitFlight
+{
+padding: 16px 8px !important;
+}
+.to-buy-my-tickets .modspone {
+    top: 1px;
+}
+.to-buy-my-tickets .modspan {
+    top: 2px;
+}
+.to-buy-my-tickets #div_availviews .row.row10.udk-change-top
+{
+    margin-top: 0%;
+}
+
+@media (min-width: 768px)
+{
+    .to-buy-my-tickets #main .clspositiontop
+    {
+        position: absolute;
+        top: 40px;
+        height: 165px;
+    }
+}
+
+
+
+/*#endregion */

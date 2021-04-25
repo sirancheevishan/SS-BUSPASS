@@ -1,0 +1,206 @@
+﻿/* ========================================================
+	Flat form with Bootstrap 3
+	
+	Version:		1.1
+	Last change:	07.12.2014
+	Author:			David Tovt
+	
+====[ LAYOUT ]=============================================
+
+	- Defaults
+	- Horizontal form
+	- Input with icons
+	- File input
+	- Select
+	- Checkbox, radio and toggles
+		- Checkbox and radio
+		- Toggles
+	- Ratings
+	- Buttons
+	- Alerts
+	- Panel
+	- Tooltip and help icon
+	- Cart
+
+======================================================== */
+
+/*
+	Defaults
+*/
+
+label {
+    margin: 0;
+    font-weight: normal;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.form-group:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.control-label {
+    display: block;
+    padding: 6px;
+    font-size: 12px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #999;
+    background: rgba(0, 0, 0, 0.014);
+    white-space: nowrap;
+}
+
+.control-label.control-label-sm {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 20px;
+    font-size: 11px;
+}
+
+.control-label.control-label-lg {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+label .additional,
+.control-label .additional {
+    color: #999;
+}
+
+.form-control {
+    font-weight: normal;
+    border: 1px solid #ddd;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+.form-control:focus {
+    border-color: #4fd0fb;
+}
+
+.help-block {
+    font-size: 12px;
+    margin: 2px 0 0;
+    color: #999;
+    border-bottom: 1px solid #ccc;
+}
+
+.required-field {
+    display: inline;
+    font-size: 18px;
+    line-height: 12px;
+    color: #f45858;
+}
+
+.form-control-feedback {
+    color: #ccc;
+}
+
+.has-feedback.has-left-icon .form-control {
+    padding-left: 42.5px;
+    padding-right: 12px;
+}
+
+.has-feedback.has-left-icon .form-control-feedback {
+    left: 0;
+    right: auto;
+}
+
+.has-success .form-control {
+    border-color: #0ac964;
+}
+
+.has-success .form-control-feedback {
+    color: #0ac964;
+}
+
+.has-warning .form-control {
+    border-color: #c19716;
+}
+
+.has-warning .form-control-feedback {
+    color: #c19716;
+}
+
+.has-error .form-control {
+    border-color: #f45858;
+}
+
+.has-error .form-control-feedback {
+    color: #f45858;
+}
+
+.panel.panel-form,
+.panel.panel-form .panel-heading,
+.panel.panel-form .panel-footer {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.panel.panel-form .panel-heading a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.panel.panel-form .panel-heading a:hover {
+    text-decoration: none;
+}
+
+.panel.panel-form .panel-heading p {
+    margin: 0;
+}
+
+.panel.panel-form .panel-heading .title {
+    font-family: Kaushan Script;
+    font-size: 18px;
+    position: relative;
+    margin: 0;
+    color: #fff;
+}
+
+.panel.panel-form .panel-heading .title:before {
+    position: absolute;
+    content: '';
+    bottom: -8px;
+    left: 50%;
+    width: 30px;
+    height: 0;
+    margin-left: -15px;
+    border-bottom: 1px solid rgba(100%, 100%, 100%, 0.3);
+}
+
+.panel.panel-form .panel-body {
+    padding: 30px;
+    background: #fcfcfc;
+}
+
+
+.panel.panel-form .panel-footer {
+    border-top: 1px solid #e6e6e6;
+    color: #aaa;
+    background: #f6f6f6;
+}
+
+@media (max-width:768px) {
+    .panel.panel-form .panel-body {
+        padding: 0px !important;
+        background: #fcfcfc;
+    }
+
+    .mobilepadingRandL {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

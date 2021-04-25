@@ -1,0 +1,66 @@
+﻿
+@using Newtonsoft.Json;
+@{ 
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+    BusPassApp.Controllers.PaymentController.OrderModel orderrmodel = JsonConvert.DeserializeObject<BusPassApp.Controllers.PaymentController.OrderModel>(Convert.ToString(Session["PaymentString"]));
+
+}
+
+
+
+
+<!-- // Click this button automatically when this page load using javascript -->
+<!-- You can hide this button -->
+<button id="rzp-button1" hidden>Pay</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    $(document).ready(function () {
+        debugger
+        Redirect();
+    });
+
+    function Redirect() {
+
+        var options = {
+            "key": "@orderrmodel.razorpayKey", // Enter the Key ID generated from the Dashboard
+            "amount": "@orderrmodel.amount", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "@orderrmodel.currency",
+            "name": "@orderrmodel.name",
+            "description": "@orderrmodel.description",
+            "image": "https://example.com/your_logo", // You can give your logo url
+            "order_id": "@orderrmodel.orderId",
+            "handler": function (response) {
+                debugger
+                document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
+                document.getElementById('rzp_orderid').value = response.razorpay_order_id;
+
+                // // Let's submit the form automatically
+                document.getElementById('rzp-paymentresponse').click();
+            },
+            "prefill": {
+                "name": "@orderrmodel.name",
+                "email": "@orderrmodel.email",
+                "contact": "@orderrmodel.contactNumber"
+            },
+            "notes": {
+                "address": "@orderrmodel.address"
+            },
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+        e.preventDefault();
+    }
+</script>
+
+@using (Html.BeginForm("Complete", "Payment"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Hidden("rzp_paymentid")
+    @Html.Hidden("rzp_orderid")
+    <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
+}
+

@@ -1,0 +1,260 @@
+﻿@using Newtonsoft.Json;
+
+@{
+    Layout = null;
+    string strBookingDetails = Convert.ToString(Session["BooingDetails"]);
+    BusPassApp.Models.BaseClass.BookingRQRS BookingDetails = JsonConvert.DeserializeObject<BusPassApp.Models.BaseClass.BookingRQRS>(strBookingDetails);
+}
+<script src="https://code.jquery.com/jquery-1.11.1.js" integrity="sha256-MCmDSoIMecFUw3f1LicZ/D/yonYAoHrgiep/3pCH9rw=" crossorigin="anonymous"></script>
+<script src="~/Bootstrap/js/bootstrap.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="~/Content/Main.css" rel="stylesheet" />
+
+<style>
+    #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        #customers td, #customers th {
+            border: 1px solid #c3bbaf;
+            padding: 8px;
+            background: white;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #ffa726;
+            color: white;
+            padding: 6px;
+        }
+</style>
+
+<div class="ticket">
+
+
+    <div class="illustration">
+        <div class="spikes">
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+            <div class="spike"></div>
+        </div>
+
+        <div class="row">
+            <div style="
+    margin-left: 26%;
+    margin-top: 25%;
+    box-shadow: 1px 5px 5px 5px #1b1515;
+    width: 50%;
+">
+                <img src="/Images/siran.png" style="width: 100%;">
+            </div>
+        </div>
+        <div class="row">
+            <div style="
+    padding: 8px;
+    border: 2px solid #000000;
+    color: #000000;
+    width: 43%;
+    margin-left: 30%;
+    margin-top: 8%;
+    text-align: center;
+    border-radius: 62px;
+">
+
+                <i class="fa fa-download" aria-hidden="true" style="
+    margin-right: 6%;font-size: 21px;
+"></i>   <span style="
+    font-size: 20px;
+    font-weight: 900;cursor:pointer;
+" onclick="saveDiv()">Download</span>
+            </div>
+        </div>
+        <!--     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 7.42 145" class="spikes"><g data-name="Layer 2"><path fill="#fbad18" fill-rule="evenodd" d="M.33 0H0v145h.33l7.09-6.59-7.09-6.59 7.09-6.59-7.09-6.59 7.09-6.59-7.09-6.6 7.09-6.59-7.09-6.59 7.09-6.59-7.09-6.59 7.09-6.59-7.09-6.59 7.09-6.59-7.09-6.59 7.09-6.59-7.09-6.59 7.09-6.6-7.09-6.59 7.09-6.59-7.09-6.59 7.09-6.59L.33 0z" data-name="Layer 1"/></g></svg> -->
+    </div>
+
+    <div class="content">
+
+        <div style="
+    margin-left: 25%;
+">
+            <span style="
+    -webkit-text-stroke: 1px #2aec4a;
+    font-size: 33px;
+    font-weight: 500;
+    color: #31d031;
+"><i class="fa fa-check-circle" aria-hidden="true" style="margin-right:2%;"></i>Booked Successfully</span>
+        </div>
+        <div style="width: 76%;border: 1px solid #ffa726;margin-top:4%">
+            <div style="background: #fff;">
+                <span style="font-size: 21px;font-weight: 600;padding: 4px;">
+                    <i class="fa fa-ticket" aria-hidden="true"></i>Pass Details
+                </span>
+            </div>
+            <table id="customers">
+                <tbody>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Pass Type</th>
+                        <th>ID</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td style="
+    background: white;
+">
+                            @BookingDetails.strUserID
+                        </td>
+                        <td>@BookingDetails.strPassName</td>
+                        <td>@BookingDetails.strPassCode</td>
+                        <td>@BookingDetails.strAmount</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div style="width: 76%;border: 1px solid #ffa726;margin-top:4%">
+            <div style="background: #fff;">
+                <span style="font-size: 21px;font-weight: 600;padding: 4px;">
+                    <i class="fa fa-user-secret" aria-hidden="true"></i>Passenger's Detials
+                </span>
+            </div>
+            <table id="customers">
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>DOB</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr>
+                        <td style="
+    background: white;
+">
+                            @BookingDetails.strFName + @BookingDetails.strLName
+                        </td>
+                        <td>@BookingDetails.strDOB</td>
+                        <td>@BookingDetails.strPhnNo</td>
+                        <td>@BookingDetails.strMail</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="row" style="margin-top:7%;">
+            <div class="col-md-4">
+                <div style="
+    padding: 8px;
+    border: 2px solid #ffa726;
+    color: white;
+    width: 51%;
+    height: 8%;
+    text-align: center;
+    border-radius: 62px;
+    margin-left: 33%;
+">
+                    <i class="fa fa-home" aria-hidden="true" style="
+    margin-right: 6%;font-size: 21px;
+"></i>           <span style="font-size:20px;font-weight:900;cursor:pointer;" id="redirectToHome">Home</span>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div style="padding: 8px;
+    border: 2px solid #ffa726;
+    color: white;
+    width: 26%;
+    height: 8%;
+    text-align: center;
+    margin-right: `%;
+    border-radius: 62px;
+">
+
+                    <i class="fa fa-print" aria-hidden="true" style="
+    margin-right: 6%;font-size: 21px;
+"></i>   <span style="
+    font-size: 20px;
+    font-weight: 900;cursor:pointer;
+" onclick="printDiv()">Print</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    <script>
+        $("#redirectToHome").click(function () {
+            var RedirectURL = '@Url.Action("PassInfo", "HomePage")';
+            location.replace(RedirectURL);
+        });
+      
+        var doc = new jsPDF();
+
+        function saveDiv() {
+            doc.fromHTML(`<html><head>Booking Pass</head><body><img src="/Images/siran.png" style="width: 100%;"></body></html>`);
+            doc.save('div.pdf');
+        }
+
+        function printDiv() {
+
+            let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+
+            mywindow.document.write(`<html><head><title>Booking</title>`);
+            mywindow.document.write('</head><body >');
+            mywindow.document.write('<img src="/Images/siran.png" style="width: 100%;">');
+            mywindow.document.write('</body></html>');
+
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+
+    </script>
+
+    

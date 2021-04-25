@@ -1,0 +1,547 @@
+﻿
+<!DOCTYPE html>
+
+<script src="https://code.jquery.com/jquery-1.11.1.js" integrity="sha256-MCmDSoIMecFUw3f1LicZ/D/yonYAoHrgiep/3pCH9rw=" crossorigin="anonymous"></script>
+<script src="~/Bootstrap/js/bootstrap.js"></script>
+<script src="~/Content/JS/bootstrap-typeahead.js"></script>
+<script src="~/Content/JS/raysModal.js"></script>
+<script src="~/Content/JS/jquery.xml2json.js"></script>
+<script src="~/Content/JS/WebValidation.js"></script>
+<script src="~/Content/JS/jquery.blockUI.js"></script>
+<script src="~/Apps_JS/LogIn.js"></script>
+<script src="~/Content/Library/jquery-ui.js"></script>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="~/Content/CSS/raysModal.css" rel="stylesheet" />
+<link href="~/Content/CSS/Main.css" rel="stylesheet" />
+<link href="~/Content/CSS/font-awesome.css" rel="stylesheet" />
+<link href="~/content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/LibraryCSS/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/LibraryCSS/jquery-ui.css" rel="stylesheet" />
+<link href="~/Content/LibraryCSS/jquerycalender.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Bus Pass</title>
+    <style>
+
+        .clstopimg {
+            height: 71px;
+            width: 6%;
+            margin-left: 10%;
+            margin-top: 0%;
+            background: transparent;
+        }
+
+        .bgclr {
+            background: transparent;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            background: transparent;
+        }
+
+        .dvFooter {
+            position: fixed;
+            width: 100%;
+            color: white;
+            text-align: center;
+            bottom: 0;
+            padding: 1rem;
+            background: #990000;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .login-form {
+            width: 350px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+            .login-form h4 {
+                text-align: center;
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .login-form .avatar {
+                color: #fff;
+                margin: 0 auto 30px;
+                text-align: center;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                z-index: 9;
+                background: #990000;
+                padding: 15px;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+            }
+
+                .login-form .avatar i {
+                    font-size: 62px;
+                }
+
+            .login-form .form-group {
+                margin-bottom: 20px;
+            }
+
+            .login-form .form-control, .login-form .btn {
+                min-height: 40px;
+                border-radius: 2px;
+                transition: all 0.5s;
+            }
+
+            .login-form .close {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+            .login-form .btn {
+                background: #990000;
+                border: none;
+                line-height: normal;
+            }
+
+                .login-form .btn:hover, .login-form .btn:focus {
+                    background: #42ae68;
+                }
+
+            .login-form .checkbox-inline {
+                float: left;
+            }
+
+            .login-form input[type="checkbox"] {
+                margin-top: 2px;
+            }
+
+            .login-form .forgot-link {
+                float: right;
+            }
+
+            .login-form .small {
+                font-size: 13px;
+            }
+
+            .login-form a {
+                color: #4aba70;
+            }
+
+        .p-r-0 {
+            padding-right: 0;
+        }
+
+        .p-l-0 {
+            padding-left: 0;
+        }
+
+        .p-t-0 {
+            padding-top: 0;
+        }
+
+        .p-b-0 {
+            padding-bottom: 0;
+        }
+
+        .m-r-0 {
+            margin-right: 0;
+        }
+
+        .m-l-0 {
+            margin-left: 0;
+        }
+
+        .m-t-0 {
+            margin-top: 0;
+        }
+
+        .m-b-0 {
+            margin-bottom: 0;
+        }
+
+        .f-r {
+            float: right;
+            margin-top: 1%;
+        }
+
+        .f-l {
+            float: left;
+        }
+
+        .m-t-2 {
+            margin-top: 2%;
+        }
+
+        .w-34 {
+            width: 34%;
+        }
+       
+        .RT_header .blackbar {
+            color: #FFF;
+            background-color: #990000;
+            height: 40px;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .mobNoContainerd, .container-fluid.rbcon {
+            box-shadow: none !important;
+            width: 90%;
+        }
+        .RT_header .tpsignin {
+            font-size: 12px;
+        }
+        .RT_header .tpsignin {
+            padding: 0px 15px;
+            padding-top: 11px;
+        }
+        .la, .las {
+            font-family: 'Line Awesome Free';
+            font-weight: 900;
+        }
+        la-tty:before {
+            content: "\f1e4";
+        }
+        .pr-6 {
+            padding-right: 6px !important;
+        }
+        .RT_header .tpsignin ul li {
+            padding-right: 5px;
+            line-height: 8px;
+            display: inline-block;
+        }
+        la-envelope:before {
+            content: "\f0e0";
+        }
+        a {
+            color: #f5f5f5;
+            text-decoration: none;
+        }
+        .RT_header .top-mega-menu {
+            width: 100%;
+            z-index: 99;
+            box-shadow: 0 0 0 rgb(0 0 0 / 40%);
+            top: 38px;
+            background: #fff !important;
+        }
+        .RT_header .navbar-default {
+            background-color: rgba(248, 248, 248, 0);
+            border: none;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .RT_header .navbar-brand {
+            height: 60px !important;
+        }
+        .RT_header .navbar-brand {
+            float: left;
+            height: 0px;
+            padding: 0px 0px;
+            font-size: 18px;
+            line-height: 20px;
+        }
+       .img-responsive, .thumbnail a > img, .thumbnail > img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        RT_header .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+            border-color: transparent;
+        }
+        .navbar-collapse.collapse {
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+            visibility: visible !important;
+        }
+        .RT_header .navbar-nav {
+            float: right;
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+        .RT_header .navbar-default .navbar-nav > li > a {
+            color: #000000 !important;
+            text-transform: capitalize !important;
+            border-bottom: 2px solid #fff;
+            padding: 0px;
+            margin: 14px 15px;
+        }
+        .nav {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+        .fnt-13 {
+            font-size: 13px;
+            
+        }
+        .fnt-14 {
+            font-size: 16px;
+         
+        }
+    </style>
+</head>
+<body>
+    <header class="RT_header">
+        <div class="blackbar">
+            <div class="container mobNoContainerd">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 hidden-xs tpsignin">
+                        <ul>
+                            <li class="hidden-xs"><i class="fa fa-phone pr-6"></i>  <span>+971 4 2295 444</span></li>
+                  <li class="hidden-xs"><i class="fa fa-envelope pr-6"></i><a href="mailto:helpdesk@deiratravels.com"style="color:#f3eeee;">        helpdesk@buspass.com </a></li>
+                        </ul>
+
+                    </div>
+                    <div id="divUserOut" class="col-md-6 col-sm-6 col-xs-12 text-right tpsignin">
+                        <ul>
+                           
+                            <li>
+                                <a href="#" style="color: #f3eeee;" ><i class="fa fa-bus pr-6"></i> Get BusPass </a>
+                            </li>
+
+                            <li>
+                                <span>|</span> <a href="#"onclick="Showloginpop()" style="color: #f3eeee;"><i class="fa fa-user-o"> </i>  Sign in </a>
+                            </li>
+                            <li>
+                                <span>|</span> <a href="@Url.Action("ComingSoon", "Home")"style="color: #f3eeee;"><i class="fa fa-user-circle pr-6"></i>  Agent</a>
+                            </li>
+                            <li>
+                                <span>|</span> <a href="@Url.Action("Register", "Home")"style="color: #f3eeee;"><i class="fa fa-user-plus pr-6"></i>  Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="top-mega-menu clsscroll">
+            <div class="container mobNoContainerd">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-white-res">
+                        <nav role="navigation" class="navbar navbar-default">
+                            <div class="navbar-header float-left">
+                                <a href="#" id="aLinkLogo" class="logo navbar-brand">
+                                    <img src="~/Images/TnLogo.jpeg" id="imgLogo" class="colorlogo img-responsive"style="width: 75PX;HEIGHT: 58PX;MARGIN-LEFT: 92px;">
+                                </a>
+                            </div>
+                            
+                            <div id="navbarCollapse" class="collapse navbar-collapse float-right menuslide">
+                                <ul class="nav navbar-nav">
+                               <li><a href="@Url.Action("Home", "Home")"><i class="fa fa-home fnt-14"></i>  Home</a></li>
+                               <li><a href="@Url.Action("ComingSoon", "Home")"><i class="fa fa-clock-o fnt-14"></i>  Bus Timing</a></li>
+                               <li><a href="@Url.Action("AboutUs", "Home")"><i class="fa fa-desktop fnt-13"></i>  About Us</a></li>                
+                               <li><a href="@Url.Action("ContactUs", "Home")"><i class="fa fa-edit fnt-13"></i>  Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--<header>-->
+    @*<div class="row">
+            <div class="col-lg-4"><img onclick="redirectToHome()" src="https://www.tnstc.in/images/tnstc_header01.jpg" class="clstopimg"></div>
+            <div class="col-lg-4"><img onclick="redirectToHome()" src="/Images/LogoTranperant.png"></div>
+            <div class="col-lg-4">
+                <img onclick="redirectToHome()" src="https://www.tnstc.in/images/tnstc_header03.jpg" class="clstopimg f-r">
+            </div>
+        </div>*@
+    <!--<div class="row">
+            <div class="col-lg-12 ">
+                <nav class="navbar navbarthemeup">
+                    <div class="">
+
+                        <ul class="nav navbar-nav f-r">
+                            <li><a class="navanchor" href="@Url.Action("Home", "Home")">Get Pass</a></li>
+                            <li><a class="navanchor" href="#">Sign In</a></li>
+                            <li><a class="navanchor" href="#">Agent</a></li>
+                            <li><a class="navanchor" href="#" onclick="Showloginpop()">Staff</a></li>
+
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 ">
+                <nav class="navbar navbartheme">
+                    <div class="">
+                        <img onclick="redirectToHome()" src="~/Images/TAMILNADU LOGO RECOMMENDED.png" class="clstopimg f-l">
+                        <ul class="nav navbar-nav f-r">
+                            <li><a class="navanchor" href="@Url.Action("Home", "Home")">Home</a></li>
+                            <li><a class="navanchor" href="#">Bus Timing</a></li>
+                            <li><a class="navanchor" href="#">About Us</a></li>
+                            <li><a class="navanchor" href="#" onclick="Showloginpop()">Login</a></li>
+                            <li><a class="navanchor" href="@Url.Action("Register", "Home")">Register</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>-->
+    @RenderBody()
+
+
+    <footer>
+        <div class="copyright">
+            © Copyright 2021 Siran&Sheela . All Rights Reserved Version V1.0
+        </div>
+    </footer>
+
+
+    @*Signin popup*@
+    <div class="modal in" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
+        <div class="modal-dialog" role="document" style="width: 34%;">
+            <div class="modal-content">
+                <div class="login-form dvclslgndetails">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                    <div class="avatar"><i class="fa fa-user-o"></i></div>
+                    <h4 class="modal-title">Login to Your Account</h4>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="Mail id" data-mandatory="Y" id="txtlgnmailid" placeholder="Mail id" required="required">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="Password" data-mandatory="Y" id="txtlgnpassword" placeholder="Password" required="required">;
+                    </div>
+                    <br />
+                    <div class="alert alert-danger dvclslgnerrormsg" role="alert" style="display:none">
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg" onclick="login()">Log In<i class="fa fa-spinner fa-spin" aria-hidden="true" id="dvspin" style="display:none;margin-left: 7%;font-size: 19px;font-weight: 900;"></i></button>
+                    
+                    <div style="padding-top: 6%;text-align: center;"><a class="clsOTPbtn" href="#">OTP LOGIN</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*OTP Verify Popup*@
+    <div class="modal in" id="OTPVerficationPopup" role="dialog">
+        <div class="modal-dialog" style="width: 33%;margin-left: 35%;">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #990000;">
+                    <button type="button" class="close" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal" style="color: white;">×</button>
+                    <h4 class="modal-title" style="text-align: center;color: white;font-weight: bold;">Account Verfication</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; margin-bottom: 2%; display: none;" id="dvOTPErr">
+                        <span style="text-align: center;align-items: center;">
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i><span style="color: red; margin-left: 2%;">
+                                <span id="spnErrMSG">Please Enter Valid OTP</span>
+                            </span>
+                        </span>
+                    </div>
+                    <div class="dvOTPPopupBox">
+                        <div style="text-align:center">
+                            <label>Enter your mobile OTP <span id="spnMblNo"></span></label>
+                            <section>
+                                <form>
+                                    <input id="SMScodeBox1" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(1, event,'S')" onfocus="onFocusEvent(1,'S')">
+                                    <input id="SMScodeBox2" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(2, event,'S')" onfocus="onFocusEvent(2,'S')">
+                                    <input id="SMScodeBox3" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(3, event,'S')" onfocus="onFocusEvent(3,'S')">
+                                    <input id="SMScodeBox4" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(4, event,'S')" onfocus="onFocusEvent(4,'S')">
+                                    <input id="SMScodeBox5" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(5, event,'S')" onfocus="onFocusEvent(5,'S')">
+                                </form>
+                            </section>
+                            <div style="margin-top: 2%;">
+                                <span style="padding-top: 2%;font-size: 12px;">
+                                    Didnt get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div style="text-align:center;margin-top:3%">
+                            <label>Enter your Mail OTP <span id="spnEmail"></span></label>
+                            <section>
+                                <form>
+                                    <input id="MailcodeBox1" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(1, event, 'M')" onfocus="onFocusEvent(1,'M')">
+                                    <input id="MailcodeBox2" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(2, event, 'M')" onfocus="onFocusEvent(2,'M')">
+                                    <input id="MailcodeBox3" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(3, event, 'M')" onfocus="onFocusEvent(3,'M')">
+                                    <input id="MailcodeBox4" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(4, event, 'M')" onfocus="onFocusEvent(4,'M')">
+                                    <input id="MailcodeBox5" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(5, event, 'M')" onfocus="onFocusEvent(5,'M')">
+                                </form>
+                            </section>
+                            <div style="margin-top: 2%;">
+                                <span style="padding-top: 2%;font-size: 12px;">
+                                    Did not get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row margin-top5" style="text-align: center;">
+                            <input type="button" class="btnreg" style="" value="Verify" onclick="VerifyOTP()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*OTP Verification Notiy popup*@
+    <div class="modal in" id="VerifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
+        <div class="modal-dialog" role="document" style="width: 34%;">
+            <div class="modal-content">
+                <div class="login-form dvclslgndetails">
+                    <button type="button" class="close" onclick="closeLoginPopup('VerifyModal')"><span aria-hidden="true">×</span></button>
+                    <h4 class="modal-title">Verify to Your Account</h4>
+                    <div class="form-group">
+                        <h5 style="font-weight: bold;">Hi siran,</h5><div style="margin-top: 1%;">
+                            Thank you for signing up to online bus pass. Please verify your account by clicking verify account button.
+                        </div>
+                    </div><div class="form-group">
+                        <span style="font-size: 14px;font-weight: bold;">Important Note:</span>
+                        <div style="margin-top: 1%;">You will not able to see your profile and take pass until verify your account. Please verify.<div></div></div>
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block btn-lg clsverifypopup" onclick="verifyAccount(this)" value="Click to verify" data-otpdetails="' + data.OTPDet + '">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+
+</html>
+<script>
+    var loaderimgurl = "@Url.Content("~/Images/Gif/Loading.gif")";
+    var strLoginpath = "@Url.Action("CheckLogin", "Login")";
+    var strOTPURL = "@Url.Action("SendOTP", "Home")";
+    var RedirectToHomePath = '@Url.Action("PassInfo", "HomePage")';;
+    var HomeURL = "@Url.Action("Home", "Home")";
+    var Verify_RegistrationURL = "@Url.Action("Verify_Registration", "Home")";
+    var RedirectURL = '@Url.Action("HomePage", "HomePage")';
+    var ComingsoonURL = "@Url.Action("ComingSoon", "Home")";
+    var ContactusURL = "@Url.Action("ContactUs", "Home")";
+    var AboutusURL = "@Url.Action("AboutUs", "Home")";
+    var HomeURL = "@Url.Action("Home", "Home")";
+    $(window).scroll(function () {
+
+        var scrollTop = $(window).scrollTop();
+        if ($(window).scrollTop() > 60) {
+            $(".clsscroll").addClass("clsmintop")
+        }
+        else {
+            $(".clsscroll").removeClass("clsmintop")
+        }
+    });
+</script>

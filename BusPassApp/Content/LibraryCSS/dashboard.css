@@ -1,0 +1,22 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+* {margin: 0px;padding: 0px;}
+html {position: relative;}
+body {color: #333;background: #fafafa;position: relative;font-family: 'Nunito', sans-serif !important; font-size:13px;letter-spacing:0.3px;}
+.bg-tit-clr {background:#f4f4f4;}
+.tit-clr {color:rgba(0, 0, 0, 0.6);}
+.clrthemeblu {color:#2290ff;}
+#txtfromdate, #txttodate {border:solid 0.5px #2290ff;padding:6px 10px;font-weight:600;}
+#divdate .btnfullblu {border:solid 0.5px #2290ff;color: #fff;border-radius:2px;background: #2290ff !important;-webkit-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out;}
+#divdate .btnfullblu:hover {background: #fff !important;color: #2290ff !important;-webkit-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out;}
+#divdate .btnoutline {border:solid 0.5px #2290ff;background: #fff !important;color: #2290ff;border-radius:2px;-webkit-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out;}
+#divdate .btnoutline:hover {background: #2290ff !important;color: #fff;-webkit-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;-o-transition: all .3s ease-in-out;transition: all .3s ease-in-out;}
+#graph_divs .flightinfo ul li a.flightsec.active:before {display:none;}
+#graph_divs .flightinfo ul li a {border-bottom:2px solid #fff;}
+#graph_divs .flightinfo ul {border-bottom:1px solid #ccc;}
+#graph_divs .flightinfo ul li a.flightsec:hover {border-bottom:2px solid #2290ff;}
+#graph_divs .flightinfo ul li a.flightsec.active {color: #2290ff;border-bottom: 2px solid #2290ff;}
+.mask {box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);background-color: #ffffff;}
+
+@media only screen and (max-width: 767px) {
+    #graph_divs .flightinfo ul li {width:50%;}
+}

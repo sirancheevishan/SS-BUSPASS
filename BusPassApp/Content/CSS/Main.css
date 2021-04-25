@@ -1,0 +1,976 @@
+﻿/*Laout css*/
+
+        .clstopimg {
+            height: 71px;
+            width: 6%;
+            margin-left: 10%;
+            margin-top: 0%;
+            background: transparent;
+        }
+
+        .bgclr {
+            background: transparent;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            background: transparent;
+        }
+
+        .dvFooter {
+            position: fixed;
+            width: 100%;
+            color: white;
+            text-align: center;
+            bottom: 0;
+            padding: 1rem;
+            background: #990000;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+
+        .login-form {
+            width: 350px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+            .login-form h4 {
+                text-align: center;
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .login-form .avatar {
+                color: #fff;
+                margin: 0 auto 30px;
+                text-align: center;
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                z-index: 9;
+                background: #990000;
+                padding: 15px;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+            }
+
+                .login-form .avatar i {
+                    font-size: 62px;
+                }
+
+            .login-form .form-group {
+                margin-bottom: 20px;
+            }
+
+            .login-form .form-control, .login-form .btn {
+                min-height: 40px;
+                border-radius: 2px;
+                transition: all 0.5s;
+            }
+
+            .login-form .close {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+
+            .login-form .btn {
+                background: #990000;
+                border: none;
+                line-height: normal;
+            }
+
+                .login-form .btn:hover, .login-form .btn:focus {
+                    background: #42ae68;
+                }
+
+            .login-form .checkbox-inline {
+                float: left;
+            }
+
+            .login-form input[type="checkbox"] {
+                margin-top: 2px;
+            }
+
+            .login-form .forgot-link {
+                float: right;
+            }
+
+            .login-form .small {
+                font-size: 13px;
+            }
+
+            .login-form a {
+                color: #4aba70;
+            }
+
+        .p-r-0 {
+            padding-right: 0;
+        }
+
+        .p-l-0 {
+            padding-left: 0;
+        }
+
+        .p-t-0 {
+            padding-top: 0;
+        }
+
+        .p-b-0 {
+            padding-bottom: 0;
+        }
+
+        .m-r-0 {
+            margin-right: 0;
+        }
+
+        .m-l-0 {
+            margin-left: 0;
+        }
+
+        .m-t-0 {
+            margin-top: 0;
+        }
+
+        .m-b-0 {
+            margin-bottom: 0;
+        }
+
+        .f-r {
+            float: right;
+            margin-top: 1%;
+        }
+
+        .f-l {
+            float: left;
+        }
+
+        .m-t-2 {
+            margin-top: 2%;
+        }
+
+        .w-34 {
+            width: 34%;
+        }
+       
+        .RT_header .blackbar {
+            color: #FFF;
+            background-color: #990000;
+            height: 40px;
+        }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .mobNoContainerd, .container-fluid.rbcon {
+            box-shadow: none !important;
+            width: 90%;
+        }
+        .RT_header .tpsignin {
+            font-size: 12px;
+        }
+        .RT_header .tpsignin {
+            padding: 0px 15px;
+            padding-top: 11px;
+        }
+        .la, .las {
+            font-family: 'Line Awesome Free';
+            font-weight: 900;
+        }
+        la-tty:before {
+            content: "\f1e4";
+        }
+        .pr-6 {
+            padding-right: 6px !important;
+        }
+        .RT_header .tpsignin ul li {
+            padding-right: 5px;
+            line-height: 8px;
+            display: inline-block;
+        }
+        la-envelope:before {
+            content: "\f0e0";
+        }
+        a {
+            color: #f5f5f5;
+            text-decoration: none;
+        }
+        .RT_header .top-mega-menu {
+            width: 100%;
+            position: fixed;
+            z-index: 99;
+            box-shadow: 0 0 0 rgb(0 0 0 / 40%);
+            top: 38px;
+            background: #fff !important;
+        }
+        .RT_header .navbar-default {
+            background-color: rgba(248, 248, 248, 0);
+            border: none;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .RT_header .navbar-brand {
+            height: 60px !important;
+        }
+        .RT_header .navbar-brand {
+            float: left;
+            height: 0px;
+            padding: 0px 0px;
+            font-size: 18px;
+            line-height: 20px;
+        }
+       .img-responsive, .thumbnail a > img, .thumbnail > img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+        RT_header .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+            border-color: transparent;
+        }
+        .navbar-collapse.collapse {
+            display: block !important;
+            height: auto !important;
+            padding-bottom: 0;
+            overflow: visible !important;
+            visibility: visible !important;
+        }
+        .RT_header .navbar-nav {
+            float: right;
+            margin-top: 5px;
+            margin-left: 15px;
+        }
+        .RT_header .navbar-default .navbar-nav > li > a {
+            color: #101010;
+            text-transform: capitalize !important;
+            border-bottom: 2px solid #fff;
+            padding: 0px;
+            margin: 14px 15px;
+            font-size:15px;
+        }
+        .RT_header .navbar-default .navbar-nav > li:hover {
+            background: #990000;           
+            color:#ece5e5 !important;
+            }
+                .RT_header .navbar-default .navbar-nav > li:hover .RT_header .navbar-default .navbar-nav > li > a {
+            background: #990000;           
+            color:#ece5e5 !important;
+            }
+        .nav {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+        /*Layoutcss*/
+
+
+.navlft {
+    margin-left: 52% !important;
+}
+
+.navbartheme {
+    background: #990000;
+    border-color: #990000;
+    margin-left: -8%;
+    margin-right: 1%;
+}
+
+
+
+
+.navanchor {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+.clsmintop {
+top:0 !important;
+}
+
+.dvreg {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 7px 10px 5px 5px antiquewhite;
+}
+
+.tablecls {
+    width: 100%;
+    max-width: 102%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*Start Region RegisterPage Css*/
+.labelcls {
+    padding-left: 40px;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.redclr {
+    color: red;
+    margin-left: 1px;
+    font-weight: 900;
+}
+
+.regtxt {
+    height: 32px;
+    width: 80%;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    padding-left: 3%;
+}
+
+.margin-right15 {
+    margin-right: 15%;
+}
+.m-r-2 {
+    margin-right: 2%;
+}
+
+.btnreg {
+    height: 38px;
+    width: 29%;
+    cursor: pointer !important;
+    border-radius: 12px;
+    background: #990000;
+    color: white;
+    font-weight: bold;
+    border-color: #990000;
+}
+.w-15 {
+width:15%;
+}
+.margin-top3 {
+    margin-top: 3%;
+}
+
+.margin-top5 {
+    margin-top: 5%;
+}
+
+.margin-top7 {
+    margin-top: 7%;
+}
+
+.register-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #fff;
+    background-color: #990000;
+    border-color: #337ab7;
+}
+
+.dvupload {
+    border-style: dashed;
+    border-color: #990000;
+    width: 57%;
+    height: 51px;
+    padding: 11px;
+}
+
+.errclr {
+    border: 1px solid red;
+}
+
+INPUT[type=Radio]:focus {
+    outline: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+INPUT[type=Radio] {
+    background-color: #DDD;
+    border-radius: 2px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}
+
+    INPUT[type=Radio]:checked {
+        background-color: #d40f2a;
+        background: #d40f2a url("data:image/gif;base64,R0lGODlhCwAKAIABAP////3cnSH5BAEKAAEALAAAAAALAAoAAAIUjH+AC73WHIsw0UCjglraO20PNhYAOw==") 3px 3px no-repeat;
+    }
+/*EndRegion RegisterPage CSS*/
+
+
+
+
+/*OTP design*/
+/*     Body Styling only start     */
+::selection {
+    color: #8e44ad;
+}
+
+/*     Body Styling only end     */
+.dvOTPPopupBox {
+    border: 1px solid;
+    padding: 10px;
+    /*box-shadow: 7px 10px 5px 5px antiquewhite;*/
+}
+
+section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+    section form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: auto;
+        margin: 0 auto;
+    }
+
+        section form input {
+            width: 28px;
+            height: 38px;
+            padding: 0;
+            margin-right: 25px;
+            text-align: center;
+            border: none;
+            border-bottom: 1px solid gray;
+        }
+
+            section form input:last-child {
+                margin-right: 0;
+            }
+
+            section form input::-webkit-inner-spin-button, section form input::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                appearance: none;
+                margin: 0;
+            }
+
+            section form input:focus, section form input.focus {
+                border-color: green;
+                outline: none;
+                box-shadow: none;
+            }
+
+/*End*/
+
+
+.social-footer {
+    padding: 1rem;
+    background: #8a8a8a;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+    .social-footer .social-footer-icons li:last-of-type {
+        margin-right: 0;
+    }
+
+    .social-footer .social-footer-icons .fa {
+        font-size: 1.3rem;
+        color: #fefefe;
+    }
+
+        .social-footer .social-footer-icons .fa:hover {
+            color: #4a4a4a;
+            transition: color 0.3s ease-in;
+        }
+
+.id-card-wrapper {
+    display: flex;
+}
+
+.id-card {
+    flex-basis: 100%;
+    max-width: 30em;
+    background: #129c12;
+    height: auto !important;
+    border: 1px solid #0c0c0c;
+    margin: auto;
+    color: #fff;
+    padding: 1em;
+}
+
+.profile-row {
+    display: flex;
+}
+
+    .profile-row .dp {
+        flex-basis: 28.3%;
+        position: relative;
+    }
+
+    .profile-row .desc {
+        flex-basis: 66.6%;
+    }
+
+    .profile-row .dp img {
+        max-width: 100%;
+        border-radius: 50%;
+        display: block;
+    }
+
+    .profile-row .desc {
+        padding-left: 6%;
+    }
+
+    .profile-row .dp .dp-arc-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 6px solid transparent;
+        border-radius: 50%;
+        top: -6px;
+        left: -6px;
+        animation-duration: 2s;
+        animation-name: rotate-clock;
+    }
+
+@keyframes rotate-clock {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.profile-row .dp .dp-arc-outer {
+    position: absolute;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    border: 6px solid transparent;
+    border-radius: 50%;
+    top: -12px;
+    left: -12px;
+}
+
+.clsOTPbtn {
+    padding: 1%;
+    border: 1px dashed #990000;
+    color: #990000 !important;
+    font-size: 14px;
+    margin-top: 4%;
+    font-weight: bold;
+}
+
+    .clsOTPbtn:hover {
+        padding: 1%;
+        background: #990000;
+        border: 1px dashed #990000;
+        color: white !important;
+        font-size: 14px;
+        margin-top: 4%;
+        font-weight: bold;
+    }
+
+.dverr {
+    margin-top: 2%;
+    margin-left: 25%;
+    max-width: 50%;
+    flex: 0 0 50%;
+}
+
+.dverrmsg {
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/********* Footer start ***********/
+footer {
+    clear: both;
+    margin-top: 3%;
+}
+
+    footer .copyright {
+        padding: 20px 0;
+        color: #fff;
+        text-align: center;
+        /*background-image: linear-gradient(to right bottom, #ca2a67, #ce2d62, #d2305d, #d63458, #d93953);*/
+        background-color: #990000;
+    }
+
+        footer .copyright a {
+            color: #fff;
+            -webkit-transition: all linear 0.5s;
+            transition: all linear 0.5s;
+        }
+
+            footer .copyright a:hover {
+                text-decoration: underline;
+            }
+
+    footer.footer .copyright {
+        background: #fff;
+        color: #000;
+    }
+
+/*footerend*/
+
+
+
+
+/********* Common CSS **************/
+.clstopimg {
+    height: 116px;
+    width: 28%;
+    margin-left: 8%;
+    margin-top: 4%;
+}
+
+.bgclr {
+    background: transparent;
+}
+
+body, html {
+    height: 100%;
+}
+
+body {
+    background: transparent;
+}
+
+.dvFooter {
+    position: fixed;
+    width: 100%;
+    color: white;
+    text-align: center;
+    bottom: 0;
+    padding: 1rem;
+    background: #990000;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.login-form {
+    width: 350px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+    .login-form h4 {
+        text-align: center;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .login-form .avatar {
+        color: #fff;
+        margin: 0 auto 30px;
+        text-align: center;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        z-index: 9;
+        background: #990000;
+        padding: 15px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+    }
+
+        .login-form .avatar i {
+            font-size: 62px;
+        }
+
+    .login-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .login-form .form-control, .login-form .btn {
+        min-height: 40px;
+        border-radius: 2px;
+        transition: all 0.5s;
+    }
+
+    .login-form .close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .login-form .btn {
+        background: #990000;
+        border: none;
+        line-height: normal;
+    }
+
+        .login-form .btn:hover, .login-form .btn:focus {
+            background: #42ae68;
+        }
+
+    .login-form .checkbox-inline {
+        float: left;
+    }
+
+    .login-form input[type="checkbox"] {
+        margin-top: 2px;
+    }
+
+    .login-form .forgot-link {
+        float: right;
+    }
+
+    .login-form .small {
+        font-size: 13px;
+    }
+
+    .login-form a {
+        color: #4aba70;
+    }
+
+.p-r-0 {
+    padding-right: 0;
+}
+
+.p-l-0 {
+    padding-left: 0;
+}
+
+.p-t-0 {
+    padding-top: 0;
+}
+
+.p-b-0 {
+    padding-bottom: 0;
+}
+
+.m-r-0 {
+    margin-right: 0;
+}
+
+.m-l-0 {
+    margin-left: 0;
+}
+
+.m-t-0 {
+    margin-top: 0;
+}
+
+.m-b-0 {
+    margin-bottom: 0;
+}
+
+.f-r {
+    float: right;
+}
+
+.f-l {
+    float: left;
+}
+
+.m-t-2 {
+    margin-top: 2%;
+}
+
+.w-34 {
+    width: 34%;
+}
+
+/********* Common CSS **************/
+
+
+
+
+/*Tabls*/ .tabs-left,
+.tabs-right {
+    border-bottom: none;
+    padding-top: 2px;
+}
+
+.tabs-left {
+    border-right: 1px solid #ddd;
+}
+
+.tabs-right {
+    border-left: 1px solid #ddd;
+}
+
+    .tabs-left > li,
+    .tabs-right > li {
+        float: none;
+        margin-bottom: 2px;
+            border-bottom: 1px solid #ddd !important;
+    }
+
+.tabs-left > li {
+    margin-right: -1px;
+}
+
+.tabs-right > li {
+    margin-left: -1px;
+}
+
+.tabs-left > li.active > a,
+.tabs-left > li.active > a:hover,
+.tabs-left > li.active > a:focus {
+    line-height: 1 !important;
+    text-decoration: none;
+        padding: 19px 10px;
+    color: #f7fdfd;
+    background-color: #900;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 550;
+    cursor: pointer;
+}
+
+.tabs-right > li.active > a,
+.tabs-right > li.active > a:hover,
+.tabs-right > li.active > a:focus {
+    border-bottom: 1px solid #ddd;
+    border-left-color: transparent;
+}
+
+.tabs-left > li > a {
+    border-radius: 4px 0 0 4px;
+    margin-right: 0;
+    display: block;
+    color: #eb6841;
+}
+
+.tabs-right > li > a {
+    border-radius: 0 4px 4px 0;
+    margin-right: 0;
+}
+
+.sideways {
+    margin-top: 50px;
+    border: none;
+    position: relative;
+}
+
+    .sideways > li {
+        height: 20px;
+        width: 120px;
+        margin-bottom: 100px;
+    }
+
+        .sideways > li > a {
+            border-bottom: 1px solid #ddd;
+            border-right-color: transparent;
+            text-align: center;
+            border-radius: 4px 4px 0px 0px;
+        }
+
+        .sideways > li.active > a,
+        .sideways > li.active > a:hover,
+        .sideways > li.active > a:focus {
+            border-bottom-color: transparent;
+            border-right-color: #ddd;
+            border-left-color: #ddd;
+        }
+
+    .sideways.tabs-left {
+        left: -50px;
+    }
+
+    .sideways.tabs-right {
+        right: -50px;
+    }
+
+        .sideways.tabs-right > li {
+            -webkit-transform: rotate(90deg);
+            -moz-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            -o-transform: rotate(90deg);
+            transform: rotate(90deg);
+        }
+
+    .sideways.tabs-left > li {
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+
+
+/*Pass info datalist css*/
+#dvpasinfo{
+        border: 1px solid #e8e0e0;
+}
+.clspassnav .nav-tabs  a 
+{
+    line-height: 1 !important;
+    text-decoration: none;
+        padding: 19px 10px;
+    color: #606060;
+    background-color: #fff;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 550;
+
+}
+.clspassnav .nav-tabs  a 
+{
+    line-height: 1 !important;
+    text-decoration: none;
+    padding: 19px 10px;
+    color: #606060;
+    background-color: #fff;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 550;
+
+}
+
+.clsPasguidelist li {
+    font-size: 19px;
+    font-family: sans-serif;
+    margin-top: 1%;
+    list-style:none;
+}
+.clsPasguidelist li span{
+margin-left:2%;
+}
+.clsPasTitle{
+    padding: 1%;
+    font-weight: bold;
+    font-size: 19px;
+    border-bottom: 1px solid #aeb5ae;
+}
+#dvpasinfo > .nav > li > a:focus, .nav > li > a:hover {
+    background:#900 !important;
+    color:white !important;
+}
+
+
+/*Pass info datalist css*/
+/*Tabs*/

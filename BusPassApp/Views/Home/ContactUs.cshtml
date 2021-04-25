@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
+}
+<style>
+    html {
+        background: #f9f9f9 !important;
+    }
+
+    .myDiv {
+        position: relative;
+        z-index: 1;
+        padding-top: 63px;
+    }
+
+    .fnt-35 {
+        font-size: 35px;
+        color: darkred;
+    }
+
+    .fnt-st {
+        text-align: center;
+        font-size: 37px;
+        font-weight: bolder;
+        color: firebrick;
+    }
+    .h3-st {
+        color: firebrick;
+    }
+</style>
+
+<div class="row container" style="padding-top: 2.8%;">
+    <h2 class="fnt-st ">Contact Us</h2>
+</div>
+<div class="myDiv container">
+
+    <div class="row">
+        <div class="col-lg-6 box h-347">
+            <br /><br />
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fa fa-map-marker fnt-35 " aria-hidden="true"></i>
+                    <h3 class="h3-st">Address</h3>
+                    <p>A108 Adam Street,<br>New York, NY 535022</p>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-phone fnt-35" aria-hidden="true"></i>
+                    <h3 class="h3-st">Call Us</h3>
+                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                </div>
+            </div>
+            <br /><br />
+            <div class="row">
+                <div class="col-md-6">
+                    <i class="fa fa-envelope-o fnt-35" aria-hidden="true"></i>
+                    <h3 class="h3-st">Email Us</h3>
+                    <p>info@example.com<br>contact@example.com</p>
+                </div>
+                <div class="col-md-6">
+                    <i class="fa fa-clock-o fnt-35" aria-hidden="true"></i>
+                    <h3 class="h3-st">Open Hours</h3>
+                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 box h-347">
+            <br /><br />
+            <form method="post">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    </div>
+
+                    <div class="col-md-6 ">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                    </div>
+                </div>
+
+                <br /><br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-md-12">
+                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        @*<div class="loading">Loading</div>
+                            <div class="error-message"></div>
+                            <div class="sent-message">Your message has been sent. Thank you!</div>*@
+
+                        <button type="submit" class="btnreg">Send Message</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
