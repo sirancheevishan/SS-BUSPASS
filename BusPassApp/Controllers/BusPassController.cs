@@ -107,15 +107,14 @@ namespace BusPassApp.Controllers
                 string strCurrency = ConfigurationManager.AppSettings["Currency"] != null && ConfigurationManager.AppSettings["Currency"].ToString() != "" ? ConfigurationManager.AppSettings["Currency"].ToString() : "";
                 BookingRQRS.strPassType= strPassType;
                 BookingRQRS.strUserID = strUserID;
-                strTrackID = "BPSBKT" + strPassType + DateTime.Now.ToString("DDMMYYYYHHSSFF") + randomObj.Next(10000000, 100000000).ToString();
+                strTrackID = "BPSBKT" + strPassType + DateTime.Now.ToString("yyyyMMddHHmmss") + randomObj.Next(10000000, 100000000).ToString();
                 BookingRQRS.stTrackID = strTrackID;
                 BookingRQRS.strPassNo = randomObj.Next(10000000, 100000000).ToString();
-                BookingRQRS.strRemark = "";
-                BookingRQRS.strBookedDate = "";
-                BookingRQRS.strUpdateDate = "";
-                BookingRQRS.strRemark= "";
+                BookingRQRS.strRemark = "Pending";
+                BookingRQRS.strBookedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
                 BookingRQRS.strFlag = "I";
                 BookingRQRS.strStatus="P";
+                BookingRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
                 BookingRQRS.strCurrency = strCurrency;
 
                 strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
@@ -130,7 +129,7 @@ namespace BusPassApp.Controllers
                 ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
 
                 //ResponseLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                 strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -140,27 +139,25 @@ namespace BusPassApp.Controllers
                 {
                     if (ds_result.Tables[0].Rows[0]["Result"].ToString() == "1")
                     {
-                        strTrackID = "PGRAZOR" + strPassType + DateTime.Now.ToString("DDMMYYYYHHSSFF") + randomObj.Next(10000000, 100000000).ToString();
+                        strTrackID = "PGRAZOR" + strPassType + DateTime.Now.ToString("yyyyMMddHHmmss") + randomObj.Next(10000000, 100000000).ToString();
                         BaseClass.PGRQRS PGRQRS = new BaseClass.PGRQRS();
                         PGRQRS.strUserID = strUserID;
                         PGRQRS.strUserName = BookingRQRS.strTitle + " " + BookingRQRS.strFName + " " + BookingRQRS.strLName;
-                        PGRQRS.strAdhaarNo = "";
+                        PGRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
                         PGRQRS.strCurrency = strCurrency;
                         PGRQRS.strAmount = BookingRQRS.strAmount;
                         PGRQRS.strContactNo = BookingRQRS.strPhnNo;
-                        PGRQRS.strCreatedDate = DateTime.Now.ToString("DDMMYYYYHHMMSSSS");
+                        PGRQRS.strCreatedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
                         PGRQRS.strFlag = "I";
-                        PGRQRS.strIpAddress = "";
+                        PGRQRS.strIpAddress = Utilities.GetPublicIpAddress();
                         PGRQRS.strMail = BookingRQRS.strMail;
-                        PGRQRS.strOrderID = "";
                         PGRQRS.strPassNo = BookingRQRS.strPassNo;
-                        PGRQRS.strPaymentID = "";
-                        PGRQRS.strRemark = "";
+                        PGRQRS.strRemark = "Pending";
                         PGRQRS.strTrackID = strTrackID;
                         PGRQRS.stTrackID = strTrackID;
                         PGRQRS.strTrackStatus = "P";
                         PGRQRS.strTrackStatusCode = "00";
-                        PGRQRS.strUpdateDate = DateTime.Now.ToString(("DDMMYYYHHMMSSS"));
+                        PGRQRS.strUpdateDate = DateTime.Now.ToString(("yyyyMMddHHmmss"));
 
                         //RequestLog
                         string strPGReq = JsonConvert.SerializeObject(PGRQRS);

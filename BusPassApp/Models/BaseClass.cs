@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -54,6 +56,7 @@ namespace BusPassApp.Models
             public string strBookedDate { get; set; }
             public string strUpdateDate { get; set; }
             public string strFlag { get; set; }
+            public string strAdhaarNo { get; set; }
 
         }
 
@@ -126,7 +129,25 @@ namespace BusPassApp.Models
 
             return GenerateOTP;
         }
+        public static string GetPublicIpAddress()
+        {
+            var request = (HttpWebRequest)WebRequest.Create("http://ifconfig.me");
 
+            request.UserAgent = "curl"; // this will tell the server to return the information as if the request was made by the linux "curl" command
+
+            string publicIPAddress;
+
+            request.Method = "GET";
+            using (WebResponse response = request.GetResponse())
+            {
+                using (var reader = new StreamReader(response.GetResponseStream()))
+                {
+                    publicIPAddress = reader.ReadToEnd();
+                }
+            }
+
+            return publicIPAddress.Replace("\n", "");
+        }
         public static bool SendSMS(string strMobNo,string strContent)
         {
             

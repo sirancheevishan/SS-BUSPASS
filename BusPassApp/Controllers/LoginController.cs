@@ -37,6 +37,7 @@ namespace BusPassApp.Controllers
                             Session.Add("USER_MAIL", dsRow["USD_USER_MAILID"].ToString());
                             Session.Add("USER_NUM", dsRow["USD_Mobil_No"].ToString());
                             Session.Add("USD_Password", strPassword);
+                            Session.Add("USD_AdharNo", dsRow["USD_ADHAAR_NO"].ToString());
                             Session.Add("USER_NAME", dsRow["USD_USER_NAME"].ToString());
                             Session.Add("USER_DOB", dsRow["USD_DOB"].ToString());
                             Session.Add("USER_SEX", dsRow["USD_GENDER"].ToString() == "M");

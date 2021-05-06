@@ -141,6 +141,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AfterBookingController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\RedirectController.cs" />
     <Compile Include="Controllers\BusPassController.cs" />
@@ -185,11 +186,13 @@
     <Content Include="Content\CSS\Calender.css" />
     <Content Include="Content\CSS\font-awesome.css" />
     <Content Include="Content\CSS\Main.css" />
+    <Content Include="Content\CSS\w2ui-1.5.css" />
     <Content Include="Content\JS\bootstrap-typeahead.js" />
     <Content Include="Content\JS\jquery-1.11.1.js" />
     <Content Include="Content\JS\jquery.blockUI.js" />
     <Content Include="Content\JS\bootstrap.js" />
     <Content Include="Content\JS\jquery.xml2json.js" />
+    <Content Include="Content\JS\w2ui-1.5.js" />
     <Content Include="Content\JS\WebValidation.js" />
     <Content Include="Content\CSS\raysModal.css" />
     <Content Include="Content\JS\raysModal.js" />

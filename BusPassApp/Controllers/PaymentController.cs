@@ -62,7 +62,6 @@ namespace BusPassApp.Controllers
                     address = _requestData.address,
                     description = (_requestData.strPassType != null ? _requestData.strPassType :"")
                  };
-                string str = "";
                 Session.Add("PaymentString", JsonConvert.SerializeObject(orderModel));
             }
             catch (Exception ex)
@@ -95,8 +94,8 @@ namespace BusPassApp.Controllers
         public ActionResult Complete()
         {
             string strUserID = Convert.ToString(Session["REGISTERED_NO"]);
-            string strPhnNo = Convert.ToString(Session["MOBILE_NO"]);
-            string strMailID = Convert.ToString(Session["MAIL_ID"]);
+            string strPhnNo = Convert.ToString(Session["USER_NUM"]);
+            string strMailID = Convert.ToString(Session["USER_MAIL"]);
             string strBookingReq = string.Empty;
             string strXMLData = string.Empty;
             string strtime = string.Empty;
@@ -107,12 +106,12 @@ namespace BusPassApp.Controllers
             {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-                string paymentId = Request.Params["rzp_paymentid"];
-                string orderId = Request.Params["rzp_orderid"];
+                string strPaymentId = Request.Params["rzp_paymentid"];
+                string strOrderId = Request.Params["rzp_orderid"];
 
                 Razorpay.Api.RazorpayClient client = new Razorpay.Api.RazorpayClient("rzp_test_PUIxVIZT1Ae6fR", "lvOoPdVuu9fmkaBG8bnF7qdy");
 
-                Razorpay.Api.Payment payment = client.Payment.Fetch(paymentId);
+                Razorpay.Api.Payment payment = client.Payment.Fetch(strPaymentId);
 
                 Dictionary<string, object> options = new Dictionary<string, object>();
                 options.Add("amount", payment.Attributes["amount"]);
@@ -123,50 +122,95 @@ namespace BusPassApp.Controllers
                 if (paymentCaptured.Attributes["status"] == "captured")
                 {
 
-                    #region Update Track
+                    #region Update payment Track
                     BaseClass.BookingRQRS BookingRQRS = new BaseClass.BookingRQRS();
                     string strCurrency = ConfigurationManager.AppSettings["Currency"] != null && ConfigurationManager.AppSettings["Currency"].ToString() != "" ? ConfigurationManager.AppSettings["Currency"].ToString() : "";
-                    BookingRQRS.strPassType = "";
-                    BookingRQRS.strUserID = strUserID;
-                    BookingRQRS.stTrackID = "";
-                    BookingRQRS.strPassNo = "";
-                    BookingRQRS.strRemark = "";
-                    BookingRQRS.strBookedDate = "";
-                    BookingRQRS.strUpdateDate = "";
-                    BookingRQRS.strRemark = "";
-                    BookingRQRS.strFlag = "U";
-                    BookingRQRS.strStatus = "S";
-                    BookingRQRS.strMail = strMailID;
-                    BookingRQRS.strPhnNo = strPhnNo;
-                    BookingRQRS.strCurrency = strCurrency;
-                    strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
+                    BaseClass.PGRQRS PGRQRS = new BaseClass.PGRQRS();
+                    PGRQRS.strUserID = strUserID;
+                    PGRQRS.strContactNo = strPhnNo;
+                    PGRQRS.strFlag = "U";
+                    PGRQRS.strMail = strMailID;
+                    PGRQRS.strTrackStatus = "S";
+                    PGRQRS.strTrackStatusCode = "01";
+                    PGRQRS.strPaymentID = strPaymentId;
+                    PGRQRS.strOrderID = strOrderId;
+                    PGRQRS.strUpdateDate = DateTime.Now.ToString("yyyyMMddHHmmss");
 
-                    Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                     //RequestLog
-                    strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
-                    strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                    string strPGReq = JsonConvert.SerializeObject(PGRQRS);
+                    strtime = DateTime.Now.ToString("ddMMyyy HH:MM:SS:FFFF");
+                    strXMLData = "<EVENT><REQUEST>PGRequest</REQUEST>";
                     strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
-                    strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+                    strXMLData += "<REQUESTDATA>" + strPGReq + "</REQUESTDATA><EVENT>";
 
-                    ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
+                    ds_result = Ws_Service.ManagePGTrack(strPGReq, ref strErrMSG);
 
-                    //ResponseLog
-                    strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
-                    strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
-                    strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
-                    strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
-                    strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
 
                     if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
                     {
                         if (ds_result.Tables[0].Rows[0]["Result"].ToString() == "1")
                         {
+                            #region Update booking Track
+                            BookingRQRS.strPassType = "";
+                            BookingRQRS.strDOB = "";
+                            BookingRQRS.strGender = "";
+                            BookingRQRS.strPassCode = "";
+                            BookingRQRS.strPassName = "";
+                            BookingRQRS.strPassType = "";
+                            BookingRQRS.strPassNo = "";
+                            BookingRQRS.strAmount = "";
+                            BookingRQRS.strLName = "";
+                            BookingRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
+                            BookingRQRS.strUserID = strUserID;
+                            BookingRQRS.stTrackID = "";
+                            BookingRQRS.strPassNo = "";
+                            BookingRQRS.strRemark = "";
+                            BookingRQRS.strBookedDate = "";
+                            BookingRQRS.strUpdateDate = DateTime.Now.ToString("yyyyMMddHHmmss");
+                            BookingRQRS.strRemark = "Success";
+                            BookingRQRS.strFlag = "U";
+                            BookingRQRS.strStatus = "S";
+                            BookingRQRS.strMail = strMailID;
+                            BookingRQRS.strPhnNo = strPhnNo;
+                            BookingRQRS.strCurrency = strCurrency;
+                            strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
 
+                            Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                            //RequestLog
+                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                            strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                            strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                            ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
+
+                            //ResponseLog
+                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                            strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                            strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                            strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                            #endregion
+
+                            if (ds_result.Tables[0].Rows[0]["Result"].ToString() == "1")
+                            {
+                                return RedirectToAction("Success");
+                            }
+                            else
+                            {
+                                return RedirectToAction("Failed");
+                            }
+                        }
+                        else
+                        {
+                            return RedirectToAction("Failed");
                         }
                     }
-                    #endregion
-
-                    return RedirectToAction("Success");
+                    else
+                    {
+                        return RedirectToAction("Failed");
+                    }
+                    #endregion                    
                 }
                 else
                 {
@@ -175,7 +219,7 @@ namespace BusPassApp.Controllers
             }
             catch (Exception ex)
             {
-                return RedirectToAction("Success");
+                return RedirectToAction("Failed");
             }
         }
 
