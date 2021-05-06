@@ -1,10 +1,10 @@
 ﻿@{
     ViewBag.Title = "ManagementBooking";
     Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
-    String strProfilepath = Session["USER_PROFILE_PATH"] != null ? Session["USER_PROFILE_PATH"].ToString() : "";
-    String strUserName = Session["USER_NAME"] != null ? Session["USER_NAME"].ToString() : "";
+
 }
 <style>
+    
     html {
         background: #f9f9f9 !important;
     }
@@ -168,6 +168,14 @@
     }
     .lblhistory{
     font-size:17px;font-weight:bold;
+        border-bottom: 1px solid #990000;
+    }
+    div label {
+    float:left !important;
+    }
+
+    .float-left {
+    float:left;
     }
 </style>
 <!DOCTYPE html>
@@ -181,7 +189,7 @@
 
 
     <div class="myDiv container">
-        <div class="containerinner" >
+        <div class="containerinner mt-5" >
             <section class="design-process-section" id="process-tab">
                 <div class="container">
                     <div class="row">
@@ -212,29 +220,25 @@
 
 
 
-                                    <div class="row pad">
+                                    <div class="row">
                                         <div class="col-sm-3">
                                             <label>From Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="formdate">
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txtformdate" autocomplete="off">
                                         </div>
                                         <div class="col-sm-3">
                                             <label>To Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="todate">
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txttodate" autocomplete="off">
 
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3" style="display:none;">
                                             <label>Booking Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="bookdate">
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
                                         </div>
-
-                                    </div>
-
-                                    <div class="row pad">
                                         <div class="col-sm-3">
-                                            <label>Pass Type</label><br>
+                                            <label>Pass Type</label><br>    
 
-                                            <select class="text-bx form-control" id="passtype">
-                                                <option>-Select-</option>
+                                            <select class="text-bx form-control" id="ddlpasstype">
+                                                <option value="">-Select-</option>
                                                 <option>Student Pass (School)</option>
                                                 <option>Student Pass (College)</option>
                                                 <option>Senior Citizens pass</option>
@@ -246,18 +250,25 @@
                                             </select>
 
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3 m-1" >
                                             <label>Status</label><br>
-                                            <input type="text" class="text-bx form-control" id="status" />
+                                            <select class="text-bx form-control" id="ddlStatus">
+                                            <option value="">-Select-</option>
+                                            <option value="P">Pending</option>
+                                            <option value="S">Success</option>
+                                            <option value="F">Failure</option>
+                                            </select>
                                         </div>
                                     </div>
 
-                                    <div class="row pad pl">
+                                   
+
+                                    <div class="row pad pl" style="margin-top:2%">
                                         <div class="col-sm-3">
                                             <input type="button" class="btn" value="Get History" id="gethistory" />
                                         </div>
                                         <div class="col-sm-3">
-                                            <input type="button" class="btn" value="Clear" id="ClearEntry" />
+                                            <input type="button" class="btn float-left" value="Clear" id="ClearEntry" />
                                         </div>
                                     </div>
 
@@ -323,14 +334,12 @@
                 changeYear: true,
 
             });
+            $("#ResultTable").hide();
         });
-        $(document).ready(function () {
-            GetBookedHistory()
-            $("#gethistory").click(function () {
-                $("#ResultTable").show();
-            });
+        
+        $("#gethistory").click(function () {
+            GetBookedHistory();
         });
-        // Clear Entry Form
         $(document).ready(function () {
             $("#ClearEntry").click(function () {
 
@@ -338,13 +347,12 @@
                 $("#fromdate").val("");
                 $("#todate").val("");
                 $("#bookdate").val("");
-                $("#passtype").val("");
-                $("#status").val("");
+                $("#ddlpasstype").val("");
+                $("#ddlStatus").val("");
+
             });
         });
-         $(document).ready(function () {
-        $("#spnUserName").html('@strUserName');
-         });
+        
 
         function GetBookedHistory() {
             var BookedHistoryURL = "@Url.Action("GetBookedHistory", "AfterBooking")";
@@ -358,9 +366,11 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
-                    if (data.status == "01")
-                    {
+                    if (data.status == "01") {
                         BindBookedHistory(JSON.parse(data.Result));
+                    }
+                    else {
+                        alert(data.Message);
                     }
                 },
                 error: function (ex) {
@@ -377,52 +387,52 @@
             $.each(data[0], function (obj, val) {
 
                 if (obj == "PI_USER_NAME") {
-                    columns.push({ field: obj, caption: "USER NAME", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "USER NAME", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_BOOKING_TRACK_ID") {
-                    columns.push({ field: obj, caption: "TRACK ID", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "TRACK ID", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_PASS_CODE") {
-                    columns.push({ field: obj, caption: "PASS CODE", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "PASS CODE", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_PASS_NAME") {
-                    columns.push({ field: obj, caption: "PASS NAME", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "PASS NAME", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_PASS_NUMBER") {
-                    columns.push({ field: obj, caption: "PASS NUMBER", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "PASS NUMBER", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_PASS_STATUS") {
-                    columns.push({ field: obj, caption: "STATUS", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "STATUS", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_EFFECTIVE_FROM") {
-                    columns.push({ field: obj, caption: "EFFECTIVE FROM", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "EFFECTIVE FROM", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_EFFECTIVE_TO") {
-                    columns.push({ field: obj, caption: "EFFECTIVE TO", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "EFFECTIVE TO", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_CURRENCY") {
-                    columns.push({ field: obj, caption: "CURRENCY", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "CURRENCY", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_AMOUNT") {
                     columns.push({ field: obj, caption: "AMOUNT", size: "90px", resizable: true, sortable: true, attr: "align=right" });
                 }
                 else if (obj == "PI_REMARK") {
-                    columns.push({ field: obj, caption: "REMARK", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "REMARK", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_BOOKED_DATE") {
-                    columns.push({ field: obj, caption: "BOOKED DATE", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "BOOKED DATE", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_UPDATED_DATE") {
-                    columns.push({ field: obj, caption: "UPDATED DATE", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "UPDATED DATE", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_USER_CONTACT_NO") {
-                    columns.push({ field: obj, caption: "CONTACT NO", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "CONTACT NO", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_USER_MAIL") {
-                    columns.push({ field: obj, caption: "Mail ID", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "Mail ID", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
                 else if (obj == "PI_USER_ADHAAR_NO") {
-                    columns.push({ field: obj, caption: "ADHAAR NO", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+                    columns.push({ field: obj, caption: "ADHAAR NO", size: "90px", resizable: true, sortable: true, attr: "align=center" });
                 }
 
             });

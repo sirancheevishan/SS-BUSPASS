@@ -1,4 +1,7 @@
-﻿
+﻿@{
+    string strProfilepath = Convert.ToString(Session["USER_PROFILE_PATH"]);
+    string strUserName = Convert.ToString(Session["USER_NAME"]);
+}
 <!DOCTYPE html>
 
 <script src="https://code.jquery.com/jquery-1.11.1.js" integrity="sha256-MCmDSoIMecFUw3f1LicZ/D/yonYAoHrgiep/3pCH9rw=" crossorigin="anonymous"></script>
@@ -569,4 +572,7 @@
     var ComingsoonURL = "@Url.Action("ComingSoon", "Home")";
     var ContactusURL = "@Url.Action("ContactUs", "Home")";
     var AboutusURL = "@Url.Action("AboutUs", "Home")";
+    $(document).ready(function () {
+        $("#spnUserName").html('@strUserName');
+    });
 </script>
