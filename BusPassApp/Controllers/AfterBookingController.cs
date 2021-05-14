@@ -22,7 +22,7 @@ namespace BusPassApp.Controllers
         {
             return View();
         }
-        public ActionResult GetBookedHistory(string strTrackID)
+        public ActionResult GetBookedHistory(string strTrackID,string strBookedDate,string strPassType,string strBookingStatus)
         {
             string strBookingReq = string.Empty;
             string strStatus = string.Empty;
@@ -51,7 +51,9 @@ namespace BusPassApp.Controllers
                 BookingRQRS.strUserID = strUserID;
                 BookingRQRS.stTrackID = strTrackID;
                 BookingRQRS.strFlag = "F";
-
+                BookingRQRS.strBookedDate = strBookedDate != "" ? (strBookedDate.Split('/')[2] + strBookedDate.Split('/')[0] + strBookedDate.Split('/')[1]) : "";
+                BookingRQRS.strStatus = strBookingStatus;
+                BookingRQRS.strPassCode = strPassType;
                 strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
 
                 Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
