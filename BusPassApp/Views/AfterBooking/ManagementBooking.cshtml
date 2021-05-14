@@ -222,10 +222,10 @@
 
                                     <div class="row">
                                         <div class="col-sm-3">
-                                            <label>From Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txtformdate" autocomplete="off">
+                                            <label>Booked Date</label><br>
+                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3" style="display:none;">
                                             <label>To Date</label><br>
                                             <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txttodate" autocomplete="off">
 
@@ -239,14 +239,14 @@
 
                                             <select class="text-bx form-control" id="ddlpasstype">
                                                 <option value="">-Select-</option>
-                                                <option>Student Pass (School)</option>
-                                                <option>Student Pass (College)</option>
-                                                <option>Senior Citizens pass</option>
-                                                <option>Handicapped and Blind pas</option>
-                                                <option>Journalists / Press Reporter pass</option>
-                                                <option>Travel as you Please Tickets</option>
-                                                <option>Monthly Pass</option>
-                                                <option>Freedom fighters pass</option>
+                                                <option value="BP-001">Student Pass (School)</option>
+                                                <option value="BP-002">Student Pass (College)</option>
+                                                <option value="BP-003">Senior Citizens pass</option>
+                                                <option value="BP-004">Handicapped and Blind pas</option>
+                                                <option value="BP-005">Journalists / Press Reporter pass</option>
+                                                <option value="BP-006">Travel as you Please Tickets</option>
+                                                <option value="BP-007">Monthly Pass</option>
+                                                <option value="BP-008">Freedom fighters pass</option>
                                             </select>
 
                                         </div>
@@ -328,8 +328,6 @@
         $(document).ready(function () {
             $(".clsdatepicker").datepicker({
                 dateFormat: "dd/mm/yy",
-                minDate: '-90y',
-                maxDate: '-10y',
                 changeMonth: true,
                 changeYear: true,
 
@@ -355,9 +353,15 @@
         
 
         function GetBookedHistory() {
+
+
+
             var BookedHistoryURL = "@Url.Action("GetBookedHistory", "AfterBooking")";
             var param = {
-                strTrackID:""
+                strTrackID:"",
+                strBookedDate: $("#txtbookdate").val(),
+                strPassType:$("#ddlpasstype").val(),
+                strBookingStatus: $("#ddlStatus").val()
             }
             $.ajax({
                 type: "POST",
