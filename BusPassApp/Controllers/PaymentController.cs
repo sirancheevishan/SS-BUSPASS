@@ -148,31 +148,33 @@ namespace BusPassApp.Controllers
 
                     if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
                     {
+                        BookingRQRS.strPassType = "";
+                        BookingRQRS.strDOB = "";
+                        BookingRQRS.strGender = "";
+                        BookingRQRS.strPassCode = "";
+                        BookingRQRS.strPassName = "";
+                        BookingRQRS.strPassType = "";
+                        BookingRQRS.strPassNo = "";
+                        BookingRQRS.strAmount = "";
+                        BookingRQRS.strLName = "";
+                        BookingRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
+                        BookingRQRS.strUserID = strUserID;
+                        BookingRQRS.stTrackID = "";
+                        BookingRQRS.strPassNo = "";
+                        BookingRQRS.strRemark = "";
+                        BookingRQRS.strBookedDate = "";
+                        BookingRQRS.strUpdateDate = DateTime.Now.ToString("yyyyMMddHHmmss");
+                        BookingRQRS.strMail = strMailID;
+                        BookingRQRS.strPhnNo = strPhnNo;
+                        BookingRQRS.strCurrency = strCurrency;
+
                         if (ds_result.Tables[0].Rows[0]["Result"].ToString() == "1")
                         {
                             #region Update booking Track
-                            BookingRQRS.strPassType = "";
-                            BookingRQRS.strDOB = "";
-                            BookingRQRS.strGender = "";
-                            BookingRQRS.strPassCode = "";
-                            BookingRQRS.strPassName = "";
-                            BookingRQRS.strPassType = "";
-                            BookingRQRS.strPassNo = "";
-                            BookingRQRS.strAmount = "";
-                            BookingRQRS.strLName = "";
-                            BookingRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
-                            BookingRQRS.strUserID = strUserID;
-                            BookingRQRS.stTrackID = "";
-                            BookingRQRS.strPassNo = "";
-                            BookingRQRS.strRemark = "";
-                            BookingRQRS.strBookedDate = "";
-                            BookingRQRS.strUpdateDate = DateTime.Now.ToString("yyyyMMddHHmmss");
                             BookingRQRS.strRemark = "Success";
                             BookingRQRS.strFlag = "U";
                             BookingRQRS.strStatus = "S";
-                            BookingRQRS.strMail = strMailID;
-                            BookingRQRS.strPhnNo = strPhnNo;
-                            BookingRQRS.strCurrency = strCurrency;
+
                             strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
 
                             Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
@@ -198,22 +200,115 @@ namespace BusPassApp.Controllers
                             }
                             else
                             {
+                                #region Update booking Track
+                                BookingRQRS.strRemark = "Failed - Unable to update booking track.";
+                                BookingRQRS.strFlag = "U";
+                                BookingRQRS.strStatus = "F";
+                                strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
+
+                                Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                                //RequestLog
+                                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                                strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                                strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                                strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                                ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
+
+                                //ResponseLog
+                                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                                strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                                strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                                strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                                #endregion
                                 return RedirectToAction("Failed");
                             }
                         }
                         else
                         {
+                            #region Update booking Track
+                            
+                            BookingRQRS.strRemark = "Unable to update payment gateway. status cocde: "+ ds_result.Tables[0].Rows[0]["Result"].ToString();
+                            BookingRQRS.strFlag = "U";
+                            BookingRQRS.strStatus = "F";
+                            strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
+
+                            Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                            //RequestLog
+                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                            strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                            strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                            ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
+
+                            //ResponseLog
+                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                            strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                            strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                            strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                            #endregion
                             return RedirectToAction("Failed");
                         }
                     }
                     else
                     {
+                        #region Update booking Track
+
+                        BookingRQRS.strRemark = "Unable to update payment gateway. status cocde: " + ds_result.Tables[0].Rows[0]["Result"].ToString();
+                        BookingRQRS.strFlag = "U";
+                        BookingRQRS.strStatus = "F";
+                        strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
+
+                        Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                        //RequestLog
+                        strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                        strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                        strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                        strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                        ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
+
+                        //ResponseLog
+                        strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                        strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                        strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                        strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                        strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                        #endregion
                         return RedirectToAction("Failed");
                     }
                     #endregion                    
                 }
                 else
                 {
+                    #region Update payment Track
+                    BaseClass.BookingRQRS BookingRQRS = new BaseClass.BookingRQRS();
+                    string strCurrency = ConfigurationManager.AppSettings["Currency"] != null && ConfigurationManager.AppSettings["Currency"].ToString() != "" ? ConfigurationManager.AppSettings["Currency"].ToString() : "";
+                    BaseClass.PGRQRS PGRQRS = new BaseClass.PGRQRS();
+                    PGRQRS.strUserID = strUserID;
+                    PGRQRS.strContactNo = strPhnNo;
+                    PGRQRS.strFlag = "U";
+                    PGRQRS.strMail = strMailID;
+                    PGRQRS.strTrackStatus = "F";
+                    PGRQRS.strTrackStatusCode = "01";
+                    PGRQRS.strPaymentID = strPaymentId;
+                    PGRQRS.strOrderID = strOrderId;
+                    PGRQRS.strUpdateDate = DateTime.Now.ToString("yyyyMMddHHmmss");
+
+                    //RequestLog
+                    string strPGReq = JsonConvert.SerializeObject(PGRQRS);
+                    strtime = DateTime.Now.ToString("ddMMyyy HH:MM:SS:FFFF");
+                    strXMLData = "<EVENT><REQUEST>PGRequest</REQUEST>";
+                    strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                    strXMLData += "<REQUESTDATA>" + strPGReq + "</REQUESTDATA><EVENT>";
+
+                    ds_result = Ws_Service.ManagePGTrack(strPGReq, ref strErrMSG);
+
+
+                    #endregion
                     return RedirectToAction("Failed");
                 }
             }

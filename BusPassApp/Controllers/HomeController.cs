@@ -363,9 +363,7 @@ namespace BusPassApp.Controllers
             return stringBuilder;
         }
 
-
-
-
+        
         public ActionResult Verify_Registration(string strSMSOTP, string strMailOTP)
         {
             string strtime = string.Empty;
@@ -432,10 +430,6 @@ namespace BusPassApp.Controllers
 
             return Json(new { status = strStatus, RegisteredNo = strRegisteredNo, Message = strMSG });
         }
-
-
-
-
-
+        
     }
 }

@@ -303,7 +303,6 @@
                     </div>
                     <div class="panel-body">
                         <div class="" id="dvBookedHistory" style="width: 100%; height: 350px;">
-                            
                         </div>
 
                     </div>
@@ -374,6 +373,7 @@
                         BindBookedHistory(JSON.parse(data.Result));
                     }
                     else {
+                        $("#dvBookedHistory").html('<img src="~/Images/no-record.jpg" />');
                         alert(data.Message);
                     }
                 },

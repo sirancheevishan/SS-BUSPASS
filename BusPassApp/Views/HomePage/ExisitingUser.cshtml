@@ -1,6 +1,11 @@
 ﻿@{
-    ViewBag.Title = "ExistingUser";
+    ViewBag.Title = "ExisitingUser";
     Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
+    string strPassID = Convert.ToString(Session["REGISTERED_NO"]);
+    string strName = Convert.ToString(Session["USER_NAME"]);
+    string strDOB = Convert.ToString(Session["USER_DOB"]);
+    string strSex = Convert.ToString(Session["USER_SEX"]);
+    string strAddress = Convert.ToString(Session["USER_ADDRESS"]);
 }
 <style>
     html {
@@ -40,6 +45,7 @@
         /*  font-weight: bold;*/
         border-color: #990000;
     }
+
     .passcard {
         box-shadow: 0 5px 5px 5px #a94442;
         max-width: 389px;
@@ -72,6 +78,7 @@
                 background-color: #585858;
                 color: #ffffff;
             }
+
     .idtable, .idtable tr td {
         width: 290px;
         margin: 0 auto;
@@ -94,17 +101,17 @@
             box-shadow: 0 10px 20px #a94442, 0 4px 8px #a94442;
         }
 
-.card h3{
-  font-weight: 600;
-}
-  
+        .card h3 {
+            font-weight: 600;
+        }
 
-.card img{
-  position: absolute;
-  top: 20px;
-  right: 15px;
-  max-height: 120px;
-}
+
+        .card img {
+            position: absolute;
+            top: 20px;
+            right: 15px;
+            max-height: 120px;
+        }
 
     .card-1 {
         /*background-image: url(https://ionicframework.com/img/getting-started/ionic-native-card.png);*/
@@ -117,154 +124,138 @@
     .card-2 {
         /* background-image: url(https://ionicframework.com/img/getting-started/components-card.png);*/
         background-repeat: no-repeat;
-       
         background-image: url('../../Images/buses/Icon 5.png');
         background-position: right;
         background-size: 80px;
     }
 
-.card-3{
-   background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
-      background-repeat: no-repeat;
-    background-position: right;
-    background-size: 80px;
-}
-
-
-
-
+    .card-3 {
+        background-image: url(https://ionicframework.com/img/getting-started/theming-card.png);
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 80px;
+    }
 </style>
 <!DOCTYPE html>
 <html>
 <head>
-
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/lib/moment.min.js"></script>
-            <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js"></script>
-
-            <link href="~/Content/CSS/Calender.css" rel="stylesheet" />
-            <script>
-        $(document).ready(function() {
-
-                $('#calendar').fullCalendar({
-                    header: {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'month,agendaWeek,agendaDay'
-                    },
-                    defaultDate: '2014-06-12',
-                    defaultView: 'month',
-                    editable: true,
-                    events: [
-                        {
-                            title: 'All Day Event',
-                            start: '2014-06-01'
-                        }
-
-                    ]
-                });
-
-            });
-
-
-    </script>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>*@
+    <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/lib/moment.min.js"></script>
+    <script src="https://fullcalendar.io/js/fullcalendar-2.2.5/fullcalendar.min.js"></script>
+    <link href="~/Content/CSS/Calender.css" rel="stylesheet" />
 </head>
 <body>
 
     <div class="myDiv container">
 
         <div class="row">
-            <div class="col-lg-8 box h-347">
-                <div class="row" >
-                    <div class="col-lg-6 ">
-                        <div class="container" style=" padding-bottom: 7%;">
-                            <div class="card card-1">
-                                <h3>Pass Type</h3>
-                                <p>Passenger Pass</p>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 " >
-                        <div class="container" style=" padding-bottom: 7%;">
-                            <div class="card card-1">
-
-                                <h3>Valid</h3>
-                                <p>15.03.2022 - 15.05.2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" style=" JUSTIFY-CONTENT: center; DISPLAY: flex; padding-top: 1%;">
-                    <div class="col-lg-7 box h-347" style="box-shadow: 0 6px 10px #a94442, 0 0 6px #a94442; padding: 1%;">
-
-                        <div id='calendar'></div>
-
-                    </div>
-                </div>
+            <div class="col-lg-8 box">
+                <div id='calendar'></div>
             </div>
 
-            
-        <div class="col-lg-4 box h-347"  style="padding-top: 6%;">
+
+            <div class="col-lg-4 box" style="padding-top: 2%;">
+
+                <div style="padding-bottom: 7%;">
+                    <div class="card card-1" style="padding: 3%;">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div>
+                                    <span style="font-size: 19px; font-weight: bold; color: #990000; display: flex; justify-content: center;" id="spnPassType"> Student Pass (school)</span>
+                                </div>
+                                <div style="font-size: 12px; font-weight: bold; margin-top: 2%; text-align: center;">
+                                    <span id="spnFromDate"> 01/05/2021 </span>
+                                    <span id="spnToDate">- 31/05/2021 </span>
+                                </div>
+                                <div style="text-align: center; margin-top: 3%;">
+                                    <span style="font-size: 12px; font-weight: bold; padding: 2%; border: 1px solid red; border-radius: 11px; background: red; color: white;" id="spnDays"> 14 Days Left</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3" style="">
+                                <img src="~/Images/active.jpg" id="proImg" style="height: 66px !important; top: 0 !important; right: 29px !important;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
-            
                 <div class="passcard">
 
                     <h4>Tamil Nadu State Transport Corporation Ltd.</h4>
                     <h5>(A Government of Tamilnadu Undertaking)</h5>
-                    <img src="~/Images/ProfilePicture/9745681236.jpg" alt="image" />
+                    <img src="~/Images/ProfilePicture/Pro1.jpg" alt="image" />
                     <br />
-                    <h4>BusPass ID Card</h4>
+
                     <br />
                     <table class="idtable">
                         <tr>
                             <td><strong>Pass No</strong></td>
-                            <td>BPS000001</td>
+                            <td>@strPassID</td>
                         </tr>
                         <tr>
                             <td><strong>Name</strong></td>
-                            <td>Sirancheevi</td>
+                            <td>@strName</td>
                         </tr>
 
                         <tr>
                             <td><strong>Age</strong></td>
-                            <td>24</td>
+                            <td id="tdAge">24</td>
                         </tr>
 
                         <tr>
                             <td><strong>Gender</strong></td>
-                            <td>Male</td>
+                            <td>@(strSex == "M" ? "Male" : strSex == "F" ? "Female" : "TranGender")</td>
                         </tr>
 
                         <tr>
                             <td><strong>Address</strong></td>
-                            <td>3/11 A, South Street, Viragalur, Trichy.</td>
+                            <td>@strAddress</td>
                         </tr>
 
                     </table>
 
                 </div>
-           
-
-                       
-
-                    
-
-                </div>
-
-
-
-
-
-
             </div>
-
-
         </div>
-          
+
+
+    </div>
+
 </body>
 </html>
 
+<script>
+    $(document).ready(function () {
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+            defaultDate: '2014-06-12',
+            defaultView: 'month',
+            editable: true,
+            events: [
+                {
+                    title: 'All Day Event',
+                    start: '2014-06-01'
+                }
+
+            ]
+        });
+        defaultUserData();
+    });
+
+    function defaultUserData() {
+        var age = calculate_age(new Date('@strDOB.Split('/')[2]', '@strDOB.Split('/')[1]', '@strDOB.Split('/')[0]'));
+        $("#tdAge").html((age != undefined && age != null && age != "" ? age : "-"))
+    }
+    function calculate_age(dob) {
+        var diff_ms = Date.now() - dob.getTime();
+        var age_dt = new Date(diff_ms);
+
+        return Math.abs(age_dt.getUTCFullYear() - 1970);
+    }
+</script>

@@ -1,7 +1,8 @@
 ﻿
 function Showloginpop() {
     debugger
-    $('#LoginModal').modal('show');
+    //$('#LoginModal').modal('show');
+    $('#LoginModal').modal({ backdrop: 'static', keyboard: false })
     return false;
 }
 function showerralert(msg, timout, temp2) {
@@ -78,8 +79,14 @@ function login() {
         dataType: "json",
         success: function (data) {
             $("#dvspin").hide();
-            if (data.Status== "00") {
-                window.location.href = RedirectToHomePath;
+            if (data.Status == "00") {
+                if (data.Result == "Y") {
+                    window.location.href = RedirectToDashboard;
+                }
+                else {
+                    window.location.href = RedirectToHomePath;
+                }
+                
             }
             else if (data.Status == "02") {
             $(".clsverifypopup").attr("data-otpdetails", data.OTPDet);
@@ -309,29 +316,29 @@ function getPassNameAndID(id,name) {
     {
         switch (id)
         {
-            case "SPS":
+            case "PBSS001":
                 return "Student Pass (School)"
                 break;
-            case "SPC":
+            case "PBSC001":
                 return "Student Pass (College)"
                 break;
-            case "SCP":
+            case "PBSZ001":
                 return "Senior Citizens pass"
                 break;
-            case "HDP":
+            case "PBHB001":
                 return "Handicapped and Blind pass";
                 break;
 
-            case "JPP":
+            case "PBJP001":
                 return "Journalists / Press Reporter pass";
                 break;
-            case "TAP":
+            case "PBTP001":
                 return "Travel as you Please Tickets";
                 break;
-            case "MYP":
+            case "PBMP001":
                 return "Monthly Pass";
                 break;
-            case "FFP":
+            case "PBFF001":
                 return "Freedom fighters pass";
                 break;
 
@@ -341,32 +348,35 @@ function getPassNameAndID(id,name) {
     {
         switch (id) {
             case "Student Pass (School)":
-                return "SPS"
+                return "PBSS001"
                 break;
             case "Student Pass (College)":
-                return "SPC"
+                return "PBSC001"
                 break;
             case "Senior Citizens pass":
-                return "SCP"
+                return "PBSZ001"
                 break;
             case "Handicapped and Blind pass":
-                return "HDP";
+                return "PBHB001";
                 break;
 
             case "Journalists / Press Reporter pass":
-                return "JPP";
+                return "PBJP001";
                 break;
             case "Travel as you Please Tickets":
-                return "TAP";
+                return "PBTP001";
                 break;
             case "Monthly Pass":
-                return "MYP";
+                return "PBMP001";
                 break;
             case "Freedom fighters pass":
-                return "FFP";
+                return "PBFF001";
                 break;
 
         }
     }
 
 }
+
+
+

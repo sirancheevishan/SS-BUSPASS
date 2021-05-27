@@ -226,5 +226,93 @@ namespace BusPassApp.Controllers
         }
 
 
+        #region Pass Renewal
+
+        public ActionResult GetSelectedPassDetails(string strPassNumber)
+        {
+            string strBookingReq = string.Empty;
+            string strStatus = string.Empty;
+            string strMSG = string.Empty;
+            string strResult = string.Empty;
+            string strXMLData = string.Empty;
+            string strtime = string.Empty;
+            string strErrMSG = string.Empty;
+            string strRegisteredNo = string.Empty;
+            string RegistrationDetails = string.Empty;
+            string strUserID = Convert.ToString(Session["REGISTERED_NO"]);
+
+            if (string.IsNullOrEmpty(strUserID))
+            {
+                return Json(new { Status = "-1", Message = "Session Expired!", Result = "" });
+            }
+
+
+            try
+            {
+                DataSet ds_result = new DataSet();
+                Random randomObj = new Random();
+                BaseClass.BookingRQRS BookingRQRS = new BaseClass.BookingRQRS();
+                string strCurrency = ConfigurationManager.AppSettings["Currency"] != null && ConfigurationManager.AppSettings["Currency"].ToString() != "" ? ConfigurationManager.AppSettings["Currency"].ToString() : "";
+
+                BookingRQRS.strUserID = strUserID;
+                BookingRQRS.strFlag = "R";
+                BookingRQRS.strPassNo = strPassNumber;
+                strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
+
+                Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                //RequestLog
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
+
+                //ResponseLog
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+
+                if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
+                {
+                    strStatus = "01";
+                    string[] strName = ds_result.Tables[0].Rows[0]["PI_USER_NAME"].ToString().Split(' ');
+                    Session.Add("RE_USER_NAME", strName.Length > 1 ? strName[1] : "");
+                    Session.Add("RE_USER_LNAME", strName.Length>1 ? strName[2] :"");
+                    Session.Add("RE_USER_DOB", ds_result.Tables[0].Rows[0]["PI_EFFECTIVE_TO"].ToString());
+                    Session.Add("RE_USER_SEX", ds_result.Tables[0].Rows[0]["PI_USER_NAME"].ToString());
+                    Session.Add("RE_USER_NUM", ds_result.Tables[0].Rows[0]["PI_USER_CONTACT_NO"].ToString());
+                    Session.Add("RE_USER_SEX", strName.Length > 0 ? strName[0] : "");
+                    Session.Add("RE_USD_USER_MAILID", ds_result.Tables[0].Rows[0]["PI_USER_MAIL"].ToString());
+                    Session.Add("RE_Amount", ds_result.Tables[0].Rows[0]["PI_AMOUNT"].ToString());
+                    Session.Add("RE_Effective_From", ds_result.Tables[0].Rows[0]["PI_EFFECTIVE_FROM"].ToString());
+                    Session.Add("RE_Effective_To", ds_result.Tables[0].Rows[0]["PI_EFFECTIVE_TO"].ToString());
+
+                }
+                else
+                {
+                    strStatus = "00";
+                    strMSG = "Unable to Get booked history.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                strStatus = "00";
+                strMSG = "Problem occured while geting details. Please try again later(#05).";
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
+                strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
+            }
+
+            return Json(new { status = strStatus, Message = strMSG, Result = strResult });
+        }
+
+        #endregion
+
+
     }
 }

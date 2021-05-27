@@ -3,13 +3,17 @@
     Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
     string strUserData = Session["USER_DATA"] != null ? Session["USER_DATA"].ToString() : "";
     string type = Convert.ToString(Session["Pass_type"]);
-    string strFName = Convert.ToString(Session["USER_NAME"]);
-    string strLastName = Convert.ToString(Session["USER_LNAME"]);
-    string strDOB = Convert.ToString(Session["USER_DOB"]);
-    string strSex = Convert.ToString(Session["USER_SEX"]);
-    string strNum = Convert.ToString(Session["USER_NUM"]);
-    string strMail = Convert.ToString(Session["USD_USER_MAILID"]);
-    string strAmount = Convert.ToString(Session["Amount"])!=""? Convert.ToString(Session["Amount"]):"1000.00";
+    string RenewalFlag = Convert.ToString(Session["EXISITING_USER"]);
+    string strFName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NAME"]): Convert.ToString(Session["RE_USER_NAME"]);
+    string strLastName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_LNAME"]) : Convert.ToString(Session["RE_USER_LNAME"]);
+    string strDOB = RenewalFlag != "Y" ? Convert.ToString(Session["USER_DOB"]) : Convert.ToString(Session["RE_USER_DOB"]);
+    string strSex = RenewalFlag != "Y" ? Convert.ToString(Session["USER_SEX"]) : Convert.ToString(Session["RE_USER_SEX"]);
+    string strNum = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NUM"]) : Convert.ToString(Session["RE_USER_NUM"]);
+    string strMail = RenewalFlag != "Y" ? Convert.ToString(Session["USD_USER_MAILID"]) : Convert.ToString(Session["RE_USD_USER_MAILID"]);
+    string strAmount = RenewalFlag != "Y" ? Convert.ToDouble(Session["Amount"]).ToString() : Convert.ToDouble(Session["RE_Amount"]).ToString();
+    string strEffectFrom = Convert.ToString(Session["RE_Effective_From"]);
+    string strEffectTo = Convert.ToString(Session["RE_Effective_To"]);
+
 }
 <style>
     body {
@@ -222,22 +226,22 @@ padding-top: 4px;
                 <div class="row p-2">
                     <div class="col-md-3">
                         <lable class="clslbl">Valid From</lable>
-                        <input type="text" class="text-bx form-control clsdatepicker clstxtbk" autocomplete="off" id="bkFromDate" name="From Date" >
+                        <input type="text" class="text-bx form-control clsdatepicker clstxtbk" autocomplete="off" id="bkFromDate" name="From Date" value="@strEffectFrom">
                     </div>
                     <div class="col-md-3">
                         <lable class="clslbl">Valid To</lable>
-                        <input type="text" class="text-bx form-control clsdatepicker clstxtbk" autocomplete="off" id="bkToDate" name="To Name" >
+                        <input type="text" class="text-bx form-control clsdatepicker clstxtbk" autocomplete="off" id="bkToDate" name="To Name" value="@strEffectTo">
                     </div>
                 </div>
             </div>
 
             <div class="row" id="dvTermsCond"style="cursor:pointer;">
                 <input type="checkbox" class="clschk" id="chkTerms">
-                <span style="">I understand &amp; agree to the <a style="color:blue;">Terms and Conditions.</a></span>
+                <label for="chkTerms">I understand &amp; agree to the <a style="color:blue;">Terms and Conditions.</a></label>
             </div>
 
             <div class="row text-center m-2 clsdv">
-                <input type="button" value="back" class="btnreg" style="width: 14%;">
+                <input type="button" value="back" class="btnreg" style="width: 14%;" onclick="gotoHome()">
                 <input type="button" value="Continue" id="btnContinue" class="btnreg" style="width:14%;margin-left:3%;">
             </div>
         </div>
@@ -307,6 +311,8 @@ padding-top: 4px;
 
         '@strSex' == "M" ? $("#bkTitle").val("Mrs") : $("#bkTitle").val("Ms");
         '@strSex' == "M" ? $("#bkGender").val("M") : $("#bkGender").val("F");
+
+        '@RenewalFlag' == "Y" ? $(".clstxtbk").attr("disabled", "disabled") : $(".clstxtbk").prop("disabled", false);
     });
     $(".clstxtbk").change(function () {
         $(this).parent().find(".clserrmsg").remove();
@@ -414,10 +420,9 @@ padding-top: 4px;
             strGender: $("#bkGender").val(),
             strPhnNo: $("#bkPhn").val(),
             strMail: $("#bkMail").val(),
-            strPassCode: "BP-001",
+            strPassCode: '@type',
             strPassType: getPassNameAndID("@type", "") ,
             strPassName: getPassNameAndID("@type", ""),
-            strPassCode: 'BP-001',
             strAmount:"1000",
             strValildFrom: $("#bkFromDate").val(),
             strValildTo: $("#bkToDate").val(),
@@ -445,14 +450,14 @@ padding-top: 4px;
 
     function redirectToPG(data) {
         var strBookingURL = "@Url.Action("CreateOrder", "Payment")";
-        
+
         $.ajax({
             type: "POST",
             url: strBookingURL,
             data: data,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            });
+        });
 
     }
 </script>

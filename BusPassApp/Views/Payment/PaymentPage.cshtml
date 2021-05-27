@@ -27,10 +27,10 @@
             "currency": "@orderrmodel.currency",
             "name": "@orderrmodel.name",
             "description": "@orderrmodel.description",
-            "image": "https://example.com/your_logo", // You can give your logo url
+            "image": "~/Images/TnLogo.jpeg", // You can give your logo url
             "order_id": "@orderrmodel.orderId",
             "handler": function (response) {
-                debugger
+
                 document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
                 document.getElementById('rzp_orderid').value = response.razorpay_order_id;
 
@@ -41,6 +41,14 @@
                 "name": "@orderrmodel.name",
                 "email": "@orderrmodel.email",
                 "contact": "@orderrmodel.contactNumber"
+            },
+            "modal": {
+                "escape": false,
+                "handleback": false,
+                "confirm_close": true,
+                "ondismiss": function () {
+                    window.top.location = "@Url.Action("Failed", "Payment")"
+                    }
             },
             "notes": {
                 "address": "@orderrmodel.address"

@@ -1,44 +1,83 @@
-﻿/// <reference path="Booking.js" />
+﻿function GetPassdata() {
+
+    $.ajax({
+        type: "POST",
+        url: GetPassDetails,
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            debugger
+            if (data.status == "01") {
+                formRenewalTable(JSON.parse(data.Result));
+            }
+            else {
+                $("#dvRenewalDetails").html('<img src="~/Images/no-record.jpg" />');
+                alert(data.Message);
+            }
+        },
+        error: function (ex) {
+
+        }
+    });
+};
 
 
-$(document).ready(function () {
+function formRenewalTable(data) {
+    data = data.Temp;
+    var RenewalBuilder = '<table id="RenewalTable">';
+    RenewalBuilder += '<tr>';
+    RenewalBuilder += '<th>Pass Number</th>';
+    RenewalBuilder += '<th>Pass Code</th>';
+    RenewalBuilder += '<th>Pass Name</th>';
+    RenewalBuilder += '<th>Amount</th>';
+    RenewalBuilder += '<th>Expiry Date</th>';
+    RenewalBuilder += '<th>Status</th>';
+    RenewalBuilder += '<th>Action</th>';
+    RenewalBuilder += '</tr>';
+    $.each(data, function (i, val) {
+        RenewalBuilder += '<tr>';
+        RenewalBuilder += '<td>' + val.PI_PASS_NUMBER + '</td>';
+        RenewalBuilder += '<td>' + val.PI_PASS_CODE + '</td>';
+        RenewalBuilder += '<td>' + val.PI_PASS_NAME + '</td>';
+        RenewalBuilder += '<td>' + val.PI_AMOUNT + '</td>';
+        RenewalBuilder += '<td>' + val.PI_EFFECTIVE_TO + '</td>';
+        var date = val.PI_EFFECTIVE_TO.split('/');
+        var statusSpan = new Date(date[2], date[1], date[0]) > new Date() ? '<span class="spnActive">Active</span>' : '<span class="spnCanel">Expired</span>';
+        RenewalBuilder += '<td>' + statusSpan + '</td>';
+        RenewalBuilder += '<td><span class="spnProceed" data-passcode="' + val.PI_PASS_CODE + '" data-passno="' + val.PI_PASS_NUMBER + '" onclick="getSelectedPassDetails(this)">Proceed</span></td>';
+        RenewalBuilder += '</tr>';
+    });
+    RenewalBuilder += "</table>";
+    if (RenewalBuilder != "") {
+        $("#dvRenewalDetails").html(RenewalBuilder);
+    }
+    $('#RenewalModal').modal({ backdrop: 'static', keyboard: false })
+}
 
-    //$.ajax({
-    //    type: "POST",
-    //    url: getUserPass,
-    //    contentType: "application/json; charset=utf-8",
-    //    dataType: "json",
-    //    success: function (data) {
-    //        $.unblockUI();
+function getSelectedPassDetails(e) {
+    var PassID = $(e).data("passcode");
+    var PassNo = $(e).data("passno");
+    var param = {
+        strPassNumber: PassNo
+    }
+    $.ajax({
+        type: "POST",
+        url: GetSlctdPassDetails,
+        data: JSON.stringify(param),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            debugger
+            if (data.status == "01") {
+                window.location.href = BookingURL + '?type=' + PassID;
+                
+            }
+            else {
+                alert(data.Message);
+            }
+        },
+        error: function (ex) {
 
-    //        if (data.Status == "-1") {
-
-    //        }
-    //        else if (data.Status == "00") {
-    //            var data = JSON.parse(data.Result);
-    //            data = data.Temp;
-    //            $("#txtname").val(data[0].USD_USER_NAME);
-    //            $("#txtfname").val(data[0].USD_Father_Name);
-    //            $("#txtdob").val(data[0].USD_DOB);
-    //            $("#txtadhaar").val(data[0].USD_ADHAAR_NO);
-    //            $("#txtNo").val(data[0].USD_Mobil_No);
-    //            $("#txtdNo").val(data[0].USD_DOOR_NO);
-    //            $("#txtdstreetName").val(data[0].USD_STREET_NAME);
-    //            $("#txtdvillageName").val(data[0].USD_LOCATION);
-    //            $("#txtddisname").val(data[0].USD_DISTRICT);
-    //            $("#txtdstatename").val(data[0].USD_STATE_NAME);
-    //            $("#txtpin").val(data[0].USD_PINCODE);
-    //            if (data[0].USD_GENDER == "M")
-    //                $("#rdnmale").prop("checked", true);
-    //            else
-    //                $("#rdnmale").prop("checked", false);
-    //        }
-    //        else {
-
-    //        }
-    //    },
-    //    error: function (ex) {
-    //        $.unblockUI();
-    //    }
-    //});
-});
+        }
+    });
+}

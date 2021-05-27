@@ -14,6 +14,8 @@
 <script src="~/Apps_JS/LogIn.js"></script>
 <script src="~/Content/Library/jquery-ui.js"></script>
 <script src="~/Content/JS/w2ui-1.5.js"></script>
+<script src="~/Apps_JS/Booking.js"></script>
+
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -30,6 +32,57 @@
     <meta name="viewport" content="width=device-width" />
     <title>Bus Pass</title>
     <style>
+        #RenewalTable {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+            #RenewalTable td, #RenewalTable th {
+                border: 1px solid #a51515;
+                padding: 4px;
+            }
+
+            #RenewalTable tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #RenewalTable tr:hover {
+                background-color: #ddd;
+            }
+
+            #RenewalTable th {
+                text-align: left;
+                background-color: #a51515;
+                color: white;
+            }
+
+        .spnActive {
+            color: white;
+            background: green;
+            padding: 3px;
+            padding-left: 18px;
+            padding-right: 19px;
+            border-radius: 20px;
+        }
+
+        .spnCanel {
+            color: white;
+            background: #de141d;
+            padding: 3px;
+            padding-left: 18px;
+            padding-right: 19px;
+            border-radius: 20px;
+        }
+
+        .spnProceed {
+            color: blue;
+            text-decoration: underline;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
 
         .clstopimg {
             height: 71px;
@@ -316,7 +369,6 @@
 
         .dropdown {
             float: right;
-           
         }
 
             .dropdown .dropbtn {
@@ -330,7 +382,7 @@
                 margin: 0;
             }
 
-           
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -349,16 +401,18 @@
                 text-align: left;
             }
 
-         .dropdown-content a:hover {
+                .dropdown-content a:hover {
                     background-color: #ddd;
                 }
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         .show {
             display: block;
         }
+
         .fnt-13 {
             font-size: 13px;
         }
@@ -386,13 +440,13 @@
                             <li>
                                 <a class="eticket" style="float: left;color: #f3eeee;" href="#">
                                     <i class="fa fa-bus pr-6"></i> Get BusPass
-                                </a> 
+                                </a>
                             </li>
 
-                            
+
 
                             <li>
-                              
+
                                 <div class="dropdown" style="z-index:10000">
 
                                     <span>|</span> <a class="dropbtn"><i class="fa fa-user-circle pr-6"></i><span id="spnUserName">User</span></a>
@@ -406,13 +460,13 @@
                             </li>
 
                         </ul>
-                        
+
                     </div>
 
                 </div>
             </div>
         </div>
-        <div class="top-mega-menu">
+        <div class="top-mega-menu clsscroll">
             <div class="container mobNoContainerd">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 bg-white-res">
@@ -425,10 +479,10 @@
 
                             <div id="navbarCollapse" class="collapse navbar-collapse float-right menuslide">
                                 <ul class="nav navbar-nav">
-                                    <li><a href="@Url.Action("PassInfo", "HomePage")"><i class="fa fa-home fnt-14"></i>  Home</a></li>
+                                    <li><a href="javascript:void(0);" onclick="gotoHome();"><i class="fa fa-home fnt-14"></i>  Home</a></li>
                                     <li><a href="@Url.Action("ManagementBooking", "AfterBooking")"><i class="fa fa-folder-open fnt-13"></i> Manage Booking</a></li>
-                                    <li><a href="@Url.Action("AboutUs", "Home")"><i class="fa fa-refresh fnt-13"></i>  Renewal Pass</a></li>
-                                 </ul>
+                                    <li><a href="javascript:void(0);" onclick="GetPassdata()"><i class="fa fa-refresh fnt-13"></i>  Renewal Pass</a></li>
+                                </ul>
                             </div>
                         </nav>
                     </div>
@@ -436,7 +490,7 @@
             </div>
         </div>
     </header>
-   
+
     @RenderBody()
 
 
@@ -555,13 +609,30 @@
         </div>
     </div>
 
+
+
+    @*Renewal Pass Deails popup*@
+
+    <div class="modal in" id="RenewalModal" role="dialog">
+        <div class="modal-dialog" style="max-width: 672px !important;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pass Details</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="dvRenewalDetails"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 
 
 </html>
 <script>
-    
+
     var loaderimgurl = "@Url.Content("~/Images/Gif/Loading.gif")";
     var strLoginpath = "@Url.Action("CheckLogin", "Login")";
     var strOTPURL = "@Url.Action("SendOTP", "Home")";
@@ -572,7 +643,29 @@
     var ComingsoonURL = "@Url.Action("ComingSoon", "Home")";
     var ContactusURL = "@Url.Action("ContactUs", "Home")";
     var AboutusURL = "@Url.Action("AboutUs", "Home")";
+    var GetPassDetails = "@Url.Action("GetPassDetails", "HomePage")";
+    var GetSlctdPassDetails = "@Url.Action("GetSelectedPassDetails", "BusPass")";
+    var BookingURL = "@Url.Action("IssueNewPass", "HomePage")";
+    var ExisitingURL = '@Convert.ToString(Session["EXISITING_USER"])';
+    var newUserHomeurl = "@Url.Action("PassInfo", "HomePage")";
+    var ExisitingHomeurl = "@Url.Action("ExisitingUser", "HomePage")";
+
     $(document).ready(function () {
         $("#spnUserName").html('@strUserName');
     });
+
+
+    function gotoHome() {
+        if (ExisitingURL == 'Y') {
+            window.location.href = ExisitingHomeurl;
+        }
+        else {
+            window.location.href = newUserHomeurl;
+        }
+    }
+
+
+
+
+
 </script>
