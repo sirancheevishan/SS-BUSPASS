@@ -179,6 +179,10 @@
     <Content Include="Bootstrap\js\bootstrap.bundle.min.js" />
     <Content Include="Bootstrap\js\bootstrap.js" />
     <Content Include="Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\AgGrid\Ag-Grid-All.js" />
+    <Content Include="Content\AgGrid\ag-grid-community.js" />
+    <Content Include="Content\AgGrid\Ag-Grid.css" />
+    <Content Include="Content\AgGrid\ag-theme-material.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.js" />
     <Content Include="Content\CSS\bootstrap-grid.css" />
@@ -345,6 +349,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\active.jpg" />
     <Content Include="Images\buses\31941228420_20bfc02680_o.jpg" />
     <Content Include="Images\buses\32489472471_78df858249_o.jpg" />
     <Content Include="Images\buses\39424803135_a9c5b5c12d_o.jpg" />
@@ -358,6 +363,10 @@
     <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.30 PM.jpeg" />
     <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.31 PM %281%29.jpeg" />
     <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.31 PM.jpeg" />
+    <Content Include="Images\expired.jpg" />
+    <Content Include="Images\no-record.jpg" />
+    <Content Include="Images\ProfilePicture\Pro1.jpg" />
+    <Content Include="Images\QR.png" />
     <Content Include="Images\siran.png" />
     <Content Include="Images\TnLogo.jpeg" />
     <Content Include="XML\TamilNaduDistrict.xml" />
@@ -401,7 +410,6 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Views\HomePage\HomePage.cshtml" />
     <Content Include="Views\HomePage\IssueNewPass.cshtml" />
     <Content Include="Views\Redirect\Comingsoon.cshtml" />
     <Content Include="Views\HomePage\PassInfo.cshtml" />
@@ -445,7 +453,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Documents\AdhaarImages\" />
-    <Folder Include="Images\ProfilePicture\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

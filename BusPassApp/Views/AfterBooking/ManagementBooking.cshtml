@@ -178,6 +178,9 @@
     float:left;
     }
 </style>
+<script src="~/Content/AgGrid/ag-grid-community.js"></script>
+<link href="~/Content/AgGrid/Ag-Grid.css" rel="stylesheet" />
+<link href="~/Content/AgGrid/ag-theme-material.css" rel="stylesheet" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -302,7 +305,7 @@
                         Booked History
                     </div>
                     <div class="panel-body">
-                        <div class="" id="dvBookedHistory" style="width: 100%; height: 350px;">
+                        <div class="ag-theme-material" id="dvBookedHistory" style="width: 100%; height: 350px;" >
                         </div>
 
                     </div>
@@ -371,6 +374,7 @@
                 success: function (data) {
                     if (data.status == "01") {
                         BindBookedHistory(JSON.parse(data.Result));
+                        //aggrid(JSON.parse(data.Result));
                     }
                     else {
                         $("#dvBookedHistory").html('<img src="~/Images/no-record.jpg" />');
@@ -381,6 +385,9 @@
 
                 }
             });
+
+
+
         };
 
         function BindBookedHistory(data) {
@@ -457,11 +464,144 @@
                 show: { footer: true, toolbar: false },
                 columns: columns,
                 records: data,
+                searchLogic:"AND",
+                layout: {
+                    name: 'layout',
+                    padding: 4,
+                    panels: [
+                        { type: 'left', size: '50%', resizable: true, minSize: 300 },
+                        { type: 'main', minSize: 300 }
+                    ]
+                },
+                
             });
+            w2ui['History'].hideColumn('recid', 'recid');
+            $("#ResultTable").show();
+
+        }
+
+        var gridOptions = "";
+        function aggrid(data) {
+            data = data.Temp;
+            //ise if (obj == "PI_BOOKING_TRACK_ID") {
+            //    columns.push({ field: obj, caption: "TRACK ID", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_PASS_CODE") {
+            //    columns.push({ field: obj, caption: "PASS CODE", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_PASS_NAME") {
+            //    columns.push({ field: obj, caption: "PASS NAME", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_PASS_NUMBER") {
+            //    columns.push({ field: obj, caption: "PASS NUMBER", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_PASS_STATUS") {
+            //    columns.push({ field: obj, caption: "STATUS", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_EFFECTIVE_FROM") {
+            //    columns.push({ field: obj, caption: "EFFECTIVE FROM", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_EFFECTIVE_TO") {
+            //    columns.push({ field: obj, caption: "EFFECTIVE TO", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+            //else if (obj == "PI_CURRENCY") {
+            //    columns.push({ field: obj, caption: "CURRENCY", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}a
+            //else if (obj == "PI_AMOUNT") {
+            //    columns.push({ field: obj, caption: "AMOUNT", size: "90px", resizable: true, sortable: true, attr: "align=right" });
+            //}
+            //else if (obj == "PI_REMARK") {
+            //    columns.push({ field: obj, caption: "REMARK", size: "90px", resizable: true, sortable: true, attr: "align=center" });
+            //}
+          
+            
+
+            var columnDefs = [
+                  { headerName: 'User Name', field: 'PI_USER_NAME', pinned: 'left', lockPinned: true, cellClass: 'lock-pinned' },
+                  { headerName: 'PI_BOOKING_TRACK_ID', field: 'PI_BOOKING_TRACK_ID', pinned: 'left' },
+                 { headerName: 'BOOKED DATE', field: 'PI_BOOKED_DATE', pinned: 'left'},
+                  { headerName: 'UPDATED DATE', field: 'PI_UPDATED_DATE', pinned: 'left'},
+                  { headerName: 'CONTACT NO', field: 'PI_USER_CONTACT_NO', pinned: 'left'},
+                  { headerName: 'Mail ID', field: 'PI_USER_MAIL', pinned: 'left'},
+                  { headerName: 'ADHAAR NO', field: 'PI_USER_ADHAAR_NO', pinned: 'left'},
+            ];
+            gridOptions = {
+                columnDefs: columnDefs,
+                enableSorting: true,
+                enableFilter: true,
+                // enableRangeSelection: true,
+                AutosizeColumns: true,
+                debug: true,
+                //resizable: true,
+                //paginationAutoPageSize: true,
+                pagination: true,
+                //statusBar: {
+                //    statusPanels: [
+                //        { statusPanel: 'agTotalAndFilteredRowCountComponent', align: 'left' }
+                //    ]
+                //},
+                // rowSelection: 'multiple'
+            };
+
+            var eGridDiv = document.querySelector('#dvBookedHistory');
+
+            new agGrid.Grid(eGridDiv, gridOptions);
+            gridOptions.api.sizeColumnsToFit();
+
+
+            gridOptions.api.setRowData(data);
+
+
+            var allColumnIds = [];
+            gridOptions.columnApi.getAllColumns().forEach(function (column) {
+                allColumnIds.push(column.colId);
+            });
+            gridOptions.columnApi.autoSizeColumns(allColumnIds);
+
+            //gridOptions.api.getSortModel()
+
+            //saved
+            if (localStorage.getItem("AgcolumnData") != null && localStorage.getItem("AgcolumnData") != "") {
+                window.colState = JSON.parse(localStorage.getItem("AgcolumnData"));
+                if (window.colState != null && window.colState != undefined && window.colState != "" && window.colState.length) {
+                    gridOptions.columnApi.setColumnState(window.colState);
+                    for (var j = 0; j < window.colState.length; j++) {
+                        if (window.colState[j].hide == true) {
+                            $("#" + window.colState[j].colId + "").prop("checked", false);
+                        }
+                        else {
+                            $("#" + window.colState[j].colId + "").prop("checked", true);
+                        }
+                    }
+                }
+            }
 
             $("#ResultTable").show();
 
         }
+
+
+
+        function AgSave() {
+
+            window.colState = gridOptions.columnApi.getColumnState();
+            var Agcolumn = JSON.stringify(window.colState);
+            localStorage.setItem('AgcolumnData', Agcolumn);
+
+        }
+
+
+        
+        function onBtExport() {
+            gridOptions.api.exportDataAsCsv("allColumns");
+        }
+
+
+        function clearFilter() {
+            gridOptions.api.setFilterModel(null);
+        }
+
+
     </script>
 </body>
 </html>

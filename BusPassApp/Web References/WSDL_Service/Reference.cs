@@ -24,7 +24,7 @@ namespace BusPassApp.WSDL_Service {
     
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Web.Services.WebServiceBindingAttribute(Name="BusPassAppSoap", Namespace="http://tempuri.org/")]
@@ -43,6 +43,8 @@ namespace BusPassApp.WSDL_Service {
         private System.Threading.SendOrPostCallback InertFetchBookingDetailsOperationCompleted;
         
         private System.Threading.SendOrPostCallback ManagePGTrackOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback ManagePassDetailsOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
         
@@ -102,6 +104,9 @@ namespace BusPassApp.WSDL_Service {
         
         /// <remarks/>
         public event ManagePGTrackCompletedEventHandler ManagePGTrackCompleted;
+        
+        /// <remarks/>
+        public event ManagePassDetailsCompletedEventHandler ManagePassDetailsCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/InsertRegistration", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -342,6 +347,40 @@ namespace BusPassApp.WSDL_Service {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ManagePassDetails", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet ManagePassDetails(string strPassID, string strFlag, ref string strErrorMsg) {
+            object[] results = this.Invoke("ManagePassDetails", new object[] {
+                        strPassID,
+                        strFlag,
+                        strErrorMsg});
+            strErrorMsg = ((string)(results[1]));
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void ManagePassDetailsAsync(string strPassID, string strFlag, string strErrorMsg) {
+            this.ManagePassDetailsAsync(strPassID, strFlag, strErrorMsg, null);
+        }
+        
+        /// <remarks/>
+        public void ManagePassDetailsAsync(string strPassID, string strFlag, string strErrorMsg, object userState) {
+            if ((this.ManagePassDetailsOperationCompleted == null)) {
+                this.ManagePassDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagePassDetailsOperationCompleted);
+            }
+            this.InvokeAsync("ManagePassDetails", new object[] {
+                        strPassID,
+                        strFlag,
+                        strErrorMsg}, this.ManagePassDetailsOperationCompleted, userState);
+        }
+        
+        private void OnManagePassDetailsOperationCompleted(object arg) {
+            if ((this.ManagePassDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.ManagePassDetailsCompleted(this, new ManagePassDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         public new void CancelAsync(object userState) {
             base.CancelAsync(userState);
         }
@@ -361,11 +400,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void InsertRegistrationCompletedEventHandler(object sender, InsertRegistrationCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class InsertRegistrationCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -395,11 +434,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void Fetch_User_DetailsCompletedEventHandler(object sender, Fetch_User_DetailsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Fetch_User_DetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -421,11 +460,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void SendOTPCompletedEventHandler(object sender, SendOTPCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SendOTPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -447,11 +486,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void Insert_Fetch_OTPCompletedEventHandler(object sender, Insert_Fetch_OTPCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class Insert_Fetch_OTPCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -473,11 +512,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void SendMailCompletedEventHandler(object sender, SendMailCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class SendMailCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -499,11 +538,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void InertFetchBookingDetailsCompletedEventHandler(object sender, InertFetchBookingDetailsCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class InertFetchBookingDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -533,11 +572,11 @@ namespace BusPassApp.WSDL_Service {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     public delegate void ManagePGTrackCompletedEventHandler(object sender, ManagePGTrackCompletedEventArgs e);
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.3752.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     public partial class ManagePGTrackCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
@@ -545,6 +584,40 @@ namespace BusPassApp.WSDL_Service {
         private object[] results;
         
         internal ManagePGTrackCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public string strErrorMsg {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void ManagePassDetailsCompletedEventHandler(object sender, ManagePassDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class ManagePassDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal ManagePassDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

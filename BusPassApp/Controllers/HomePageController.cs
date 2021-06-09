@@ -100,8 +100,62 @@ namespace BusPassApp.Controllers
         }
         public ActionResult IssueNewPass()
         {
+            string strPasstype = Request.QueryString["type"];
             ViewBag.type = Request.QueryString["type"];
             Session.Add("Pass_type", Request.QueryString["type"]);
+            string strBookingReq = string.Empty;
+            string strStatus = string.Empty;
+            string strMSG = string.Empty;
+            string strResult = string.Empty;
+            string strXMLData = string.Empty;
+            string strtime = string.Empty;
+            string strErrMSG = string.Empty;
+            string strRegisteredNo = string.Empty;
+            string RegistrationDetails = string.Empty;
+            string strUserID = Convert.ToString(Session["REGISTERED_NO"]);
+
+
+
+            try
+            {
+                DataSet ds_result = new DataSet();
+                //RequestLog
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                ds_result = Ws_Service.ManagePassDetails(strPasstype, "F", ref strErrMSG);
+
+                //ResponseLog
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                string str = JsonConvert.SerializeObject(ds_result);
+                if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
+                {
+                    Session.Add("PassAmount", ds_result.Tables[0].Rows[0]["T_P_AMOUNT"]);
+                    strStatus = "01";
+                    strResult = JsonConvert.SerializeObject(ds_result);
+                }
+                else
+                {
+                    strStatus = "00";
+                    strMSG = "Unable to Get booked history.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                strStatus = "00";
+                strMSG = "Problem occured while geting availability. Please try again later(#05).";
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
+                strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
+            }
             return View();
         }
 
@@ -170,6 +224,68 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "00";
                 strMSG = "Problem occured while geting history. Please try again later(#05).";
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
+                strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
+            }
+
+            return Json(new { status = strStatus, Message = strMSG, Result = strResult });
+        }
+        #endregion
+
+
+
+        #region Availability
+        public ActionResult GetAvailability()
+        {
+            string strBookingReq = string.Empty;
+            string strStatus = string.Empty;
+            string strMSG = string.Empty;
+            string strResult = string.Empty;
+            string strXMLData = string.Empty;
+            string strtime = string.Empty;
+            string strErrMSG = string.Empty;
+            string strRegisteredNo = string.Empty;
+            string RegistrationDetails = string.Empty;
+            string strUserID = Convert.ToString(Session["REGISTERED_NO"]);
+
+            
+
+            try
+            {
+                DataSet ds_result = new DataSet();
+                //RequestLog
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
+
+                ds_result = Ws_Service.ManagePassDetails("", "F", ref strErrMSG);
+
+                //ResponseLog
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
+                strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                string str = JsonConvert.SerializeObject(ds_result);
+                if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
+                {
+                    strStatus = "01";
+                    strResult = JsonConvert.SerializeObject(ds_result);
+                }
+                else
+                {
+                    strStatus = "00";
+                    strMSG = "Unable to Get booked history.";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                strStatus = "00";
+                strMSG = "Problem occured while geting availability. Please try again later(#05).";
                 strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";

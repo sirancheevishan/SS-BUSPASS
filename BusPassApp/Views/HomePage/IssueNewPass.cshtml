@@ -10,7 +10,7 @@
     string strSex = RenewalFlag != "Y" ? Convert.ToString(Session["USER_SEX"]) : Convert.ToString(Session["RE_USER_SEX"]);
     string strNum = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NUM"]) : Convert.ToString(Session["RE_USER_NUM"]);
     string strMail = RenewalFlag != "Y" ? Convert.ToString(Session["USD_USER_MAILID"]) : Convert.ToString(Session["RE_USD_USER_MAILID"]);
-    string strAmount = RenewalFlag != "Y" ? Convert.ToDouble(Session["Amount"]).ToString() : Convert.ToDouble(Session["RE_Amount"]).ToString();
+    string strAmount = RenewalFlag != "Y" ? Convert.ToDouble(Session["PassAmount"]).ToString() : Convert.ToDouble(Session["RE_Amount"]).ToString();
     string strEffectFrom = Convert.ToString(Session["RE_Effective_From"]);
     string strEffectTo = Convert.ToString(Session["RE_Effective_To"]);
 
@@ -423,7 +423,7 @@ padding-top: 4px;
             strPassCode: '@type',
             strPassType: getPassNameAndID("@type", "") ,
             strPassName: getPassNameAndID("@type", ""),
-            strAmount:"1000",
+            strAmount:'@strAmount',
             strValildFrom: $("#bkFromDate").val(),
             strValildTo: $("#bkToDate").val(),
         }
