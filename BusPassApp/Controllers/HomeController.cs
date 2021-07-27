@@ -195,7 +195,7 @@ namespace BusPassApp.Controllers
                 strRegistrationDetails = JsonConvert.SerializeObject(RegistrationDetails);
 
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strRegistrationDetails + "</REQUESTDATA><EVENT>";
@@ -203,7 +203,7 @@ namespace BusPassApp.Controllers
                 ds_result = Ws_Service.InsertRegistration(strRegistrationDetails, ref strErrMSG);
 
                 //ResponseLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                 strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -252,7 +252,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "01";
                 strMSG = "Problem occured while Registration. Please try again later(#01).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
@@ -276,7 +276,7 @@ namespace BusPassApp.Controllers
             {
                 GenerateMobileOTP = Utilities.RandomOTPGeneration(ref MobileOTP);
                 GenerateEmailOTP = Utilities.RandomOTPGeneration(ref EmailOTP);
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 DataSet dsOTP = Ws_Service.Insert_Fetch_OTP(strRegisteredNo, strMbl, strMail, GenerateMobileOTP, GenerateEmailOTP, strtime, "I");
 
                 strMailContent = OTP_Mail_Content_Formation(strName, GenerateEmailOTP, strRegisteredNo);
@@ -376,7 +376,7 @@ namespace BusPassApp.Controllers
             string strMailID = Session["MAIL_ID"] != null ? Session["MAIL_ID"].ToString() : "";
             try
             {
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 Hashtable myparam = new Hashtable();
                 myparam.Add("SMSOTP", strSMSOTP);
                 myparam.Add("MailOTP", strMailOTP);
@@ -384,14 +384,14 @@ namespace BusPassApp.Controllers
                 myparam.Add("MailID", strMailID);
 
                 //RequestLog
-                strtime = DateTime.Now.ToString("dd/MM/YYYY HH:mm:ss");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + JsonConvert.SerializeObject(myparam) + "</REQUESTDATA><EVENT>";
 
                 DataSet dsOTP = Ws_Service.Insert_Fetch_OTP(strRegisteredNo, strMobileNo, strMailID, strSMSOTP, strMailOTP, strtime, "F");
                 //ResponseLog
-                strtime = DateTime.Now.ToString("dd/MM/YYYY HH:mm:ss");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                 strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -422,7 +422,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "01";
                 strMSG = "Problem occured while Vertify OTP. Please try again later(#01).";
-                strtime = DateTime.Now.ToString("dd/MM/YYYY HH:mm:ss");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";

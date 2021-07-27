@@ -183,7 +183,8 @@
     <Content Include="Content\AgGrid\ag-grid-community.js" />
     <Content Include="Content\AgGrid\Ag-Grid.css" />
     <Content Include="Content\AgGrid\ag-theme-material.css" />
-    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\FontAwesome.js" />
+    <Content Include="Content\Library\bootstrap.css" />
     <Content Include="Content\bootstrap.min.js" />
     <Content Include="Content\CSS\bootstrap-grid.css" />
     <Content Include="Content\CSS\bootstrap.css" />
@@ -350,19 +351,15 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\active.jpg" />
-    <Content Include="Images\buses\31941228420_20bfc02680_o.jpg" />
-    <Content Include="Images\buses\32489472471_78df858249_o.jpg" />
-    <Content Include="Images\buses\39424803135_a9c5b5c12d_o.jpg" />
-    <Content Include="Images\buses\43597137142_04ac59be95_o.jpg" />
-    <Content Include="Images\buses\AboutUs2.png" />
+    <Content Include="Images\buses\AboutUs.png" />
+    <Content Include="Images\buses\Bus1.jpg" />
+    <Content Include="Images\buses\Bus2.jpg" />
+    <Content Include="Images\buses\Bus3.jpg" />
+    <Content Include="Images\buses\Bus4.jpg" />
+    <Content Include="Images\buses\ComingSoon1.jpg" />
     <Content Include="Images\buses\coso4.jpg" />
-    <Content Include="Images\buses\PicsArt_08-28-08.08.34.jpg" />
-    <Content Include="Images\buses\PicsArt_08-28-08.37.46.jpg" />
-    <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.30 PM %281%29.jpeg" />
-    <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.30 PM %282%29.jpeg" />
-    <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.30 PM.jpeg" />
-    <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.31 PM %281%29.jpeg" />
-    <Content Include="Images\buses\WhatsApp Image 2021-03-18 at 8.49.31 PM.jpeg" />
+    <Content Include="Images\buses\Fail.PNG" />
+    <Content Include="Images\buses\Icon.gif" />
     <Content Include="Images\expired.jpg" />
     <Content Include="Images\no-record.jpg" />
     <Content Include="Images\ProfilePicture\Pro1.jpg" />
@@ -386,10 +383,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
-    <Content Include="Images\buses\10780592333_1e335ce862_b.jpg" />
-    <Content Include="Images\buses\15715282156_c7b50404b1_o.jpg" />
-    <Content Include="Images\buses\bus-terminus-in-chennai-george-town-parrys-corner-WPAHF1.jpg" />
-    <Content Include="Images\buses\MTC-Bus-plying-in-Tambaram-to-Thiruvanmiyur-route-.jpg" />
     <Content Include="Images\Gif\Loading2.gif" />
     <Content Include="Images\Gif\Loading.gif" />
     <Content Include="Images\Logo.jpg" />
@@ -464,10 +457,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:65290/BusPassApp.asmx">
+    <WebReferenceUrl Include="http://localhost:44399/BusPassApp.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSDL_Service\</RelPath>
-      <UpdateFromURL>http://localhost:65290/BusPassApp.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:44399/BusPassApp.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

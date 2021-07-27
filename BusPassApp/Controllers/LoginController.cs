@@ -51,9 +51,11 @@ namespace BusPassApp.Controllers
                             Session.Add("USD_AdharNo", dsRow["USD_ADHAAR_NO"].ToString());
                             Session.Add("USER_NAME", dsRow["USD_USER_NAME"].ToString());
                             Session.Add("USER_DOB", dsRow["USD_DOB"].ToString());
+
                             Session.Add("USER_SEX", dsRow["USD_GENDER"].ToString());
                             Session.Add("USER_ADDRESS", ((dsRow["USD_DOOR_NO"].ToString() != null ? (dsRow["USD_DOOR_NO"].ToString() + ",") : "") + (dsRow["USD_STREET_NAME"].ToString() != null ? (dsRow["USD_STREET_NAME"].ToString() + ",") : "") + (dsRow["USD_LOCATION"].ToString() != null ? (dsRow["USD_LOCATION"].ToString() + ",") : "") + (dsRow["USD_DISTRICT"].ToString() != null ? (dsRow["USD_DISTRICT"].ToString() + ",") : "")));
 
+                            strStatus = "00";
 
                             #region Get Pass Info
                             BaseClass.BookingRQRS BookingRQRS = new BaseClass.BookingRQRS();
@@ -69,7 +71,7 @@ namespace BusPassApp.Controllers
 
                             Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                             //RequestLog
-                            strTime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strTime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                             strXMLData += "<REQUESTTIME>" + strTime + "</REQUESTTIME><EVENT>";
                             strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -78,7 +80,6 @@ namespace BusPassApp.Controllers
 
                             if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count>0)
                             {
-                                strStatus = "00";
                                 strResult = "Y";
                                 Session["EXISITING_USER"] = "Y";
                             }

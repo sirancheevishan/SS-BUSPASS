@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
 }
 <script src="~/Apps_JS/LogIn.js"></script>
-
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <link href="~/Content/CSS/bootstrap3.4.1.min.css" rel="stylesheet" />
 <script src="~/Content/JS/jquery3.5.1.min.js"></script>
 <script src="~/Content/JS/bootstrap3.4.1.min.js"></script>
@@ -86,15 +86,15 @@
 </style>
 
 <div class="myDiv container">
-    <div class="row container" style="padding-top: 3%;">
+    <div class="row container pad-t-3">
         <div class="col-md-6 box h-347">
-            <h2 style="font-size: 20px;font-weight: bold;">
+            <h2 class="fn-si-20 fn-wi-bold">
                 <i class="fa fa-newspaper-o" aria-hidden="true"></i>
                 News &amp; Events
             </h2>
             <span class="section-separator"></span>
             <div class="news-main">
-                <marquee behavior="scroll" scrolldelay="100" direction="up" onmouseover="this.stop();" onmouseout="this.start();" style="height: 286px; font-family: serif;">
+                <marquee behavior="scroll" scrolldelay="100" direction="up" onmouseover="this.stop();" onmouseout="this.start();" class="he-286 fn-fa-se">
                     <h4><a href="https://static.abhibus.com/ks/pdf/STY-VIG.pdf" target="_blank">Beware of fake appointment order for jobs at KSRTC</a></h4>
                     <hr>
                     <h4>
@@ -148,8 +148,8 @@
             </div>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-5" style="background: rgba(121, 18, 20, .7);height: 374px;border: 2px solid #990000;border-radius: 9px;margin-top:2%;">
-            <h2 style="font-size: 20px;font-weight: bold;color:white;">
+        <div class="col-md-5 bg-rgb1 he-374 bor-2 bor-rad-9 mar-t-2">
+            <h2 class="fn-si-20 fn-wi-bold cl-white">
                 <i class="fa fa-ticket" aria-hidden="true"></i>
                 Type of Passes
             </h2>
@@ -194,7 +194,7 @@
             </div>
         </div>
     </div>
-    <div class="row container" style="margin-top: 2%;">
+    <div class="row container mar-t-2">
         <div class="col-md-6 box p-2 p-t-0">
             <h2 class="fnt-bold fnt-16"><i class="fa fa-picture-o" aria-hidden="true"></i>    Event Gallery</h2>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -209,23 +209,23 @@
                 <div class="carousel-inner">
                     <div class="item active">
 
-                        <img src="~/Images/buses/Bus1.jpg" alt="Los Angeles" style="width:100%;">
+                        <img src="~/Images/buses/Bus1.jpg" alt="Los Angeles" class="wi-100">
                     </div>
 
                     <div class="item">
 
-                        <img src="~/Images/buses/Bus2.jpg" alt="Chicago" style="width:100%;">
+                        <img src="~/Images/buses/Bus2.jpg" alt="Chicago" class="wi-100">
                     </div>
 
                     <div class="item">
 
 
-                        <img src="~/Images/buses/Bus3.jpg" alt="New york" style="width:100%;">
+                        <img src="~/Images/buses/Bus3.jpg" alt="New york" class="wi-100">
                     </div>
                     <div class="item">
 
 
-                        <img src="~/Images/buses/Bus4.jpg" alt="New york" style="width:100%;">
+                        <img src="~/Images/buses/Bus4.jpg" alt="New york" class="wi-100">
                     </div>
                 </div>
 
@@ -241,7 +241,7 @@
             </div>
         </div>
         <div class="col-md-1"></div>
-        <div class="col-md-5" style="border: 2px solid #990000;background: rgba(121, 18, 20, .7);border-radius: 9px;margin-top: 2%;color: white;">
+        <div class="col-md-5 bg-rgb1 bor-2 bor-rad-9 mar-t-2 cl-white">
             <h2 class="fnt-bold fnt-16">
                 <i class="fa fa-cubes header-icon" aria-hidden="true"></i>  Benifits of Registration
             </h2>
@@ -287,11 +287,11 @@
 
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title" id="pasPopUpHed">Guide Lines</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="fnt-16" style="border: 1px solid red; background: #f7d9dd; padding: 2%;">
+                <div class="fnt-16 bor-1 bg-f7d9dd pad-2">
                     <h4 class="fnt-bold">Guide Lines</h4>
                     <ul class="clsEligibleCriteria SP">
                         <li>Students studying from 1st Std to 12 th Std. in the Schools recognized by Government and students studying in the Government Colleges and Government Polytechnics are eligible to avail this free bus pass facility.</li>
@@ -323,7 +323,7 @@
                     </ul>
 
                     <ul class="clsEligibleCriteria HBP">
-                        <span style="font-size: 17px;font-weight: bold;">For Handicapped people</span>
+                        <span class="fn-si-17 fn-wi-bold ">For Handicapped people</span>
                         <li>To be recommended by the District Rehabilitation Officer.</li>
                         <li>Disability should be more than 40%.</li>
                         <li>Annual income should be less than Rs.12000/-.</li>
@@ -333,7 +333,7 @@
                         <li>To travel with the identity card issued by Rehabilitation department</li>
                     </ul>
                     <ul class="clsEligibleCriteria HBP">
-                        <span style="font-size: 17px;font-weight: bold;">For Blind people</span>
+                        <span class="fn-si-17 fn-wi-bold ">For Blind people</span>
                         <li>To be recommended by District rehabilitation Officer.</li>
                         <li>No restriction on income, travel distance and number of trips per month.</li>
                         <li>Passes issued by MTC.</li>

@@ -15,7 +15,7 @@
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
     $(document).ready(function () {
-        debugger
+        
         Redirect();
     });
 
@@ -30,7 +30,7 @@
             "image": "~/Images/TnLogo.jpeg", // You can give your logo url
             "order_id": "@orderrmodel.orderId",
             "handler": function (response) {
-
+               
                 document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
                 document.getElementById('rzp_orderid').value = response.razorpay_order_id;
 

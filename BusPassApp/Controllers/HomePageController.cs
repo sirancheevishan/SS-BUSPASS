@@ -79,7 +79,7 @@ namespace BusPassApp.Controllers
             Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
             //RequestLog
             strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
-            strXMLData += "<REQUESTTIME>" + DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF") + "</REQUESTTIME><EVENT>";
+            strXMLData += "<REQUESTTIME>" + DateTime.Now.ToString("yyyyMMddHHmmss") + "</REQUESTTIME><EVENT>";
             strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
 
             DataSet ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
@@ -118,14 +118,19 @@ namespace BusPassApp.Controllers
 
             try
             {
+                string strAmnt = string.Empty;
+                string strName = string.Empty;
+                string strUpdatedDate = string.Empty;
+                string strRemark = string.Empty;
+                DataSet dsDes = new DataSet();
                 DataSet ds_result = new DataSet();
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
 
-                ds_result = Ws_Service.ManagePassDetails(strPasstype, "F", ref strErrMSG);
+                ds_result = Ws_Service.ManagePassDetails(strPasstype, "F", ref strErrMSG,dsDes,strAmnt,strName, strRemark, strUpdatedDate);
 
                 //ResponseLog
                 strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -151,7 +156,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "00";
                 strMSG = "Problem occured while geting availability. Please try again later(#05).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
@@ -194,7 +199,7 @@ namespace BusPassApp.Controllers
 
                 Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -224,7 +229,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "00";
                 strMSG = "Problem occured while geting history. Please try again later(#05).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
@@ -255,13 +260,18 @@ namespace BusPassApp.Controllers
             try
             {
                 DataSet ds_result = new DataSet();
+                string strAmnt = string.Empty;
+                string strName = string.Empty;
+                string strUpdatedDate = string.Empty;
+                string strRemark = string.Empty;
+                DataSet dsDes = new DataSet();
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
 
-                ds_result = Ws_Service.ManagePassDetails("", "F", ref strErrMSG);
+                ds_result = Ws_Service.ManagePassDetails("", "F", ref strErrMSG,dsDes,strAmnt,strName,strRemark,strUpdatedDate);
 
                 //ResponseLog
                 strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -286,7 +296,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "00";
                 strMSG = "Problem occured while geting availability. Please try again later(#05).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";

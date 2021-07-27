@@ -48,7 +48,7 @@ namespace BusPassApp.Controllers
             {
 
                 strLogData += "<EVENT>";
-                strLogData += "<REQUEST><REQUESTMETHOD>GetUserDetails</REQUESTMETHOD><REQUESTTIME>" + DateTime.Now.ToString() + "</REQUESTTIME><REQUESTDATA><REGISTERNO>" + strRegNo + "</REGISTERNO><MOBILENO>" + strMobNo + "</MOBILENO><MAILID>" + strMailID + "</MAILID></REQUESTDATA></REQUEST>";
+                strLogData += "<REQUEST><REQUESTMETHOD>GetUserDetails</REQUESTMETHOD><REQUESTTIME>" + DateTime.Now.ToString("yyyyMMddHHmmss") + "</REQUESTTIME><REQUESTDATA><REGISTERNO>" + strRegNo + "</REGISTERNO><MOBILENO>" + strMobNo + "</MOBILENO><MAILID>" + strMailID + "</MAILID></REQUESTDATA></REQUEST>";
 
                 ds_result = Ws_Service.Fetch_User_Details(strRegNo, strMobNo, strMailID, "", strFlag);
 
@@ -62,7 +62,7 @@ namespace BusPassApp.Controllers
                     strError = "Unable to get user details.";
                 }
 
-                strLogData += "<RESPONSE><RESTIME>" + DateTime.Now.ToString() + "</RESTIME><RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA></RESPONSE>";
+                strLogData += "<RESPONSE><RESTIME>" + DateTime.Now.ToString("yyyyMMddHHmmss") + "</RESTIME><RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA></RESPONSE>";
                 strLogData += "</EVENT>";
 
             }
@@ -111,7 +111,7 @@ namespace BusPassApp.Controllers
                 BookingRQRS.stTrackID = strTrackID;
                 BookingRQRS.strPassNo = randomObj.Next(10000000, 100000000).ToString();
                 BookingRQRS.strRemark = "Pending";
-                BookingRQRS.strBookedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                BookingRQRS.strBookedDate = DateTime.Now.ToString("yyyyMMddHHmmss");
                 BookingRQRS.strFlag = "I";
                 BookingRQRS.strStatus="P";
                 BookingRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
@@ -121,7 +121,7 @@ namespace BusPassApp.Controllers
 
                 Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -147,7 +147,7 @@ namespace BusPassApp.Controllers
                         PGRQRS.strCurrency = strCurrency;
                         PGRQRS.strAmount = BookingRQRS.strAmount;
                         PGRQRS.strContactNo = BookingRQRS.strPhnNo;
-                        PGRQRS.strCreatedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
+                        PGRQRS.strCreatedDate = DateTime.Now.ToString("yyyyMMddHHmmss");
                         PGRQRS.strFlag = "I";
                         PGRQRS.strIpAddress = Utilities.GetPublicIpAddress();
                         PGRQRS.strMail = BookingRQRS.strMail;
@@ -161,7 +161,7 @@ namespace BusPassApp.Controllers
 
                         //RequestLog
                         string strPGReq = JsonConvert.SerializeObject(PGRQRS);
-                        strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                        strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         strXMLData = "<EVENT><REQUEST>PGRequest</REQUEST>";
                         strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                         strXMLData += "<REQUESTDATA>" + strPGReq + "</REQUESTDATA><EVENT>";
@@ -192,7 +192,7 @@ namespace BusPassApp.Controllers
                         }
 
                         //ResponseLog
-                        strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                        strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                         strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                         strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -216,7 +216,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "01";
                 strMSG = "Problem occured while Booking. Please try again later(#05).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
@@ -261,7 +261,7 @@ namespace BusPassApp.Controllers
 
                 Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -302,7 +302,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "00";
                 strMSG = "Problem occured while geting details. Please try again later(#05).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";

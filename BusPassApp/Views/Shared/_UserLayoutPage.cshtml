@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link href="~/Content/CSS/raysModal.css" rel="stylesheet" />
 <link href="~/Content/CSS/Main.css" rel="stylesheet" />
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <link href="~/Content/CSS/font-awesome.css" rel="stylesheet" />
 <link href="~/content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/LibraryCSS/bootstrap.css" rel="stylesheet" />
@@ -369,6 +370,7 @@
 
         .dropdown {
             float: right;
+           
         }
 
             .dropdown .dropbtn {
@@ -382,7 +384,7 @@
                 margin: 0;
             }
 
-
+           
         .dropdown-content {
             display: none;
             position: absolute;
@@ -401,18 +403,16 @@
                 text-align: left;
             }
 
-                .dropdown-content a:hover {
+         .dropdown-content a:hover {
                     background-color: #ddd;
                 }
 
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
         .show {
             display: block;
         }
-
         .fnt-13 {
             font-size: 13px;
         }
@@ -420,6 +420,17 @@
         .fnt-14 {
             font-size: 16px;
         }
+
+        .btn-hc {
+            height: 34px;
+            width: 30%;
+            cursor: pointer !important;
+            border-radius: 21px;
+            background: #0b5d0c;
+            color: white;
+            border-color: #000c00;
+        }
+
     </style>
 </head>
 <body>
@@ -438,16 +449,16 @@
                         <ul>
 
                             <li>
-                                <a class="eticket" style="float: left;color: #f3eeee;" href="#">
+                                <a class="eticket float-l cl-f3eeee" href="#">
                                     <i class="fa fa-bus pr-6"></i> Get BusPass
-                                </a>
+                                </a> 
                             </li>
 
-
+                            
 
                             <li>
-
-                                <div class="dropdown" style="z-index:10000">
+                              
+                                <div class="dropdown z-index-10000 ">
 
                                     <span>|</span> <a class="dropbtn"><i class="fa fa-user-circle pr-6"></i><span id="spnUserName">User</span></a>
 
@@ -460,7 +471,7 @@
                             </li>
 
                         </ul>
-
+                        
                     </div>
 
                 </div>
@@ -473,7 +484,7 @@
                         <nav role="navigation" class="navbar navbar-default">
                             <div class="navbar-header float-left">
                                 <a href="#" id="aLinkLogo" class="logo navbar-brand">
-                                    <img src="/Images/TnLogo.jpeg" id="imgLogo" class="colorlogo img-responsive" style="width: 75PX;HEIGHT: 58PX;MARGIN-LEFT: 92px;">
+                                    <img src="~/Images/TnLogo.png" id="imgLogo" class="colorlogo img-responsive wi-75 he-58 mar-l-92">
                                 </a>
                             </div>
 
@@ -490,7 +501,7 @@
             </div>
         </div>
     </header>
-
+   
     @RenderBody()
 
 
@@ -503,7 +514,7 @@
 
     @*Signin popup*@
     <div class="modal in" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
-        <div class="modal-dialog" role="document" style="width: 34%;">
+        <div class="modal-dialog wi-34" role="document">
             <div class="modal-content">
                 <div class="login-form dvclslgndetails">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
@@ -516,10 +527,10 @@
                         <input type="password" class="form-control" name="Password" data-mandatory="Y" id="txtlgnpassword" placeholder="Password" required="required">;
                     </div>
                     <br />
-                    <div class="alert alert-danger dvclslgnerrormsg disnone" role="alert" style="display:none">
+                    <div class="alert alert-danger dvclslgnerrormsg disnone dis-none" role="alert">
                     </div>
                     <input type="submit" class="btn btn-primary btn-block btn-lg" onclick="login()" value="Login">
-                    <div style="padding-top: 6%;text-align: center;"><a class="clsOTPbtn" href="#">OTP LOGIN</a></div>
+                    <div class="pad-top-6 txt-al-cen"><a class="clsOTPbtn" href="#">OTP LOGIN</a></div>
                 </div>
             </div>
         </div>
@@ -528,22 +539,22 @@
 
     @*OTP Verify Popup*@
     <div class="modal in" id="OTPVerficationPopup" role="dialog">
-        <div class="modal-dialog" style="width: 33%;margin-left: 35%;">
+        <div class="modal-dialog wi-33 mar-l-35">
             <div class="modal-content">
-                <div class="modal-header" style="background: #990000;">
-                    <button type="button" class="close" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal" style="color: white;">×</button>
-                    <h4 class="modal-title" style="text-align: center;color: white;font-weight: bold;">Account Verfication</h4>
+                <div class="modal-header bg-990000 " style="background: #990000;">
+                    <button type="button" class="close cl-white" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal" >×</button>
+                    <h4 class="modal-title cl-white txt-al-cen fn-wi-bold">Account Verfication</h4>
                 </div>
                 <div class="modal-body">
-                    <div style="text-align: center; margin-bottom: 2%; display: none;" id="dvOTPErr">
-                        <span style="text-align: center;align-items: center;">
-                            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i><span style="color: red; margin-left: 2%;">
+                    <div class="txt-al-cen dis-none mar-b-2"  id="dvOTPErr">
+                        <span class="txt-al-cen al-it-ce ">
+                            <i class="fa fa-exclamation-triangle cl-red " aria-hidden="true" ></i><span class="cl-red mar-l-2">
                                 <span id="spnErrMSG">Please Enter Valid OTP</span>
                             </span>
                         </span>
                     </div>
                     <div class="dvOTPPopupBox">
-                        <div style="text-align:center">
+                        <div class="txt-al-cen">
                             <label>Enter your mobile OTP <span id="spnMblNo"></span></label>
                             <section>
                                 <form>
@@ -554,14 +565,14 @@
                                     <input id="SMScodeBox5" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(5, event,'S')" onfocus="onFocusEvent(5,'S')">
                                 </form>
                             </section>
-                            <div style="margin-top: 2%;">
-                                <span style="padding-top: 2%;font-size: 12px;">
-                                    Didnt get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                            <div class="mar-t-2" >
+                                <span class="pad-t-2 fn-si-12">
+                                    Didnt get code? <a class="fn-wi-bold cur-poi">Resend OTP</a><span>
                                     </span>
                                 </span>
                             </div>
                         </div>
-                        <div style="text-align:center;margin-top:3%">
+                        <div class="txt-al-cen mar-t-3">
                             <label>Enter your mobile OTP <span id="spnEmailNo"></span></label>
                             <section>
                                 <form>
@@ -572,14 +583,14 @@
                                     <input id="MailcodeBox5" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(5, event, 'M')" onfocus="onFocusEvent(5,'M')">
                                 </form>
                             </section>
-                            <div style="margin-top: 2%;">
-                                <span style="padding-top: 2%;font-size: 12px;">
-                                    Did not get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                            <div class="mar-t-2">
+                                <span class="pad-t-2 fn-si-12">
+                                    Did not get code? <a class="fn-wi-bold cur-poi ">Resend OTP</a><span>
                                     </span>
                                 </span>
                             </div>
                         </div>
-                        <div class="row margin-top5" style="text-align: center;">
+                        <div class="row margin-top5 txt-al-cen" >
                             <input type="button" class="btnreg" style="" value="Verify" onclick="VerifyOTP()">
                         </div>
                     </div>
@@ -588,20 +599,21 @@
         </div>
     </div>
 
+
     @*OTP Verification Notiy popup*@
     <div class="modal in" id="VerifyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
-        <div class="modal-dialog" role="document" style="width: 34%;">
+        <div class="modal-dialog wi-34" role="document">
             <div class="modal-content">
                 <div class="login-form dvclslgndetails">
                     <button type="button" class="close" onclick="closeLoginPopup('VerifyModal')"><span aria-hidden="true">×</span></button>
                     <h4 class="modal-title">Verify to Your Account</h4>
                     <div class="form-group">
-                        <h5 style="font-weight: bold;">Hi siran,</h5><div style="margin-top: 1%;">
+                        <h5 class="fn-wi-bold ">Hi siran,</h5><div class="mar-t-1">
                             Thank you for signing up to online bus pass. Please verify your account by clicking verify account button.
                         </div>
                     </div><div class="form-group">
-                        <span style="font-size: 14px;font-weight: bold;">Important Note:</span>
-                        <div style="margin-top: 1%;">You will not able to see your profile and take pass until verify your account. Please verify.<div></div></div>
+                        <span class="fn-wi-bold fn-si-24 ">Important Note:</span>
+                        <div class="mar-t-1">You will not able to see your profile and take pass until verify your account. Please verify.<div></div></div>
                     </div>
                     <input type="submit" class="btn btn-primary btn-block btn-lg clsverifypopup" onclick="verifyAccount(this)" value="Click to verify" data-otpdetails="' + data.OTPDet + '">
                 </div>
@@ -614,14 +626,19 @@
     @*Renewal Pass Deails popup*@
 
     <div class="modal in" id="RenewalModal" role="dialog">
-        <div class="modal-dialog" style="max-width: 672px !important;">
-            <div class="modal-content">
+        <div class="modal-dialog max-wi-672" >
+            <div class="modal-content wi-126">
                 <div class="modal-header">
                     <h4 class="modal-title">Pass Details</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
+
                     <div id="dvRenewalDetails"></div>
+                    <div class="mar-t-3 mar-r-26">
+                        <input type="button" class="btn-hc mar-l-50" value="Booking New Pass" onclick="newpass()" />
+                    </div>
+                  
                 </div>
             </div>
         </div>
@@ -635,6 +652,7 @@
 
     var loaderimgurl = "@Url.Content("~/Images/Gif/Loading.gif")";
     var strLoginpath = "@Url.Action("CheckLogin", "Login")";
+    var strAdminLoginpath = "@Url.Action("CheckAdminLogin", "Login")";
     var strOTPURL = "@Url.Action("SendOTP", "Home")";
     var RedirectToHomePath = "@Url.Action("HomePage", "HomePage")";
     var HomeURL = "@Url.Action("Home", "Home")";
@@ -664,7 +682,12 @@
         }
     }
 
-
+    function newpass() {
+        if (ExisitingURL == 'Y') {
+            window.location.href = newUserHomeurl;
+        }
+    }
+  
 
 
 

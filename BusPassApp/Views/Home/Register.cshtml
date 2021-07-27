@@ -2,9 +2,10 @@
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
 }
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <style>
     html {
-        background:white;
+        background: white;
     }
 </style>
 
@@ -13,14 +14,14 @@
 
     @*Personal Details*@
     <div>
-        <span class="redclr">*</span><span style="margin-left: 1%;font-size: 11px;font-weight: bold;">Please Enter correct details as per documents.</span>
-        <br><span class="redclr" style="">*</span><span style="margin-left: 1%;font-size: 11px;font-weight: bold;">This will be reflect under your pass details.</span>
-        <div class="register-heading" style="margin-top:1%">
+        <span class="redclr">*</span><span class="fn-si-11 fn-wi-bold mar-l-1">Please Enter correct details as per documents.</span>
+        <br><span class="redclr" style="">*</span><span class="fn-si-11 fn-wi-bold mar-l-1">This will be reflect under your pass details.</span>
+        <div class="register-heading mar-t-1">
             <h3 class="panel-title">Personal Details</h3>
         </div>
         <div class="row container margin-top3">
             <div class="col-md-4">
-                <label>Name <span style="font-size: 10px;">(As per the document)</span><span class="redclr">*</span> </label>
+                <label>Name <span class="fn-si-10">(As per the document)</span><span class="redclr">*</span> </label>
                 <div>
                     <input type="text" onkeypress="return ValidateAlpha(event)" id="txtname" class="regtxt clsPersonalDetails" data-name="Name" />
                 </div>
@@ -44,10 +45,10 @@
                 <label>Gender <span class="redclr">*</span> </label>
                 <div>
                     <div style="position: absolute">
-                        <input type="radio" class="cursor" id="rdnmale" name="gender" checked /><label class="cursor" style="margin-left: 8px;" for="rdnmale">Male</label>
+                        <input type="radio" class="cursor " id="rdnmale" name="gender" checked /><label class="cursor mar-l-8" for="rdnmale">Male</label>
                     </div>
                     <div style="margin-left: 24%;">
-                        <input type="radio" class="cursor" id="rdnfemale" name="gender" /><label class="cursor" style="margin-left: 8px;" for="rdnfemale">FeMale</label>
+                        <input type="radio" class="cursor" id="rdnfemale" name="gender" /><label class="cursor mar-l-8" for="rdnfemale">FeMale</label>
                     </div>
                 </div>
             </div>
@@ -142,7 +143,7 @@
                 <label>Password<span class="redclr">*</span> </label>
                 <div>
                     <input type="password" class="regtxt clsLoginDetails" id="txtpass" data-name="Password" />
-                    <span id="spn_paswrd_vw" onclick="textToPass('txtpass', this);" class="fa fa-fw fa-eye" style="position: absolute;top: 71%;right: 120px;transform: translateY(-50%);"></span>
+                    <span id="spn_paswrd_vw" onclick="textToPass('txtpass', this);" class="fa fa-fw fa-eye pos-ab top-71 ri-120 trans-50 "></span>
                     <i class="fa fa-info-circle" title="(i) Password length Should be 8-15. (ii) One character must be uppercase. (iii) one character should be in special character"></i>
                 </div>
             </div>
@@ -150,7 +151,7 @@
                 <label>Confirm Password<span class="redclr">*</span> </label>
                 <div>
                     <input type="password" class="regtxt clsLoginDetails" id="txtcnfrmpass" data-name="Confirm Password" />
-                    <span id="spn_paswrd_vw" onclick="textToPass('txtcnfrmpass', this);" class="fa fa-fw fa-eye" style="position: absolute;top: 71%;right: 120px;transform: translateY(-50%);"></span>
+                    <span id="spn_paswrd_vw" onclick="textToPass('txtcnfrmpass', this);" class="fa fa-fw fa-eye pos-ab top-71 ri-120 trans-50"></span>
                 </div>
             </div>
         </div>
@@ -166,7 +167,7 @@
     @*Upload Documents*@
 
     <div>
-        <div class="register-heading" style="margin-top: 3%;">
+        <div class="register-heading mar-t-3">
             <h3 class="panel-title">Upload Document</h3>
         </div>
         <div class="row container margin-top3">
@@ -174,31 +175,31 @@
                 <label>Photo<span class="redclr">*</span> </label>
                 <div class="dvupload">
 
-                    <input type="file" id="Profilepic" onchange="savefile('Profilepic')" style="color: #990000;" size="50">
+                    <input type="file" id="Profilepic" onchange="savefile('Profilepic')" class="cl-990000" size="50">
                 </div>
             </div>
             <div class="col-md-6">
                 <label>Adhaar Copy<span class="redclr">*</span> </label>
                 <div class="dvupload">
 
-                    <input type="file" id="Adhaarimg" onchange="savefile('Adhaarimg')" style="color: #990000;" size="50">
+                    <input type="file" id="Adhaarimg" onchange="savefile('Adhaarimg')" class="cl-990000" size="50">
                 </div>
             </div>
         </div>
-        <div class="dverr" id="dvErrUploadDetails" style="display:none;">
+        <div class="dverr dis-none " id="dvErrUploadDetails">
             <div class="alert alert-danger clsdvErrorMsg" role="alert" id="dvErrMSGUploadDetails">Please Enter Name</div>
         </div>
 
     </div>
     <div>
-        <div class="row container margin-top5" style="text-align: center; margin-top: 3% !important;">
+        <div class="row container margin-top5 txt-al-cen mar-t-3 ">
             <div class="col-md-6">
-                <input type="button" class="btnreg" style="float: right;margin-right: 70px;" value="Submit" onclick="submit()" />
+                <input type="button" class="btnreg float-r mar-r-70"  value="Submit" onclick="submit()" />
 
             </div>
 
             <div class="col-md-6">
-                <input type="button" style="float: inherit;" class="btnreg" value="Back" />
+                <input type="button" class="btnreg float-i " value="Back" />
             </div>
 
         </div>
@@ -206,73 +207,73 @@
 
 </div>
 
-<input type="hidden" id="hdnProfilePath"/>
+<input type="hidden" id="hdnProfilePath" />
 <input type="hidden" id="hdnAdhaarPath" />
 
 @*<div class="modal in" id="OTPVerficationPopup" role="dialog">
-    <div class="modal-dialog" style="width: 33%;margin-left: 35%;">
-        <div class="modal-content">
-            <div class="modal-header" style="background: #990000;">
-                <button type="button" class="close" data-dismiss="modal" style="color: white;">×</button>
-                <h4 class="modal-title" style="text-align: center;color: white;font-weight: bold;">Account Verfication</h4>
-            </div>
-            <div class="modal-body">
-                <div style="text-align: center; margin-bottom: 2%; display: none;" id="dvOTPErr" >
-                    <span style="text-align: center;align-items: center;">
-                        <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i><span style="color: red; margin-left: 2%;">
-                            <span id="spnErrMSG">Please Enter Valid OTP</span>
+        <div class="modal-dialog" style="width: 33%;margin-left: 35%;">
+            <div class="modal-content">
+                <div class="modal-header" style="background: #990000;">
+                    <button type="button" class="close" data-dismiss="modal" style="color: white;">×</button>
+                    <h4 class="modal-title" style="text-align: center;color: white;font-weight: bold;">Account Verfication</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center; margin-bottom: 2%; display: none;" id="dvOTPErr" >
+                        <span style="text-align: center;align-items: center;">
+                            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: red;"></i><span style="color: red; margin-left: 2%;">
+                                <span id="spnErrMSG">Please Enter Valid OTP</span>
+                            </span>
                         </span>
-                    </span>
-                </div>
-                <div class="dvOTPPopupBox">
-                    <div style="text-align:center">
-                        <label>Enter your mobile OTP <span id="spnMblNo">(9600591085)</span></label>
-                        <section>
-                            <form>
-                                <input id="SMScodeBox1" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(1, event, 'S')" onfocus="onFocusEvent(1, 'S')">
-                                <input id="SMScodeBox2" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(2, event, 'S')" onfocus="onFocusEvent(2, 'S')">
-                                <input id="SMScodeBox3" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(3, event, 'S')" onfocus="onFocusEvent(3, 'S')">
-                                <input id="SMScodeBox4" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(4, event, 'S')" onfocus="onFocusEvent(4, 'S')">
-                                <input id="SMScodeBox5" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(5, event, 'S')" onfocus="onFocusEvent(5, 'S')">
-                            </form>
-                        </section>
-                        <div style="margin-top: 2%;">
-                            <span style="padding-top: 2%;font-size: 12px;">
-                                Didn't get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                    </div>
+                    <div class="dvOTPPopupBox">
+                        <div style="text-align:center">
+                            <label>Enter your mobile OTP <span id="spnMblNo">(9600591085)</span></label>
+                            <section>
+                                <form>
+                                    <input id="SMScodeBox1" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(1, event, 'S')" onfocus="onFocusEvent(1, 'S')">
+                                    <input id="SMScodeBox2" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(2, event, 'S')" onfocus="onFocusEvent(2, 'S')">
+                                    <input id="SMScodeBox3" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(3, event, 'S')" onfocus="onFocusEvent(3, 'S')">
+                                    <input id="SMScodeBox4" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(4, event, 'S')" onfocus="onFocusEvent(4, 'S')">
+                                    <input id="SMScodeBox5" type="number" maxlength="1" class="clssmsotp" onkeyup="onKeyUpEvent(5, event, 'S')" onfocus="onFocusEvent(5, 'S')">
+                                </form>
+                            </section>
+                            <div style="margin-top: 2%;">
+                                <span style="padding-top: 2%;font-size: 12px;">
+                                    Didn't get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                                    </span>
                                 </span>
-                            </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div style="text-align:center;margin-top:3%">
-                        <label>Enter your mobile OTP <span id="spnEmailNo">(sirancheevishan@gmail.com)</span></label>
-                        <section>
-                            <form>
-                                <input id="MailcodeBox1" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(1, event,'M')" onfocus="onFocusEvent(1,'M')">
-                                <input id="MailcodeBox2" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(2, event,'M')" onfocus="onFocusEvent(2,'M')">
-                                <input id="MailcodeBox3" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(3, event,'M')" onfocus="onFocusEvent(3,'M')">
-                                <input id="MailcodeBox4" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(4, event,'M')" onfocus="onFocusEvent(4,'M')">
-                                <input id="MailcodeBox5" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(5, event,'M')" onfocus="onFocusEvent(5,'M')">
-                            </form>
-                        </section>
-                        <div style="margin-top: 2%;">
-                            <span style="padding-top: 2%;font-size: 12px;">
-                                Didn't get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                        <div style="text-align:center;margin-top:3%">
+                            <label>Enter your mobile OTP <span id="spnEmailNo">(sirancheevishan@gmail.com)</span></label>
+                            <section>
+                                <form>
+                                    <input id="MailcodeBox1" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(1, event,'M')" onfocus="onFocusEvent(1,'M')">
+                                    <input id="MailcodeBox2" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(2, event,'M')" onfocus="onFocusEvent(2,'M')">
+                                    <input id="MailcodeBox3" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(3, event,'M')" onfocus="onFocusEvent(3,'M')">
+                                    <input id="MailcodeBox4" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(4, event,'M')" onfocus="onFocusEvent(4,'M')">
+                                    <input id="MailcodeBox5" type="number" maxlength="1" class="clsMailotp" onkeyup="onKeyUpEvent(5, event,'M')" onfocus="onFocusEvent(5,'M')">
+                                </form>
+                            </section>
+                            <div style="margin-top: 2%;">
+                                <span style="padding-top: 2%;font-size: 12px;">
+                                    Didn't get code? <a style="font-weight: bold;cursor: pointer;">Resend OTP</a><span>
+                                    </span>
                                 </span>
-                            </span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row margin-top5" style="text-align: center;">
-                        <input type="button" class="btnreg" style="" value="Verify" onclick="VerifyOTP()">
-                    </div>
+                        <div class="row margin-top5" style="text-align: center;">
+                            <input type="button" class="btnreg" style="" value="Verify" onclick="VerifyOTP()">
+                        </div>
 
+                    </div>
                 </div>
+
             </div>
 
         </div>
-
-    </div>
-</div>*@
+    </div>*@
 
 
 
@@ -335,7 +336,7 @@
     }
 
     function submit() {
-        
+
         //To remove error div
         $("#dvErrPersonalDetails").hide();
         $("#dvErrMSGPersonalDetails").html("");
@@ -561,7 +562,7 @@
 
                     return dataResult;
                 }
-                
+
             },
             error: function (e) {
                 $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
@@ -736,7 +737,7 @@
     }
 
     function loadCity() {
-        debugger
+
         $.ajax({
             type: "GET",
             url: '@Url.Content("~/XML/TamilNaduDistrict.xml")',

@@ -348,29 +348,39 @@ namespace BusPassApp.WSDL_Service {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ManagePassDetails", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public System.Data.DataSet ManagePassDetails(string strPassID, string strFlag, ref string strErrorMsg) {
+        public System.Data.DataSet ManagePassDetails(string strPassID, string strFlag, ref string strErrorMsg, System.Data.DataSet dsPassDescription, string strAmount, string strPassName, string strPassRemark, string strUpdateDate) {
             object[] results = this.Invoke("ManagePassDetails", new object[] {
                         strPassID,
                         strFlag,
-                        strErrorMsg});
+                        strErrorMsg,
+                        dsPassDescription,
+                        strAmount,
+                        strPassName,
+                        strPassRemark,
+                        strUpdateDate});
             strErrorMsg = ((string)(results[1]));
             return ((System.Data.DataSet)(results[0]));
         }
         
         /// <remarks/>
-        public void ManagePassDetailsAsync(string strPassID, string strFlag, string strErrorMsg) {
-            this.ManagePassDetailsAsync(strPassID, strFlag, strErrorMsg, null);
+        public void ManagePassDetailsAsync(string strPassID, string strFlag, string strErrorMsg, System.Data.DataSet dsPassDescription, string strAmount, string strPassName, string strPassRemark, string strUpdateDate) {
+            this.ManagePassDetailsAsync(strPassID, strFlag, strErrorMsg, dsPassDescription, strAmount, strPassName, strPassRemark, strUpdateDate, null);
         }
         
         /// <remarks/>
-        public void ManagePassDetailsAsync(string strPassID, string strFlag, string strErrorMsg, object userState) {
+        public void ManagePassDetailsAsync(string strPassID, string strFlag, string strErrorMsg, System.Data.DataSet dsPassDescription, string strAmount, string strPassName, string strPassRemark, string strUpdateDate, object userState) {
             if ((this.ManagePassDetailsOperationCompleted == null)) {
                 this.ManagePassDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnManagePassDetailsOperationCompleted);
             }
             this.InvokeAsync("ManagePassDetails", new object[] {
                         strPassID,
                         strFlag,
-                        strErrorMsg}, this.ManagePassDetailsOperationCompleted, userState);
+                        strErrorMsg,
+                        dsPassDescription,
+                        strAmount,
+                        strPassName,
+                        strPassRemark,
+                        strUpdateDate}, this.ManagePassDetailsOperationCompleted, userState);
         }
         
         private void OnManagePassDetailsOperationCompleted(object arg) {

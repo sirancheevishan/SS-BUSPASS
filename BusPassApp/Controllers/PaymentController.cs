@@ -138,7 +138,7 @@ namespace BusPassApp.Controllers
 
                     //RequestLog
                     string strPGReq = JsonConvert.SerializeObject(PGRQRS);
-                    strtime = DateTime.Now.ToString("ddMMyyy HH:MM:SS:FFFF");
+                    strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     strXMLData = "<EVENT><REQUEST>PGRequest</REQUEST>";
                     strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                     strXMLData += "<REQUESTDATA>" + strPGReq + "</REQUESTDATA><EVENT>";
@@ -179,7 +179,7 @@ namespace BusPassApp.Controllers
 
                             Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                             //RequestLog
-                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                             strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                             strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -187,7 +187,7 @@ namespace BusPassApp.Controllers
                             ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
 
                             //ResponseLog
-                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                             strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                             strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -208,7 +208,7 @@ namespace BusPassApp.Controllers
 
                                 Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                                 //RequestLog
-                                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -216,7 +216,7 @@ namespace BusPassApp.Controllers
                                 ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
 
                                 //ResponseLog
-                                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                                 strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                                 strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -236,7 +236,7 @@ namespace BusPassApp.Controllers
 
                             Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                             //RequestLog
-                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                             strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                             strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -244,7 +244,7 @@ namespace BusPassApp.Controllers
                             ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
 
                             //ResponseLog
-                            strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                            strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                             strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                             strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -264,7 +264,7 @@ namespace BusPassApp.Controllers
 
                         Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                         //RequestLog
-                        strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                        strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                         strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                         strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -272,7 +272,7 @@ namespace BusPassApp.Controllers
                         ds_result = Ws_Service.InertFetchBookingDetails(strBookingReq, ref strErrMSG);
 
                         //ResponseLog
-                        strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                        strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
                         strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
                         strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
@@ -300,7 +300,7 @@ namespace BusPassApp.Controllers
 
                     //RequestLog
                     string strPGReq = JsonConvert.SerializeObject(PGRQRS);
-                    strtime = DateTime.Now.ToString("ddMMyyy HH:MM:SS:FFFF");
+                    strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                     strXMLData = "<EVENT><REQUEST>PGRequest</REQUEST>";
                     strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                     strXMLData += "<REQUESTDATA>" + strPGReq + "</REQUESTDATA><EVENT>";

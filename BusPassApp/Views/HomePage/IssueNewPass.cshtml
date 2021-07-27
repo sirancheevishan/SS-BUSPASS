@@ -5,16 +5,18 @@
     string type = Convert.ToString(Session["Pass_type"]);
     string RenewalFlag = Convert.ToString(Session["EXISITING_USER"]);
     string strFName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NAME"]): Convert.ToString(Session["RE_USER_NAME"]);
-    string strLastName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_LNAME"]) : Convert.ToString(Session["RE_USER_LNAME"]);
+    string strLastName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_FATHER_NAME"]) : Convert.ToString(Session["RE_USER_LNAME"]);
     string strDOB = RenewalFlag != "Y" ? Convert.ToString(Session["USER_DOB"]) : Convert.ToString(Session["RE_USER_DOB"]);
-    string strSex = RenewalFlag != "Y" ? Convert.ToString(Session["USER_SEX"]) : Convert.ToString(Session["RE_USER_SEX"]);
+    //  string strSex = RenewalFlag != "Y" ? Convert.ToString(Session["USER_SEX"]) : Convert.ToString(Session["RE_TITLE"]);
+    string strSex = Convert.ToString(Session["USER_SEX"]);
     string strNum = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NUM"]) : Convert.ToString(Session["RE_USER_NUM"]);
-    string strMail = RenewalFlag != "Y" ? Convert.ToString(Session["USD_USER_MAILID"]) : Convert.ToString(Session["RE_USD_USER_MAILID"]);
+    string strMail = RenewalFlag != "Y" ? Convert.ToString(Session["USER_MAIL"]) : Convert.ToString(Session["RE_USD_USER_MAILID"]);
     string strAmount = RenewalFlag != "Y" ? Convert.ToDouble(Session["PassAmount"]).ToString() : Convert.ToDouble(Session["RE_Amount"]).ToString();
     string strEffectFrom = Convert.ToString(Session["RE_Effective_From"]);
     string strEffectTo = Convert.ToString(Session["RE_Effective_To"]);
-
 }
+
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <style>
     body {
         background: #f9f0f0;
@@ -131,30 +133,29 @@ padding-top: 4px;
         <div class="col-md-9">
 
             <div class="dvPax">
-                <div class="bkdvTitle" style="border: 0;">
-                    <span class="bkspnTitle" style="font-size: 18px;font-weight: 600;">
+                <div class="bkdvTitle bor-0">
+                    <span class="bkspnTitle fn-si-18 fn-wi-600" >
                         <i class="fa fa-user-o bkiTitle"></i>Review your Booking
                     </span>
                 </div>
                 <div class="row p-2 container">
 
                     <div class="row">
-                        <div class="col-md-2" style="padding-left: 6%;">
+                        <div class="col-md-2 pad-l-6">
                             <div>
-                                <img src="data:image/png;base64,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" style="
-    height: 41px;width: 83px;justify-content: center;">
+                                <img src="data:image/png;base64,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"  class="he-41 wi-83 jus-con-ce" >
                             </div>
 
 
                             <div>
-                                <span style="font-size: 9px;font-family: initial;font-weight: bold;padding: 5%;margin-left: 22%;color: #990000;">BP - 303</span>
+                                <span class="fn-si-9 fn-fa-in fn-wi-bold pad-5 mar-l-22 cl-990000">BP - 303</span>
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <span style="font-size: 27px;font-weight: 700;font-family: initial;" id="spnpasstype">Student Pass - Scholl</span>
+                            <span class="fn-fa-in fn-si-27 fn-wi-700" id="spnpasstype">Student Pass - Scholl</span>
 
                             <div>
-                                <span style="font-size: 12px;font-weight: 600;color: #990000;">To Get Pass to Economy free Travel</span>
+                                <span class="cl-990000 fn-wi-600 fn-si-12">To Get Pass to Economy free Travel</span>
                             </div>
                         </div>
                     </div>
@@ -171,8 +172,8 @@ padding-top: 4px;
                         <lable class="clslbl">Title</lable>
                         <select class="text-bx form-control clstxtbk" id="bkTitle">
                             <option>--select--</option>
-                            <option value="Mrs">Mr.</option>
-                            <option value="Ms">Mrs.</option>
+                            <option value="Mr">Mr.</option>
+                            <option value="Ms">Ms.</option>
 
                         </select>
                     </div>
@@ -195,7 +196,7 @@ padding-top: 4px;
                     </div>
                     
                 </div>
-                <div class="row p-2"><div class="col-md-3" style="margin-left:2%;margin-bottom:2%;">
+                <div class="row p-2"><div class="col-md-3 mar-l-2 mar-b-2 dis-none">
     <lable class="clslbl">DOB</lable>
     <input type="text" autocomplete="off" class="text-bx form-control  clsdatepicker clstxtbk" value="@strDOB" id="bkDOB" name="DOB" disabled>
 </div></div>
@@ -230,19 +231,19 @@ padding-top: 4px;
                     </div>
                     <div class="col-md-3">
                         <lable class="clslbl">Valid To</lable>
-                        <input type="text" class="text-bx form-control clsdatepicker clstxtbk" autocomplete="off" id="bkToDate" name="To Name" value="@strEffectTo">
+                        <input type="text" class="text-bx form-control clsdatepicker " autocomplete="off" id="bkToDate" name="To Name" value="@strEffectTo">
                     </div>
                 </div>
             </div>
 
             <div class="row" id="dvTermsCond"style="cursor:pointer;">
                 <input type="checkbox" class="clschk" id="chkTerms">
-                <label for="chkTerms">I understand &amp; agree to the <a style="color:blue;">Terms and Conditions.</a></label>
+                <label for="chkTerms">I understand &amp; agree to the <a class="cl-blue">Terms and Conditions.</a></label>
             </div>
 
             <div class="row text-center m-2 clsdv">
-                <input type="button" value="back" class="btnreg" style="width: 14%;" onclick="gotoHome()">
-                <input type="button" value="Continue" id="btnContinue" class="btnreg" style="width:14%;margin-left:3%;">
+                <input type="button" value="back" class="btnreg wi-14" onclick="gotoHome()">
+                <input type="button" value="Continue" id="btnContinue" class="btnreg wi-14 mar-l-3">
             </div>
         </div>
         <div class="col-md-3">
@@ -258,19 +259,19 @@ padding-top: 4px;
                             Total Amount
                         </span>
                     </div>
-                    <div class="col-md-6"><span style="float:right;">@strAmount</span></div>
+                    <div class="col-md-6"><span class="float-r">@strAmount</span></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="modal in" id="Modal-Preview" style="padding-right: 17px;">
+<div class="modal in pad-r-17" id="Modal-Preview">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- Modal Header -->
-            <div class="modal-header" style="padding: 0px;background: #e42d47;">
-                <h4 class="" style="font-size: 20px;font-weight: 700;color: white;margin-left: 2%;">Review Your Details</h4>
+            <div class="modal-header pad-0 bg-e42d47 ">
+                <h4 class="fn-si-20 fn-wi-700 cl-white mar-l-2">Review Your Details</h4>
             </div>
 
             <!-- Modal body -->
@@ -279,15 +280,9 @@ padding-top: 4px;
             </div>
 
             <!-- Modal footer -->
-            <div class="modal-footer" style="
-    text-align: center;
-">
+            <div class="modal-footer txt-al-cen">
                 <button type="button" class="btn btn-danger" id="btnPayNow" >Pay Now</button>
-                <button type="button" class="btn " data-dismiss="modal" style="
-    color: #fff;
-    background-color: #6e6f6e;
-    border-color: #6e6f6e;
-">
+                <button type="button" class="btn cl-fff bg-6e6f6e bor-cl-6e6f6e " data-dismiss="modal">
                     Edit Info
                 </button>
             </div>
@@ -299,6 +294,7 @@ padding-top: 4px;
 <script>
 
     $(document).ready(function () {
+      
         $("#spnpasstype").html(getPassNameAndID("@type", ""));
         $(".clsdatepicker").datepicker({
             dateFormat: "dd/mm/yy",
@@ -309,7 +305,7 @@ padding-top: 4px;
 
         });
 
-        '@strSex' == "M" ? $("#bkTitle").val("Mrs") : $("#bkTitle").val("Ms");
+        '@strSex' == "M" ? $("#bkTitle").val("Mr") : $("#bkTitle").val("Miss");
         '@strSex' == "M" ? $("#bkGender").val("M") : $("#bkGender").val("F");
 
         '@RenewalFlag' == "Y" ? $(".clstxtbk").attr("disabled", "disabled") : $(".clstxtbk").prop("disabled", false);
@@ -457,7 +453,7 @@ padding-top: 4px;
             data: data,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-        });
+            });
 
     }
 </script>

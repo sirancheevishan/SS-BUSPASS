@@ -58,7 +58,7 @@ namespace BusPassApp.Controllers
 
                 Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                 //RequestLog
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
                 strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
                 strXMLData += "<REQUESTDATA>" + strBookingReq + "</REQUESTDATA><EVENT>";
@@ -88,7 +88,7 @@ namespace BusPassApp.Controllers
             {
                 strStatus = "00";
                 strMSG = "Problem occured while geting history. Please try again later(#05).";
-                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                 strXMLData = "<EVENT>";
                 strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
                 strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";

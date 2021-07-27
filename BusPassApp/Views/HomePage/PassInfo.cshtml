@@ -1,14 +1,14 @@
 ﻿@{
     ViewBag.Title = "PassInfo";
     Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
-    String strProfilepath = Session["USER_PROFILE_PATH"] != null ? Session["USER_PROFILE_PATH"].ToString() : "";
+    String strProfilepath = Session["USER_PROFILE_PATH"] !=null ? Session["USER_PROFILE_PATH"].ToString() : "";
     String strUserName = Session["USER_NAME"] != null ? Session["USER_NAME"].ToString() : "";
 }
 <link href="~/Content/CSS/Main.css" rel="stylesheet" />
-
-<div class="container margin-top7" id="dvpasinfo" style="background: #f7fdfd;">
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
+<div class="container margin-top7 bg-f7fdfd" id="dvpasinfo">
     <div class="row">
-        <div class="col-sm-3 clspassnav" style="padding:0 !important;" id="dvPassList">
+        <div class="col-sm-3 clspassnav pad-0"id="dvPassList">
         </div>
         <div class="col-sm-9">
 
@@ -24,7 +24,7 @@
 
 
     function GetAvailability() {
-
+    
         var AvailabilityURL = "@Url.Action("GetAvailability", "HomePage")";
 
         $.ajax({

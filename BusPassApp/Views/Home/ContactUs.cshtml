@@ -2,6 +2,7 @@
     ViewBag.Title = "ContactUs";
     Layout = "~/Views/Shared/_MasterLayoutPage.cshtml";
 }
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <style>
     html {
         background: #f9f9f9 !important;
@@ -24,12 +25,13 @@
         font-weight: bolder;
         color: firebrick;
     }
+
     .h3-st {
         color: firebrick;
     }
 </style>
 
-<div class="row container" style="padding-top: 2.8%;">
+<div class="row container pad-t-2p8">
     <h2 class="fnt-st ">Contact Us</h2>
 </div>
 <div class="myDiv container">
@@ -41,12 +43,12 @@
                 <div class="col-md-6">
                     <i class="fa fa-map-marker fnt-35 " aria-hidden="true"></i>
                     <h3 class="h3-st">Address</h3>
-                    <p>Subsri Nagar 4th Extention,<br>Mugalivakkam, Chennai 600125</p>
+                    <p>A108 Adam Street,<br>New York, NY 535022</p>
                 </div>
                 <div class="col-md-6">
                     <i class="fa fa-phone fnt-35" aria-hidden="true"></i>
                     <h3 class="h3-st">Call Us</h3>
-                    <p>+91 9600591085<br>+91 8838978273</p>
+                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
                 </div>
             </div>
             <br /><br />
@@ -54,7 +56,7 @@
                 <div class="col-md-6">
                     <i class="fa fa-envelope-o fnt-35" aria-hidden="true"></i>
                     <h3 class="h3-st">Email Us</h3>
-                    <p>sirancheevishan@gmail.com<br>bpshelpcenter@gmail.com</p>
+                    <p>info@example.com<br>contact@example.com</p>
                 </div>
                 <div class="col-md-6">
                     <i class="fa fa-clock-o fnt-35" aria-hidden="true"></i>
@@ -69,24 +71,24 @@
                 <div class="row">
 
                     <div class="col-md-6">
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                        <input type="text" class="form-control" placeholder="Your Name" required="" id="txtName">
                     </div>
 
                     <div class="col-md-6 ">
-                        <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email" required="" id="txtMail">
                     </div>
                 </div>
 
                 <br /><br />
                 <div class="row">
                     <div class="col-md-12">
-                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="" id="txtSubject">
                     </div>
                 </div>
                 <br /><br />
                 <div class="row">
                     <div class="col-md-12">
-                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+                        <textarea class="form-control" name="message" rows="6" placeholder="Message" required="" id="txtFeeaback"></textarea>
                     </div>
                 </div>
                 <br /><br />
@@ -96,7 +98,10 @@
                             <div class="error-message"></div>
                             <div class="sent-message">Your message has been sent. Thank you!</div>*@
 
-                        <button type="submit" class="btnreg">Send Message</button>
+                        <input type="button" class="btnreg" value="SendMessage" id="btnSendMes" />
+
+
+                        @*<button type="submit" class="btnreg" id="btnSubmit">Send Message</button>*@
                     </div>
 
                 </div>
@@ -104,3 +109,56 @@
         </div>
     </div>
 </div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#btnSendMes").click(function () {
+            InsertFeedback();
+        });
+
+    });
+
+    function InsertFeedback() {
+
+
+
+        var InsertFeedbackURL = "@Url.Action("FeedBackDetails", "Home")";
+            var param = {
+                strName: $("#txtName").val(),
+                strMailId: $("#txtMail").val(),
+                strSubject: $("#txtSubject").val(),
+                strFeedback: $("#txtFeeaback").val(),
+                strFlag:"I"
+            }
+            $.ajax({
+                type: "POST",
+                url: InsertFeedbackURL,
+                data: JSON.stringify(param),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    if (data.status == "1") {
+
+                        alert(data.Message);
+
+
+                    }
+                    else {
+                        alert(data.Message);
+                    }
+                    $("#txtName").val("");
+                    $("#txtMail").val("");
+                    $("#txtSubject").val("");
+                    $("#txtFeeaback").val("");
+                },
+                error: function (ex) {
+
+                }
+            });
+
+    }
+
+</script>

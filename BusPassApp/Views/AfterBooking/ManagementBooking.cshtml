@@ -3,8 +3,9 @@
     Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
 
 }
+<link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <style>
-    
+
     html {
         background: #f9f9f9 !important;
     }
@@ -12,141 +13,15 @@
     .myDiv {
         position: relative;
         z-index: 1;
-        margin-top: 20px;
+        margin-top: 80px;
         padding-top: 10px;
     }
 
-    .design-process-section .text-align-center {
-        line-height: 25px;
-        margin-bottom: 12px;
-    }
-
-    .design-process-content {
-        border: 1px solid #e9e9e9;
-        position: relative;
-        padding: 16px 34% 30px 30px;
-    }
-
-        .design-process-content img {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            z-index: 0;
-            max-height: 100%;
-        }
-
-        .design-process-content h3 {
-            margin-bottom: 16px;
-        }
-
-        .design-process-content p {
-            line-height: 26px;
-            margin-bottom: 12px;
-        }
-
-    .process-model {
-        list-style: none;
-        padding: 0;
-        position: relative;
-        max-width: 600px;
-        margin: 20px auto 26px;
-        border: none;
-        z-index: 0;
-        margin-left: -15%;
-    }
-
-        .process-model li::after {
-            background: #e5e5e5 none repeat scroll 0 0;
-            bottom: 0;
-            content: "";
-            display: block;
-            height: 4px;
-            margin: 0 auto;
-            position: absolute;
-            right: -30px;
-            top: 33px;
-            width: 85%;
-            z-index: -1;
-        }
-
-        .process-model li.visited::after {
-            background: #990000;
-        }
-
-        .process-model li:last-child::after {
-            width: 0;
-        }
-
-        .process-model li {
-            display: inline-block;
-            width: 18%;
-            text-align: center;
-            float: none;
-        }
-
-            .nav-tabs.process-model > li.active > a, .nav-tabs.process-model > li.active > a:hover, .nav-tabs.process-model > li.active > a:focus, .process-model li a:hover, .process-model li a:focus {
-                border: none;
-                background: transparent;
-            }
-
-            .process-model li a {
-                padding: 0;
-                border: none;
-                color: #606060;
-            }
-
-            .process-model li.active,
-            .process-model li.visited {
-                color: #990000;
-            }
-
-                .process-model li.active a,
-                .process-model li.active a:hover,
-                .process-model li.active a:focus,
-                .process-model li.visited a,
-                .process-model li.visited a:hover,
-                .process-model li.visited a:focus {
-                    color: #990000;
-                }
-
-                .process-model li.active p,
-                .process-model li.visited p {
-                    font-weight: 600;
-                }
-
-            .process-model li i {
-                display: block;
-                height: 63px;
-                width: 65px;
-                text-align: center;
-                margin: 0 auto;
-                background: #f5f6f7;
-                border: 2px solid #e5e5e5;
-                line-height: 65px;
-                font-size: 22px;
-                border-radius: 50%;
-            }
-
-            .process-model li.active i, .process-model li.visited i {
-                background: #fff;
-                border-color: #990000;
-            }
-
-            .process-model li p {
-                font-size: 14px;
-                margin-top: 11px;
-            }
-
-    .containerinner {
-        box-shadow: 0 5px 5px 5px #a944425c;
-    }
-
-    .btn {
+    .btn-hc {
         height: 38px;
         width: 45%;
         cursor: pointer !important;
-        border-radius: 3px;
+        border-radius: 21px;
         background: #990000ad;
         color: white;
         border-color: #990000;
@@ -164,168 +39,236 @@
     }
 
     .mt-5 {
-    margin-top:5%;
+        margin-top: 5%;
     }
-    .lblhistory{
-    font-size:17px;font-weight:bold;
+
+    .lblhistory {
+        font-size: 17px;
+        font-weight: bold;
         border-bottom: 1px solid #990000;
+        color: #990000;
     }
+
     div label {
-    float:left !important;
+        float: left !important;
     }
 
     .float-left {
-    float:left;
+        float: left;
+    }
+
+    /* Style tab links */
+    .tablink {
+        background-color: #999999a8;
+        color: white;
+        /*float: left;*/
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 30px;
+    }
+
+        .tablink:hover {
+            background-color: #55555591;
+        }
+
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+        /* color: white;*/
+        display: none;
+        padding: 80px 0px;
+        height: 100%;
+        border-top-right-radius: 80px;
+        border-bottom-left-radius: 80px;
+        /*     border-bottom: 2px groove #cccccc;*/
+        border: 1px dotted #a94442;
+        margin-top: 2px;
+    }
+
+    #Manage {
+        /*  background-color: #a9444238;*/
+        background-color: white;
+    }
+
+    #Cancel {
+        /*background-color: #337ab72e;*/
+        background-color: white;
+    }
+
+    .fnt-35 {
+        /*  font-size: 35px;*/
+        padding-right: 8px;
+        /* color: darkred;*/
+    }
+
+    .lab-color {
+        color: chocolate;
+    }
+
+    .in-text {
+        border: 1px dotted #990000;
+        /*background-color: #f7b9b9;*/
+        background-color: white;
+        border-bottom-left-radius: 15px;
+        border-top-right-radius: 15px;
+        color: black;
     }
 </style>
-<script src="~/Content/AgGrid/ag-grid-community.js"></script>
-<link href="~/Content/AgGrid/Ag-Grid.css" rel="stylesheet" />
-<link href="~/Content/AgGrid/ag-theme-material.css" rel="stylesheet" />
 <!DOCTYPE html>
 <html>
 <head>
     <title>Manage Booking</title>
-   
+
 </head>
 <body>
 
 
 
     <div class="myDiv container">
-        <div class="containerinner mt-5" >
-            <section class="design-process-section" id="process-tab">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <!-- design process steps-->
-                            <!-- Nav tabs -->
-                            <ul class="nav nav-tabs justify-content-center process-model more-icon-preocess" role="tablist">
-                                <li role="presentation" class="active">
-                                    <a href="#manage" aria-controls="discover" role="tab" data-toggle="tab">
-                                        <i class="fa fa-clipboard" aria-hidden="true"></i>
-                                        <p>Manage</p>
-                                    </a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#cancellation" aria-controls="strategy" role="tab" data-toggle="tab">
-                                        <i class="fa fa-window-close" aria-hidden="true"></i>
-                                        <p>Cancellation</p>
-                                    </a>
-                                </li>
+        <button class="tablink" onclick="openPage('Manage', this, '#a94442')" id="defaultOpen">
+            <i class="fa fa-clipboard fnt-35" aria-hidden="true">  </i>   Manage
+        </button>
+        <button class="tablink" onclick="openPage('Cancel', this, '#337ab7d4')">
+            <i class="fa fa-window-close fnt-35" aria-hidden="true">  </i>   Cancellation
+        </button>
 
-
-                            </ul>
-                            <!-- end design process steps-->
-                            <!-- Tab panes -->
-
-                            <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="manage">
+        <div id="Manage" class="tabcontent">
 
 
 
-                                    <div class="row">
-                                        <div class="col-sm-3">
-                                            <label>Booked Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
-                                        </div>
-                                        <div class="col-sm-3" style="display:none;">
-                                            <label>To Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txttodate" autocomplete="off">
 
-                                        </div>
-                                        <div class="col-sm-3" style="display:none;">
-                                            <label>Booking Date</label><br>
-                                            <input type="text" class="text-bx form-control  clsdatepicker" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <label>Pass Type</label><br>    
+            <div class="row jus-con-ce dis-flex">
+                <div class="col-sm-3">
+                    <label class="lab-color">Booked Date</label><br>
+                    <input type="text" class="text-bx form-control  clsdatepicker in-text" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
+                </div>
+                @*<div class="col-sm-3" style="display:none;">
+                        <label class="lab-color">To Date</label><br>
+                        <input type="text" class="text-bx form-control  clsdatepicker in-text" placeholder="DD/MM/YYY" id="txttodate" autocomplete="off">
 
-                                            <select class="text-bx form-control" id="ddlpasstype">
-                                                <option value="">-Select-</option>
-                                                <option value="BP-001">Student Pass (School)</option>
-                                                <option value="BP-002">Student Pass (College)</option>
-                                                <option value="BP-003">Senior Citizens pass</option>
-                                                <option value="BP-004">Handicapped and Blind pas</option>
-                                                <option value="BP-005">Journalists / Press Reporter pass</option>
-                                                <option value="BP-006">Travel as you Please Tickets</option>
-                                                <option value="BP-007">Monthly Pass</option>
-                                                <option value="BP-008">Freedom fighters pass</option>
-                                            </select>
+                    </div>
+                    <div class="col-sm-3" style="display:none;">
+                        <label class="lab-color">Booking Date</label><br>
+                        <input type="text" class="text-bx form-control  clsdatepicker in-text" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
+                    </div>*@
+                <div class="col-sm-3">
+                    <label class="lab-color">Pass Type</label><br>
 
-                                        </div>
-                                        <div class="col-sm-3 m-1" >
-                                            <label>Status</label><br>
-                                            <select class="text-bx form-control" id="ddlStatus">
-                                            <option value="">-Select-</option>
-                                            <option value="P">Pending</option>
-                                            <option value="S">Success</option>
-                                            <option value="F">Failure</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                    <select class="text-bx form-control in-text" id="ddlpasstype">
+                        <option value="">-Select-</option>
+                        <option value="PBSS001">Student Pass (School)</option>
+                        <option value="PBSC001">Student Pass (College)</option>
+                        <option value="PBSZ001">Senior Citizens pass</option>
+                        <option value="PBHB001">Handicapped and Blind pas</option>
+                        <option value="PBJP001">Journalists / Press Reporter pass</option>
+                        <option value="PBTP001">Travel as you Please Tickets</option>
+                        <option value="PBMP001">Monthly Pass</option>
+                        <option value="PBFF001">Freedom fighters pass</option>
+                    </select>
 
-                                   
+                </div>
 
-                                    <div class="row pad pl" style="margin-top:2%">
-                                        <div class="col-sm-3">
-                                            <input type="button" class="btn" value="Get History" id="gethistory" />
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <input type="button" class="btn float-left" value="Clear" id="ClearEntry" />
-                                        </div>
-                                    </div>
+                <div class="col-sm-3 m-1">
+                    <label class="lab-color">Status</label><br>
+                    <select class="text-bx form-control in-text" id="ddlStatus">
+                        <option value="">-Select-</option>
+                        <option value="P">Pending</option>
+                        <option value="S">Success</option>
+                        <option value="F">Failure</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+            <div class="row pad pl jus-con-ce dis-flex mar-t-3 ">
+                <div class="col-sm-3">
+                    <input type="button" class="btn-hc mar-l-50" value="Get History" id="gethistory" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="button" class="btn-hc float-left mar-l-m4" value="Clear" id="ClearEntry" />
+                </div>
+            </div>
+
+            <br />
+            <br />
+
+
+            <div id="ResultTable" class="dis-none">
+                <div class="row container">
+                    <div class="col-md-12">
+
+                        <div class="panelcolor">
+                            <div class="panel-heading lblhistory">
+                                Booked History
+                            </div>
+                            <div class="panel-body">
+                                <div class="wi-100 he-350" id="dvBookedHistory">
 
                                 </div>
 
-
-                                <div role="tabpanel" class="tab-pane" id="cancellation">
-
-
-                                    <img src="~/Images/buses/ComingSoon2.gif" alt="Cs Img" style="width: 40%;" />
-
-
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-    </div>
-    <br />
-    <br />
-
-    <div id="ResultTable" style="display:none;">
-        <div class="row container">
-            <div class="col-md-12">
-
-                <div class="panelcolor">
-                    <div class="panel-heading lblhistory" >
-                        Booked History
-                    </div>
-                    <div class="panel-body">
-                        <div class="ag-theme-material" id="dvBookedHistory" style="width: 100%; height: 350px;" >
-                        </div>
 
                     </div>
                 </div>
-
             </div>
+
+
+
         </div>
+
+        <div id="Cancel" class="tabcontent">
+            <img src="~/Images/buses/ComingSoon2.gif" class="wi-40 mar-l-25" alt="Cs Img" />
+        </div>
+
+
+
+
     </div>
+
     <script>
+
+        function openPage(pageName, elmnt, color) {
+            // Hide all elements with class="tabcontent" by default */
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+
+            // Remove the background color of all tablinks/buttons
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+
+            // Show the specific tab content
+            document.getElementById(pageName).style.display = "block";
+
+            // Add the specific color to the button used to open the tab content
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+
         // script for tab steps
-        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        //$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 
-            var href = $(e.target).attr('href');
-            var $curr = $(".process-model  a[href='" + href + "']").parent();
+        //    var href = $(e.target).attr('href');
+        //    var $curr = $(".process-model  a[href='" + href + "']").parent();
 
-            $('.process-model li').removeClass();
+        //    $('.process-model li').removeClass();
 
-            $curr.addClass("active");
-            $curr.prevAll().addClass("visited");
-        });
+        //    $curr.addClass("active");
+        //    $curr.prevAll().addClass("visited");
+        //});
         // end  script for tab steps
         $(document).ready(function () {
             $(".clsdatepicker").datepicker({
@@ -336,7 +279,7 @@
             });
             $("#ResultTable").hide();
         });
-        
+
         $("#gethistory").click(function () {
             GetBookedHistory();
         });
@@ -346,13 +289,14 @@
                 $("#ResultTable").hide();
                 $("#fromdate").val("");
                 $("#todate").val("");
+                $("#txtbookdate").val("");
                 $("#bookdate").val("");
                 $("#ddlpasstype").val("");
                 $("#ddlStatus").val("");
 
             });
         });
-        
+
 
         function GetBookedHistory() {
 
@@ -374,7 +318,6 @@
                 success: function (data) {
                     if (data.status == "01") {
                         BindBookedHistory(JSON.parse(data.Result));
-                        //aggrid(JSON.parse(data.Result));
                     }
                     else {
                         $("#dvBookedHistory").html('<img src="~/Images/no-record.jpg" />');
@@ -385,13 +328,10 @@
 
                 }
             });
-
-
-
         };
 
         function BindBookedHistory(data) {
-            debugger
+
             data = data.Temp;
 
             var columns = [];
@@ -464,144 +404,11 @@
                 show: { footer: true, toolbar: false },
                 columns: columns,
                 records: data,
-                searchLogic:"AND",
-                layout: {
-                    name: 'layout',
-                    padding: 4,
-                    panels: [
-                        { type: 'left', size: '50%', resizable: true, minSize: 300 },
-                        { type: 'main', minSize: 300 }
-                    ]
-                },
-                
             });
-            w2ui['History'].hideColumn('recid', 'recid');
-            $("#ResultTable").show();
-
-        }
-
-        var gridOptions = "";
-        function aggrid(data) {
-            data = data.Temp;
-            //ise if (obj == "PI_BOOKING_TRACK_ID") {
-            //    columns.push({ field: obj, caption: "TRACK ID", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_PASS_CODE") {
-            //    columns.push({ field: obj, caption: "PASS CODE", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_PASS_NAME") {
-            //    columns.push({ field: obj, caption: "PASS NAME", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_PASS_NUMBER") {
-            //    columns.push({ field: obj, caption: "PASS NUMBER", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_PASS_STATUS") {
-            //    columns.push({ field: obj, caption: "STATUS", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_EFFECTIVE_FROM") {
-            //    columns.push({ field: obj, caption: "EFFECTIVE FROM", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_EFFECTIVE_TO") {
-            //    columns.push({ field: obj, caption: "EFFECTIVE TO", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-            //else if (obj == "PI_CURRENCY") {
-            //    columns.push({ field: obj, caption: "CURRENCY", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}a
-            //else if (obj == "PI_AMOUNT") {
-            //    columns.push({ field: obj, caption: "AMOUNT", size: "90px", resizable: true, sortable: true, attr: "align=right" });
-            //}
-            //else if (obj == "PI_REMARK") {
-            //    columns.push({ field: obj, caption: "REMARK", size: "90px", resizable: true, sortable: true, attr: "align=center" });
-            //}
-          
-            
-
-            var columnDefs = [
-                  { headerName: 'User Name', field: 'PI_USER_NAME', pinned: 'left', lockPinned: true, cellClass: 'lock-pinned' },
-                  { headerName: 'PI_BOOKING_TRACK_ID', field: 'PI_BOOKING_TRACK_ID', pinned: 'left' },
-                 { headerName: 'BOOKED DATE', field: 'PI_BOOKED_DATE', pinned: 'left'},
-                  { headerName: 'UPDATED DATE', field: 'PI_UPDATED_DATE', pinned: 'left'},
-                  { headerName: 'CONTACT NO', field: 'PI_USER_CONTACT_NO', pinned: 'left'},
-                  { headerName: 'Mail ID', field: 'PI_USER_MAIL', pinned: 'left'},
-                  { headerName: 'ADHAAR NO', field: 'PI_USER_ADHAAR_NO', pinned: 'left'},
-            ];
-            gridOptions = {
-                columnDefs: columnDefs,
-                enableSorting: true,
-                enableFilter: true,
-                // enableRangeSelection: true,
-                AutosizeColumns: true,
-                debug: true,
-                //resizable: true,
-                //paginationAutoPageSize: true,
-                pagination: true,
-                //statusBar: {
-                //    statusPanels: [
-                //        { statusPanel: 'agTotalAndFilteredRowCountComponent', align: 'left' }
-                //    ]
-                //},
-                // rowSelection: 'multiple'
-            };
-
-            var eGridDiv = document.querySelector('#dvBookedHistory');
-
-            new agGrid.Grid(eGridDiv, gridOptions);
-            gridOptions.api.sizeColumnsToFit();
-
-
-            gridOptions.api.setRowData(data);
-
-
-            var allColumnIds = [];
-            gridOptions.columnApi.getAllColumns().forEach(function (column) {
-                allColumnIds.push(column.colId);
-            });
-            gridOptions.columnApi.autoSizeColumns(allColumnIds);
-
-            //gridOptions.api.getSortModel()
-
-            //saved
-            if (localStorage.getItem("AgcolumnData") != null && localStorage.getItem("AgcolumnData") != "") {
-                window.colState = JSON.parse(localStorage.getItem("AgcolumnData"));
-                if (window.colState != null && window.colState != undefined && window.colState != "" && window.colState.length) {
-                    gridOptions.columnApi.setColumnState(window.colState);
-                    for (var j = 0; j < window.colState.length; j++) {
-                        if (window.colState[j].hide == true) {
-                            $("#" + window.colState[j].colId + "").prop("checked", false);
-                        }
-                        else {
-                            $("#" + window.colState[j].colId + "").prop("checked", true);
-                        }
-                    }
-                }
-            }
 
             $("#ResultTable").show();
 
         }
-
-
-
-        function AgSave() {
-
-            window.colState = gridOptions.columnApi.getColumnState();
-            var Agcolumn = JSON.stringify(window.colState);
-            localStorage.setItem('AgcolumnData', Agcolumn);
-
-        }
-
-
-        
-        function onBtExport() {
-            gridOptions.api.exportDataAsCsv("allColumns");
-        }
-
-
-        function clearFilter() {
-            gridOptions.api.setFilterModel(null);
-        }
-
-
     </script>
 </body>
 </html>
