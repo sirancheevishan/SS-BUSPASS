@@ -183,6 +183,7 @@
     <Content Include="Content\AgGrid\ag-grid-community.js" />
     <Content Include="Content\AgGrid\Ag-Grid.css" />
     <Content Include="Content\AgGrid\ag-theme-material.css" />
+    <Content Include="Content\CSS\Style.css" />
     <Content Include="Content\FontAwesome.js" />
     <Content Include="Content\Library\bootstrap.css" />
     <Content Include="Content\bootstrap.min.js" />
