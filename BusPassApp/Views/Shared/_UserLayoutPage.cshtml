@@ -15,6 +15,7 @@
 <script src="~/Content/Library/jquery-ui.js"></script>
 <script src="~/Content/JS/w2ui-1.5.js"></script>
 <script src="~/Apps_JS/Booking.js"></script>
+<script src="~/Content/sweetalert.min.js"></script>
 
 
 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -440,8 +441,8 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 hidden-xs tpsignin">
                         <ul>
-                            <li class="hidden-xs"><i class="fa fa-phone pr-6"></i>  <span>+971 4 2295 444</span></li>
-                            <li class="hidden-xs"><i class="fa fa-envelope pr-6"></i><a href="mailto:helpdesk@deiratravels.com" style="color:#f3eeee;">        helpdesk@buspass.com </a></li>
+                            <li class="hidden-xs"><i class="fa fa-phone pr-6"></i>  <a href="Tel:+91 9600591085">+91 9600591085</a></li>
+                            <li class="hidden-xs"><i class="fa fa-envelope pr-6"></i><a href="mailto:pbshelpcenter@gmail.com" style="color:#f3eeee;">pbshelpcenter@gmail.com</a></li>
                         </ul>
 
                     </div>
@@ -484,7 +485,7 @@
                         <nav role="navigation" class="navbar navbar-default">
                             <div class="navbar-header float-left">
                                 <a href="#" id="aLinkLogo" class="logo navbar-brand">
-                                    <img src="~/Images/TnLogo.png" id="imgLogo" class="colorlogo img-responsive wi-75 he-58 mar-l-92">
+                                    <img src="~/Images/TnLogo.jpeg" id="imgLogo" class="colorlogo img-responsive wi-75 he-58 mar-l-92">
                                 </a>
                             </div>
 
@@ -542,8 +543,9 @@
         <div class="modal-dialog wi-33 mar-l-35">
             <div class="modal-content">
                 <div class="modal-header bg-990000 " style="background: #990000;">
-                    <button type="button" class="close cl-white" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal" >×</button>
+
                     <h4 class="modal-title cl-white txt-al-cen fn-wi-bold">Account Verfication</h4>
+                    <button type="button" class="close cl-white" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal">×</button>
                 </div>
                 <div class="modal-body">
                     <div class="txt-al-cen dis-none mar-b-2"  id="dvOTPErr">
@@ -644,9 +646,6 @@
         </div>
     </div>
 </body>
-
-
-
 </html>
 <script>
 
@@ -672,7 +671,6 @@
         $("#spnUserName").html('@strUserName');
     });
 
-
     function gotoHome() {
         if (ExisitingURL == 'Y') {
             window.location.href = ExisitingHomeurl;
@@ -688,7 +686,4 @@
         }
     }
   
-
-
-
 </script>

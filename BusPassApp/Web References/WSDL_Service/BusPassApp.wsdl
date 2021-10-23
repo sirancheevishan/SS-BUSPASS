@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="InsertRegistration">
@@ -40,6 +40,52 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Fetch_User_DetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strobj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Admin_Management">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strMailID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Admin_ManagementResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Admin_ManagementResult">
               <s:complexType>
                 <s:sequence>
                   <s:element ref="s:schema" />
@@ -154,6 +200,29 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="FeedBack">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strobj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FeedBackResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FeedBackResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="strErrorMsg" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="ManagePassDetails">
         <s:complexType>
           <s:sequence>
@@ -204,6 +273,18 @@
   <wsdl:message name="Fetch_User_DetailsSoapOut">
     <wsdl:part name="parameters" element="tns:Fetch_User_DetailsResponse" />
   </wsdl:message>
+  <wsdl:message name="UserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UserDetails" />
+  </wsdl:message>
+  <wsdl:message name="UserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="Admin_ManagementSoapIn">
+    <wsdl:part name="parameters" element="tns:Admin_Management" />
+  </wsdl:message>
+  <wsdl:message name="Admin_ManagementSoapOut">
+    <wsdl:part name="parameters" element="tns:Admin_ManagementResponse" />
+  </wsdl:message>
   <wsdl:message name="SendOTPSoapIn">
     <wsdl:part name="parameters" element="tns:SendOTP" />
   </wsdl:message>
@@ -234,6 +315,12 @@
   <wsdl:message name="ManagePGTrackSoapOut">
     <wsdl:part name="parameters" element="tns:ManagePGTrackResponse" />
   </wsdl:message>
+  <wsdl:message name="FeedBackSoapIn">
+    <wsdl:part name="parameters" element="tns:FeedBack" />
+  </wsdl:message>
+  <wsdl:message name="FeedBackSoapOut">
+    <wsdl:part name="parameters" element="tns:FeedBackResponse" />
+  </wsdl:message>
   <wsdl:message name="ManagePassDetailsSoapIn">
     <wsdl:part name="parameters" element="tns:ManagePassDetails" />
   </wsdl:message>
@@ -248,6 +335,14 @@
     <wsdl:operation name="Fetch_User_Details">
       <wsdl:input message="tns:Fetch_User_DetailsSoapIn" />
       <wsdl:output message="tns:Fetch_User_DetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserDetails">
+      <wsdl:input message="tns:UserDetailsSoapIn" />
+      <wsdl:output message="tns:UserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Admin_Management">
+      <wsdl:input message="tns:Admin_ManagementSoapIn" />
+      <wsdl:output message="tns:Admin_ManagementSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SendOTP">
       <wsdl:input message="tns:SendOTPSoapIn" />
@@ -269,6 +364,10 @@
       <wsdl:input message="tns:ManagePGTrackSoapIn" />
       <wsdl:output message="tns:ManagePGTrackSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="FeedBack">
+      <wsdl:input message="tns:FeedBackSoapIn" />
+      <wsdl:output message="tns:FeedBackSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="ManagePassDetails">
       <wsdl:input message="tns:ManagePassDetailsSoapIn" />
       <wsdl:output message="tns:ManagePassDetailsSoapOut" />
@@ -287,6 +386,24 @@
     </wsdl:operation>
     <wsdl:operation name="Fetch_User_Details">
       <soap:operation soapAction="http://tempuri.org/Fetch_User_Details" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDetails">
+      <soap:operation soapAction="http://tempuri.org/UserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Admin_Management">
+      <soap:operation soapAction="http://tempuri.org/Admin_Management" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -339,6 +456,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FeedBack">
+      <soap:operation soapAction="http://tempuri.org/FeedBack" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ManagePassDetails">
       <soap:operation soapAction="http://tempuri.org/ManagePassDetails" style="document" />
       <wsdl:input>
@@ -362,6 +488,24 @@
     </wsdl:operation>
     <wsdl:operation name="Fetch_User_Details">
       <soap12:operation soapAction="http://tempuri.org/Fetch_User_Details" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserDetails">
+      <soap12:operation soapAction="http://tempuri.org/UserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Admin_Management">
+      <soap12:operation soapAction="http://tempuri.org/Admin_Management" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -414,6 +558,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FeedBack">
+      <soap12:operation soapAction="http://tempuri.org/FeedBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="ManagePassDetails">
       <soap12:operation soapAction="http://tempuri.org/ManagePassDetails" style="document" />
       <wsdl:input>
@@ -426,10 +579,10 @@
   </wsdl:binding>
   <wsdl:service name="BusPassApp">
     <wsdl:port name="BusPassAppSoap" binding="tns:BusPassAppSoap">
-      <soap:address location="http://localhost:44399/BusPassApp.asmx" />
+      <soap:address location="http://localhost:65290/BusPassApp.asmx" />
     </wsdl:port>
     <wsdl:port name="BusPassAppSoap12" binding="tns:BusPassAppSoap12">
-      <soap12:address location="http://localhost:44399/BusPassApp.asmx" />
+      <soap12:address location="http://localhost:65290/BusPassApp.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

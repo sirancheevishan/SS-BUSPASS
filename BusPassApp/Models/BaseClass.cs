@@ -84,7 +84,18 @@ namespace BusPassApp.Models
             public string strFlag { get; set; }
 
         }
-       
+
+        public class FeedBackDetails
+        {
+            public string strName { get; set; }
+            public string strMailId { get; set; }
+            public string strSubject { get; set; }
+            public string strFeedback { get; set; }
+
+            public string strFlag { get; set; }
+
+
+        }
     }
     public class Utilities {
         public static string LoadServerdatetime()

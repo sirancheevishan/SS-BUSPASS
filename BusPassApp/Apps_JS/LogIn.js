@@ -1,39 +1,19 @@
 ﻿
 function Showloginpop() {
-    debugger
-    //$('#LoginModal').modal('show');
     $('#LoginModal').modal({ backdrop: 'static', keyboard: false })
     return false;
 }
-function showerralert(msg, timout, temp2) {
-    $('#modal-alert').iziModal('destroy');
-    if (timout == null || timout == "") {
-        $("#modal-alert").iziModal({
-            title: msg,
-            icon: 'fa fa-warning',
-            headerColor: '#bd5b5b',
-            width: "500px"
-        });
-    }
-    else {
-        $("#modal-alert").iziModal({
-            title: msg,
-            icon: 'fa fa-warning',
-            headerColor: '#bd5b5b',
-            width: "500px",
-            timeout: timout
-        });
-    }
-    $('#modal-alert').iziModal('open');
-}
-
+$(document).ready(function () {
+    $('input[type=text]').attr('autocomplete', 'off');
+})
 
 $(".clsLogin").keypress(function () {
     $("#spnErrMsg").html("");
     $("#dverrmsg").hide();
 });
 
-function login() {
+function adminLogin() {
+    
     $(".dvclslgnerrormsg").html("").hide();
     $(".clsLogin").keypress(function () {
         $("#spnErrMsg").html("");
@@ -54,8 +34,85 @@ function login() {
         return false;
     }
 
-    if (reg.test($("#txtlgnmailid").val()) == false)
-    {
+    if (reg.test($("#txtlgnmailid").val()) == false) {
+        $("#dverrmsg").show();
+        $("#spnErrMsg").html("Enter valid Mail ID");
+        return false;
+    }
+    var param = {
+        strAdminMail: $("#txtlgnmailid").val(),
+        strPassword: $("#txtlgnpassword").val(),
+        LoginFlag: "F"
+
+    }
+
+
+    $("#dvspin").show();
+    
+    $.ajax({
+        
+        type: "POST",
+        url: strAdminLoginpath,
+        data: JSON.stringify(param),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        
+        success: function (data) {
+            
+            $("#dvspin").hide();
+            if (data.Status == "00") {
+             
+              
+                
+                window.location.replace("https://localhost:44398/?Ad_MailId=" + param.strAdminMail +  "&Ad_Password=" + param.strPassword + "");
+            }
+            else{
+                var msg = data.Message != null && data.Message != "" ? data.Message : "unable to login. Please try again later";
+                $("#dverrmsg").show();
+                $("#spnErrMsg").html(data.Message);
+                $(".dvclslgnerrormsg").html(data.Message).show();
+                $("#txtlgnmailid").focus();
+                return false;
+               }
+
+        },
+        error: function (ex) {
+            $("#dvspin").hide();
+            $("#dverrmsg").show();
+            $("#spnErrMsg").html("Unable to connect remote server.");
+            $(".dvclslgnerrormsg").html("Unable to connect remote server.").show();
+        }
+    });
+}
+
+function login() {
+
+    if ($("#txtlgnmailid").val().indexOf("@bps.com") != -1) {
+        adminLogin();
+        return false;           
+    }
+    
+    $(".dvclslgnerrormsg").html("").hide();
+    $(".clsLogin").keypress(function () {
+        $("#spnErrMsg").html("");
+        $("#dverrmsg").hide();
+    });
+    $("#dverrmsg").hide(); //For Errmsg
+    $("#spnErrMsg").html(""); //For Errmsg
+    var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+    if ($("#txtlgnmailid").val() == "") {
+        $("#dverrmsg").show();
+        $("#spnErrMsg").html("Please enter mail id");
+        return false;
+    }
+    if ($("#txtlgnpassword").val() == "") {
+        $("#dverrmsg").show();
+        $("#spnErrMsg").html("Please enter password");
+        return false;
+    }
+
+    if (reg.test($("#txtlgnmailid").val()) == false) {
         $("#dverrmsg").show();
         $("#spnErrMsg").html("Enter valid Mail ID");
         return false;
@@ -68,8 +125,7 @@ function login() {
         strMobileNo: "",
     }
     
-
-    $("#dvspin").show();
+    $("#loginSpin").show();
 
     $.ajax({
         type: "POST",
@@ -78,7 +134,7 @@ function login() {
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            $("#dvspin").hide();
+            $("#loginSpin").hide();
             if (data.Status == "00") {
                 if (data.Result == "Y") {
                     window.location.href = RedirectToDashboard;
@@ -86,12 +142,12 @@ function login() {
                 else {
                     window.location.href = RedirectToHomePath;
                 }
-                
+
             }
             else if (data.Status == "02") {
-            $(".clsverifypopup").attr("data-otpdetails", data.OTPDet);
-            $('#LoginModal').modal('hide');
-            $('#VerifyModal').modal('show');
+                $(".clsverifypopup").attr("data-otpdetails", data.OTPDet);
+                $('#LoginModal').modal('hide');
+                $('#VerifyModal').modal('show');
             }
             else {
                 var msg = data.Message != null && data.Message != "" ? data.Message : "unable to login. Please try again later";
@@ -105,31 +161,25 @@ function login() {
 
         },
         error: function (ex) {
-            $("#dvspin").hide();
+            $("#loginSpin").hide();
             $("#dverrmsg").show();
             $("#spnErrMsg").html("Unable to connect remote server.");
             $(".dvclslgnerrormsg").html("Unable to connect remote server.").show();
         }
     });
 }
-function verifyAccount(that)
-{
+function verifyAccount(that) {
     var details = $(that).data("otpdetails");
     var OTPDetails = details.split("~");
-    
+
     var param = {
-        strName:OTPDetails[0],
-        strRegisteredNo:OTPDetails[1],
-        strMbl:OTPDetails[2],
+        strName: OTPDetails[0],
+        strRegisteredNo: OTPDetails[1],
+        strMbl: OTPDetails[2],
         strMail: OTPDetails[3]
     }
 
-    $.blockUI({
-        message: '<img alt="Please Wait..." src="' + loaderimgurl + '" style="background-color:#fff;width: 4%;border-radius:8px; margin-top:12%;" id="FareRuleLodingImage" />',
-        css: { padding: '5px' }
-    });
-
-
+    $("#clicktoVerifySpin").show();
     $.ajax({
         type: "POST",
         url: strOTPURL,
@@ -137,7 +187,7 @@ function verifyAccount(that)
         contentType: "application/json; charset=utf-8",
         dataType: "json",
         success: function (data) {
-            console.log(data);
+            $("#clicktoVerifySpin").hide();
             if (data.result == true && data.Status == "00") {
                 $("#VerifyModal").modal("hide");
                 $("#spnEmailNo").html(OTPDetails[2]);
@@ -146,24 +196,32 @@ function verifyAccount(that)
             }
             else {
                 $("#VerifyModal").modal("hide");
-                alert(data.Message);
+                swal({
+                    text: data.Message,
+                    icon: "error",
+                    button: "Close",
+                    dangerMode: true,
+                });
+
             }
-            $.unblockUI();
-            
         },
         error: function (ex) {
-            $.unblockUI();
+            $("#clicktoVerifySpin").hide();
             $("#VerifyModal").modal("hide");
-            alert("Unable to connect remote server.");
+            swal({
+                text: "Unable to connect remote server.",
+                icon: "error",
+                button: "Close",
+                dangerMode: true,
+            });
         }
     });
-    
+
 }
 
-function closeLoginPopup(id)
-{
+function closeLoginPopup(id) {
     $("#dvloginpopup").hide();
-    $('#'+id).modal('hide');
+    $('#' + id).modal('hide');
 }
 
 
@@ -203,28 +261,29 @@ function VerifyOTP() {
         strMobileNo: "",
         strMailID: "",
     };
+    $("#VerifySpin").show();
     $.ajax({
         url: Verify_RegistrationURL,
         type: "POST",
-    data: JSON.stringify(OTPParam),
-    contentType: "application/json; charset=utf-8",
-    dataType: "json",
-    success: function (data) {
-
-        if (data.status == "00") {
-            location.replace(RedirectURL);
-        }
-        else {
+        data: JSON.stringify(OTPParam),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function (data) {
+            $("#VerifySpin").hide();
+            if (data.status == "00") {
+                location.replace(RedirectURL);
+            }
+            else {
+                $("#dvOTPErr").show();
+                $("#spnErrMSG").html(data.Message);
+            }
+        },
+        error: function (err) {
+            $("#VerifySpin").hide();
             $("#dvOTPErr").show();
-            $("#spnErrMSG").html(data.Message);
-            //alert("unable to regitered");
+            $("#spnErrMSG").html("Unable to connect remote server");
         }
-    },
-    error: function (err) {
-        $("#dvOTPErr").show();
-        $("#spnErrMSG").html("Unable to connect remote server");
-    }
-});
+    });
 }
 
 
@@ -268,34 +327,30 @@ function redirectToHome() {
 
 
 
-function textToPass(id,that)
-{
-    if ($("#" + id).prop("type") == "text")
-    {
+function textToPass(id, that) {
+    if ($("#" + id).prop("type") == "text") {
         $("#" + id).attr("type", "password");
         $(that).removeClass("fa fa-eye-slash");
         $(that).addClass("fa fa-fw fa-eye");
     }
-    else if ($("#" + id).prop("type") == "password")
-    {
+    else if ($("#" + id).prop("type") == "password") {
         $(that).removeClass("fa fa-fw fa-eye");
         $(that).addClass("fa fa-eye-slash");
         $("#" + id).attr("type", "text");
-}
+    }
 }
 
 
-function ShowPasspop(passcode)
-{
+function ShowPasspop(passcode) {
     $(".clsEligibleCriteria").hide();
     $("." + passcode).show();
     $('#PasPopUp').modal('show');
-    
+
 }
 
 
 $(window).scroll(function () {
-    
+
     var scrollTop = $(window).scrollTop();
     if ($(window).scrollTop() > 60) {
         $(".clsscroll").addClass("clsmintop")
@@ -311,11 +366,9 @@ $(".redirectohome").click(function () {
 
 
 
-function getPassNameAndID(id,name) {
-    if (id != "")
-    {
-        switch (id)
-        {
+function getPassNameAndID(id, name) {
+    if (id != "") {
+        switch (id) {
             case "PBSS001":
                 return "Student Pass (School)"
                 break;
@@ -344,8 +397,7 @@ function getPassNameAndID(id,name) {
 
         }
     }
-    if (name != "")
-    {
+    if (name != "") {
         switch (id) {
             case "Student Pass (School)":
                 return "PBSS001"

@@ -226,6 +226,8 @@ namespace BusPassApp.Controllers
                             Session.Add("REGISTERED_NO", strRegisteredNo);
                             Session.Add("MOBILE_NO", RegistrationDetails.strMbl);
                             Session.Add("MAIL_ID", RegistrationDetails.strMail);
+                            Session.Add("USER_MAIL", RegistrationDetails.strMail);
+                            Session.Add("USER_NUM", RegistrationDetails.strMbl);
                             strStatus = "00";
                         }
                         else
@@ -430,6 +432,68 @@ namespace BusPassApp.Controllers
 
             return Json(new { status = strStatus, RegisteredNo = strRegisteredNo, Message = strMSG });
         }
-        
+
+        public ActionResult FeedBackDetails(BaseClass.FeedBackDetails FeedBackDetails)
+        {
+           
+          
+            string strFeedbackDetails = string.Empty;
+            string strStatus = string.Empty;
+            string strMSG = string.Empty;
+            string strXMLData = string.Empty;
+            string strtime = string.Empty;
+            string strErrMSG = string.Empty;
+            DataSet ds_result = new DataSet();
+            try
+            {
+         
+               strFeedbackDetails = JsonConvert.SerializeObject(FeedBackDetails);
+
+                //RequestLog
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
+                strXMLData += "<REQUESTTIME>" + strtime + "</REQUESTTIME><EVENT>";
+                strXMLData += "<REQUESTDATA>" + strFeedbackDetails + "</REQUESTDATA><EVENT>";
+
+                ds_result = Ws_Service.FeedBack(strFeedbackDetails, ref strErrMSG);
+
+                //ResponseLog
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT><RESPONSE>inserRegistrationDetails</RESPONSE>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME>";
+                strXMLData += "<ERROMSG>" + strErrMSG + "</ERROMSG>";
+                strXMLData += "<RESDATA>" + JsonConvert.SerializeObject(ds_result) + "</RESDATA><EVENT>";
+                if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
+                {
+                    Session.Add("NAME", FeedBackDetails.strName);
+                    Session.Add("MAIL_ID", FeedBackDetails.strMailId);
+                    Session.Add("SUBJECT", FeedBackDetails.strSubject);
+                    Session.Add("FEEDBACK", FeedBackDetails.strFeedback);
+                    strStatus = "00";
+                    strMSG = "Your message has been sent.Thank you!";
+                }
+                else
+                {
+                    strStatus = "01";
+                    strMSG = "Unable to Register your Request. Please try again later(#02).";
+                    return Json(new { status = strStatus, Message = strMSG });
+                }
+
+            }
+            catch (Exception ex)
+            {
+                strStatus = "01";
+                strMSG = "Problem occured while Registration. Please try again later(#01).";
+                strtime = DateTime.Now.ToString("DDMMYYYY HH:MM:SS:FFFF");
+                strXMLData = "<EVENT>";
+                strXMLData += "<RESTTIME>" + strtime + "</RESTTIME><EVENT>";
+                strXMLData += "<DATA>" + ex.ToString() + "</DATA><EVENT>";
+            }
+
+            return Json(new { status = strStatus, Message = strMSG, });
+        }
+
+
+
     }
 }

@@ -199,7 +199,7 @@
             </div>
 
             <div class="col-md-6">
-                <input type="button" class="btnreg float-i " value="Back" />
+                <input type="button" class="btnreg float-i " value="Back" onclick="back()" />
             </div>
 
         </div>
@@ -335,6 +335,34 @@
 
     }
 
+    function Showloginpop() {
+      //  $("#LoginModal").show();
+        $('#LoginModal').modal({ backdrop: 'static', keyboard: false })
+        $("#txtname").val("");
+        $("#txtfname").val("");
+        document.getElementById("rdnfemale").checked = false;
+        document.getElementById("rdnmale").checked = true;
+        $("#txtdob").val("");
+        $("#txtadhaar").val("");
+        $("#txtNo").val("");
+        $("#txtdNo").val("");
+        $("#txtdstreetname").val("");
+        $("#txtdvillagename").val("");
+        $("#txtddisname").val("");
+        $("#txtpin").val("");
+        $("#txtmail").val("");
+        $("#txtcnfrmmail").val("");
+        $("#txtpass").val("");
+        $("#txtcnfrmpass").val("");
+        $("#Profilepic").val("");
+        $("#Adhaarimg").val("");
+        return false;      
+    } 
+
+    function back(){
+        window.location.href = HomeURL;
+    }
+
     function submit() {
 
         //To remove error div
@@ -452,8 +480,8 @@
                 $("#dvErrMSGUploadDetails").html();
             });
             $("#dvErrUploadDetails").show();
-            $("#dvErrMSGUploadDetails").html("Please upload profile picture");
-            return false;
+            //$("#dvErrMSGUploadDetails").html("Please upload profile picture");
+           // return false;
 
         }
         if ($("#hdnAdhaarPath").val() == "")
@@ -465,8 +493,8 @@
                 $("#dvErrMSGUploadDetails").html();
             });
             $("#dvErrUploadDetails").show();
-            $("#dvErrMSGUploadDetails").html("Please upload Adhaar picture");
-            return false;
+            //$("#dvErrMSGUploadDetails").html("Please upload Adhaar picture");
+            //return false;
 
         }
 
@@ -488,8 +516,8 @@
             strPin: $("#txtpin").val(),
             strMail: $("#txtmail").val(),
             strPass: $("#txtpass").val(),
-            strImage: $("#hdnProfilePath").val(),
-            strpdf: $("#hdnAdhaarPath").val()
+            strImage:"C:\Users\Siran~San\Pictures\Screenshots",// $("#hdnProfilePath").val(),
+            strpdf: "C:\Users\Siran~San\Pictures\Screenshots",//$("#hdnAdhaarPath").val()
         }
 
         $.blockUI({
@@ -520,7 +548,12 @@
             },
             error: function (ex) {
                 $.unblockUI();
-                showerralert("Unable to connect remote server", "", '');
+                swal({
+                    text: "Unable to connect remote server",
+                    icon: "error",
+                    button: "Close",
+                    dangerMode: true,
+                });
             }
         });
     }
@@ -540,7 +573,7 @@
             data: fileData,
             contentType: false,
             success: function (data) {
-                ;
+                ;//return false;
                 if (data.d[0] !== "") {
                     $(".clsRmvUploadErrMsg").removeClass("clsRmvUploadErrMsg");
                     $("#" + id).addClass("clsRmvUploadErrMsg");
@@ -661,13 +694,22 @@
                     }
                 },
                 error: function (err) {
-                    showerralert(err.statusText, "", '');
-
+                    swal({
+                        text: err.statusText,
+                        icon: "error",
+                        button: "Close",
+                        dangerMode: true,
+                    });
                 }
             });
             return path;
         } else {
-            showerralert("FormData is not supported.", "", '');
+            swal({
+                text: "FormData is not supported.",
+                icon: "error",
+                button: "Close",
+                dangerMode: true,
+            });
             return path;
         }
 
@@ -710,6 +752,7 @@
             strMobileNo: "",
             strMailID: "",
         };
+        $("#VerifySpin").show();
         $.ajax({
             url: "@Url.Action("Verify_Registration", "Home")",
             type: "POST",
@@ -717,7 +760,7 @@
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data) {
-
+                $("#VerifySpin").hide();
                 if (data.status == "00") {
 
                     var RedirectURL = '@Url.Action("PassInfo", "HomePage")';
@@ -730,6 +773,7 @@
                 }
             },
             error: function (err) {
+                $("#VerifySpin").hide();
                 $("#dvOTPErr").show();
                 $("#spnErrMSG").html("Unable to connect remote server");
             }

@@ -10,8 +10,8 @@
 <script src="~/Content/JS/jquery.blockUI.js"></script>
 <script src="~/Apps_JS/LogIn.js"></script>
 <script src="~/Content/Library/jquery-ui.js"></script>
-@*<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />*@
 <script src="~/Content/FontAwesome.js"></script>
+<script src="~/Content/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link href="~/Content/CSS/raysModal.css" rel="stylesheet" />
 <link href="~/Content/CSS/Main.css" rel="stylesheet" />
@@ -26,326 +26,332 @@
     <meta name="viewport" content="width=device-width" />
     <title>Bus Pass</title>
     <style>
-        .otp-popupbox-div {
-            text-align: center;
-        }
-        .otp-popup-body-span2 {
-            color: red;
-            margin-left: 2%;
-        }
-        .otp-popup-body-span-i {
-            color: red;
-        }
-        .otp-popup-body-span{
-            text-align: center;
-            align-items: center;
-        }
-        .otp-popup-body {
-            text-align: center;
-            margin-bottom: 2%;
-            display: none;
-        }
-        .otp-popup-title {
-            text-align: center;
-            color: white;
-            font-weight: bold;
-        }
-        .otp-cancel-btn {
-            color: white;
-        }
-        .otp-popup-header {
-            background: #990000;
-        }
-        .div-otp-popup {
-            width: 33%;
-            margin-left: 35%;
-        }
-        .div-otp {
-            padding-top: 6%;
-            text-align: center;
-        }
-        .btn-b {
-            display: none;
-            margin-left: 7%;
-            font-size: 19px;
-            font-weight: 900;
-        }
-        .img {
-            width: 75PX;
-            HEIGHT: 58PX;
-            MARGIN-LEFT: 92px;
-        }
-        .clstopimg {
-            height: 71px;
-            width: 6%;
-            margin-left: 10%;
-            margin-top: 0%;
-            background: transparent;
-        }
+     .otp-popupbox-div {
+         text-align: center;
+     }
+     .otp-popup-body-span2 {
+         color: red;
+         margin-left: 2%;
+     }
+     .otp-popup-body-span-i {
+         color: red;
+     }
+     .otp-popup-body-span{
+         text-align: center;
+         align-items: center;
+     }
+     .otp-popup-body {
+         text-align: center;
+         margin-bottom: 2%;
+         display: none;
+     }
+     .otp-popup-title {
+         text-align: center;
+         color: white;
+         font-weight: bold;
+     }
+     .otp-cancel-btn {
+         color: white;
+     }
+     .otp-popup-header {
+         background: #990000;
+     }
+     .div-otp-popup {
+         width: 33%;
+         margin-left: 35%;
+     }
+     .div-otp {
+         padding-top: 6%;
+         text-align: center;
+     }
+     .btn-b {
+         display: none;
+         margin-left: 7%;
+         font-size: 19px;
+         font-weight: 900;
+     }
+     .img {
+         width: 75PX;
+         HEIGHT: 58PX;
+         MARGIN-LEFT: 92px;
+     }
+     .clstopimg {
+         height: 71px;
+         width: 6%;
+         margin-left: 10%;
+         margin-top: 0%;
+         background: transparent;
+     }
 
-        .bgclr {
-            background: transparent;
-        }
+     .bgclr {
+         background: transparent;
+     }
 
-        body, html {
-            height: 100%;
-        }
+     body, html {
+         height: 100%;
+     }
 
-        body {
-            background: transparent;
-        }
+     body {
+         background: transparent;
+     }
 
-        .dvFooter {
-            position: fixed;
-            width: 100%;
-            color: white;
-            text-align: center;
-            bottom: 0;
-            padding: 1rem;
-            background: #990000;
-            display: -webkit-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-align-items: center;
-            -ms-flex-align: center;
-            align-items: center;
-            -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-            justify-content: space-between;
-        }
+     .dvFooter {
+         position: fixed;
+         width: 100%;
+         color: white;
+         text-align: center;
+         bottom: 0;
+         padding: 1rem;
+         background: #990000;
+         display: -webkit-flex;
+         display: -ms-flexbox;
+         display: flex;
+         -webkit-align-items: center;
+         -ms-flex-align: center;
+         align-items: center;
+         -webkit-justify-content: space-between;
+         -ms-flex-pack: justify;
+         justify-content: space-between;
+     }
 
-        .login-form {
-            width: 350px;
-            margin: 0 auto;
-            padding: 30px 0;
-        }
+     .login-form {
+         width: 350px;
+         margin: 0 auto;
+         padding: 30px 0;
+     }
 
-            .login-form h4 {
-                text-align: center;
-                font-size: 22px;
-                margin-bottom: 20px;
-            }
+         .login-form h4 {
+             text-align: center;
+             font-size: 22px;
+             margin-bottom: 20px;
+         }
 
-            .login-form .avatar {
-                color: #fff;
-                margin: 0 auto 30px;
-                text-align: center;
-                width: 100px;
-                height: 100px;
-                border-radius: 50%;
-                z-index: 9;
-                background: #990000;
-                padding: 15px;
-                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-            }
+         .login-form .avatar {
+             color: #fff;
+             margin: 0 auto 30px;
+             text-align: center;
+             width: 100px;
+             height: 100px;
+             border-radius: 50%;
+             z-index: 9;
+             background: #990000;
+             padding: 15px;
+             box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+         }
 
-                .login-form .avatar i {
-                    font-size: 62px;
-                }
+             .login-form .avatar i {
+                 font-size: 62px;
+             }
 
-            .login-form .form-group {
-                margin-bottom: 20px;
-            }
+         .login-form .form-group {
+             margin-bottom: 20px;
+         }
 
-            .login-form .form-control, .login-form .btn {
-                min-height: 40px;
-                border-radius: 2px;
-                transition: all 0.5s;
-            }
+         .login-form .form-control, .login-form .btn {
+             min-height: 40px;
+             border-radius: 2px;
+             transition: all 0.5s;
+         }
 
-            .login-form .close {
-                position: absolute;
-                top: 15px;
-                right: 15px;
-            }
+         .login-form .close {
+             position: absolute;
+             top: 15px;
+             right: 15px;
+         }
 
-            .login-form .btn {
-                background: #990000;
-                border: none;
-                line-height: normal;
-            }
+         .login-form .btn {
+             background: #990000;
+             border: none;
+             line-height: normal;
+         }
 
-                .login-form .btn:hover, .login-form .btn:focus {
-                    background: #42ae68;
-                }
+             .login-form .btn:hover, .login-form .btn:focus {
+                 background: #42ae68;
+             }
 
-            .login-form .checkbox-inline {
-                float: left;
-            }
+         .login-form .checkbox-inline {
+             float: left;
+         }
 
-            .login-form input[type="checkbox"] {
-                margin-top: 2px;
-            }
+         .login-form input[type="checkbox"] {
+             margin-top: 2px;
+         }
 
-            .login-form .forgot-link {
-                float: right;
-            }
+         .login-form .forgot-link {
+             float: right;
+         }
 
-            .login-form .small {
-                font-size: 13px;
-            }
+         .login-form .small {
+             font-size: 13px;
+         }
 
-            .login-form a {
-                color: #4aba70;
-            }
+         .login-form a {
+             color: #4aba70;
+         }
 
-        .p-r-0 {
-            padding-right: 0;
-        }
+     .p-r-0 {
+         padding-right: 0;
+     }
 
-        .p-l-0 {
-            padding-left: 0;
-        }
+     .p-l-0 {
+         padding-left: 0;
+     }
 
-        .p-t-0 {
-            padding-top: 0;
-        }
+     .p-t-0 {
+         padding-top: 0;
+     }
 
-        .p-b-0 {
-            padding-bottom: 0;
-        }
+     .p-b-0 {
+         padding-bottom: 0;
+     }
 
-        .m-r-0 {
-            margin-right: 0;
-        }
+     .m-r-0 {
+         margin-right: 0;
+     }
 
-        .m-l-0 {
-            margin-left: 0;
-        }
+     .m-l-0 {
+         margin-left: 0;
+     }
 
-        .m-t-0 {
-            margin-top: 0;
-        }
+     .m-t-0 {
+         margin-top: 0;
+     }
 
-        .m-b-0 {
-            margin-bottom: 0;
-        }
+     .m-b-0 {
+         margin-bottom: 0;
+     }
 
-        .f-r {
-            float: right;
-            margin-top: 1%;
-        }
+     .f-r {
+         float: right;
+         margin-top: 1%;
+     }
 
-        .f-l {
-            float: left;
-        }
+     .f-l {
+         float: left;
+     }
 
-        .m-t-2 {
-            margin-top: 2%;
-        }
+     .m-t-2 {
+         margin-top: 2%;
+     }
 
-        .w-34 {
-            width: 34%;
-        }
-       
-        .RT_header .blackbar {
-            color: #FFF;
-            background-color: #990000;
-            height: 40px;
-        }
+     .w-34 {
+         width: 34%;
+     }
 
-        .container {
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        .mobNoContainerd, .container-fluid.rbcon {
-            box-shadow: none !important;
-            width: 90%;
-        }
-        .RT_header .tpsignin {
-            font-size: 12px;
-        }
-        .RT_header .tpsignin {
-            padding: 0px 15px;
-            padding-top: 11px;
-        }
-        .la, .las {
-            font-family: 'Line Awesome Free';
-            font-weight: 900;
-        }
-        la-tty:before {
-            content: "\f1e4";
-        }
-        .pr-6 {
-            padding-right: 6px !important;
-        }
-        .RT_header .tpsignin ul li {
-            padding-right: 5px;
-            line-height: 8px;
-            display: inline-block;
-        }
-        la-envelope:before {
-            content: "\f0e0";
-        }
-        a {
-            color: #f5f5f5;
-            text-decoration: none;
-        }
-        .RT_header .top-mega-menu {
-            width: 100%;
-            z-index: 99;
-            box-shadow: 0 0 0 rgb(0 0 0 / 40%);
-            top: 38px;
-            background: #fff !important;
-        }
-        .RT_header .navbar-default {
-            background-color: rgba(248, 248, 248, 0);
-            border: none;
-            width: 100%;
-            margin-bottom: 0;
-        }
-        .RT_header .navbar-brand {
-            height: 60px !important;
-        }
-        .RT_header .navbar-brand {
-            float: left;
-            height: 0px;
-            padding: 0px 0px;
-            font-size: 18px;
-            line-height: 20px;
-        }
-       .img-responsive, .thumbnail a > img, .thumbnail > img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-        }
-        RT_header .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-            border-color: transparent;
-        }
-        .navbar-collapse.collapse {
-            display: block !important;
-            height: auto !important;
-            padding-bottom: 0;
-            overflow: visible !important;
-            visibility: visible !important;
-        }
-        .RT_header .navbar-nav {
-            float: right;
-            margin-top: 5px;
-            margin-left: 15px;
-        }
-        .RT_header .navbar-default .navbar-nav > li > a {
-            color: #000000 !important;
-            text-transform: capitalize !important;
-            border-bottom: 2px solid #fff;
-            padding: 0px;
-            margin: 14px 15px;
-        }
-        .nav {
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none;
-        }
-        .fnt-13 {
-            font-size: 13px;
-            
-        }
-        .fnt-14 {
-            font-size: 16px;
-         
-        }
+     .RT_header .blackbar {
+         color: #FFF;
+         background-color: #990000;
+         height: 40px;
+     }
+
+     .container {
+         padding-right: 15px;
+         padding-left: 15px;
+         margin-right: auto;
+         margin-left: auto;
+     }
+     .mobNoContainerd, .container-fluid.rbcon {
+         box-shadow: none !important;
+         width: 90%;
+     }
+     .RT_header .tpsignin {
+         font-size: 12px;
+     }
+     .RT_header .tpsignin {
+         padding: 0px 15px;
+         padding-top: 11px;
+     }
+     .la, .las {
+         font-family: 'Line Awesome Free';
+         font-weight: 900;
+     }
+     la-tty:before {
+         content: "\f1e4";
+     }
+     .pr-6 {
+         padding-right: 6px !important;
+     }
+     .RT_header .tpsignin ul li {
+         padding-right: 5px;
+         line-height: 8px;
+         display: inline-block;
+     }
+     la-envelope:before {
+         content: "\f0e0";
+     }
+     a {
+         color: #f5f5f5;
+         text-decoration: none;
+     }
+     .RT_header .top-mega-menu {
+         width: 100%;
+         z-index: 99;
+         box-shadow: 0 0 0 rgb(0 0 0 / 40%);
+         top: 38px;
+         background: #fff !important;
+     }
+     .RT_header .navbar-default {
+         background-color: rgba(248, 248, 248, 0);
+         border: none;
+         width: 100%;
+         margin-bottom: 0;
+     }
+     .RT_header .navbar-brand {
+         height: 60px !important;
+     }
+     .RT_header .navbar-brand {
+         float: left;
+         height: 0px;
+         padding: 0px 0px;
+         font-size: 18px;
+         line-height: 20px;
+     }
+    .img-responsive, .thumbnail a > img, .thumbnail > img {
+         display: block;
+         max-width: 100%;
+         height: auto;
+     }
+     RT_header .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+         border-color: transparent;
+     }
+     .navbar-collapse.collapse {
+         display: block !important;
+         height: auto !important;
+         padding-bottom: 0;
+         overflow: visible !important;
+         visibility: visible !important;
+     }
+     .RT_header .navbar-nav {
+         float: right;
+         margin-top: 5px;
+         margin-left: 15px;
+     }
+     .RT_header .navbar-default .navbar-nav > li > a {
+         color: #000000 !important;
+         text-transform: capitalize !important;
+         border-bottom: 2px solid #fff;
+         padding: 0px;
+         margin: 14px 15px;
+     }
+     .nav {
+         padding-left: 0;
+         margin-bottom: 0;
+         list-style: none;
+     }
+     .fnt-13 {
+         font-size: 13px;
+
+     }
+     .fnt-14 {
+         font-size: 16px;
+
+     }
+     .fa-spin{
+         float:right;
+         font-size:20px;
+         color:white;
+     }
+
     </style>
 </head>
 <body>
@@ -355,8 +361,8 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-6 hidden-xs tpsignin">
                         <ul>
-                            <li class="hidden-xs"><i class="fa fa-phone pr-6"></i>  <span>+971 4 2295 444</span></li>
-                            <li class="hidden-xs"><i class="fa fa-envelope pr-6"></i><a href="mailto:helpdesk@deiratravels.com" style="color:#f3eeee;">        helpdesk@buspass.com </a></li>
+                            <li class="hidden-xs"><i class="fa fa-phone pr-6"></i>  <a href="Tel:+91 9600591085">+91 9600591085</a></li>
+                            <li class="hidden-xs"><i class="fa fa-envelope pr-6"></i><a href="mailto:pbshelpcenter@gmail.com" style="color:#f3eeee;">pbshelpcenter@gmail.com</a></li>
                         </ul>
 
                     </div>
@@ -389,7 +395,7 @@
                         <nav role="navigation" class="navbar navbar-default">
                             <div class="navbar-header float-left">
                                 <a href="#" id="aLinkLogo" class="logo navbar-brand">
-                                    <img src="~/Images/TnLogo.png" id="imgLogo" class="colorlogo img-responsive img">
+                                    <img src="~/Images/TnLogo.jpeg" id="imgLogo" class="colorlogo img-responsive img">
                                 </a>
                             </div>
 
@@ -415,39 +421,7 @@
                 <img onclick="redirectToHome()" src="https://www.tnstc.in/images/tnstc_header03.jpg" class="clstopimg f-r">
             </div>
         </div>*@
-    <!--<div class="row">
-            <div class="col-lg-12 ">
-                <nav class="navbar navbarthemeup">
-                    <div class="">
-
-                        <ul class="nav navbar-nav f-r">
-                            <li><a class="navanchor" href="@Url.Action("Home", "Home")">Get Pass</a></li>
-                            <li><a class="navanchor" href="#">Sign In</a></li>
-                            <li><a class="navanchor" href="#">Agent</a></li>
-                            <li><a class="navanchor" href="#" onclick="Showloginpop()">Staff</a></li>
-
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-12 ">
-                <nav class="navbar navbartheme">
-                    <div class="">
-                        <img onclick="redirectToHome()" src="~/Images/TAMILNADU LOGO RECOMMENDED.png" class="clstopimg f-l">
-                        <ul class="nav navbar-nav f-r">
-                            <li><a class="navanchor" href="@Url.Action("Home", "Home")">Home</a></li>
-                            <li><a class="navanchor" href="#">Bus Timing</a></li>
-                            <li><a class="navanchor" href="#">About Us</a></li>
-                            <li><a class="navanchor" href="#" onclick="Showloginpop()">Login</a></li>
-                            <li><a class="navanchor" href="@Url.Action("Register", "Home")">Register</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>-->
+   
     @RenderBody()
 
 
@@ -475,7 +449,7 @@
                     <br />
                     <div class="alert alert-danger dvclslgnerrormsg disnone dis-none" role="alert">
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block btn-lg" onclick="login()" value="Login">
+                    <button class="btn btn-primary btn-block btn-lg" onclick="login()" >Login<i class="fa fa-spinner fa-spin" id="loginSpin" style="display:none;"></i></button>
                     <div class="pad-top-6 txt-al-cen"><a class="clsOTPbtn" href="#">OTP LOGIN</a></div>
                 </div>
             </div>
@@ -488,8 +462,8 @@
         <div class="modal-dialog wi-33 mar-l-35">
             <div class="modal-content">
                 <div class="modal-header bg-990000 " style="background: #990000;">
-                    <button type="button" class="close cl-white" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal">×</button>
                     <h4 class="modal-title cl-white txt-al-cen fn-wi-bold">Account Verfication</h4>
+                    <button type="button" class="close cl-white" onclick="closeLoginPopup('OTPVerficationPopup')" data-dismiss="modal">×</button>
                 </div>
                 <div class="modal-body">
                     <div class="txt-al-cen dis-none mar-b-2" id="dvOTPErr">
@@ -537,7 +511,7 @@
                             </div>
                         </div>
                         <div class="row margin-top5 txt-al-cen">
-                            <input type="button" class="btnreg" style="" value="Verify" onclick="VerifyOTP()">
+                            <button  class="btnreg" onclick="VerifyOTP()">Verify<i class="fa fa-spinner fa-spin" id="VerifySpin" style="display:none;"></i></button>
                         </div>
                     </div>
                 </div>
@@ -560,7 +534,7 @@
                         <span class="fn-wi-bold fn-si-24 ">Important Note:</span>
                         <div class="mar-t-1">You will not able to see your profile and take pass until verify your account. Please verify.<div></div></div>
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block btn-lg clsverifypopup" onclick="verifyAccount(this)" value="Click to verify" data-otpdetails="' + data.OTPDet + '">
+                    <button class="btn btn-primary btn-block btn-lg clsverifypopup" onclick="verifyAccount(this)" value="Click to verify" data-otpdetails="' + data.OTPDet + '">Click to verify<i class="fa fa-spinner fa-spin" id="clicktoVerifySpin" style="display:none;"></i></button>
                 </div>
             </div>
         </div>
@@ -586,7 +560,6 @@
     var AboutusURL = "@Url.Action("AboutUs", "Home")";
     var HomeURL = "@Url.Action("Home", "Home")";
     $(window).scroll(function () {
-
         var scrollTop = $(window).scrollTop();
         if ($(window).scrollTop() > 60) {
             $(".clsscroll").addClass("clsmintop")

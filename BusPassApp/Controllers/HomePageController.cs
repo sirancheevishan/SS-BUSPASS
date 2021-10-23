@@ -103,6 +103,7 @@ namespace BusPassApp.Controllers
             string strPasstype = Request.QueryString["type"];
             ViewBag.type = Request.QueryString["type"];
             Session.Add("Pass_type", Request.QueryString["type"]);
+            Session.Add("ISNEWPASS", Request.QueryString["new"]);
             string strBookingReq = string.Empty;
             string strStatus = string.Empty;
             string strMSG = string.Empty;

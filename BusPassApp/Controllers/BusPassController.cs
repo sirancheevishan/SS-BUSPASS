@@ -111,7 +111,7 @@ namespace BusPassApp.Controllers
                 BookingRQRS.stTrackID = strTrackID;
                 BookingRQRS.strPassNo = randomObj.Next(10000000, 100000000).ToString();
                 BookingRQRS.strRemark = "Pending";
-                BookingRQRS.strBookedDate = DateTime.Now.ToString("yyyyMMddHHmmss");
+                BookingRQRS.strBookedDate = "05/05/2021";// DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
                 BookingRQRS.strFlag = "I";
                 BookingRQRS.strStatus="P";
                 BookingRQRS.strAdhaarNo = Convert.ToString(Session["USD_AdharNo"]);
@@ -147,7 +147,7 @@ namespace BusPassApp.Controllers
                         PGRQRS.strCurrency = strCurrency;
                         PGRQRS.strAmount = BookingRQRS.strAmount;
                         PGRQRS.strContactNo = BookingRQRS.strPhnNo;
-                        PGRQRS.strCreatedDate = DateTime.Now.ToString("yyyyMMddHHmmss");
+                        PGRQRS.strCreatedDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm:ss");
                         PGRQRS.strFlag = "I";
                         PGRQRS.strIpAddress = Utilities.GetPublicIpAddress();
                         PGRQRS.strMail = BookingRQRS.strMail;
@@ -279,6 +279,7 @@ namespace BusPassApp.Controllers
                 {
                     strStatus = "01";
                     string[] strName = ds_result.Tables[0].Rows[0]["PI_USER_NAME"].ToString().Split(' ');
+                    Session.Add("RE_TITLE", strName.Length > 0 ? strName[0] : "");
                     Session.Add("RE_USER_NAME", strName.Length > 1 ? strName[1] : "");
                     Session.Add("RE_USER_LNAME", strName.Length>1 ? strName[2] :"");
                     Session.Add("RE_USER_DOB", ds_result.Tables[0].Rows[0]["PI_EFFECTIVE_TO"].ToString());

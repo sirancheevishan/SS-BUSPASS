@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BusPassApp_WSDL_Service_BusPassApp" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:44399/BusPassApp.asmx</Value>
+      <Value Profile="(Default)">http://localhost:65290/BusPassApp.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

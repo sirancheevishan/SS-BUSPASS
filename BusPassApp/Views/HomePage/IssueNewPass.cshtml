@@ -3,17 +3,19 @@
     Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
     string strUserData = Session["USER_DATA"] != null ? Session["USER_DATA"].ToString() : "";
     string type = Convert.ToString(Session["Pass_type"]);
+    string IsNewPass = Convert.ToString(Session["ISNEWPASS"]);
     string RenewalFlag = Convert.ToString(Session["EXISITING_USER"]);
-    string strFName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NAME"]): Convert.ToString(Session["RE_USER_NAME"]);
-    string strLastName = RenewalFlag != "Y" ? Convert.ToString(Session["USER_FATHER_NAME"]) : Convert.ToString(Session["RE_USER_LNAME"]);
-    string strDOB = RenewalFlag != "Y" ? Convert.ToString(Session["USER_DOB"]) : Convert.ToString(Session["RE_USER_DOB"]);
+    string strFName = RenewalFlag != "Y" || IsNewPass == "Y" ? Convert.ToString(Session["USER_NAME"]) : Convert.ToString(Session["RE_USER_NAME"]);
+    string strLastName = RenewalFlag != "Y" || IsNewPass == "Y" ? Convert.ToString(Session["USER_FATHER_NAME"]) : Convert.ToString(Session["RE_USER_LNAME"]);
+    string strDOB = RenewalFlag != "Y" || IsNewPass == "Y" ? Convert.ToString(Session["USER_DOB"]) : Convert.ToString(Session["RE_USER_DOB"]);
     //  string strSex = RenewalFlag != "Y" ? Convert.ToString(Session["USER_SEX"]) : Convert.ToString(Session["RE_TITLE"]);
     string strSex = Convert.ToString(Session["USER_SEX"]);
-    string strNum = RenewalFlag != "Y" ? Convert.ToString(Session["USER_NUM"]) : Convert.ToString(Session["RE_USER_NUM"]);
-    string strMail = RenewalFlag != "Y" ? Convert.ToString(Session["USER_MAIL"]) : Convert.ToString(Session["RE_USD_USER_MAILID"]);
-    string strAmount = RenewalFlag != "Y" ? Convert.ToDouble(Session["PassAmount"]).ToString() : Convert.ToDouble(Session["RE_Amount"]).ToString();
+    string strNum = RenewalFlag != "Y" || IsNewPass == "Y" ? Convert.ToString(Session["USER_NUM"]) : Convert.ToString(Session["RE_USER_NUM"]);
+    string strMail = RenewalFlag != "Y" || IsNewPass == "Y" ? Convert.ToString(Session["USER_MAIL"]) : Convert.ToString(Session["RE_USD_USER_MAILID"]);
+    string strAmount = RenewalFlag != "Y" || IsNewPass == "Y" ? Convert.ToDouble(Session["PassAmount"]).ToString() : Convert.ToDouble(Session["RE_Amount"]).ToString();
     string strEffectFrom = Convert.ToString(Session["RE_Effective_From"]);
     string strEffectTo = Convert.ToString(Session["RE_Effective_To"]);
+    string strCommision = System.Configuration.ConfigurationManager.AppSettings["Commision"].ToString();
 }
 
 <link href="~/Content/CSS/Style.css" rel="stylesheet" />
@@ -88,6 +90,11 @@
         font-weight: 600;
     }
 
+    .clsfare span {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
     #dvTermsCond {
         padding-left: 2%;
         font-size: 17px;
@@ -103,28 +110,33 @@
         height: 17px;
         width: 22px;
     }
+
     .clsPreview {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
 
-.clsPreview td, .clsPreview th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+        .clsPreview td, .clsPreview th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
 
-.clsPreview tr:nth-child(even){background-color: #f2f2f2;}
+        .clsPreview tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-.clsPreview tr:hover {background-color: #ddd;}
+        .clsPreview tr:hover {
+            background-color: #ddd;
+        }
 
-.clsPreview th {
-padding-top: 4px;
-    padding-bottom: 7px;
-    text-align: left;
-    background-color: #6e6f6e;
-    color: white;
-}
+        .clsPreview th {
+            padding-top: 4px;
+            padding-bottom: 7px;
+            text-align: left;
+            background-color: #6e6f6e;
+            color: white;
+        }
 </style>
 
 <script src="~/Apps_JS/Booking.js"></script>
@@ -134,8 +146,8 @@ padding-top: 4px;
 
             <div class="dvPax">
                 <div class="bkdvTitle bor-0">
-                    <span class="bkspnTitle fn-si-18 fn-wi-600" >
-                        <i class="fa fa-user-o bkiTitle"></i>Review your Booking
+                    <span class="bkspnTitle fn-si-18 fn-wi-600">
+                        <i class=" bkiTitle"></i>Review your Booking
                     </span>
                 </div>
                 <div class="row p-2 container">
@@ -143,12 +155,12 @@ padding-top: 4px;
                     <div class="row">
                         <div class="col-md-2 pad-l-6">
                             <div>
-                                <img src="data:image/png;base64,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"  class="he-41 wi-83 jus-con-ce" >
+                                <img src="data:image/png;base64,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" class="he-41 wi-83 jus-con-ce">
                             </div>
 
 
                             <div>
-                                <span class="fn-si-9 fn-fa-in fn-wi-bold pad-5 mar-l-22 cl-990000">BP - 303</span>
+                                <span class="fn-si-9 fn-fa-in fn-wi-bold pad-5 mar-l-22 cl-990000" id="spnPassID">BP - 303</span>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -194,13 +206,15 @@ padding-top: 4px;
                             <option value="T">Trans Gender</option>
                         </select>
                     </div>
-                    
+
                 </div>
-                <div class="row p-2"><div class="col-md-3 mar-l-2 mar-b-2 dis-none">
-    <lable class="clslbl">DOB</lable>
-    <input type="text" autocomplete="off" class="text-bx form-control  clsdatepicker clstxtbk" value="@strDOB" id="bkDOB" name="DOB" disabled>
-</div></div>
+                <div class="row p-2">
+                    <div class="col-md-3 mar-l-2 mar-b-2 dis-none">
+                        <lable class="clslbl">DOB</lable>
+                        <input type="text" autocomplete="off" class="text-bx form-control  clsdatepicker clstxtbk" value="@strDOB" id="bkDOB" name="DOB" disabled>
+                    </div>
                 </div>
+            </div>
             <div class="dvPax">
                 <div class="bkdvTitle">
                     <span class="bkspnTitle">
@@ -221,7 +235,7 @@ padding-top: 4px;
             <div class="dvPax">
                 <div class="bkdvTitle">
                     <span class="bkspnTitle">
-                        <i class="fa fa-user-o bkiTitle"></i>Pass Details
+                        <i class="fa fa-newspaper-o bkiTitle"></i>Pass Details
                     </span>
                 </div>
                 <div class="row p-2">
@@ -236,9 +250,25 @@ padding-top: 4px;
                 </div>
             </div>
 
-            <div class="row" id="dvTermsCond"style="cursor:pointer;">
+            <div class="dvPax">
+                <div class="bkdvTitle">
+                    <span class="bkspnTitle">
+                        <i class="fa fa-file bkiTitle"></i>Documents
+                    </span>
+                </div>
+                <div class="row p-2">
+                    <div class="col-md-6">
+                        <lable class="clslbl"></lable>
+                        <div class="dvupload">
+                            <input type="file" id="btnFile" name="From Date" value="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="dvTermsCond" style="cursor:pointer;">
                 <input type="checkbox" class="clschk" id="chkTerms">
-                <label for="chkTerms">I understand &amp; agree to the <a class="cl-blue">Terms and Conditions.</a></label>
+                <label for="chkTerms">I understand &amp; agree to the <a  href="#" class="cl-blue" onclick="ShowTermsPop()">Terms and Conditions.</a></label>
             </div>
 
             <div class="row text-center m-2 clsdv">
@@ -253,13 +283,29 @@ padding-top: 4px;
                         <i class="fa fa-money bkiTitle"></i>Fare Details <span class="currency-title">*INR</span>
                     </span>
                 </div>
+                <div class="row p-2 clsfare">
+                    <div class="col-md-6">
+                        <span>
+                            Net Amount
+                        </span>
+                    </div>
+                    <div class="col-md-6"><span class="float-r">@strAmount</span></div>
+                </div>
+                <div class="row p-2 clsfare">
+                    <div class="col-md-6">
+                        <span>
+                            convenience Fee
+                        </span>
+                    </div>
+                    <div class="col-md-6"><span class="float-r" id="spnConvFee"></span></div>
+                </div>
                 <div class="row p-2" id="dvfare">
                     <div class="col-md-6">
                         <span>
                             Total Amount
                         </span>
                     </div>
-                    <div class="col-md-6"><span class="float-r">@strAmount</span></div>
+                    <div class="col-md-6"><span class="float-r" id="spnTotalAmnt"></span></div>
                 </div>
             </div>
         </div>
@@ -276,12 +322,12 @@ padding-top: 4px;
 
             <!-- Modal body -->
             <div class="modal-body" id="modalBody">
-             
+
             </div>
 
             <!-- Modal footer -->
             <div class="modal-footer txt-al-cen">
-                <button type="button" class="btn btn-danger" id="btnPayNow" >Pay Now</button>
+                <button type="button" class="btn btn-danger" id="btnPayNow">Pay Now</button>
                 <button type="button" class="btn cl-fff bg-6e6f6e bor-cl-6e6f6e " data-dismiss="modal">
                     Edit Info
                 </button>
@@ -291,15 +337,61 @@ padding-top: 4px;
     </div>
 </div>
 
+@*Terms and Condition popup*@
+<div class="modal in" id="TremModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-modal="true">
+    <div class="modal-dialog wi-34" role="document">
+        <div class="modal-content wi-113">
+            <div class="login-form dvclslgndetails">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <div class="avatar"><i class="fa fa-newspaper-o"></i></div>
+                <h4 class="modal-title">Terms And Condition</h4>
+                
+                <div class="wi-113">
+
+
+                    <i class="fa fa-check-square-o mar-l-m4 fn-si-24 mar-b-8 mar-t-2" aria-hidden="true">
+                        Check that all the information you have given is correct.
+
+                    </i>
+                    
+                    <i class="fa fa-check-square-o mar-l-m4 fn-si-24 mar-b-8 " aria-hidden="true">
+                        Find out the price of the bus pass of your choice and then approach.
+
+                    </i>
+                    <i class="fa fa-check-square-o mar-l-m4 fn-si-24 mar-b-8 " aria-hidden="true">
+                        The phone number and email you provided must be in use.
+
+                    </i>
+                    <i class="fa fa-check-square-o mar-l-m4 fn-si-24 mar-b-8" aria-hidden="true">
+                        Once paid, the payment will not be refunded for any reason.
+
+                    </i>
+
+                   
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 <script>
 
+    function ShowTermsPop() {
+
+        
+        $('#TremModal').modal({ backdrop: 'static', keyboard: false })
+        return false;
+    }
+
     $(document).ready(function () {
-      
+
         $("#spnpasstype").html(getPassNameAndID("@type", ""));
+        $("#spnPassID").html('@type');
         $(".clsdatepicker").datepicker({
             dateFormat: "dd/mm/yy",
-            minDate: '-90y',
-            maxDate: '-10y',
+            minDate: new Date(),
+            maxDate: '10y',
             changeMonth: true,
             changeYear: true,
 
@@ -308,7 +400,11 @@ padding-top: 4px;
         '@strSex' == "M" ? $("#bkTitle").val("Mr") : $("#bkTitle").val("Miss");
         '@strSex' == "M" ? $("#bkGender").val("M") : $("#bkGender").val("F");
 
-        '@RenewalFlag' == "Y" ? $(".clstxtbk").attr("disabled", "disabled") : $(".clstxtbk").prop("disabled", false);
+        @*'@RenewalFlag' == "Y" ? $(".clstxtbk").attr("disabled", "disabled") : $(".clstxtbk").prop("disabled", false);*@
+        var NetAmount = parseFloat('@strAmount');
+        var ConvFee = NetAmount * ((parseFloat('@strCommision')) / 100);
+        $("#spnConvFee").html(ConvFee);
+        $("#spnTotalAmnt").html(NetAmount + ConvFee);
     });
     $(".clstxtbk").change(function () {
         $(this).parent().find(".clserrmsg").remove();
@@ -317,8 +413,7 @@ padding-top: 4px;
         $(".clserrmsg").remove();
         var errorFlag = false;
         $(".clstxtbk").each(function () {
-            if ($(this).val() == "")
-            {
+            if ($(this).val() == "") {
                 $(this).after('<span class="clserrmsg" style="color:red;">Please Enter ' + $(this).attr("Name") + '</span>');
                 errorFlag = true;
             }
@@ -338,8 +433,7 @@ padding-top: 4px;
             errorFlag = true;
         }
 
-        if (errorFlag)
-        {
+        if (errorFlag) {
             return false;
         }
         PreviewPopUp()
@@ -347,7 +441,7 @@ padding-top: 4px;
     });
 
     function PreviewPopUp() {
-        var stringBuilder="";
+        var stringBuilder = "";
 
         stringBuilder += '<div>'
 
@@ -365,7 +459,7 @@ padding-top: 4px;
         stringBuilder += '<td>' + getPassNameAndID("@type", "") + '</td>'
         stringBuilder += '<td>' + $("#bkFromDate").val() + '</td>'
         stringBuilder += '<td>' + $("#bkFromDate").val() + '</td>'
-        stringBuilder += '<td>'+'@strAmount'+'</td>'
+        stringBuilder += '<td>' + '@strAmount' + '</td>'
         stringBuilder += '</tr>'
         stringBuilder += '</tbody>'
         stringBuilder += '</table>'
@@ -391,7 +485,7 @@ padding-top: 4px;
 
         stringBuilder += '<tr>'
         stringBuilder += '<td>' + $("#bkTitle").val() + '</td>'
-        stringBuilder += '<td>' +$("#bkFName").val()+ $("#bkLName").val() + '</td>'
+        stringBuilder += '<td>' + $("#bkFName").val() + $("#bkLName").val() + '</td>'
         stringBuilder += '<td>' + $("#bkDOB").val() + '</td>'
         stringBuilder += '<td>' + $("#bkMail").val() + '</td>'
         stringBuilder += '<td>' + $("#bkPhn").val() + '</td>'
@@ -417,9 +511,9 @@ padding-top: 4px;
             strPhnNo: $("#bkPhn").val(),
             strMail: $("#bkMail").val(),
             strPassCode: '@type',
-            strPassType: getPassNameAndID("@type", "") ,
+            strPassType: getPassNameAndID("@type", ""),
             strPassName: getPassNameAndID("@type", ""),
-            strAmount:'@strAmount',
+            strAmount: '@strAmount',
             strValildFrom: $("#bkFromDate").val(),
             strValildTo: $("#bkToDate").val(),
         }
@@ -436,7 +530,12 @@ padding-top: 4px;
                     redirectToPG(data.Result);
                 }
                 else {
-                    alert(data.Message);
+                    swal({
+                        text: data.Message,
+                        icon: "error",
+                        button: "Close",
+                        dangerMode: true,
+                    });
                 }
             },
             error: function (ex) {
@@ -453,7 +552,7 @@ padding-top: 4px;
             data: data,
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            });
+        });
 
     }
 </script>

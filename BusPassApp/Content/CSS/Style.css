@@ -117,6 +117,10 @@
 .wi-100 {
     width: 100%;
 }
+.wi-113 {
+    width: 113%;
+}
+
 .wi-126 {
     width: 126%;
 }
@@ -262,6 +266,9 @@
 }
 .mar-b-2 {
     margin-bottom: 2%;
+}
+.mar-b-8 {
+    margin-bottom: 8%;
 }
 .top-0 {
     top: 0 !important;
@@ -472,7 +479,7 @@
     font-size: 21px;
 }
 .fn-si-24 {
-    font-size: 14px;
+    font-size: 24px;
 }
 .fn-si-27 {
     font-size: 27px;

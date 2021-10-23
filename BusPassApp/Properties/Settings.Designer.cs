@@ -26,7 +26,7 @@ namespace BusPassApp.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:44399/BusPassApp.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:65290/BusPassApp.asmx")]
         public string BusPassApp_WSDL_Service_BusPassApp {
             get {
                 return ((string)(this["BusPassApp_WSDL_Service_BusPassApp"]));

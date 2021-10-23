@@ -37,7 +37,12 @@
                     AvailBinding(JSON.parse(data.Result));
                 }
                 else {
-                    alert(data.Message);
+                    swal({
+                        text: data.Message,
+                        icon: "error",
+                        button: "Close",
+                        dangerMode: true,
+                    });
                 }
             },
             error: function (ex) {
@@ -86,7 +91,7 @@
         });
 
         $(".clsproceed").click(function () {
-            window.location.href = '@Url.Action("IssueNewPass", "HomePage")?type=' + $(this).data("id");
+            window.location.href = '@Url.Action("IssueNewPass", "HomePage")?type=' + $(this).data("id")+"&new=Y";
         });
     }
 </script>

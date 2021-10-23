@@ -34,6 +34,10 @@ namespace BusPassApp.WSDL_Service {
         
         private System.Threading.SendOrPostCallback Fetch_User_DetailsOperationCompleted;
         
+        private System.Threading.SendOrPostCallback UserDetailsOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback Admin_ManagementOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SendOTPOperationCompleted;
         
         private System.Threading.SendOrPostCallback Insert_Fetch_OTPOperationCompleted;
@@ -43,6 +47,8 @@ namespace BusPassApp.WSDL_Service {
         private System.Threading.SendOrPostCallback InertFetchBookingDetailsOperationCompleted;
         
         private System.Threading.SendOrPostCallback ManagePGTrackOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback FeedBackOperationCompleted;
         
         private System.Threading.SendOrPostCallback ManagePassDetailsOperationCompleted;
         
@@ -91,6 +97,12 @@ namespace BusPassApp.WSDL_Service {
         public event Fetch_User_DetailsCompletedEventHandler Fetch_User_DetailsCompleted;
         
         /// <remarks/>
+        public event UserDetailsCompletedEventHandler UserDetailsCompleted;
+        
+        /// <remarks/>
+        public event Admin_ManagementCompletedEventHandler Admin_ManagementCompleted;
+        
+        /// <remarks/>
         public event SendOTPCompletedEventHandler SendOTPCompleted;
         
         /// <remarks/>
@@ -104,6 +116,9 @@ namespace BusPassApp.WSDL_Service {
         
         /// <remarks/>
         public event ManagePGTrackCompletedEventHandler ManagePGTrackCompleted;
+        
+        /// <remarks/>
+        public event FeedBackCompletedEventHandler FeedBackCompleted;
         
         /// <remarks/>
         public event ManagePassDetailsCompletedEventHandler ManagePassDetailsCompleted;
@@ -174,6 +189,71 @@ namespace BusPassApp.WSDL_Service {
             if ((this.Fetch_User_DetailsCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.Fetch_User_DetailsCompleted(this, new Fetch_User_DetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/UserDetails", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet UserDetails(string strobj, ref string strErrorMsg) {
+            object[] results = this.Invoke("UserDetails", new object[] {
+                        strobj,
+                        strErrorMsg});
+            strErrorMsg = ((string)(results[1]));
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void UserDetailsAsync(string strobj, string strErrorMsg) {
+            this.UserDetailsAsync(strobj, strErrorMsg, null);
+        }
+        
+        /// <remarks/>
+        public void UserDetailsAsync(string strobj, string strErrorMsg, object userState) {
+            if ((this.UserDetailsOperationCompleted == null)) {
+                this.UserDetailsOperationCompleted = new System.Threading.SendOrPostCallback(this.OnUserDetailsOperationCompleted);
+            }
+            this.InvokeAsync("UserDetails", new object[] {
+                        strobj,
+                        strErrorMsg}, this.UserDetailsOperationCompleted, userState);
+        }
+        
+        private void OnUserDetailsOperationCompleted(object arg) {
+            if ((this.UserDetailsCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.UserDetailsCompleted(this, new UserDetailsCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Admin_Management", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet Admin_Management(string strMailID, string strPassword, string Flag) {
+            object[] results = this.Invoke("Admin_Management", new object[] {
+                        strMailID,
+                        strPassword,
+                        Flag});
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void Admin_ManagementAsync(string strMailID, string strPassword, string Flag) {
+            this.Admin_ManagementAsync(strMailID, strPassword, Flag, null);
+        }
+        
+        /// <remarks/>
+        public void Admin_ManagementAsync(string strMailID, string strPassword, string Flag, object userState) {
+            if ((this.Admin_ManagementOperationCompleted == null)) {
+                this.Admin_ManagementOperationCompleted = new System.Threading.SendOrPostCallback(this.OnAdmin_ManagementOperationCompleted);
+            }
+            this.InvokeAsync("Admin_Management", new object[] {
+                        strMailID,
+                        strPassword,
+                        Flag}, this.Admin_ManagementOperationCompleted, userState);
+        }
+        
+        private void OnAdmin_ManagementOperationCompleted(object arg) {
+            if ((this.Admin_ManagementCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.Admin_ManagementCompleted(this, new Admin_ManagementCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -347,6 +427,38 @@ namespace BusPassApp.WSDL_Service {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FeedBack", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public System.Data.DataSet FeedBack(string strobj, ref string strErrorMsg) {
+            object[] results = this.Invoke("FeedBack", new object[] {
+                        strobj,
+                        strErrorMsg});
+            strErrorMsg = ((string)(results[1]));
+            return ((System.Data.DataSet)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FeedBackAsync(string strobj, string strErrorMsg) {
+            this.FeedBackAsync(strobj, strErrorMsg, null);
+        }
+        
+        /// <remarks/>
+        public void FeedBackAsync(string strobj, string strErrorMsg, object userState) {
+            if ((this.FeedBackOperationCompleted == null)) {
+                this.FeedBackOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFeedBackOperationCompleted);
+            }
+            this.InvokeAsync("FeedBack", new object[] {
+                        strobj,
+                        strErrorMsg}, this.FeedBackOperationCompleted, userState);
+        }
+        
+        private void OnFeedBackOperationCompleted(object arg) {
+            if ((this.FeedBackCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FeedBackCompleted(this, new FeedBackCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/ManagePassDetails", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public System.Data.DataSet ManagePassDetails(string strPassID, string strFlag, ref string strErrorMsg, System.Data.DataSet dsPassDescription, string strAmount, string strPassName, string strPassRemark, string strUpdateDate) {
             object[] results = this.Invoke("ManagePassDetails", new object[] {
@@ -456,6 +568,66 @@ namespace BusPassApp.WSDL_Service {
         private object[] results;
         
         internal Fetch_User_DetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void UserDetailsCompletedEventHandler(object sender, UserDetailsCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class UserDetailsCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal UserDetailsCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public string strErrorMsg {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void Admin_ManagementCompletedEventHandler(object sender, Admin_ManagementCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class Admin_ManagementCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal Admin_ManagementCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }
@@ -594,6 +766,40 @@ namespace BusPassApp.WSDL_Service {
         private object[] results;
         
         internal ManagePGTrackCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public System.Data.DataSet Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((System.Data.DataSet)(this.results[0]));
+            }
+        }
+        
+        /// <remarks/>
+        public string strErrorMsg {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[1]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void FeedBackCompletedEventHandler(object sender, FeedBackCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FeedBackCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FeedBackCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

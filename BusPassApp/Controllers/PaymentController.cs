@@ -177,7 +177,7 @@ namespace BusPassApp.Controllers
 
                             strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
 
-                            Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                            //Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                             //RequestLog
                             strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
@@ -205,8 +205,7 @@ namespace BusPassApp.Controllers
                                 BookingRQRS.strFlag = "U";
                                 BookingRQRS.strStatus = "F";
                                 strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
-
-                                Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                                
                                 //RequestLog
                                 strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                                 strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
@@ -233,8 +232,7 @@ namespace BusPassApp.Controllers
                             BookingRQRS.strFlag = "U";
                             BookingRQRS.strStatus = "F";
                             strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
-
-                            Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                            
                             //RequestLog
                             strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                             strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";
@@ -262,7 +260,7 @@ namespace BusPassApp.Controllers
                         BookingRQRS.strStatus = "F";
                         strBookingReq = JsonConvert.SerializeObject(BookingRQRS);
 
-                        Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
+                        //Session.Add("BooingDetails", JsonConvert.SerializeObject(BookingRQRS));
                         //RequestLog
                         strtime = DateTime.Now.ToString("yyyyMMddHHmmss");
                         strXMLData = "<EVENT><REQUEST>inserRegistrationDetails</REQUEST>";

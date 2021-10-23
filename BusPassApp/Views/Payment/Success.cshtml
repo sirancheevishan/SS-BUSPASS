@@ -1,7 +1,7 @@
 ﻿@using Newtonsoft.Json;
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_UserLayoutPage.cshtml";
     string strBookingDetails = Convert.ToString(Session["BooingDetails"]);
     BusPassApp.Models.BaseClass.BookingRQRS BookingDetails = JsonConvert.DeserializeObject<BusPassApp.Models.BaseClass.BookingRQRS>(strBookingDetails);
 }
@@ -100,7 +100,7 @@
         <div class="mar-l-25">
             <span class="w-t-s fn-si-33 fn-wi-500 cl-31d031"><i class="fa fa-check-circle mar-r-2" aria-hidden="true"></i>Booked Successfully</span>
         </div>
-        <div class="wi-76 bor-1-1 mar-t-4" >
+        <div class="wi-76 bor-1-1 mar-t-4">
             <div class="bg-fff">
                 <span class="fn-si-21 fn-wi-600 pad-4">
                     <i class="fa fa-ticket" aria-hidden="true"></i>Pass Details
@@ -118,7 +118,7 @@
                         <td class="bg-white">
                             @BookingDetails.strUserID
                         </td>
-                        <td>@BookingDetails.strPassName</td> 
+                        <td>@BookingDetails.strPassName</td>
                         <td>@BookingDetails.strPassCode</td>
                         <td>@BookingDetails.strAmount</td>
                     </tr>
@@ -143,13 +143,12 @@
                     </tr>
                     <tr>
                         <td class="bg-white">
-                            @BookingDetails.strFName  @BookingDetails.strLName </td>
+                            @BookingDetails.strFName  @BookingDetails.strLName
+                        </td>
                         <td>@BookingDetails.strDOB</td>
                         <td>@BookingDetails.strPhnNo</td>
                         <td>@BookingDetails.strMail</td>
                     </tr>
-
-
                 </tbody>
             </table>
         </div>
@@ -159,48 +158,45 @@
                     <i class="fa fa-home fn-si-21 mar-r-6" aria-hidden="true"></i> <span class="fn-si-20 fn-wi-900 cur-poi" onclick="gotoHome()">Home</span>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="pad-8 bor-2-2 cl-white wi-51 he-8 txt-al-cen bor-rad-62 mar-l-33">
-
-                    <i class="fa fa-print fn-si-21 mar-r-6" aria-hidden="true"></i>   <span class="fn-si-21 mar-r-6" 
-      onclick="printDiv()">Print</span>
+                    <i class="fa fa-print fn-si-21 mar-r-6" aria-hidden="true"></i>   <span class="fn-si-21 mar-r-6"onclick="printDiv()">Print</span>
                 </div>
             </div>
         </div>
 
     </div>
-    </div>
-    <script>
-        $("#redirectToHome").click(function () {
-            var RedirectURL = '@Url.Action("PassInfo", "HomePage")';
-            location.replace(RedirectURL);
-        });
-      
-        var doc = new jsPDF();
+</div>
+<script>
+    $("#redirectToHome").click(function () {
+        var RedirectURL = '@Url.Action("PassInfo", "HomePage")';
+        location.replace(RedirectURL);
+    });
 
-        function saveDiv() {
-            doc.fromHTML(`<html><head>Booking Pass</head><body><img src="/Images/QR.png" style="width: 100%;"></body></html>`);
-            doc.save('div.pdf');
-        }
+    var doc = new jsPDF();
 
-        function printDiv() {
+    function saveDiv() {
+        doc.fromHTML(`<html><head>Booking Pass</head><body><img src="/Images/QR.png" style="width: 100%;"></body></html>`);
+        doc.save('div.pdf');
+    }
 
-            let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
+    function printDiv() {
 
-            mywindow.document.write(`<html><head><title>Booking</title>`);
-            mywindow.document.write('</head><body >');
-            mywindow.document.write('<img src="/Images/QR.png" style="width: 100%;">');
-            mywindow.document.write('</body></html>');
+        let mywindow = window.open('', 'PRINT', 'height=650,width=900,top=100,left=150');
 
-            mywindow.document.close(); // necessary for IE >= 10
-            mywindow.focus(); // necessary for IE >= 10*/
+        mywindow.document.write(`<html><head><title>Booking</title>`);
+        mywindow.document.write('</head><body >');
+        mywindow.document.write('<img src="/Images/QR.png" style="width: 100%;">');
+        mywindow.document.write('</body></html>');
 
-            mywindow.print();
-            mywindow.close();
+        mywindow.document.close(); // necessary for IE >= 10
+        mywindow.focus(); // necessary for IE >= 10*/
 
-            return true;
-        }
+        mywindow.print();
+        mywindow.close();
 
-    </script>
+        return true;
+    }
 
-    
+</script>
+

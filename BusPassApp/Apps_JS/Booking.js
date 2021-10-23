@@ -1,5 +1,8 @@
 ﻿function GetPassdata() {
-
+    $.blockUI({
+        message: '<img alt="Please Wait..." src="' + loaderimgurl + '" style="background-color:#fff;width: 4%;border-radius:8px; margin-top:12%;" id="FareRuleLodingImage" />',
+        css: { padding: '5px' }
+    });
     $.ajax({
         type: "POST",
         url: GetPassDetails,
@@ -7,16 +10,22 @@
         dataType: "json",
         success: function (data) {
             debugger
+            $.unblockUI();
             if (data.status == "01") {
                 formRenewalTable(JSON.parse(data.Result));
             }
             else {
                 $("#dvRenewalDetails").html('<img src="~/Images/no-record.jpg" />');
-                alert(data.Message);
+                swal({
+                    text: data.Message,
+                    icon: "error",
+                    button: "Close",
+                    dangerMode: true,
+                });
             }
         },
         error: function (ex) {
-
+            $.unblockUI();
         }
     });
 };
@@ -73,7 +82,12 @@ function getSelectedPassDetails(e) {
                 
             }
             else {
-                alert(data.Message);
+                swal({
+                    text: data.Message,
+                    icon: "error",
+                    button: "Close",
+                    dangerMode: true,
+                });
             }
         },
         error: function (ex) {

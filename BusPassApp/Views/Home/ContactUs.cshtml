@@ -141,13 +141,20 @@
                 dataType: "json",
                 success: function (data) {
                     if (data.status == "1") {
-
-                        alert(data.Message);
-
-
+                        swal({
+                            text: data.Message,
+                            icon: "error",
+                            button: "Close",
+                            dangerMode: true,
+                        });
                     }
                     else {
-                        alert(data.Message);
+                        swal({
+                            text: data.Message,
+                            icon: "error",
+                            button: "Close",
+                            dangerMode: true,
+                        });
                     }
                     $("#txtName").val("");
                     $("#txtMail").val("");
@@ -155,7 +162,12 @@
                     $("#txtFeeaback").val("");
                 },
                 error: function (ex) {
-
+                    swal({
+                        text: "Unable to connect remote server",
+                        icon: "error",
+                        button: "Close",
+                        dangerMode: true,
+                    });
                 }
             });
 

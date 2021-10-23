@@ -5,7 +5,6 @@
 }
 <link href="~/Content/CSS/Style.css" rel="stylesheet" />
 <style>
-
     html {
         background: #f9f9f9 !important;
     }
@@ -146,15 +145,6 @@
                     <label class="lab-color">Booked Date</label><br>
                     <input type="text" class="text-bx form-control  clsdatepicker in-text" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
                 </div>
-                @*<div class="col-sm-3" style="display:none;">
-                        <label class="lab-color">To Date</label><br>
-                        <input type="text" class="text-bx form-control  clsdatepicker in-text" placeholder="DD/MM/YYY" id="txttodate" autocomplete="off">
-
-                    </div>
-                    <div class="col-sm-3" style="display:none;">
-                        <label class="lab-color">Booking Date</label><br>
-                        <input type="text" class="text-bx form-control  clsdatepicker in-text" placeholder="DD/MM/YYY" id="txtbookdate" autocomplete="off">
-                    </div>*@
                 <div class="col-sm-3">
                     <label class="lab-color">Pass Type</label><br>
 
@@ -275,6 +265,8 @@
                 dateFormat: "dd/mm/yy",
                 changeMonth: true,
                 changeYear: true,
+                minDate: '-10y',
+                maxDate: new Date(),
 
             });
             $("#ResultTable").hide();
@@ -299,16 +291,17 @@
 
 
         function GetBookedHistory() {
-
-
-
             var BookedHistoryURL = "@Url.Action("GetBookedHistory", "AfterBooking")";
             var param = {
-                strTrackID:"",
+                strTrackID: "",
                 strBookedDate: $("#txtbookdate").val(),
-                strPassType:$("#ddlpasstype").val(),
+                strPassType: $("#ddlpasstype").val(),
                 strBookingStatus: $("#ddlStatus").val()
             }
+            $.blockUI({
+                message: '<img alt="Please Wait..." src="' + loaderimgurl + '" style="background-color:#fff;width: 4%;border-radius:8px; margin-top:12%;" id="FareRuleLodingImage" />',
+                css: { padding: '5px' }
+            });
             $.ajax({
                 type: "POST",
                 url: BookedHistoryURL,
@@ -316,16 +309,23 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
                 success: function (data) {
+                    $.unblockUI();
                     if (data.status == "01") {
                         BindBookedHistory(JSON.parse(data.Result));
                     }
                     else {
                         $("#dvBookedHistory").html('<img src="~/Images/no-record.jpg" />');
-                        alert(data.Message);
+                        swal({
+                            text: data.Message,
+                            icon: "error",
+                            button: "Close",
+                            dangerMode: true,
+                        });
                     }
                 },
                 error: function (ex) {
-
+                    $.unblockUI();
+                    console.log(ex)
                 }
             });
         };

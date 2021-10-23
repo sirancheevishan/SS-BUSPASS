@@ -295,6 +295,7 @@
     <Content Include="Content\Library\walkway.js" />
     <Content Include="Content\Library\zebra_datepicker.js" />
     <Content Include="Content\Main.css" />
+    <Content Include="Content\sweetalert.min.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -388,7 +389,6 @@
     <Content Include="Images\Gif\Loading.gif" />
     <Content Include="Images\Logo.jpg" />
     <Content Include="Images\LogoTranperant.png" />
-    <Content Include="ProfilePic\Screenshot %2825%29.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -405,7 +405,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\HomePage\IssueNewPass.cshtml" />
-    <Content Include="Views\Redirect\Comingsoon.cshtml" />
     <Content Include="Views\HomePage\PassInfo.cshtml" />
     <Content Include="Views\Home\AboutUs.cshtml" />
     <Content Include="Views\Home\ComingSoon.cshtml" />
@@ -447,6 +446,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Documents\AdhaarImages\" />
+    <Folder Include="ProfilePic\" />
+    <Folder Include="Views\Redirect\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -458,10 +459,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:44399/BusPassApp.asmx">
+    <WebReferenceUrl Include="http://localhost:65290/BusPassApp.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSDL_Service\</RelPath>
-      <UpdateFromURL>http://localhost:44399/BusPassApp.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:65290/BusPassApp.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

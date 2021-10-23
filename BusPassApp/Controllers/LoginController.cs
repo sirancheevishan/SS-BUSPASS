@@ -47,6 +47,7 @@ namespace BusPassApp.Controllers
                             Session.Add("REGISTERED_NO", dsRow["USD_REGISTERED_NO"].ToString());
                             Session.Add("USER_MAIL", dsRow["USD_USER_MAILID"].ToString());
                             Session.Add("USER_NUM", dsRow["USD_Mobil_No"].ToString());
+                            Session.Add("USER_FATHER_NAME", dsRow["USD_Father_Name"].ToString());
                             Session.Add("USD_Password", strPassword);
                             Session.Add("USD_AdharNo", dsRow["USD_ADHAAR_NO"].ToString());
                             Session.Add("USER_NAME", dsRow["USD_USER_NAME"].ToString());
@@ -122,5 +123,48 @@ namespace BusPassApp.Controllers
             return Json(new {Status=strStatus,Message=strMsg,Result=strResult });
         }
 
+
+        public ActionResult CheckAdminLogin(string strAdminMail, string strPassword, string LoginFlag)
+        
+        {
+            DataSet ds_result = new DataSet();
+            string strStatus = string.Empty;
+            string strMsg = string.Empty;
+           
+            try
+            {
+                if (LoginFlag == "F")
+                {
+                    ds_result = Ws_Service.Admin_Management(strAdminMail, strPassword, "F");
+
+                    if (ds_result != null && ds_result.Tables.Count > 0 && ds_result.Tables[0].Rows.Count > 0)
+                    {
+                        var dsRow = ds_result.Tables[0].Rows[0];
+                        string strUserData = JsonConvert.SerializeObject(ds_result);
+                        Session.Add("USER_DATA", strUserData);
+                        Session.Add("ADMIN_ID", dsRow["AMD_ID"].ToString());
+                        Session.Add("ADMIN_NAME", dsRow["AMD_NAME"].ToString());
+                        Session.Add("ADMIN_MAILID", strAdminMail);
+                        Session.Add("ADMIN_PASSWORD", strPassword);
+
+                        strStatus = "00";
+                        strMsg = "";
+                      
+                    }
+                    else
+                    {
+                        strStatus = "01";
+                        strMsg = "Incorrect Mail Id or Password";
+                  
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Json(new { Status = strStatus, Message = strMsg });
+        }
     }
 }
